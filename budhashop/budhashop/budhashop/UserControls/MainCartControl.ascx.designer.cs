@@ -14,6 +14,24 @@ namespace budhashop.UserControls {
     public partial class MainCartControl {
         
         /// <summary>
+        /// signin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton signin;
+        
+        /// <summary>
+        /// errorLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorLbl;
+        
+        /// <summary>
         /// noOfItemsLbl control.
         /// </summary>
         /// <remarks>
@@ -50,22 +68,13 @@ namespace budhashop.UserControls {
         protected global::System.Web.UI.WebControls.Button hideCartBtn;
         
         /// <summary>
-        /// upData control.
+        /// hdnUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upData;
-        
-        /// <summary>
-        /// hdnArea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnArea;
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserId;
         
         /// <summary>
         /// itemCartDL control.

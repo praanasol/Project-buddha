@@ -9,5 +9,6 @@ namespace InterfacesBS.InterfacesBL
     public interface InterfaceItems
     {
         DataSet getAllItems();
+        DataSet getFeaturedItems();
     }
 }

@@ -175,7 +175,14 @@
     <Content Include="script\html5shiv\test\unit\tests.js" />
     <Content Include="script\imgdata.js" />
     <Content Include="script\js.js" />
+    <Content Include="script\scroll\jquery.jscrollpane.min.js" />
+    <Content Include="script\scroll\jquery.mousewheel.js" />
+    <Content Include="script\scroll\mwheelIntent.js" />
+    <Content Include="script\scroll\scroll.js" />
+    <Content Include="script\scroll\scroll16.js" />
+    <Content Include="scroll_bg.gif" />
     <Content Include="Styles\format.css" />
+    <Content Include="Styles\jquery.jscrollpane.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\menus.css" />
     <Content Include="UserControls\MainCartControl.ascx" />

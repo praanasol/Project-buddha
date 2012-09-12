@@ -26,5 +26,15 @@ namespace BusinessLogicBS.BusinessClasses
         }
 
         #endregion
+
+        #region InterfaceItems Members
+
+
+        public System.Data.DataSet getFeaturedItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

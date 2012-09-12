@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartItems.cs" />
     <Compile Include="Catagory Entities\catagoryObj.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="GroupEntities\grpObj.cs" />

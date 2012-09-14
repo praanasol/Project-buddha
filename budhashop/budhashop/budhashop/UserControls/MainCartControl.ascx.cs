@@ -12,20 +12,34 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using InterfacesBS.InterfacesBL;
 using BusinessLogicBS.BusinessClasses;
+using System.Collections.Generic;
+using BusinessEntitiesBS;
 
 namespace budhashop.UserControls
 {
     public partial class MainCartControl : System.Web.UI.UserControl
     {
+        public List<CartItems> CartDetails;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //IAdmin getItems = new AdminItems();
-            //DataTable itemDT = getItems.getItems(3);
-            //LoadItems(itemDT);
+            if (Session["CartPicks"] != null)
+            {
+                CartDetails = new List<CartItems>();
+                CartDetails = (List<CartItems>)Session["CartPicks"];
+                LoadItems(CartDetails);
+            }
+           
         }
 
-        private void LoadItems(DataTable dtv)
+        private void LoadItems(List<CartItems> Cartinfo)
         {
+            DataTable dtv = new DataTable();
+            InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
+            dtv = callCache.getAllItems().Tables[0];
+
+            DataTable CartDT = new DataTable();//data to be bound to cart datalist
+          
+
             if (dtv != null)
             {
                 DataView dv = new DataView();

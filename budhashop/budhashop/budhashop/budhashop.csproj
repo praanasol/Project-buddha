@@ -79,6 +79,17 @@
       <DependentUpon>MainMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CartService.asmx.cs">
+      <DependentUpon>CartService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainCartControl.ascx.cs">
       <DependentUpon>MainCartControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,12 +186,15 @@
     <Content Include="script\html5shiv\test\unit\tests.js" />
     <Content Include="script\imgdata.js" />
     <Content Include="script\js.js" />
+    <Content Include="script\json2.js" />
     <Content Include="script\scroll\jquery.jscrollpane.min.js" />
     <Content Include="script\scroll\jquery.mousewheel.js" />
     <Content Include="script\scroll\mwheelIntent.js" />
     <Content Include="script\scroll\scroll.js" />
     <Content Include="script\scroll\scroll16.js" />
     <Content Include="scroll_bg.gif" />
+    <Content Include="Services\CartService.asmx" />
+    <Content Include="Services\Services.aspx" />
     <Content Include="Styles\format.css" />
     <Content Include="Styles\jquery.jscrollpane.css" />
     <Content Include="Styles\layout.css" />

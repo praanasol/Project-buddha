@@ -13,7 +13,7 @@ namespace DataAccessBS.AdminClasses
     public class AdminDA:IAdminDA
     {
 
-        #region IAdminDA Members
+        #region IAdminDA Members insertCatagoryDA
 
         public int insertCatagoryDA(BusinessEntitiesBS.Catagory_Entities.catagoryObj catObjDa)
         {
@@ -48,7 +48,7 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
-        #region IAdminDA Members
+        #region IAdminDA Members getCatgValues
 
 
         public DataTable getCatgValues()
@@ -75,7 +75,7 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
-        #region IAdminDA Members
+        #region IAdminDA Members insertItemDA
 
 
         public int insertItemDA(BusinessEntitiesBS.ItemEntities.ItemObj itemObjDa)
@@ -124,7 +124,7 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
-        #region IAdminDA Members
+        #region IAdminDA Members getItemValues
 
 
         public DataTable getItemValues(int grpCatId)
@@ -153,7 +153,7 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
-        #region IAdminDA Members
+        #region IAdminDA Members insertGrpDA
 
 
         public int insertGrpDA(BusinessEntitiesBS.GroupEntities.grpObj grpObjDa)
@@ -191,6 +191,105 @@ namespace DataAccessBS.AdminClasses
                 else
                 {
                     return -1;
+                }
+            }
+            catch (SqlException exc)
+            {
+                return -1;
+                throw exc;
+            }
+        }
+
+        #endregion
+
+        #region IAdminDA Members UpdateItemDA
+
+
+        public int UpdateItemDA(BusinessEntitiesBS.ItemEntities.ItemObj updateitemObjDa, int itemid)
+        {
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[7];
+
+                //Catgory parameters
+                sqlParams[0] = new SqlParameter("@itemId", itemid);
+                sqlParams[1] = new SqlParameter("@itemName", updateitemObjDa.itemName);
+                sqlParams[2] = new SqlParameter("@itemDescription", updateitemObjDa.itemDesc);
+                sqlParams[3] = new SqlParameter("@catId", updateitemObjDa.itemCatagory);
+                sqlParams[4] = new SqlParameter("@itemBR", updateitemObjDa.itemBR);
+                sqlParams[5] = new SqlParameter("@itemNR", updateitemObjDa.itemNR);
+                sqlParams[6] = new SqlParameter("@itemQty", updateitemObjDa.itemQty);
+                //sqlParams[6] = new SqlParameter("@itemSts", itemObjDa.itemStatus);
+
+                int updated = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_UPDATE_ITEMS", sqlParams);
+
+                if (updated > 0)
+                {
+                    return updated;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (SqlException exc)
+            {
+                return -1;
+                throw exc;
+            }
+        }
+
+        #endregion
+
+        #region IAdminDA Members SearchItemsDA
+
+
+        public DataTable SearchItemsDA(string itemname)
+        {
+            try
+            {
+                SqlParameter[] searchParams = new SqlParameter[1];
+                searchParams[0] = new SqlParameter("@ItemName", itemname);
+
+                DataTable searchitemDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_SEARCH_ITEMS", searchParams).Tables[0];
+
+                if (searchitemDT.Rows.Count > 0)
+                {
+                    return searchitemDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region IAdminDA Members removeItemDA
+
+
+        public int removeItemDA(int itemid)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+
+                sqlParams[0] = new SqlParameter("@itemId", itemid);
+                int removed = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_REMOVE_ITEMS", sqlParams);
+
+                if (removed == -1)
+                {
+                    return removed;
+                }
+                else
+                {
+                    return 1;
                 }
             }
             catch (SqlException exc)

@@ -48,8 +48,10 @@
     <Compile Include="Class1.cs" />
     <Compile Include="InterfacesBL\IAdmin.cs" />
     <Compile Include="InterfacesBL\InterfaceItems.cs" />
+    <Compile Include="InterfacesBL\IUser.cs" />
     <Compile Include="InterfacesDA\IAdminDA.cs" />
     <Compile Include="InterfacesDA\InterfaceItemsDA.cs" />
+    <Compile Include="InterfacesDA\IUserDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,8 +16,9 @@ namespace InterfacesBS.InterfacesDA
         int insertItemDA(ItemObj itemObjDa);
         DataTable getItemValues(int grpCatId);
         int insertGrpDA(grpObj grpObjDa);
-  
-
+        int UpdateItemDA(ItemObj updateitemObjDa, int itemid);
+        DataTable SearchItemsDA(string itemname);
+        int removeItemDA(int itemid);
 
     }
 }

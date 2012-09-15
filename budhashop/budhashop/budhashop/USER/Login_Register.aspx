@@ -1,0 +1,18 @@
+﻿<%@ Page Language="C#" AutoEventWireup="false" Inherits="System.Web.UI.Page" %>
+<%@ Register TagPrefix="tag1" TagName="login_register" Src="~/UserControls/Userregistrations.ascx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    </head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <tag1:login_register runat="server" />
+    
+    </div>
+    </form>
+</body>
+</html>

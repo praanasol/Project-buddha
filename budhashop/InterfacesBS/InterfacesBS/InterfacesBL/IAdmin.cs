@@ -13,5 +13,8 @@ namespace InterfacesBS.InterfacesBL
         int insertItems(BusinessEntitiesBS.ItemEntities.ItemObj itemObj);
         DataTable getItems(int grpCatId);
         int insertGroup(BusinessEntitiesBS.GroupEntities.grpObj grpObj);
+        int UpdateItems(BusinessEntitiesBS.ItemEntities.ItemObj updateitemObj, int itemid);
+        DataTable SearchItems(string itemname);
+        int removeItems(int itemid);
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="BusinessClasses\ItemsClass.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserClasses\UserItems.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BusinessEntitiesBS\BusinessEntitiesBS\BusinessEntitiesBS.csproj">

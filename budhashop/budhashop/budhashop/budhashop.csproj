@@ -53,10 +53,16 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ADMIN\InsertPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN\EditItem.aspx.cs">
+      <DependentUpon>EditItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\EditItem.aspx.designer.cs">
+      <DependentUpon>EditItem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADMIN\InsertPage.aspx.cs">
       <DependentUpon>InsertPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -64,6 +70,12 @@
     <Compile Include="ADMIN\InsertPage.aspx.designer.cs">
       <DependentUpon>InsertPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Captcha\CaptchaImage.cs" />
+    <Compile Include="Captcha\JpegImage.aspx.cs">
+      <DependentUpon>JpegImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,6 +109,27 @@
     <Compile Include="UserControls\MainCartControl.ascx.designer.cs">
       <DependentUpon>MainCartControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Userregistrations.ascx.cs">
+      <DependentUpon>Userregistrations.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Userregistrations.ascx.designer.cs">
+      <DependentUpon>Userregistrations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="USER\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="USER\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -116,6 +149,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADMIN\EditItem.aspx" />
+    <Content Include="ADMIN\InsertPage.aspx" />
     <Content Include="bin\budhashop.dll" />
     <Content Include="bin\budhashop.pdb" />
     <Content Include="bin\BusinessEntitiesBS.dll" />
@@ -126,6 +161,8 @@
     <Content Include="bin\DataAccessBS.pdb" />
     <Content Include="bin\InterfacesBS.dll" />
     <Content Include="bin\InterfacesBS.pdb" />
+    <Content Include="Captcha\JpegImage.aspx" />
+    <Content Include="Captcha\Refresh.jpg" />
     <Content Include="homepage.aspx" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\header_bg.gif" />
@@ -200,6 +237,10 @@
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\menus.css" />
     <Content Include="UserControls\MainCartControl.ascx" />
+    <Content Include="UserControls\Userregistrations.ascx" />
+    <Content Include="USER\ChangePassword.aspx" />
+    <Content Include="USER\ForgotPassword.aspx" />
+    <Content Include="USER\Login_Register.aspx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />

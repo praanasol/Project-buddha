@@ -12,7 +12,7 @@ namespace BusinessLogicBS.BusinessClasses
     public class AdminItems : IAdmin
     {
 
-        #region IAdmin Members
+        #region IAdmin Members insertCatagory
 
         public int insertCatagory(BusinessEntitiesBS.Catagory_Entities.catagoryObj catObj)
         {
@@ -31,7 +31,7 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
-        #region IAdmin Members
+        #region IAdmin Members getCatagories
 
 
         public DataTable getCatagories()
@@ -53,7 +53,7 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
-        #region IAdmin Members
+        #region IAdmin Members insertItems
 
 
         public int insertItems(BusinessEntitiesBS.ItemEntities.ItemObj itemObj)
@@ -68,7 +68,7 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
-        #region IAdmin Members
+        #region IAdmin Members getItems
 
 
         public DataTable getItems(int grpCatId)
@@ -87,7 +87,7 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
-        #region IAdmin Members
+        #region IAdmin Members insertGroup
 
 
         public int insertGroup(BusinessEntitiesBS.GroupEntities.grpObj grpObj)
@@ -95,6 +95,52 @@ namespace BusinessLogicBS.BusinessClasses
             IAdminDA inertGrp = new DataAccessBS.AdminClasses.AdminDA();
             return inertGrp.insertGrpDA(grpObj);
 
+        }
+
+        #endregion
+
+        #region IAdmin Members UpdateItems
+
+
+        public int UpdateItems(BusinessEntitiesBS.ItemEntities.ItemObj updateitemObj, int itemid)
+        {
+
+            IAdminDA UpdateItemValues = new DataAccessBS.AdminClasses.AdminDA();
+
+            int updateitemId = UpdateItemValues.UpdateItemDA(updateitemObj, itemid);
+            return updateitemId;
+
+        }
+
+        #endregion
+
+        #region IAdmin Members SearchItems
+
+        public DataTable SearchItems(string itemname)
+        {
+            try
+            {
+
+                IAdminDA searchitemValues = new DataAccessBS.AdminClasses.AdminDA();
+                return searchitemValues.SearchItemsDA(itemname);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region IAdmin Members removeItems
+
+
+        public int removeItems(int itemid)
+        {
+            IAdminDA RemoveItemValues = new DataAccessBS.AdminClasses.AdminDA();
+
+            int removeitem = RemoveItemValues.removeItemDA(itemid);
+            return removeitem;
         }
 
         #endregion

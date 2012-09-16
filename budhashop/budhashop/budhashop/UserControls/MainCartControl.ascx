@@ -443,11 +443,11 @@ ul {
                 <div>
                     <aside id="itemValues">
                         <asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
-                        <%--<asp:ImageButton runat="server" ID="itemImage"/>--%>
+                       <asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/>
                         <asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
-                        <asp:TextBox  ID="qtyTxt" runat="server" Text="1"></asp:TextBox>
+                        <asp:TextBox  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
                         <asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
-                        <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
+                        <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
                         <div>
                         <asp:LinkButton ID="updateBtn" runat="server">Update</asp:LinkButton>
                         <asp:LinkButton ID="Delete" runat="server">Delete</asp:LinkButton>

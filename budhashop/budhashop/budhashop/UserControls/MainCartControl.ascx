@@ -434,11 +434,7 @@ ul {
        
       <%--  <asp:Panel ID="itempanel" runat="server" CssClass="scroll-pane" Height="300" Width="350" BorderStyle="Solid" BorderColor="Black" ScrollBars="Vertical"> --%>                                                                              
        <div id="chatlist" class="mousescroll">
-        <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" DataKeyField="ItemId">
-           <HeaderTemplate>
-                
-            </HeaderTemplate>
-           
+        <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" DataKeyField="ItemId" OnItemCommand ="itemCartDL_ItemCommand">
             <ItemTemplate>
                 <div>
                     <aside id="itemValues">
@@ -449,21 +445,12 @@ ul {
                         <asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
                         <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
                         <div>
-                        <asp:LinkButton ID="updateBtn" runat="server">Update</asp:LinkButton>
+                        <asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
                         <asp:LinkButton ID="Delete" runat="server">Delete</asp:LinkButton>
                         </div>
-                        
-                        
-                        
                      </aside>
-                        
-                            
                 </div>
             </ItemTemplate>
-            
-              <FooterTemplate>
-               
-            </FooterTemplate>
         </asp:DataList>
         </div>
        <%-- </asp:Panel>--%>

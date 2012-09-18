@@ -1,10 +1,10 @@
-﻿function DoAction(id)
+﻿function DoAction(id,typeC)
              {
             $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
             url: "/Services/Services.aspx/SetSessionValue",
-            data: "{'Name':'CartPicks','ID':'" + id+"'}",
+            data: "{'Name':'CartPicks','ID':'" + id+"','Type':'"+typeC+"'}",
             dataType: "json",
             success: function(data1){
                         

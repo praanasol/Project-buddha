@@ -2,37 +2,54 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<script type="text/javascript">
-$(document).ready(function() {
-$.ajax({
-type: "POST",
-contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/BindDatatable",
-data: "{}",
-dataType: "json",
-success: function(data) {
-for (var i = 0; i < data.d.length; i++) {
+<script type="text/javascript" src="script/scroll/homePageLoad.js">
 
-
- $("#box_content").append('<aside id="category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].UserId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="'+data.d[i].UserName+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].Location+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].UserId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].UserId+');">ADD</a></div></div></div> </div></div> </aside>');
-}
-},
-error: function(result) {
-alert("Error");
-}
-});
-
-
-});
 
 
 </script>
  <%--Call for json to update in cart--%>
 <script type="text/javascript" src="script/CartJSONCall.js"></script>
 
+<section id="item_area" class="box_style">
+  	<div id="box_header">
+    	<div id="to_left"><h2>Category 1</h2></div>
+      <div id="buttons_area">
+        <div id="but" class="but1_style">
+                <div id="but_link"><a href="#" id="but1" target="_self" class="but1">Featured</a></div>
+
+        </div>
+        <div id="but" class="but2_style">
+                <div id="but_link"><a href="#" id="but2" target="_self" class="but2">Featured</a></div>
+
+        </div>
+        <div id="but" class="but3_style">
+                <div id="but_link"><a href="#" target="_self" class="but3">Featured</a></div>
+
+        </div>
+        </div>
+    </div>
+    <!--Gallery Start-->
+   <div id="box_content" style="overflow:hidden;overflow-x: hidden;
+    overflow-y: hidden;">
+    <div id ="groupItems" style="height:240px; width:2400px;">
+   <script type="text/javascript">
+   $('#but2').click(function(){
+      $('#groupItems').animate({
+        'margin-left': '-=630px'
+      });
+   });
+   $('#but1').click(function(){
+      $('#groupItems').animate({
+        'margin-left': '+=630px'
+      });
+   });
+</script>
+    </div>
+    </div>
+    </section>
 
 <!--Categories start-->
-  <section id="item_area" class="box_style">
+ <section id="item_area" class="box_style">
   	<div id="box_header">
     	<div id="to_left"><h2>Category 1</h2></div>
       <div id="buttons_area">
@@ -53,14 +70,21 @@ alert("Error");
     <!--Gallery Start-->
     <div id="box_content">
     <!--Category Item part Start-->
-    	
-        
+    <div id="specialItems">
+    
+    
+    </div>
+   
        
     <!--Category Item part End-->
     </div>
+    
+     </section>
 <%--<div id="thumb-tray">
 <ul id="thumb-list">
         
 </ul>
 </div>--%>
+
+
 </asp:Content>

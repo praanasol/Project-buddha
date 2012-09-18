@@ -11,15 +11,6 @@ namespace BusinessEntitiesBS
         private int catId;
         private int qty;
         private bool grpChk;
-
-        //public CartItems(int itemId, int catId, int qty, bool grpChk)
-        //    {
-        //        this.itemId = itemId;
-        //        this.catId = catId;
-        //        this.qty = qty;
-        //        this.grpChk = grpChk;
-        //    }
-        
         
         public int ItemId { get{ return itemId; } set { itemId = value; } }
         public int CatId { get { return catId; } set { catId = value; } }

@@ -20,6 +20,7 @@ namespace budhashop.UserControls
     public partial class MainCartControl : System.Web.UI.UserControl
     {
         public List<CartItems> CartDetails;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
          if (!IsPostBack)
@@ -28,7 +29,6 @@ namespace budhashop.UserControls
             {
                 CartDetails = new List<CartItems>();
                 CartDetails = (List<CartItems>)Session["CartPicks"];
-             
                 LoadItems(CartDetails);
             }
           }
@@ -39,7 +39,7 @@ namespace budhashop.UserControls
         {
 
             DataTable CartDT = new DataTable();//data to be bound to cart datalist
-            DataColumn dcId = new DataColumn("ItemId", typeof(int));
+            DataColumn dcId = new DataColumn("ItemId", typeof(long));
             CartDT.Columns.Add(dcId);
             DataColumn dcPath = new DataColumn("ImagePath", typeof(string));
             CartDT.Columns.Add(dcPath);
@@ -52,12 +52,15 @@ namespace budhashop.UserControls
             DataColumn dcTr = new DataColumn("TotalRate", typeof(float));
             CartDT.Columns.Add(dcTr);
 
+            DataSet ds = new DataSet();
             DataTable dtv = new DataTable();
+            DataTable dtg = new DataTable();
             InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
-            dtv = callCache.getAllItems().Tables[0];
+            ds = callCache.getAllItems();
+            dtv = ds.Tables[0];
+            dtg = ds.Tables[1];
             //create cache for group items and store here and loop throuh groups if groupChk is true in session list
-
-
+            float totalPrice = 0;
             foreach (object cartObj in Cartinfo)
             {
                 CartItems item = cartObj as CartItems;
@@ -65,25 +68,44 @@ namespace budhashop.UserControls
                 int qty = item.Qty;
                 bool grpId = item.GrpChk;
 
-                foreach (DataRow dRow in dtv.Rows)
+                // finding the data item
+                if (grpId)
                 {
-                    if((int.Parse(dRow["ItemId"].ToString()) == cid))
+                    var itemDetails = dtg.AsEnumerable().First(p => p.Field<long>("GroupId") == cid);
+                    if (itemDetails != null)
                     {
                         DataRow dr = CartDT.NewRow();
-                        dr[0] = int.Parse(dRow["ItemId"].ToString());
-                        dr[1] = dRow["ImagePath"].ToString();
-                        dr[2] = dRow["ItemName"].ToString();
+                        dr[0] = itemDetails["GroupId"];
+                        dr[1] = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                        dr[2] = itemDetails["GroupName"];
                         dr[3] = qty;
-                        dr[4] = float.Parse(dRow["BilledRate"].ToString());
-                        float totRate = qty * (float.Parse(dRow["BilledRate"].ToString()));
+                        dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
+                        float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                         dr[5] = totRate;
-
+                        totalPrice += totRate;
                         CartDT.Rows.Add(dr);
                     }
-
                 }
-              
+                else
+                {
 
+                    var itemDetails = dtv.AsEnumerable().First(p => p.Field<long>("ItemId") == cid);
+                    if (itemDetails != null)
+                    {
+                        DataRow dr = CartDT.NewRow();
+                        dr[0] = itemDetails["ItemId"];
+                        dr[1] = itemDetails["ImagePath"];
+                        dr[2] = itemDetails["ItemName"];
+                        dr[3] = qty;
+                        dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
+                        float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
+                        dr[5] = totRate;
+                        totalPrice += totRate;
+                        CartDT.Rows.Add(dr);
+                    }
+                }
+                // updating the data row from the itemDetails object.
+                
             }
             if (CartDT != null)
             {
@@ -91,6 +113,7 @@ namespace budhashop.UserControls
                 PagedDataSource pagedData = new PagedDataSource();
                 int rowCnt = CartDT.Rows.Count;
                 noOfItemsLbl.Text = rowCnt.ToString();
+                totalLbl.Text = totalPrice.ToString();
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;
                 //pagedData.AllowPaging = true;
@@ -104,6 +127,43 @@ namespace budhashop.UserControls
             {
                 itemCartDL.DataSource = "";
                 itemCartDL.DataBind();
+            }
+        }
+  
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
+        protected void itemCartDL_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "UpdateItem")
+            {
+                //getting the primary key from the Datalist of the to be updated item.
+                var itemId = itemCartDL.DataKeys[e.Item.ItemIndex].ToString();
+
+                //accessing the quantity from the textbox of the datalist.
+                var qty = ((TextBox)e.Item.FindControl("qtyTxt")).Text;
+
+                if (qty != null)
+                {
+                    // loading the cart items.
+                    var cartItems = (List<CartItems>)Session["CartPicks"];
+
+                    if (cartItems != null)
+                    {
+                        var cartItem = cartItems.First(p => p.ItemId == long.Parse(itemId));
+
+                        cartItem.Qty = int.Parse(qty);
+                        float updatedTot = int.Parse(qty) * (float.Parse(((Label)e.Item.FindControl("priceLbl")).Text));
+                        float Total = float.Parse(totalLbl.Text) + updatedTot - (float.Parse(((Label)e.Item.FindControl("rateLbl")).Text));
+                        ((Label)e.Item.FindControl("rateLbl")).Text = updatedTot.ToString();
+                        
+                        totalLbl.Text = Total.ToString();
+                        Session["CartPicks"] = cartItems;
+                    }
+                }
+ 
             }
         }
     }

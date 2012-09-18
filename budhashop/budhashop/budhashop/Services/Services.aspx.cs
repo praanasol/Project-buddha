@@ -24,13 +24,35 @@ namespace budhashop.Services
         {
 
         }
-
+       
         [WebMethod]
-        
-        public static UserDetails[] BindDatatable()
+        public static ItemDetails[] BindGrptable()
         {
             DataTable dt = new DataTable();
-            List<UserDetails> details = new List<UserDetails>();
+            List<ItemDetails> details = new List<ItemDetails>();
+            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            DataSet allDataDS = allData.getAllItems();
+            dt = allDataDS.Tables[1];
+
+            foreach (DataRow dtrow in dt.Rows)
+            {
+               
+                    ItemDetails user = new ItemDetails();
+                    user.ItemId = dtrow["GroupId"].ToString();
+                    user.ItemName = dtrow["GroupName"].ToString();
+                    user.ItemPrice = dtrow["BilledRate"].ToString();
+                    details.Add(user);
+                
+            }
+
+            return details.ToArray();
+        }
+
+        [WebMethod]
+        public static ItemDetails[] BindDatatable()
+        {
+            DataTable dt = new DataTable();
+            List<ItemDetails> details = new List<ItemDetails>();
             InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
             DataSet allDataDS = allData.getAllItems();
             dt = allDataDS.Tables[0];
@@ -40,10 +62,10 @@ namespace budhashop.Services
                 bool FeatureChk = bool.Parse(dtrow["FeaturedFlag"].ToString());
                 if (FeatureChk)
                 {
-                    UserDetails user = new UserDetails();
-                    user.UserId = dtrow["ItemId"].ToString();
-                    user.UserName = dtrow["ImagePath"].ToString();
-                    user.Location = dtrow["BilledRate"].ToString();
+                    ItemDetails user = new ItemDetails();
+                    user.ItemId = dtrow["ItemId"].ToString();
+                    user.ItemName = dtrow["ImagePath"].ToString();
+                    user.ItemPrice = dtrow["BilledRate"].ToString();
                     details.Add(user);
                 }
             }
@@ -53,7 +75,7 @@ namespace budhashop.Services
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static bool SetSessionValue(string Name, string ID)
+        public static bool SetSessionValue(string Name, string ID, int Type)
         {
             //string sessionVal = String.Empty;
             List<CartItems> cartItems = new List<CartItems>();
@@ -67,7 +89,15 @@ namespace budhashop.Services
                     CartItems newItem = new CartItems();
                     newItem.ItemId = int.Parse(ID);
                     newItem.CatId = 3;
-                    newItem.GrpChk = false;
+                    if (Type == 1)
+                    {
+
+                        newItem.GrpChk = true;
+                    }
+                    else
+                    {
+                        newItem.GrpChk = false;
+                    }
                     newItem.Qty = 1;
                     cartItems.Add(newItem);
 
@@ -88,11 +118,11 @@ namespace budhashop.Services
                 return false;
             }
         }
-        public class UserDetails
+        public class ItemDetails
         {
-            public string UserId { get; set; }
-            public string UserName { get; set; }
-            public string Location { get; set; }
+            public string ItemId { get; set; }
+            public string ItemName { get; set; }
+            public string ItemPrice { get; set; }
         }
 
        

@@ -165,6 +165,28 @@ namespace budhashop.UserControls
                 }
  
             }
+
+            if (e.CommandName == "RemoveItem")
+            {
+                //getting the primary key from the Datalist of the to be updated item.
+                var itemId = itemCartDL.DataKeys[e.Item.ItemIndex].ToString();
+                 // loading the cart items.
+                    var cartItems = (List<CartItems>)Session["CartPicks"];
+
+                    if (cartItems != null)
+                    {
+                        //remove cart item with itemId
+                      cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId));
+                        
+                        //update session
+                        Session["CartPicks"] = cartItems;
+
+                        //load updated cart items
+                        LoadItems(cartItems);
+                    }
+
+
+            }
         }
     }
 }

@@ -49,7 +49,7 @@ namespace budhashop.Services
         }
 
         [WebMethod]
-        public static ItemDetails[] BindDatatable()
+        public static ItemDetails[] BindDatatable(string CatgId)
         {
             DataTable dt = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
@@ -60,7 +60,8 @@ namespace budhashop.Services
             foreach (DataRow dtrow in dt.Rows)
             {
                 bool FeatureChk = bool.Parse(dtrow["FeaturedFlag"].ToString());
-                if (FeatureChk)
+                int category = int.Parse(dtrow["CategoryId"].ToString());
+                if (FeatureChk && category == int.Parse(CatgId))
                 {
                     ItemDetails user = new ItemDetails();
                     user.ItemId = dtrow["ItemId"].ToString();
@@ -88,14 +89,22 @@ namespace budhashop.Services
                     cartItems = (List<CartItems>)HttpContext.Current.Session[Name];
                     CartItems newItem = new CartItems();
                     newItem.ItemId = int.Parse(ID);
-                    newItem.CatId = 3;
+                   
                     if (Type == 1)
                     {
-
+                        newItem.CatId = 3;
                         newItem.GrpChk = true;
                     }
                     else
                     {
+                        if (Type == 2)
+                        {
+                            newItem.CatId = 3;
+                        }
+                        else
+                        {
+                            newItem.CatId = 5;
+                        }
                         newItem.GrpChk = false;
                     }
                     newItem.Qty = 1;

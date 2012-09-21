@@ -446,7 +446,7 @@ ul {
                         <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
                         <div>
                         <asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
-                        <asp:LinkButton ID="Delete" runat="server">Delete</asp:LinkButton>
+                        <asp:LinkButton ID="deleteBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
                         </div>
                      </aside>
                 </div>

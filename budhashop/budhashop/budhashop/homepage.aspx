@@ -14,12 +14,14 @@
   	<div id="box_header">
     	<div id="to_left"><h2>Category 1</h2></div>
       <div id="buttons_area">
+      <div id="but"><a href="#" id="but1" type="button" target="_self" class="but2" style="display:none;"><</a></div>
+      <div id="but"><a href="#" id="but2" type="button" target="_self" class="but2">></a></div>
         <div id="but" class="but1_style">
-                <div id="but_link"><a href="#" id="but1" target="_self" class="but1">Featured</a></div>
+                <div id="but_link"><a href="#" target="_self" class="but1">Featured</a></div>
 
         </div>
         <div id="but" class="but2_style">
-                <div id="but_link"><a href="#" id="but2" target="_self" class="but2">Featured</a></div>
+                <div id="but_link"><a href="#"  target="_self" class="but2">Featured</a></div>
 
         </div>
         <div id="but" class="but3_style">
@@ -30,25 +32,31 @@
     </div>
     <!--Gallery Start-->
    <div id="box_content" style="overflow:hidden;overflow-x: hidden;overflow-y: hidden; ">
+   
     <div id ="groupItems" style="height:240px; width:2400px;">
    <script type="text/javascript">
    $('#but2').click(function(){
    var grpWidth = $('#groupItems').css("margin-left").replace("px","");
-     if(grpWidth == -1940){return;}
+   if(grpWidth == -970){$('#but2').css("display","none");}
+     if(grpWidth == -1940){$('#but2').css("display","none"); return;}
      else{
+     
       $('#groupItems').animate({
         'margin-left': '-=970px'
       });
+      $('#but1').css("display","inherit")
       }
       return false;
    });
    $('#but1').click(function(){
    var grpWidth = $('#groupItems').css("margin-left").replace("px","");
-     if(grpWidth == 0){return;}
+   if(grpWidth == -970){$('#but1').css("display","none");}
+     if(grpWidth == 0){$('#but1').css("display","none");return;}
      else{
       $('#groupItems').animate({
         'margin-left': '+=970px'
       });
+      $('#but2').css("display","inherit");
       }
       return false;
    });

@@ -164,6 +164,7 @@
     <Content Include="Captcha\JpegImage.aspx" />
     <Content Include="Captcha\Refresh.jpg" />
     <Content Include="homepage.aspx" />
+    <Content Include="images\arrowback.PNG" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\header_bg.gif" />
     <Content Include="images\img.gif" />

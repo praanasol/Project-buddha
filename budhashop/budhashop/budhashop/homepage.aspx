@@ -31,7 +31,7 @@
         </div>
     </div>
     <!--Gallery Start-->
-   <div id="box_content" style="overflow:hidden;overflow-x: hidden;overflow-y: hidden; ">
+   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden;">
    
     <div id ="groupItems" style="height:240px; width:2400px;">
    <script type="text/javascript">

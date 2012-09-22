@@ -233,6 +233,7 @@
     <Content Include="obj\Debug\budhashop.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\budhashop.dll" />
     <Content Include="obj\Debug\budhashop.pdb" />
+    <Content Include="result.html" />
     <Content Include="script\CartJSONCall.js" />
     <Content Include="script\html5shiv\build.xml" />
     <Content Include="script\html5shiv\build\compiler.jar" />

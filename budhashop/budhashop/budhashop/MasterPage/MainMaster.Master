@@ -22,9 +22,9 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
    
-     <script src="/script/scroll/scroll16.js" type="text/javascript"></script>
+   <%--  <script src="/script/scroll/scroll16.js" type="text/javascript"></script>
       <script src="/script/json2.js" type="text/javascript"></script>
-
+--%>
 <!--[if lt IE 9]>
 <script type="text/javascript" src="../script/html5shiv/dist/html5shiv.js"></script>
 <![endif]-->
@@ -115,8 +115,7 @@
     </aside>
     <!--Header right side area - End--> 
   </header>
-  <article style="height:200px;"></article>
-  <br clear="all" />
+  
   
   <div>
   

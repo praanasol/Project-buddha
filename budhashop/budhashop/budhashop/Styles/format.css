@@ -180,7 +180,16 @@ a.add:hover, a.add:active{
 	text-decoration:none;
 	color:#c0c561;
 }
-
+/*InnerPage Styles Start*/
+.in_box_style{
+	margin:0px;
+	padding:0px;
+	width:228px;
+	height:700px;
+	background:#b4ba44;
+	border:#a2a835 2px solid;
+	border-radius:5px;
+}
 .rights{
 	margin:0px;
 	padding-top:15px;

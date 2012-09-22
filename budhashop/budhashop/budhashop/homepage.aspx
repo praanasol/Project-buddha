@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="budhashop.homepage" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <script type="text/javascript" src="script/scroll/homePageLoad.js">
@@ -9,7 +10,8 @@
 </script>
  <%--Call for json to update in cart--%>
 <script type="text/javascript" src="script/CartJSONCall.js"></script>
-
+<article style="height:200px;"></article>
+  <br clear="all" />
 <section id="item_area" class="box_style">
   	<div id="box_header">
     	<div id="to_left"><h2>Category 1</h2></div>

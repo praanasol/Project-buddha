@@ -75,7 +75,7 @@ namespace budhashop.Services
         }
 
         [WebMethod(EnableSession = true)]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static bool SetSessionValue(string Name, string ID, int Type)
         {
             //string sessionVal = String.Empty;

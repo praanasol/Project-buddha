@@ -116,13 +116,13 @@ namespace BusinessLogicBS.BusinessClasses
 
         #region IAdmin Members SearchItems
 
-        public DataTable SearchItems(string itemname)
+        public DataTable SearchItems(string itemname,int catid)
         {
             try
             {
 
                 IAdminDA searchitemValues = new DataAccessBS.AdminClasses.AdminDA();
-                return searchitemValues.SearchItemsDA(itemname);
+                return searchitemValues.SearchItemsDA(itemname,catid);
             }
             catch
             {
@@ -141,6 +141,38 @@ namespace BusinessLogicBS.BusinessClasses
 
             int removeitem = RemoveItemValues.removeItemDA(itemid);
             return removeitem;
+        }
+
+        #endregion
+
+        #region IAdmin Members SearchItems
+
+        public DataTable SearchUsers(string uname)
+        {
+            try
+            {
+
+                IAdminDA searchuserValues = new DataAccessBS.AdminClasses.AdminDA();
+                return searchuserValues.SearchUsersDA(uname);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region IAdmin Members UpdateItems
+
+
+        public int UpdateUsers(BusinessEntitiesBS.UserEntities.userobj updateuserObj, int userid)
+        {
+
+            IAdminDA UpdateUserValues = new DataAccessBS.AdminClasses.AdminDA();
+            int updateuserId = UpdateUserValues.UpdateUserDA(updateuserObj, userid);
+            return updateuserId;
+
         }
 
         #endregion

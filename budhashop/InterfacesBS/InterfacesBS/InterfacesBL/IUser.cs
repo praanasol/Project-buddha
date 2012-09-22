@@ -10,7 +10,7 @@ namespace InterfacesBS.InterfacesBL
     public interface IUser
     {
         void insertUser(userobj userObj);
-        DataTable checkavailability(userobj checkuserObj);
+        DataTable checkavailability(string checkvalue);
         DataTable checklogin(userobj checkloginObj);
         bool UpdatePassword(string emailid, string newpwd);
     }

@@ -21,28 +21,15 @@ namespace budhashop.ADMIN
 {
     public partial class InsertPage : System.Web.UI.Page
     {
-        public DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 getcatgs();
-                dt = getItems(Int32.Parse(grpCatDDL.SelectedValue.ToString()));
-                if (dt != null)
-                {
-                    itemGrid.DataSource = dt;
-                    itemGrid.DataBind();
-                }
-                else
-                {
-                    grpMsgLbl.Text = "No Data for items! change the catagory";
-                }
+                getItems(Int32.Parse(grpCatDDL.SelectedValue.ToString()));                
             }
-
-
-
-
         }
+
         protected void getcatgs()
         {
             try
@@ -68,28 +55,30 @@ namespace budhashop.ADMIN
 
 
         }
-        protected DataTable getItems(int grpCatId)
+
+        protected void getItems(int grpCatId)
         {
-
-
             try
             {
-
                 IAdmin getItems = new AdminItems();
                 DataTable itemDT = getItems.getItems(grpCatId);
-
-                return itemDT;
+                if (itemDT != null)
+                {
+                    itemGrid.DataSource = itemDT;
+                    itemGrid.DataBind();
+                }
+                else
+                {
+                    grpMsgLbl.Text = "No Data for items! change the catagory";
+                    itemGrid.DataSource = null;
+                    itemGrid.DataBind();
+                }
             }
             catch (Exception iExp)
             {
-
-                grpMsgLbl.Text = "Error Occured" + iExp.Message;
-                return null;
+                grpMsgLbl.Text = "Error Occured: " + iExp.Message;
             }
-
-
         }
-
 
         protected void CatagoryBtn_Click(object sender, EventArgs e)
         {
@@ -129,8 +118,6 @@ namespace budhashop.ADMIN
                     {
                         catMsgLbl.Text = "Error: Floder" + _ex.Message;
                     }
-
-
 
                 }
                 else
@@ -277,112 +264,190 @@ namespace budhashop.ADMIN
 
         protected void grpCatDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
+            grpMsgLbl.Text = "";
+            txt_itemname.Text = "Enter Item Name/Id";
             int grpCatId = Int32.Parse(grpCatDDL.SelectedValue.ToString());
-            DataTable grpCatItemsDT = getItems(grpCatId);
-            if (grpCatItemsDT != null)
-            {
-                itemGrid.DataSource = grpCatItemsDT;
-                dt = new DataTable();
-                dt = grpCatItemsDT;
-                itemGrid.DataBind();
-            }
-            else
-            {
-                grpMsgLbl.Text = "No Data for items! change the catagory";
-            }
-
-        }
-
-
-        protected void itemGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            itemGrid.PageIndex = e.NewPageIndex;
-            //itemGrid.DataSource = dt;
-            //itemGrid.DataBind();
+            getItems(grpCatId);
         }
 
         protected void grpSubmitBtn_Click(object sender, EventArgs e)
         {
-
-           
-            bool flagItem;
-            
-            DataTable grpItemsDt = new DataTable();
-            DataColumn dc = new DataColumn("GrpItem", typeof(int));
-            grpItemsDt.Columns.Add(dc);
-          
-            
-            foreach (GridViewRow dRow in itemGrid.Rows)
+            if (grpImageFU.FileName != string.Empty && grpImageFU.FileContent.Length <= 1024000)
             {
+                bool flagItem;                
+                float billedrate = 0, netrate = 0;
 
-             flagItem = (dRow.FindControl("itemChkBox") as CheckBox).Checked;
-                 
-                if (flagItem)
-                 {
-                     int itemId = Convert.ToInt32(itemGrid.DataKeys[dRow.RowIndex].Value);
-                     
-                     DataRow dr = grpItemsDt.NewRow();
-                     dr[0] = itemId;
+                DataTable grpItemsDt = new DataTable();
+                DataColumn dc = new DataColumn("GrpItem", typeof(int));
+                grpItemsDt.Columns.Add(dc);
 
-                     grpItemsDt.Rows.Add(dr);
-                     
-                 }
-               
-            }
-
-            string grpItemString = "";
-            bool first = true;
-            if (grpItemsDt.Rows.Count > 0)
-            {
-                foreach (DataRow iRow in grpItemsDt.Rows)
+                foreach (GridViewRow dRow in itemGrid.Rows)
                 {
-                    if (first)
+                    flagItem = (dRow.FindControl("itemChkBox") as CheckBox).Checked;
+
+                    if (flagItem)
                     {
-                        grpItemString += int.Parse(iRow["GrpItem"].ToString());
-                        first = false;
+                        string nrate = (dRow.FindControl("lbl_itemNR") as Label).Text;
+                        string brate = (dRow.FindControl("lbl_itemBR") as Label).Text;
+                        billedrate += float.Parse(brate);
+                        netrate += float.Parse(nrate);
+
+                        int itemId = Convert.ToInt32(itemGrid.DataKeys[dRow.RowIndex].Value);
+
+                        DataRow dr = grpItemsDt.NewRow();
+                        dr[0] = itemId;
+
+                        grpItemsDt.Rows.Add(dr);
+
+                    }
+                }
+
+                string grpItemString = "";
+                bool first = true;
+                if (grpItemsDt.Rows.Count > 0)
+                {
+                    foreach (DataRow iRow in grpItemsDt.Rows)
+                    {
+                        if (first)
+                        {
+                            grpItemString += int.Parse(iRow["GrpItem"].ToString());
+                            first = false;
+                        }
+                        else
+                        {
+                            grpItemString += "," + int.Parse(iRow["GrpItem"].ToString());
+                        }
+
+                    }
+
+                    float discount = float.Parse(grpDiscountTxt.Text);
+                    billedrate -= (billedrate * (discount / 100));
+                    netrate = (netrate - (netrate * (discount / 100)));
+
+                    BusinessEntitiesBS.GroupEntities.grpObj grpValus = new BusinessEntitiesBS.GroupEntities.grpObj();
+
+                    grpValus.grpName = grpNameTxt.Text.ToString();
+                    grpValus.grpDesc = grpDescTxt.Text.ToString();
+                    grpValus.grpBR = billedrate;
+                    grpValus.grpNR = netrate;
+                    //grpValus.grpBR =  float.Parse(grpBrTxt.Text.ToString());
+                    //grpValus.grpNR = float.Parse(grpNrTxt.Text.ToString());
+                    grpValus.grpStatus = grpCb.Checked;
+                    grpValus.fixedGrp = grpStatusCb.Checked;
+                    grpValus.Quantity = Int32.Parse(grpQtyTxt.Text.ToString());
+                    //item string
+                    grpValus.itemIdStr = grpItemString;
+
+                    IAdmin insertGroup = new AdminItems();
+                    int grpId = insertGroup.insertGroup(grpValus);
+                    if (grpId != -1)
+                    {
+                        //create folder for item images and save images. show result
+                        string NewDir = Server.MapPath("~/GroupImages/" + "/" + grpId);
+                        try
+                        {
+                            // Check if directory exists
+                            if (!Directory.Exists(NewDir))
+                            {
+                                // Create the directory.
+                                Directory.CreateDirectory(NewDir);
+                            }
+                        }
+                        catch (IOException _ex)
+                        {
+                            grpMsgLbl.Text = "Error: Floder" + _ex.Message;
+                        }
+                        string filename = grpId + "Photo.jpg";
+                        grpImageFU.SaveAs(Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename);
+
+                        string filePath = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename;
+                        string newfileMed = grpId + "Photomedium.jpg";
+                        string newfileSmall = grpId + "small.jpg";
+                        string resizedImageMed = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + newfileMed;
+                        string resizedImageSmall = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + newfileSmall;
+                        System.Drawing.Image img = System.Drawing.Image.FromFile(filePath);
+
+                        System.Drawing.Bitmap bmpD = img as Bitmap;
+
+                        Bitmap bmpDriverMed = new Bitmap(bmpD, 512, 372);
+                        bmpDriverMed.Save(resizedImageMed, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                        Bitmap bmpDriverSmall = new Bitmap(bmpD, 170, 126);
+                        bmpDriverSmall.Save(resizedImageSmall, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                        grpMsgLbl.Text = "Group Inserted sucessfully";
+
                     }
                     else
                     {
-                        grpItemString += "," + int.Parse(iRow["GrpItem"].ToString());
+                        grpMsgLbl.Text = "Error Occured! Group not inserted. Database Error!";
                     }
-
-                }
-
-                BusinessEntitiesBS.GroupEntities.grpObj grpValus = new BusinessEntitiesBS.GroupEntities.grpObj();
-
-                grpValus.grpName = grpNameTxt.Text.ToString();
-                grpValus.grpDesc = grpDescTxt.Text.ToString();
-                grpValus.grpBR =  float.Parse(grpBrTxt.Text.ToString());
-                grpValus.grpNR = float.Parse(grpNrTxt.Text.ToString());
-                grpValus.grpStatus = grpCb.Checked;
-                grpValus.fixedGrp = grpStatusCb.Checked;
-                grpValus.Quantity = Int32.Parse(grpQtyTxt.Text.ToString());
-                //item string
-                grpValus.itemIdStr = grpItemString;
-
-                IAdmin insertGroup = new AdminItems();
-                int grpId = insertGroup.insertGroup(grpValus);
-                if (grpId != -1)
-                {
-                    grpMsgLbl.Text = "Group Inserted";
                 }
                 else
                 {
-                    grpMsgLbl.Text = "Error Occured! Group not inserted";
+                    grpMsgLbl.Text = "Select items for the group";
                 }
             }
             else
             {
-                grpMsgLbl.Text = "Select items for the group";
+                grpMsgLbl.Text = "Image is too Large, Only 1mb is allowed";
             }
-
-            
-
-
 
         }
 
-       
+        protected void searchDT(string itemname, int catid)
+        {
+            try
+            {
+                IAdmin searchitemname = new AdminItems();
+                DataTable searchitemDT = searchitemname.SearchItems(itemname, catid);
+                if (searchitemDT != null)
+                {
+                    itemGrid.DataSource = searchitemDT;
+                    itemGrid.DataBind();
+                    grpMsgLbl.Text = "";
+                }
+                else
+                {
+                    grpMsgLbl.Text = "No Items Found, Enter Existing Item Name";
+                    itemGrid.DataSource = null;
+                    itemGrid.DataBind();
+                }
+            }
+            catch (Exception iExp)
+            {
+                grpMsgLbl.Text = "Error Occured: " + iExp.Message;
+            }
+        }
+
+        protected void btn_search_Click(object sender, EventArgs e)
+        {
+            string itemname = txt_itemname.Text;
+            int grpCatId = Int32.Parse(grpCatDDL.SelectedValue.ToString());
+            if (itemname != "Enter Item Name/Id")
+            {
+                searchDT(itemname, grpCatId);
+            }
+            else
+            {
+                getItems(grpCatId);
+                grpMsgLbl.Text = "Please Enter Item Name/Id to search";
+            }
+        }
+
+        protected void itemGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            itemGrid.PageIndex = e.NewPageIndex;
+            int grpCatId = Int32.Parse(grpCatDDL.SelectedValue.ToString());
+            if (txt_itemname.Text == "Enter Item Name/Id")
+            {
+                getItems(grpCatId);
+            }
+            else
+            {
+                searchDT(txt_itemname.Text, grpCatId);
+            }
+        }
 
 
     }

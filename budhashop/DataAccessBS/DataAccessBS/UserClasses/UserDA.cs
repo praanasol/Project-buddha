@@ -40,15 +40,14 @@ namespace DataAccessBS.UserClasses
 
         #region IUserDA Members Check UserName or EmailId Availability
 
-        public DataTable checkavailability(BusinessEntitiesBS.UserEntities.userobj checkuserDA)
+        public DataTable checkavailability(string checkvalue)
         {            
                 try
                 {
-                    SqlParameter[] sqlParams = new SqlParameter[2];
+                    SqlParameter[] sqlParams = new SqlParameter[1];
 
                     //User parameters
-                    sqlParams[0] = new SqlParameter("@uname", checkuserDA.uname);
-                    sqlParams[1] = new SqlParameter("@emailid", checkuserDA.emailid);
+                    sqlParams[0] = new SqlParameter("@uname", checkvalue);
                     DataTable checkuserDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_USER", sqlParams).Tables[0];
 
                     if (checkuserDT.Rows.Count > 0)

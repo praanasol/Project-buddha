@@ -47,17 +47,13 @@ namespace budhashop.USER
             //check whether the entered captcha text is matched or not
             if (this.txt_captcha.Text == this.Session["CaptchaImageText"].ToString())
             {
-                string uname = "";
-                string emailid = txt_femailid.Text;
-                BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-                checkuserObj.uname = uname;
-                checkuserObj.emailid = emailid;
+                string emailid = txt_femailid.Text;                
                 try
                 {
                     IUser checkuser = new UserItems();
 
                     //returns table if given email id exists
-                    dt = checkuser.checkavailability(checkuserObj);
+                    dt = checkuser.checkavailability(emailid);
                     if (dt == null)
                     {
                         lbl_femailid.Text = "Email Id Do not Exist in our Database";

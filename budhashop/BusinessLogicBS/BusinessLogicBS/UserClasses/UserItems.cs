@@ -22,12 +22,12 @@ namespace BusinessLogicBS.UserClasses
 
         #region IUser Members Check UserName or Email Availability
 
-        public DataTable checkavailability(BusinessEntitiesBS.UserEntities.userobj checkuserObj)
+        public DataTable checkavailability(string checkvalue)
         {
             try
             {
                 IUserDA checkuser = new DataAccessBS.UserClasses.UserDA();
-                return checkuser.checkavailability(checkuserObj);
+                return checkuser.checkavailability(checkvalue);
             }
             catch
             {

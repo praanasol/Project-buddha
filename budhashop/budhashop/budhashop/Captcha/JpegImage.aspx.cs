@@ -16,8 +16,8 @@ namespace budhashop.Captcha
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{
-			// Create a CAPTCHA image using the text stored in the Session object.
-			CaptchaImage ci = new CaptchaImage(this.Session["CaptchaImageText"].ToString(), 181, 40, "Century Schoolbook Bold");
+			// Create a CAPTCHA image using the text stored in the Qqery String.
+            CaptchaImage ci = new CaptchaImage(this.Session["CaptchaImageText"].ToString(), 181, 40, "Century Schoolbook Bold");
 
 			// Change the response headers to output a JPEG image.
 			this.Response.Clear();

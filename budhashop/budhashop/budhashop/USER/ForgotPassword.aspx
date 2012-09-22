@@ -82,7 +82,7 @@
                         ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
                 <td class="style4">
-                    <asp:Image ID="Image1" runat="server" Height="40px" 
+                    <asp:Image ID="img_captcha" runat="server" Height="40px" 
                         ImageUrl="~/Captcha/JpegImage.aspx" Width="181px" />
                     <br />
                     <asp:TextBox ID="txt_captcha" runat="server" Width="181px"></asp:TextBox>

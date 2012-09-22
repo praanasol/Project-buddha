@@ -88,7 +88,6 @@
         </style>
 <body style="background-color: #CCCCFF" />
 <div style="width: 40%; float:left"></div>
-<div style="width: 60%; float:right"></div>
     <br />
 <table class="style5">
     <tr>
@@ -164,7 +163,8 @@
         <td class="style33">
             &nbsp;</td>
         <td class="style19">
-            Email&nbsp; ID</td>
+            E<div style="width: 60%; float:right"></div>
+            mail&nbsp; ID</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                 ControlToValidate="txt_emailid" ErrorMessage="*" SetFocusOnError="True" 
@@ -179,7 +179,7 @@
                 Text="Check Availability" ValidationGroup="2" Width="115px" />
             <asp:Label ID="lbl_checkemail" runat="server" ForeColor="Red"></asp:Label>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                ControlToValidate="txt_emailid" ErrorMessage="Enter Valid Email ID" 
+                ControlToValidate="txt_emailid" ErrorMessage="Invalid Email Id Format" 
                 SetFocusOnError="True" 
                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
                 ValidationGroup="2"></asp:RegularExpressionValidator>

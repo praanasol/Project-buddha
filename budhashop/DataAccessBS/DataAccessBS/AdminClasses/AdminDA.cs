@@ -175,6 +175,13 @@ namespace DataAccessBS.AdminClasses
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_GROUP", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
 
+                string imgPath = "/GroupImages/" + returnedId + "/" + returnedId + "small.jpg";
+
+                SqlParameter[] imgSqlParams = new SqlParameter[2];
+                imgSqlParams[0] = new SqlParameter("@grpID", returnedId);
+                imgSqlParams[1] = new SqlParameter("@grpImagePath", imgPath);
+
+                int retImgPth = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_GROUP_IMAGEPATH", imgSqlParams);
                 
 
                 SqlParameter[] grpSqlParams = new SqlParameter[3];
@@ -184,7 +191,7 @@ namespace DataAccessBS.AdminClasses
 
                 int retItemGrp = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "ParseArray", grpSqlParams);
 
-                if (idDt.Rows.Count > 0 && retItemGrp == -1)
+                if (idDt.Rows.Count > 0 && retImgPth>0 && retItemGrp == -1)
                 {
                     return returnedId;
                 }
@@ -245,12 +252,13 @@ namespace DataAccessBS.AdminClasses
         #region IAdminDA Members SearchItemsDA
 
 
-        public DataTable SearchItemsDA(string itemname)
+        public DataTable SearchItemsDA(string itemname,int catid)
         {
             try
             {
-                SqlParameter[] searchParams = new SqlParameter[1];
+                SqlParameter[] searchParams = new SqlParameter[2];
                 searchParams[0] = new SqlParameter("@ItemName", itemname);
+                searchParams[1] = new SqlParameter("@CatagoryId", catid);
 
                 DataTable searchitemDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_SEARCH_ITEMS", searchParams).Tables[0];
 
@@ -290,6 +298,74 @@ namespace DataAccessBS.AdminClasses
                 else
                 {
                     return 1;
+                }
+            }
+            catch (SqlException exc)
+            {
+                return -1;
+                throw exc;
+            }
+        }
+
+        #endregion
+
+        #region IAdminDA Members SearchItemsDA
+
+
+        public DataTable SearchUsersDA(string uname)
+        {
+            try
+            {
+                SqlParameter[] searchParams = new SqlParameter[1];
+                searchParams[0] = new SqlParameter("@UserName", uname);
+
+                DataTable searchuserDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_SEARCH_USERS", searchParams).Tables[0];
+
+                if (searchuserDT.Rows.Count > 0)
+                {
+                    return searchuserDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region IAdminDA Members UpdateItemDA
+
+
+        public int UpdateUserDA(BusinessEntitiesBS.UserEntities.userobj updateuserObjDa, int userid)
+        {
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[7];
+
+                //Catgory parameters
+                sqlParams[0] = new SqlParameter("@uid", userid);
+                sqlParams[1] = new SqlParameter("@username", updateuserObjDa.uname);
+                sqlParams[2] = new SqlParameter("@pwd", updateuserObjDa.pwd);
+                sqlParams[3] = new SqlParameter("@email", updateuserObjDa.emailid);
+                sqlParams[4] = new SqlParameter("@phone", updateuserObjDa.phno);
+                sqlParams[5] = new SqlParameter("@address", updateuserObjDa.address);
+                sqlParams[6] = new SqlParameter("@actvsts", updateuserObjDa.userstatus);
+
+                int updated = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_UPDATE_USERS", sqlParams);
+
+                if (updated > 0)
+                {
+                    return updated;
+                }
+                else
+                {
+                    return -1;
                 }
             }
             catch (SqlException exc)

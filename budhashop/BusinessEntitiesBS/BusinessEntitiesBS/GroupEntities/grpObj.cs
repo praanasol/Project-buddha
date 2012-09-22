@@ -14,6 +14,8 @@ namespace BusinessEntitiesBS.GroupEntities
 
         public bool grpStatus { get; set; }
 
+        public string grpImagePath { get; set; }
+
         public float grpBR { get; set; }
 
         public float grpNR { get; set; }

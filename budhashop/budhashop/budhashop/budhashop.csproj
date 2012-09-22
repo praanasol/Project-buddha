@@ -56,12 +56,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADMIN\EditItem.aspx.cs">
-      <DependentUpon>EditItem.aspx</DependentUpon>
+    <Compile Include="ADMIN\EditItems.aspx.cs">
+      <DependentUpon>EditItems.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\EditItem.aspx.designer.cs">
-      <DependentUpon>EditItem.aspx</DependentUpon>
+    <Compile Include="ADMIN\EditItems.aspx.designer.cs">
+      <DependentUpon>EditItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\EditUsers.aspx.cs">
+      <DependentUpon>EditUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\EditUsers.aspx.designer.cs">
+      <DependentUpon>EditUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="ADMIN\InsertPage.aspx.cs">
       <DependentUpon>InsertPage.aspx</DependentUpon>
@@ -102,6 +109,13 @@
     <Compile Include="Services\Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\login.ascx.cs">
+      <DependentUpon>login.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\login.ascx.designer.cs">
+      <DependentUpon>login.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainCartControl.ascx.cs">
       <DependentUpon>MainCartControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,6 +136,13 @@
     </Compile>
     <Compile Include="USER\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="USER\EditDetails.aspx.cs">
+      <DependentUpon>EditDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\EditDetails.aspx.designer.cs">
+      <DependentUpon>EditDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="USER\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -149,7 +170,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ADMIN\EditItem.aspx" />
+    <Content Include="ADMIN\EditItems.aspx" />
+    <Content Include="ADMIN\EditUsers.aspx" />
     <Content Include="ADMIN\InsertPage.aspx" />
     <Content Include="bin\budhashop.dll" />
     <Content Include="bin\budhashop.pdb" />
@@ -245,9 +267,11 @@
     <Content Include="Styles\jquery.jscrollpane.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\menus.css" />
+    <Content Include="UserControls\login.ascx" />
     <Content Include="UserControls\MainCartControl.ascx" />
     <Content Include="UserControls\Userregistrations.ascx" />
     <Content Include="USER\ChangePassword.aspx" />
+    <Content Include="USER\EditDetails.aspx" />
     <Content Include="USER\ForgotPassword.aspx" />
     <Content Include="USER\Login_Register.aspx" />
   </ItemGroup>
@@ -285,7 +309,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50267</DevelopmentServerPort>
+          <DevelopmentServerPort>2050</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

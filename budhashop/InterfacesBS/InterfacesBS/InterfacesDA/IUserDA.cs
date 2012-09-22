@@ -10,7 +10,7 @@ namespace InterfacesBS.InterfacesDA
     public interface IUserDA
     {
         void insertUserDA(userobj userObjDa);
-        DataTable checkavailability(userobj checkuserDa);//to check username and email availability
+        DataTable checkavailability(string checkvalue);//to check username and email availability
         DataTable checklogin(userobj checkloginDa);
         bool UpdatePassword(string emailid, string newpwd);
     }

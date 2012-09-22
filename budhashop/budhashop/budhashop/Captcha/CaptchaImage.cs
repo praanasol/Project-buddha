@@ -162,8 +162,10 @@ namespace budhashop.Captcha
 			Rectangle rect = new Rectangle(0, 0, this.width, this.height);
 
 			// Fill in the background.
-			HatchBrush hatchBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.LightGray, Color.White);
-			g.FillRectangle(hatchBrush, rect);
+                    SolidBrush whiteBrush = new SolidBrush(Color.LightBlue);
+                    g.FillRectangle(whiteBrush, rect);
+                    //HatchBrush hatchBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.LightGray, Color.White);
+			        //g.FillRectangle(hatchBrush, rect);
 
 			// Set up the text font.
 			SizeF size;
@@ -173,7 +175,7 @@ namespace budhashop.Captcha
 			do
 			{
 				fontSize--;
-				font = new Font(this.familyName, fontSize, FontStyle.Bold);
+				font = new Font(this.familyName, fontSize, FontStyle.Regular);
 				size = g.MeasureString(this.text, font);
 			} while (size.Width > rect.Width);
 
@@ -198,8 +200,10 @@ namespace budhashop.Captcha
 			path.Warp(points, rect, matrix, WarpMode.Perspective, 0F);
 
 			// Draw the text.
-			hatchBrush = new HatchBrush(HatchStyle.LargeConfetti, Color.Red, Color.DarkGray);
-			g.FillPath(hatchBrush, path);
+                        whiteBrush = new SolidBrush(Color.Maroon);
+                        g.FillPath(whiteBrush, path);
+                        //hatchBrush = new HatchBrush(HatchStyle.LargeConfetti, Color.Red, Color.DarkGray);
+                        //g.FillPath(hatchBrush, path);
 
 			// Add some random noise.
 			int m = Math.Max(rect.Width, rect.Height);
@@ -208,13 +212,13 @@ namespace budhashop.Captcha
 				int x = this.random.Next(rect.Width);
 				int y = this.random.Next(rect.Height);
 				int w = this.random.Next(m / 40);
-				int h = this.random.Next(m / 30);
-				g.FillEllipse(hatchBrush, x, y, w, h);
+				int h = this.random.Next(m / 40);
+				        g.FillEllipse(whiteBrush, x, y, w, h);
 			}
 
 			// Clean up.
 			font.Dispose();
-			hatchBrush.Dispose();
+                    whiteBrush.Dispose();
 			g.Dispose();
 
 			// Set the image.

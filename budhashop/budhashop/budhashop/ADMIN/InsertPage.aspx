@@ -7,7 +7,7 @@
     <title>Untitled Page</title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" enctype="multipart/form-data">
     <div>
     <!-- Catagory part -->
         <asp:Label ID="CatagoryLbl" runat="server" Text="Add Catogory"></asp:Label>
@@ -27,6 +27,7 @@
             ValidationGroup="catVG" runat="server" onclick="CatagoryBtn_Click" />
     
     </div>
+    <p></p>
     <p></p>
     
     <div>
@@ -54,7 +55,7 @@
            
             ControlToValidate="itemImageFU" ValidationGroup="itemVG">Upload only images</asp:RegularExpressionValidator>
              <asp:RequiredFieldValidator ID="imageRFV" ControlToValidate="itemImageFU" ValidationGroup="itemVG" runat="server" >Select image.</asp:RequiredFieldValidator>
-         <%--"[a-zA-Z0_9].*\b(.jpeg|.JPEG|.jpg|.JPG|.jpeg|.jpe|.JPE|.png|.PNG|.gif|.GIF)\b"--%>
+            <%--onselectedindexchanged="CatagoryDDL_SelectedIndexChanged">--%>
             <p></p>
             <div>
             <asp:Label ID="qtyLbl" runat="server" Text="Quantity"></asp:Label>
@@ -77,7 +78,8 @@
         <asp:Label ID="ItemMessageLbl" runat="server" />
         </div>
     </div>
-    
+    <p></p>
+    <p></p>
      <!-- Groups part -->
      <div>
      <asp:Label ID="grpLbl" runat="server" Text="Add Groups"></asp:Label>
@@ -85,29 +87,40 @@
      <asp:Label ID="grpNameLbl" runat="server" Text="Name"></asp:Label>
      <asp:TextBox ID="grpNameTxt" runat="server"></asp:TextBox>
     
-     <p></p>
-     <div>
+        <asp:RequiredFieldValidator ID="grpNmeRFV" ControlToValidate="grpNameTxt" 
+             ValidationGroup="grpVG" runat="server" >Enter name.</asp:RequiredFieldValidator>
+        
       <asp:Label ID="grpDesclbl" runat="server" Text="Description"></asp:Label>
        <asp:TextBox ID="grpDescTxt" runat="server"></asp:TextBox>
-       <asp:Label ID="grpBrLbl" runat="server" Text="Billed Rate"></asp:Label>
-            <asp:TextBox ID="grpBrTxt" runat="server"></asp:TextBox>
-            <asp:Label ID="grpNrLbl" runat="server" Text="Net Rate"></asp:Label>
-            <asp:TextBox ID="grpNrTxt" runat="server"></asp:TextBox>
-            <asp:Label ID="grpChkLbl" runat="server" Text="Active Status"></asp:Label>
-            <asp:CheckBox ID="grpCb" runat="server" />
-            <asp:Label ID="grpStatusLbl" runat="server" Text="Fixed Group Status"></asp:Label>
-            <asp:CheckBox ID="grpStatusCb" runat="server" />
-            
-      </div>
-       <p></p>
+         <asp:RequiredFieldValidator ID="grpDescRFV" ControlToValidate="grpDescTxt" 
+             ValidationGroup="grpVG" runat="server" >Enter Description.</asp:RequiredFieldValidator>
+        
+           <asp:Label ID="grpImageLbl" runat="server" Text="Add Image"></asp:Label>
+            <asp:FileUpload ID="grpImageFU" runat="server"/>
+            <asp:RegularExpressionValidator id="grpimageREV" runat="server" ErrorMessage="upload Only images" 
+            ValidationExpression="^.+(.jpg|.JPG|.gif|.GIF|.jpeg|.JPEG|.png|.PNG|.bmp|.BMP)$"
+           
+            ControlToValidate="grpImageFU" ValidationGroup="grpVG">Upload only images</asp:RegularExpressionValidator>
+             <asp:RequiredFieldValidator ID="grpimageRFV" ControlToValidate="grpImageFU" 
+             ValidationGroup="grpVG" runat="server" >Select image.</asp:RequiredFieldValidator>
+         <br />
+         <br />
       <asp:Label ID="grpCatLbl" runat="server" Text="Catagory"></asp:Label>
         <asp:DropDownList ID="grpCatDDL" runat="server" AutoPostBack = "true"  
              onselectedindexchanged="grpCatDDL_SelectedIndexChanged"> </asp:DropDownList>
      <div>
       <asp:Label ID="grpItemsIbl" runat="server" Text="Add Items to group from grid"></asp:Label>
       <!-- Items datagrid to add items selecting all at a time -->
-         <asp:GridView ID="itemGrid" DataKeyNames="ItemID" runat="server"> <%--AllowPaging="true" PageSize ="3" 
-              OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txt_itemname" Text="Enter Item Name/Id"
+                                        onfocus="if(this.value=='Enter Item Name/Id')this.value='';"
+                                        onblur="if(this.value=='')this.value='Enter Item Name/Id';"
+                                        runat="server" Width="168px"></asp:TextBox>
+        <asp:Button ID="btn_search" runat="server" Text="Search" 
+            onclick="btn_search_Click" />        
+         <asp:GridView ID="itemGrid" DataKeyNames="ItemID" runat="server" 
+             AutoGenerateColumns="False" AllowPaging="True" PageSize="5" OnPageIndexChanging= "itemGrid_PageIndexChanging">
+             <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                 
          <Columns>
                  <asp:TemplateField HeaderText="Select">
@@ -118,17 +131,57 @@
            
            </asp:TemplateField>
                  
+                 <asp:TemplateField HeaderText="Item Id">
+                     <ItemTemplate>
+                         <asp:Label ID="lbl_itemId" runat="server" Text='<%# Eval("ItemID") %>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Item Name">
+                     <ItemTemplate>
+                         <asp:Label ID="lbl_itemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Quantity">
+                     <ItemTemplate>
+                         <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Billed Rate">
+                     <ItemTemplate>
+                         <asp:Label ID="lbl_itemBR" runat="server" Text='<%# Eval("BilledRate") %>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Net Rate">
+                     <ItemTemplate>
+                         <asp:Label ID="lbl_itemNR" runat="server" Text='<%# Eval("NetRate") %>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+                 
              </Columns>
          </asp:GridView>
      </div>
-          <br />
+    
+     <p></p>
+     <div>
+            <asp:Label ID="grpDiscountLbl" runat="server" Text="Discount"></asp:Label>
+            <asp:TextBox ID="grpDiscountTxt" runat="server"></asp:TextBox>
+            <asp:Label ID="grpChkLbl" runat="server" Text="Active Status"></asp:Label>
+            <asp:CheckBox ID="grpCb" runat="server" />
+            <asp:Label ID="grpStatusLbl" runat="server" Text="Fixed Group Status"></asp:Label>
+            <asp:CheckBox ID="grpStatusCb" runat="server" />
+            
           <asp:Label ID="grpQtyLbl" runat="server" Text="Quantity"></asp:Label>
             <asp:TextBox ID="grpQtyTxt" runat="server"></asp:TextBox>
-            <br />
+             <asp:RequiredFieldValidator ID="grpQtyRFV" ControlToValidate="grpQtyTxt" 
+             ValidationGroup="grpVG" runat="server" >Enter Quantity.</asp:RequiredFieldValidator>
+        
+      </div>
+       <p></p>
              <asp:Button ID="grpSubmitBtn" runat="server" Text="Add Group" 
-             onclick="grpSubmitBtn_Click" />
+             onclick="grpSubmitBtn_Click" ValidationGroup="grpVG" />
             
-            <asp:Label ID="grpMsgLbl" runat="server" Text=""></asp:Label>  
+            <asp:Label ID="grpMsgLbl" runat="server" ForeColor="Red" 
+             style="font-weight: 700"></asp:Label>  
      </div>
     </form>
 </body>

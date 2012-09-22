@@ -11,7 +11,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-using System.Drawing;
 using InterfacesBS.InterfacesBL;
 using BusinessLogicBS;
 using BusinessLogicBS.UserClasses;
@@ -33,17 +32,13 @@ namespace budhashop.UserControls
 
         protected void btn_chkuser_Click(object sender, EventArgs e)
         {            
-            string uname = txt_username.Text;
-            string emailid = "123";
-            BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-            checkuserObj.uname = uname;
-            checkuserObj.emailid = emailid;            
+            string uname = txt_username.Text;          
             try
             {
                 IUser checkuser = new UserItems();
 
                 //returns the table if given username exists
-                dt = checkuser.checkavailability(checkuserObj);
+                dt = checkuser.checkavailability(uname);
                 if (dt == null)
                 {
                     lbl_checkuser.Text = "Available";
@@ -63,17 +58,13 @@ namespace budhashop.UserControls
 
         protected void btn_chkemail_Click(object sender, EventArgs e)
         {
-            string uname = "123";
-            string emailid = txt_emailid.Text;
-            BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-            checkuserObj.uname = uname;
-            checkuserObj.emailid = emailid;
+            string emailid = txt_emailid.Text;            
             try
             {
                 IUser checkuser = new UserItems();
 
                 //returns the table if given emailid exists
-                dt = checkuser.checkavailability(checkuserObj);
+                dt = checkuser.checkavailability(emailid);
                 if (dt == null)
                 {
                     lbl_checkemail.Text = "Available";
@@ -87,7 +78,7 @@ namespace budhashop.UserControls
             }
             catch (Exception ex)
             {
-                lbl_register.Text = "Error Occured (might be a problem with your internet connection): " + ex.Message;
+                lbl_register.Text = "Error Occured : " + ex.Message;
             }
         }
 

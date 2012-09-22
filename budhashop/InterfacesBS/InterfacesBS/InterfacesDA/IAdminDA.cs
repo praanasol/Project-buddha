@@ -6,6 +6,7 @@ using System.Data;
 using BusinessEntitiesBS.Catagory_Entities;
 using BusinessEntitiesBS.ItemEntities;
 using BusinessEntitiesBS.GroupEntities;
+using BusinessEntitiesBS.UserEntities;
 
 namespace InterfacesBS.InterfacesDA
 {
@@ -16,9 +17,12 @@ namespace InterfacesBS.InterfacesDA
         int insertItemDA(ItemObj itemObjDa);
         DataTable getItemValues(int grpCatId);
         int insertGrpDA(grpObj grpObjDa);
+        
         int UpdateItemDA(ItemObj updateitemObjDa, int itemid);
-        DataTable SearchItemsDA(string itemname);
+        DataTable SearchItemsDA(string itemname,int catid);
         int removeItemDA(int itemid);
 
+        DataTable SearchUsersDA(string uname);
+        int UpdateUserDA(userobj updateuserObjDa, int userid);
     }
 }

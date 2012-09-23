@@ -94,7 +94,7 @@ namespace budhashop.ADMIN
             {
                 lbl_status.Text = "Updated Successfully";
                 userGrid.EditIndex = -1;
-                searchDT(username);
+                searchDT(txt_username.Text);
             }
             else
             {

@@ -74,6 +74,33 @@ namespace budhashop.Services
             return details.ToArray();
         }
 
+        [WebMethod]
+        public static ItemDetails[] BindItemsData(string CatgId)
+        {
+            DataTable dt = new DataTable();
+            List<ItemDetails> details = new List<ItemDetails>();
+            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            DataSet allDataDS = allData.getAllItems();
+            dt = allDataDS.Tables[0];
+
+            foreach (DataRow dtrow in dt.Rows)
+            {
+                
+                int category = int.Parse(dtrow["CategoryId"].ToString());
+                if (category == int.Parse(CatgId))
+                {
+                    ItemDetails user = new ItemDetails();
+                    user.ItemId = dtrow["ItemId"].ToString();
+                    user.ItemName = dtrow["ImagePath"].ToString();
+                    user.ItemPrice = dtrow["BilledRate"].ToString();
+                    details.Add(user);
+                }
+            }
+
+            return details.ToArray();
+        }
+
+
         [WebMethod(EnableSession = true)]
         //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static bool SetSessionValue(string Name, string ID, int Type)
@@ -88,32 +115,40 @@ namespace budhashop.Services
                 {
                     cartItems = (List<CartItems>)HttpContext.Current.Session[Name];
                     CartItems newItem = new CartItems();
-                    newItem.ItemId = int.Parse(ID);
-                   
-                    if (Type == 1)
+                    bool hasItem = cartItems.Any(c => c.ItemId == int.Parse(ID));
+                    if (!hasItem)
                     {
-                        newItem.CatId = 3;
-                        newItem.GrpChk = true;
-                    }
-                    else
-                    {
-                        if (Type == 2)
+                        newItem.ItemId = int.Parse(ID);
+
+                        if (Type == 1)
                         {
                             newItem.CatId = 3;
+                            newItem.GrpChk = true;
                         }
                         else
                         {
-                            newItem.CatId = 5;
+                            if (Type == 2)
+                            {
+                                newItem.CatId = 3;
+                            }
+                            else
+                            {
+                                newItem.CatId = 5;
+                            }
+                            newItem.GrpChk = false;
                         }
-                        newItem.GrpChk = false;
+                        newItem.Qty = 1;
+                        cartItems.Add(newItem);
+
+
+                        HttpContext.Current.Session[Name] = cartItems;
+
+                        return true;
                     }
-                    newItem.Qty = 1;
-                    cartItems.Add(newItem);
-
-
-                    HttpContext.Current.Session[Name] = cartItems;
-
-                    return true;
+                    else
+                    {
+                        return false;
+                    }
                 }
                 catch
                 {

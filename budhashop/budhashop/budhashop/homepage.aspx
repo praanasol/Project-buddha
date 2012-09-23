@@ -9,7 +9,7 @@
 
 </script>
  <%--Call for json to update in cart--%>
-<script type="text/javascript" src="script/CartJSONCall.js"></script>
+<%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
 <article style="height:200px;"></article>
   <br clear="all" />
 <section id="item_area" class="box_style">
@@ -27,7 +27,7 @@
 
         </div>
         <div id="but" class="but3_style">
-                <div id="but_link"><a href="#" target="_self" class="but3">Featured</a></div>
+                <div id="but_link"><a href="itemspage.aspx" target="_self" class="but3">All Items</a></div>
 
         </div>
         </div>

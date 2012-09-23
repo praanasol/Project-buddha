@@ -10,7 +10,13 @@
             success: function(data1){
                         
                        if( eval(data1.d))
+                       {
                      alert( "Item Added to cart. ");
+                     }
+                     else{
+                     alert( "Item already in cart. ");
+                     }
+                     
                     
                    },
                    error: function(result) {

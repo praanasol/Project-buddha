@@ -222,11 +222,11 @@ header{
 	margin-top:5px;
 	margin-left:3px;
 	padding-top:5px;
-	width:975px;
+	width:985px;
 	height:258px;
 }
 #category_box{
-	margin:0px 0px 10px 10px;
+	margin:0px 0px 0px 10px;
 	padding:0px;
 	width:232px;
 	height:235px;
@@ -274,6 +274,122 @@ header{
 	padding:0px;
 	width:50px;
 	height:32px;
+}
+/*InnerPage Layout Start*/
+#middlebody{
+	margin:0px;
+	padding:0px;
+	width:1000px;
+	height:900px;
+}
+#inner_item_area{
+	margin-top:0px;
+	margin-left:0px;
+	padding-top:55px;
+	width:790px;
+	height:780px;
+	
+}
+#left_col{
+	margin-left:5px;
+	padding:0px;
+	width:169px;
+	height:835px;
+	float:left;
+	border-radius:5px;
+}
+#right_col{
+	margin-left:8px;
+	padding:0px;
+	width:790px;
+	height:835px;
+	float:left;
+	border-radius:5px;
+}
+#inner_box_content{
+	margin:0px;
+	margin-left:3px;
+	padding-top:5px;
+	padding-left:25px;
+	width:735px;
+	height:258px;
+
+}
+
+#inner_category_box{
+	margin:0px 0px 20px 10px;
+	padding:0px;
+	width:232px;
+	height:235px;
+	float:left;
+	border-radius:5px;
+}
+#scroll_buttons{
+	margin-top:350px;
+	padding:0px;
+	width:790px;
+	height:70px;
+	position:absolute;
+}
+a.scroll_arrow_l:link, a.scroll_arrow_l:visited{
+	margin:0px;
+	padding:0px;
+	width:50px;
+	height:50px;
+    float:left;
+	background:url(../images/left_arrow.png) left center no-repeat;
+}
+a.scroll_arrow_l:hover, a.scroll_arrow_l:active{
+	margin:0px;
+	padding:0px;
+	width:50px;
+	height:50px;
+	background:url(../images/left_arrow_hover.png) left top no-repeat;
+}
+a.scroll_arrow_r:link, a.scroll_arrow_r:visited{
+	margin:0px;
+	padding:0px;
+	width:50px;
+	height:50px;
+    float:right;
+	background:url(../images/right_arrow.png) left center no-repeat;
+}
+a.scroll_arrow_r:hover, a.scroll_arrow_r:active{
+	margin:0px;
+	padding:0px;
+	width:50px;
+	height:50px;
+	background:url(../images/right_arrow_hover.png) left top no-repeat;
+}
+#sort{
+	margin:10px 0px 0px 0px;
+	padding:0px;
+	width:790px;
+	height:50px;
+	border-radius:5px;
+	background:#a2a835;
+}
+#sort_items{
+	margin:0px 0px 0px 2px;
+	padding-top:12px;
+	width:790px;
+	height:30px;
+}
+#sort_items a:link, #sort_items a:visited{
+	margin:0px 7px;
+	padding:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:19px;
+	color:#364700;
+	font-weight:bold;
+	text-decoration:none;
+}
+#sort_items a:hover, #sort_items a:active{
+	margin:0px 7px;
+	padding:0px;
+	color:#f39112;
+	font-weight:bold;
+	text-decoration:none;
 }
 footer{
 	margin:0px;

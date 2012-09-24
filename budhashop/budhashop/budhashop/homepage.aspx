@@ -27,7 +27,7 @@
 
         </div>
         <div id="but" class="but3_style">
-                <div id="but_link"><a href="itemspage.aspx?catid=3" target="_self" class="but3">All Items</a></div>
+                <div id="but_link"><a href="itemspage.aspx?catid=3&page=1" target="_self" class="but3">All Items</a></div>
 
         </div>
         </div>

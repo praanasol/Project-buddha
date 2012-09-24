@@ -291,8 +291,13 @@
     <Content Include="script\html5shiv\test\style.print.css" />
     <Content Include="script\html5shiv\test\unit\tests.js" />
     <Content Include="script\imgdata.js" />
+    <Content Include="script\jquery.carousel.js" />
     <Content Include="script\js.js" />
     <Content Include="script\json2.js" />
+    <Content Include="script\paging\jquery-1.6.1.min.js" />
+    <Content Include="script\paging\jquery.easing.1.3.js" />
+    <Content Include="script\paging\jquery.gridnav.js" />
+    <Content Include="script\paging\jquery.mousewheel.js" />
     <Content Include="script\scroll\homePageLoad.js" />
     <Content Include="script\scroll\jquery.jscrollpane.min.js" />
     <Content Include="script\scroll\jquery.mousewheel.js" />

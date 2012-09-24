@@ -10,23 +10,57 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
+var search1 = function() {
+  var s = window.location.search.substr(1),
+    p = s.split(/\&/), l = p.length, kv, r = {};
+  if (l === 0) {return false;}
+  while (l--) {
+    kv = p[l].split(/\=/);
+    r[kv[0]] = decodeURIComponent(kv[1] || '') || true;
+  }
+  return r;
+}();
+var catID = search1.catid;
+if(catID == 1){
+
 $.ajax({
 type: "POST",
 contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/BindItemsData",
-data: "{'CatgId':'3'}",
+url: "Services/Services.aspx/BindGrptable",
+data: "{}",
 dataType: "json",
 success: function(data) {
 for (var i = 0; i < data.d.length; i++) {
 
 
- $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="'+data.d[i].ItemName+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+',2);">ADD</a></div></div></div> </div></div> </aside>');
+ $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="/ItemImages/3/4/4small.jpg" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div> </div></div> </aside>');
 }
 },
 error: function(result) {
 alert("Error");
 }
 });
+
+}
+else{
+$.ajax({
+type: "POST",
+contentType: "application/json; charset=utf-8",
+url: "Services/Services.aspx/BindItemsData",
+data: "{'CatgId':'"+ catID +"'}",
+dataType: "json",
+success: function(data) {
+for (var i = 0; i < data.d.length; i++) {
+
+
+ $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="'+data.d[i].ItemName+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div> </div></div> </aside>');
+}
+},
+error: function(result) {
+alert("Error");
+}
+});
+}
 });
 
 </script>
@@ -63,6 +97,7 @@ alert("Error");
             </div>
           </aside>
           <!--Category Item part End--> --%>
+          
           </div>
         </div>
         <!--Gallery End--> 

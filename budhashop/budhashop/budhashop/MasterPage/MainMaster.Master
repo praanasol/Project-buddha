@@ -37,7 +37,7 @@
     <div id="wraper">
     
   <header>
-    <aside id="logo"><a href="index.html" target="_self"><img src="../images/logo.gif" width="148" height="226" alt="Budda" title="Budda"></a></aside>
+    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="148" height="226" alt="Budda" title="Budda"></a></aside>
     <aside id="space"></aside>
     
     <!--Header right side area - Start-->
@@ -78,10 +78,10 @@
     	<aside id="navigation">
         	<nav id="nav">
             	<ul>
-                	<li><a href="#" target="_self">Devotions</a></li>
-                    <li><a href="#" target="_self">Devotions</a></li>
-                    <li><a href="#" target="_self">Devotions</a></li>
-                    <li><a href="#" target="_self">Devotions</a></li>
+                	<li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
+                    <li><a href="../itemspage.aspx?catid=3" target="_self">Devotional</a></li>
+                    <li><a href="../itemspage.aspx?catid=5" target="_self">Traditional</a></li>
+                    <li><a href="#" target="_self">Trendy Stuff</a></li>
                 </ul>
             </nav>
         </aside>

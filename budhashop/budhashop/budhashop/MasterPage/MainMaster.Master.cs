@@ -23,14 +23,19 @@ namespace budhashop.MasterPage
             {
                 if (Session["CartPicks"] == null)
                 {
-                    //List<CartItems> cartItems = List < CartItems > Session["CartPicks"];
-                    List<CartItems> cartItems = new List<CartItems>();
-                    //cartItems = List<CartItems> Session["CartPicks"];
-                    // Write the modified stock picks list back to session state.
-                    Session["CartPicks"] = cartItems;
+                    createSession();
                 }
                 
             }
+        }
+
+        private void createSession()
+        {
+            //List<CartItems> cartItems = List < CartItems > Session["CartPicks"];
+            List<CartItems> cartItems = new List<CartItems>();
+            //cartItems = List<CartItems> Session["CartPicks"];
+            // Write the modified stock picks list back to session state.
+            Session["CartPicks"] = cartItems;
         }
     }
 }

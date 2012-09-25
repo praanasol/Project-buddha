@@ -17,7 +17,12 @@
 $(document).ready(function() {
 var catID = 3;
 var pageNo = 1;
+var prev = 0;
+var nxt = 0;
+var end = 1;
+
 $('#pj_prev').css("display","none");
+
 var search1 = function() {
   var s = window.location.search.substr(1),
     p = s.split(/\&/), l = p.length, kv, r = {};
@@ -37,13 +42,11 @@ if(search1.page != null)
 pageNo = search1.page;
 if(pageNo>1){
 $('#pj_prev').css("display","inherit");
-var prev = parseInt(pageNo)-1;
+prev = parseInt(pageNo)-1;
 $('#pj_prev').attr("href", "itemspage.aspx?catid="+catID+"&page="+prev+"");
 }
 
-var nxt = parseInt(pageNo)+1 ;
 
-$('#pj_next').attr("href", "itemspage.aspx?catid="+catID+"&page="+nxt+"");
 }
 if(catID == 1){
 
@@ -74,10 +77,45 @@ url: "Services/Services.aspx/BindItemsData",
 data: "{'CatgId':'"+ catID +"'}",
 dataType: "json",
 success: function(data) {
+
 $("#sort_items").append('<a href="itemspage.aspx?catid='+catID+'&page=1" target="_self">1</a>');
+for (var i = 0; i < data.d.length; i++) {
+var incPage = 1;
+
+
+if(i/9 == incPage)
+{
+incPage++
+$("#sort_items").append('<a href="itemspage.aspx?catid='+catID+'&page='+incPage+'" target="_self">'+incPage+'</a>'); 
+end = incPage;
+}
+
+}
+
+if(pageNo>end)
+{
+LoadItems(1)
+$('#pj_prev').css("display","none");
+$('#pj_next').css("display","inherit");
+$('#pj_next').attr("href", "itemspage.aspx?catid="+catID+"&page=2");
+}
+else{
+LoadItems(pageNo)
+if(end != pageNo){
+nxt = parseInt(pageNo)+1 ;
+
+$('#pj_next').attr("href", "itemspage.aspx?catid="+catID+"&page="+nxt+"");
+}
+else{
+$('#pj_next').css("display","none");
+}
+}
+function LoadItems(pgno)
+{
+
  var start = 0;
- var limit = pageNo*9;
- if(pageNo != 1){
+ var limit = pgno*9;
+ if(pgno != 1){
     start = limit-9;
  }
  
@@ -89,18 +127,9 @@ $("#sort_items").append('<a href="itemspage.aspx?catid='+catID+'&page=1" target=
 }
  
  }
-for (var i = 0; i < data.d.length; i++) {
-var incPage = 1;
+ }
 
 
-if(i/9 == incPage)
-{
-incPage++
-$("#sort_items").append('<a href="itemspage.aspx?catid='+catID+'&page='+incPage+'" target="_self">'+incPage+'</a>'); 
-
-}
-
-}
 },
 error: function(result) {
 alert("Error");

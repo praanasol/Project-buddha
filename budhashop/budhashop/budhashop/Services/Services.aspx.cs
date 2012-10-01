@@ -127,7 +127,7 @@ namespace budhashop.Services
                         }
                         else
                         {
-                            if (Type == 2)
+                            if (Type == 3)
                             {
                                 newItem.CatId = 3;
                             }

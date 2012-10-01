@@ -60,7 +60,7 @@ success: function(data) {
 for (var i = 0; i < data.d.length; i++) {
 
 
- $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="/ItemImages/3/4/4small.jpg" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div> </div></div> </aside>');
+ $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="/ItemImages/3/4/4small.jpg" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+',1);">ADD</a></div></div></div> </div></div> </aside>');
 }
 },
 error: function(result) {
@@ -70,6 +70,8 @@ alert("Error");
 
 }
 else{
+
+
 $.ajax({
 type: "POST",
 contentType: "application/json; charset=utf-8",
@@ -135,6 +137,50 @@ error: function(result) {
 alert("Error");
 }
 });
+
+if(catID==3){
+
+$.ajax({
+type: "POST",
+contentType: "application/json; charset=utf-8",
+url: "Services/Services.aspx/BindGrptable",
+data: "{}",
+dataType: "json",
+success: function(data) {
+for (var i = 0; i < data.d.length; i++) {
+
+
+ $("#otherItemBox").append('<aside id="inner_category_box" class="category_box_style" style="width:180px; height:230"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="images/img.gif" alt="Items" title="Items" width="120" height="120" border="0"></a></div><div id="category_bottom_row" style="width:180px"><div id="category_bottom_links" ><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style" style="width:80px; height:30px;"><div id="add_link" ><a id = "addoBtn'+ data.d[i].ItemId+'" href="" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+',1);">ADD</a></div></div></div></div></div></aside>');
+
+}
+},
+error: function(result) {
+alert("Error");
+}
+});
+
+
+}
+else{
+
+$.ajax({
+type: "POST",
+contentType: "application/json; charset=utf-8",
+url: "Services/Services.aspx/BindDatatable",
+data: "{'CatgId':'"+ catID +"'}",
+dataType: "json",
+success: function(data) {
+for (var i = 0; i < data.d.length; i++) {
+
+$("#otherItemBox").append('<aside id="inner_category_box" class="category_box_style" style="width:150px; height:180"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[i].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="'+data.d[i].ItemName+'" alt="Items" title="Items" width="120" height="120" border="0"></a></div><div id="category_bottom_row" style="width:150px"><div id="category_bottom_links" ><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style" style="width:80px; height:30px;"><div id="add_link" ><a id = "addoBtn'+ data.d[i].ItemId+'" href="" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div></div></div></aside>');
+
+ }
+},
+error: function(result) {
+alert("Error");
+}
+});
+}
 }
 
  
@@ -144,7 +190,49 @@ alert("Error");
 <br clear="all" />
 <section id="middlebody"> 
     <!--Cort items Start-->
-    <aside id="left_col" class="in_box_style"> </aside>
+    <aside id="left_col" class="in_box_style"> 
+    <div style="height:60px;"><div id="but"><a href="" id="but1" type="button" target="_self" class="but2" style="display:none;"><</a></div>
+      <div id="but"><a href="" id="but2" type="button" target="_self" class="but2">></a></div>
+       
+    
+      </div>
+      <div style="width:180px; height:750px;position:absolute; overflow:hidden; overflow-x: hidden;  overflow-y: hidden; ">   
+    <div id="otherItemBox" style="width:180px; height:750px;">
+    <script type="text/javascript">
+   $('#but2').click(function(){
+   var grpWidth = $('#otherItemBox').css("height").replace("px","");
+   if(grpWidth == 1500){$('#but2').css("display","none");}
+     if(grpWidth == 2250){$('#but2').css("display","none"); return;}
+     else{
+     
+      $('#otherItemBox').animate({
+        marginTop: '-=750px',
+        height: '+=750px'
+        
+      },1200);
+      $('#but1').css("display","inherit")
+      }
+      return false;
+   });
+   $('#but1').click(function(){
+   var grpWidth = $('#otherItemBox').css("height").replace("px","");
+   if(grpWidth == 1500){$('#but1').css("display","none");}
+     if(grpWidth == 750){$('#but1').css("display","none");return;}
+     else{
+      $('#otherItemBox').animate({
+        marginTop: '+=750px',
+        height: '-=750px'
+        
+      },1200);
+      $('#but2').css("display","inherit");
+      }
+      return false;
+   });
+</script>
+    </div>
+    </div>  
+    
+    </aside>
     <!--Cort items End--> 
     <!--Items Start-->
     <aside id="right_col" class="in_box_style"> 
@@ -174,6 +262,7 @@ alert("Error");
               </div>
             </div>
           </aside>
+           <aside id="category_box" class="category_box_style" style="width:180px; height:230"><div id="category_header"><a href="#" target="_self" class="link1">Name</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="images/img.gif" alt="Items" title="Items" width="120" height="120" border="0"></a></div><div id="category_bottom_row" style="width:180px"><div id="category_bottom_links" ><div id="to_left" class="style2" style="margin-top:8px;">Rs. 150</div><div id="to_left"><div id="add" class="add_style" style="width:80px; height:30px;"><div id="add_link" ><a href="#" target="_self" class="add">ADD</a></div></div></div></div></div></aside>
           <!--Category Item part End--> --%>
           
           </div>

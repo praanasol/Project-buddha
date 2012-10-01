@@ -45,7 +45,7 @@
      
       $('#groupItems').animate({
         'margin-left': '-=970px'
-      });
+      },1500);
       $('#but1').css("display","inherit")
       }
       return false;
@@ -57,7 +57,7 @@
      else{
       $('#groupItems').animate({
         'margin-left': '+=970px'
-      });
+      },1500);
       $('#but2').css("display","inherit");
       }
       return false;

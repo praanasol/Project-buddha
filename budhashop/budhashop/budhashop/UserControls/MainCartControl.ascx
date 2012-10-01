@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainCartControl.ascx.cs" Inherits="budhashop.UserControls.MainCartControl" %>
+<%@ Register Src="~/UserControls/Userregistrations.ascx" TagName="login_register" TagPrefix="uc_login_register" %>
 
  <%--<link href="../Styles/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
 
@@ -77,7 +78,6 @@ $('.jspScrollable').mouseleave(function(){
     
     
     </style> --%>
-   
     
     <style type="text/css">
     div#chatlist {
@@ -347,22 +347,83 @@ ul {
     }
 </style>
 
+
+<%--Style for Pop-Up Window--%>
+<style type="text/css">
+
+.web_dialog_overlay
+{
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   background: #000000;
+   opacity: .5;
+   filter: alpha(opacity=15);
+   -moz-opacity: .15;
+   z-index: 101;
+   display: none;
+}    
+.web_dialog
+{
+   display:none;
+   position:absolute;
+   width:auto;
+   height:auto;
+   top:35%;
+   left:25%;
+   margin-left: -190px;
+   margin-top: -100px;
+   background-color: #ffffff;
+   border: solid 2px #336699;
+   padding: 0px;
+   z-index: 102;
+   font-family: Verdana;
+   font-size: 10pt;
+}
+.web_dialog_title
+{
+   border-bottom: solid 10px #336699;
+   background-color: #336699;
+   padding: 4px;
+   color: White;
+   font-weight:bold;
+   text-align:left;
+}
+.web_dialog_title a
+{
+   color: White;
+   text-decoration: none;
+}
+.align_right
+{
+   text-align: right;
+}
+
+</style>
+<%--End of Style for Pop-Up Window--%>
+
+
 <script type="text/javascript">
            
-        $(document).ready(function() {
-
-      
+        $(document).ready(function() {      
                  
             $(".signin").click(function(e) {          
 				e.preventDefault();
 				
                 $("fieldset#signin_menu").toggle();
 				$(".signin").toggleClass("menu-open");
-				
-			
-				
             });
-			
+            
+            $("#hideCartBtn").click(function(){
+                $(".signin").removeClass("menu-open");
+				$("fieldset#signin_menu").hide();
+            });
 						 
 			$("fieldset#signin_menu").mouseup(function() {
 				return false
@@ -375,8 +436,60 @@ ul {
 					$("fieldset#signin_menu").hide();
 				}
 			});			
+			                
+			                
+//			            Start of Query's for Pop-Up
+			
+			                  $("#orderBtn").click(function (e)
+                              {
+                              var labeltext=$("#ctl00_login_uc_lbl_login").text();
+                              if(labeltext=="LogIn Successful")
+                              {
+                                 alert(labeltext);
+                                 location.href = "../USER/EditDetails.aspx";
+                              }
+                              else
+                              {
+                                 $("fieldset#signin_menu").hide();
+                                 ShowDialog(false);
+                                 e.preventDefault();
+                              }
+                              });
+
+                              $("#btnClose").click(function (e)
+                              {
+                                 HideDialog();
+                              });
+
+ 
+//               End of Query's for Pop-Up
 			
         });
+        
+                           function ShowDialog(modal)
+                           {
+                              $("#overlay").show();
+                              $("#dialog").fadeIn("slow");
+
+                              if (modal)
+                              {
+                                 $("#overlay").unbind("click");
+                              }
+                              else
+                              {
+                                 $("#overlay").click(function (e)
+                                 {
+                                    HideDialog();
+                                 });
+                              }
+                           }
+
+                           function HideDialog()
+                           {
+                              $("#overlay").hide();
+                              $("#dialog").fadeOut("slow");
+//                              $("#dialog").fadeOut(300);
+                           }
         
         
 </script>
@@ -416,6 +529,7 @@ ul {
   }
   </script>
 --%>
+<body>
 <div id="topnav1" >
 
     <asp:LinkButton ID="signin" CausesValidation="false" class="signin" runat="server">Show</asp:LinkButton>
@@ -427,8 +541,8 @@ ul {
         <!--Full Page Details Start-->
         <asp:Label ID="noOfItemsLbl" runat="server" Text="Items: 0"></asp:Label>
         <asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label>
-        <asp:Button ID="orderBtn" runat="server" Text="Order Items" />
-        <asp:Button ID="hideCartBtn" runat="server" Text="Hide" />
+        <input type="button" id="orderBtn" value="Order Items" />
+        <input type="button" id="hideCartBtn" value="Hide" />
         <asp:HiddenField ID="hdnUserId" runat="server"/>
        
        
@@ -439,7 +553,7 @@ ul {
                 <div>
                     <aside id="itemValues">
                         <asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
-                       <asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/>
+                        <asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/>
                         <asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
                         <asp:TextBox  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
                         <asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
@@ -464,3 +578,24 @@ ul {
     
 </div>
 
+
+<%--Start of Pop-Up--%>
+
+<div id="overlay" class="web_dialog_overlay"></div>
+
+<div id="dialog" class="web_dialog">
+   <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+      <tr>
+         <td class="web_dialog_title">Login/Register to Continue</td>
+         <td class="web_dialog_title align_right">
+            <a href="#" id="btnClose">Close</a>
+         </td>
+      </tr>
+      <tr>
+         <uc_login_register:login_register ID="login_register" runat="server" />
+      </tr>
+   </table>
+</div>
+<%--End of Pop-Up--%>
+
+</body>

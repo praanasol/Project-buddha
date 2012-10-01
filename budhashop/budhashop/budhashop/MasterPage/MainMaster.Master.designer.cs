@@ -41,6 +41,15 @@ namespace budhashop.MasterPage {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// login_uc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::budhashop.UserControls.login login_uc;
+        
+        /// <summary>
         /// cartCtrl control.
         /// </summary>
         /// <remarks>

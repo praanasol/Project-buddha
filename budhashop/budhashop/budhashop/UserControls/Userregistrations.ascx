@@ -4,12 +4,8 @@
         .style5
         {
             width: 100%;
-        }
-        .style19
-        {
-            text-align: justify;
-            width: 115px;
-        }
+        background-color: #CCCCFF;
+    }
         .style18
         {
             text-align: justify;
@@ -58,7 +54,7 @@
     .style29
     {
         text-align: left;
-        width: 77px;
+        width: 81px;
     }
         .style30
     {
@@ -85,17 +81,29 @@
         text-align: justify;
         width: 140px;
     }
+        .style34
+    {
+        text-align: left;
+        font-family: "Comic Sans MS";
+        font-size: larger;
+        color: #FF00FF;
+        font-weight: bold;
+        width: 116px;
+    }
+        .style35
+    {
+        text-align: justify;
+        width: 116px;
+    }
         </style>
-<body style="background-color: #CCCCFF" />
-<div style="width: 40%; float:left"></div>
-    <br />
+<body />
 <table class="style5">
     <tr>
         <td class="style30" colspan="3">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="style32">&nbsp; LogIn</span></td>
         <td class="style22">
             </td>
-        <td class="style30">
+        <td class="style34">
             &nbsp;</td>
         <td class="style30">
             &nbsp;</td>
@@ -119,7 +127,7 @@
         </td>
         <td class="style33" rowspan="2">
             &nbsp;</td>
-        <td class="style19">
+        <td class="style35">
             &nbsp;</td>
         <td class="style18">
             &nbsp;</td>
@@ -127,7 +135,7 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td class="style19">
+        <td class="style35">
             User Name</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
@@ -162,9 +170,8 @@
         </td>
         <td class="style33">
             &nbsp;</td>
-        <td class="style19">
-            E<div style="width: 60%; float:right"></div>
-            mail&nbsp; ID</td>
+        <td class="style35">
+            Email ID</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                 ControlToValidate="txt_emailid" ErrorMessage="*" SetFocusOnError="True" 
@@ -193,7 +200,7 @@
         </td>
         <td class="style33">
             &nbsp;</td>
-        <td class="style19">
+        <td class="style35">
             Password</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
@@ -223,7 +230,7 @@
         </td>
         <td class="style33">
             </td>
-        <td class="style19">
+        <td class="style35">
             Confirm Password</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" 
@@ -247,7 +254,7 @@
         </td>
         <td class="style33">
             &nbsp;</td>
-        <td class="style19">
+        <td class="style35">
             Phone Number</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" 
@@ -273,7 +280,7 @@
             &nbsp;</td>
         <td class="style33">
             &nbsp;</td>
-        <td class="style19">
+        <td class="style35">
             Address</td>
         <td class="style18">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" 
@@ -296,7 +303,7 @@
             &nbsp;</td>
         <td class="style33">
             &nbsp;</td>
-        <td class="style19">
+        <td class="style35">
             <br />
             Enter The text</td>
         <td class="style18">
@@ -329,7 +336,7 @@
             &nbsp;</td>
         <td class="style33">
             &nbsp;</td>
-        <td class="style19">
+        <td class="style35">
             Active Status</td>
         <td class="style18">
             &nbsp;</td>

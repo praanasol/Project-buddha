@@ -50,24 +50,6 @@ namespace budhashop.UserControls {
         protected global::System.Web.UI.WebControls.Label totalLbl;
         
         /// <summary>
-        /// orderBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button orderBtn;
-        
-        /// <summary>
-        /// hideCartBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button hideCartBtn;
-        
-        /// <summary>
         /// hdnUserId control.
         /// </summary>
         /// <remarks>
@@ -84,5 +66,14 @@ namespace budhashop.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList itemCartDL;
+        
+        /// <summary>
+        /// login_register control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::budhashop.UserControls.Userregistrations login_register;
     }
 }

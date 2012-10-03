@@ -11,6 +11,6 @@
 namespace budhashop {
     
     
-    public partial class itemspage {
+    public partial class iteminfo {
     }
 }

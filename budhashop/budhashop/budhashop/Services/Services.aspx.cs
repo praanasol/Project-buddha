@@ -40,6 +40,7 @@ namespace budhashop.Services
                     ItemDetails user = new ItemDetails();
                     user.ItemId = dtrow["GroupId"].ToString();
                     user.ItemName = dtrow["GroupName"].ToString();
+                //add image path
                     user.ItemPrice = dtrow["BilledRate"].ToString();
                     details.Add(user);
                 
@@ -65,7 +66,8 @@ namespace budhashop.Services
                 {
                     ItemDetails user = new ItemDetails();
                     user.ItemId = dtrow["ItemId"].ToString();
-                    user.ItemName = dtrow["ImagePath"].ToString();
+                    user.ItemPath = dtrow["ImagePath"].ToString();
+                    user.ItemName = dtrow["ItemName"].ToString();
                     user.ItemPrice = dtrow["BilledRate"].ToString();
                     details.Add(user);
                 }
@@ -91,10 +93,58 @@ namespace budhashop.Services
                 {
                     ItemDetails user = new ItemDetails();
                     user.ItemId = dtrow["ItemId"].ToString();
-                    user.ItemName = dtrow["ImagePath"].ToString();
+                    user.ItemPath = dtrow["ImagePath"].ToString();
+                    user.ItemName = dtrow["ItemName"].ToString();
                     user.ItemPrice = dtrow["BilledRate"].ToString();
                     details.Add(user);
                 }
+            }
+
+            return details.ToArray();
+        }
+
+        [WebMethod]
+        public static ItemDetails[] itemInfo(string itemId, string grp)
+        {
+            DataTable dt = new DataTable();
+            DataTable dtg = new DataTable();
+            List<ItemDetails> details = new List<ItemDetails>();
+            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            DataSet allDataDS = allData.getAllItems();
+            dt = allDataDS.Tables[0];
+            dtg = allDataDS.Tables[1];
+            int chk = Int32.Parse(grp.ToString());
+            if (chk == 1)
+            {
+                var cartItem = dtg.AsEnumerable().First(p => p.Field<long>("GroupId") == long.Parse(itemId));
+                ItemDetails user = new ItemDetails();
+                user.ItemId = cartItem["GroupId"].ToString();
+                user.ItemName = cartItem["GroupName"].ToString();
+                user.ItemDesc = cartItem["Description"].ToString();
+                user.ItemPath = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                user.ItemPrice = cartItem["BilledRate"].ToString();
+                user.ItemQty = cartItem["Qty"].ToString();
+                user.CatId = "1";
+
+                
+
+                details.Add(user);
+
+            }
+            else
+            {
+                var cartItem = dt.AsEnumerable().First(p => p.Field<long>("ItemId") == long.Parse(itemId));
+                ItemDetails user = new ItemDetails();
+                user.ItemId = cartItem["ItemId"].ToString();
+                user.ItemName = cartItem["ItemName"].ToString();
+                user.ItemDesc = cartItem["Description"].ToString();
+                user.ItemPath = cartItem["ImagePath"].ToString();
+                user.ItemPrice = cartItem["BilledRate"].ToString();
+                user.ItemQty = cartItem["Qty"].ToString();
+                user.CatId = cartItem["CategoryId"].ToString();
+
+                details.Add(user);
+
             }
 
             return details.ToArray();
@@ -165,8 +215,12 @@ namespace budhashop.Services
         public class ItemDetails
         {
             public string ItemId { get; set; }
+            public string ItemPath { get; set; }
             public string ItemName { get; set; }
             public string ItemPrice { get; set; }
+            public string ItemDesc { get; set; }
+            public string ItemQty { get; set; }
+            public string CatId { get; set; }
         }
 
        

@@ -90,6 +90,13 @@
     <Compile Include="homepage.aspx.designer.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="iteminfo.aspx.cs">
+      <DependentUpon>iteminfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iteminfo.aspx.designer.cs">
+      <DependentUpon>iteminfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="itemspage.aspx.cs">
       <DependentUpon>itemspage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -247,6 +254,7 @@
     <Content Include="ItemImages\5\9\9Photo.jpg" />
     <Content Include="ItemImages\5\9\9Photomedium.jpg" />
     <Content Include="ItemImages\5\9\9small.jpg" />
+    <Content Include="iteminfo.aspx" />
     <Content Include="itemspage.aspx" />
     <Content Include="MasterPage\MainMaster.Master" />
     <Content Include="obj\Debug\budhashop.csproj.FileListAbsolute.txt" />

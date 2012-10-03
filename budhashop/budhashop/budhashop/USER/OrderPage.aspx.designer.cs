@@ -8,19 +8,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace budhashop.UserControls {
+namespace budhashop.USER {
     
     
-    public partial class MainCartControl {
+    public partial class OrderPage {
         
         /// <summary>
-        /// signin control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton signin;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// login_register control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::budhashop.UserControls.Userregistrations login_register;
         
         /// <summary>
         /// errorLbl control.
@@ -48,24 +57,6 @@ namespace budhashop.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label totalLbl;
-        
-        /// <summary>
-        /// orderBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button orderBtn;
-        
-        /// <summary>
-        /// hdnUserId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnUserId;
         
         /// <summary>
         /// itemCartDL control.

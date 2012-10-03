@@ -15,25 +15,25 @@ using BusinessLogicBS.BusinessClasses;
 using System.Collections.Generic;
 using BusinessEntitiesBS;
 
-namespace budhashop.UserControls
+namespace budhashop.USER
 {
-    public partial class MainCartControl : System.Web.UI.UserControl
+    public partial class OrderPage : System.Web.UI.Page
     {
         public List<CartItems> CartDetails;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-         if (!IsPostBack)
-         {
-            if (Session["CartPicks"] != null)
+            if (!IsPostBack)
             {
-                CartDetails = new List<CartItems>();
-                CartDetails = (List<CartItems>)Session["CartPicks"];
-                LoadItems(CartDetails);
+                if (Session["CartPicks"] != null)
+                {
+                    CartDetails = new List<CartItems>();
+                    CartDetails = (List<CartItems>)Session["CartPicks"];
+                    LoadItems(CartDetails);
+                }
             }
-          }
-           
-         }
+
+        }
 
         private void LoadItems(List<CartItems> Cartinfo)
         {
@@ -105,7 +105,7 @@ namespace budhashop.UserControls
                     }
                 }
                 // updating the data row from the itemDetails object.
-                
+
             }
             if (CartDT != null)
             {
@@ -129,7 +129,7 @@ namespace budhashop.UserControls
                 itemCartDL.DataBind();
             }
         }
-  
+
         /// <summary>
         /// 
         /// </summary>
@@ -158,40 +158,35 @@ namespace budhashop.UserControls
                         float updatedTot = int.Parse(qty) * (float.Parse(((Label)e.Item.FindControl("priceLbl")).Text));
                         float Total = float.Parse(totalLbl.Text) + updatedTot - (float.Parse(((Label)e.Item.FindControl("rateLbl")).Text));
                         ((Label)e.Item.FindControl("rateLbl")).Text = updatedTot.ToString();
-                        
+
                         totalLbl.Text = Total.ToString();
                         Session["CartPicks"] = cartItems;
                     }
                 }
- 
+
             }
 
             if (e.CommandName == "RemoveItem")
             {
                 //getting the primary key from the Datalist of the to be updated item.
                 var itemId = itemCartDL.DataKeys[e.Item.ItemIndex].ToString();
-                 // loading the cart items.
-                    var cartItems = (List<CartItems>)Session["CartPicks"];
+                // loading the cart items.
+                var cartItems = (List<CartItems>)Session["CartPicks"];
 
-                    if (cartItems != null)
-                    {
-                        //remove cart item with itemId
-                      cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId));
-                        
-                        //update session
-                        Session["CartPicks"] = cartItems;
+                if (cartItems != null)
+                {
+                    //remove cart item with itemId
+                    cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId));
 
-                        //load updated cart items
-                        LoadItems(cartItems);
-                    }
+                    //update session
+                    Session["CartPicks"] = cartItems;
+
+                    //load updated cart items
+                    LoadItems(cartItems);
+                }
 
 
             }
-        }
-
-        protected void orderBtn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/USER/OrderPage.aspx");
         }
     }
 }

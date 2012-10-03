@@ -158,6 +158,13 @@
     <Compile Include="USER\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="USER\OrderPage.aspx.cs">
+      <DependentUpon>OrderPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\OrderPage.aspx.designer.cs">
+      <DependentUpon>OrderPage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -319,6 +326,7 @@
     <Content Include="USER\EditDetails.aspx" />
     <Content Include="USER\ForgotPassword.aspx" />
     <Content Include="USER\Login_Register.aspx" />
+    <Content Include="USER\OrderPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />

@@ -83,6 +83,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CLASS\PasswordEncryption.cs" />
+    <Compile Include="CLASS\SearchAll.cs" />
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,6 +115,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CartService.asmx.cs">
       <DependentUpon>CartService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Searchall.aspx.cs">
+      <DependentUpon>Searchall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\Searchall.aspx.designer.cs">
+      <DependentUpon>Searchall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SearchIt.asmx.cs">
+      <DependentUpon>SearchIt.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\Services.aspx.cs">
@@ -307,6 +319,7 @@
     <Content Include="script\html5shiv\test\unit\tests.js" />
     <Content Include="script\imgdata.js" />
     <Content Include="script\jquery-1.8.2.js" />
+    <Content Include="script\jquery-ui-1.8.custom.min.js" />
     <Content Include="script\jquery.carousel.js" />
     <Content Include="script\js.js" />
     <Content Include="script\json2.js" />
@@ -322,6 +335,8 @@
     <Content Include="script\scroll\scroll16.js" />
     <Content Include="scroll_bg.gif" />
     <Content Include="Services\CartService.asmx" />
+    <Content Include="Services\Searchall.aspx" />
+    <Content Include="Services\SearchIt.asmx" />
     <Content Include="Services\Services.aspx" />
     <Content Include="Styles\format.css" />
     <Content Include="Styles\jquery.jscrollpane.css" />

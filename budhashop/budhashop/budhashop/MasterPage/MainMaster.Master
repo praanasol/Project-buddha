@@ -25,6 +25,17 @@
     
     <script type="text/javascript" src="../script/CartJSONCall.js"></script>
 
+    <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+                if(($("#ctl00_cartCtrl_noOfItemsLbl").text())!="0")
+                {
+                    $("#ctl00_cartCtrl_orderBtn").removeAttr("disabled");
+                }
+          });
+    </script>
+
    <%--  <script src="/script/scroll/scroll16.js" type="text/javascript"></script>
       <script src="/script/json2.js" type="text/javascript"></script>
 --%>

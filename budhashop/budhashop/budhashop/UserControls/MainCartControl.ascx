@@ -428,7 +428,7 @@ ul {
         <asp:Label ID="noOfItemsLbl" runat="server" Text="Items: 0"></asp:Label>
         <asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label>
         <asp:Button ID="orderBtn" runat="server" Text="Order Items" 
-            onclick="orderBtn_Click" />
+            onclick="orderBtn_Click" Enabled="false" />
         <input type="button" id="hideCartBtn" value="Hide" />
         <asp:HiddenField ID="hdnUserId" runat="server"/>
        

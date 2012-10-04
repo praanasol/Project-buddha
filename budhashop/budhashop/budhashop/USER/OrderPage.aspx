@@ -71,7 +71,14 @@
                 <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
 
                     <script type="text/javascript">
-                        $(document).ready(function() {      
+                        $(document).ready(function() {
+                        
+                              $("#ctl00_cartCtrl_signin").hide();
+                              
+                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0")
+                              {
+                                $("#btn_ConfirmOrder").hide();
+                              }
                               
                               $("#btnClose").click(function (e)
                               {
@@ -89,7 +96,7 @@
                                   }
                                   else
                                   {
-                                     ShowDialog(false);
+                                     ShowDialog();
                                   }
                               });
                         });
@@ -97,18 +104,10 @@
                             {
                                 $("#overlay").show();
                                 $("#dialog").fadeIn("slow");
-
-                                if (modal)
+                                $("#overlay").click(function (e)
                                 {
-                                   $("#overlay").unbind("click");
-                                }
-                                else
-                                {
-                                  $("#overlay").click(function (e)
-                                  {
-                                        HideDialog();
-                                     });
-                                 }
+                                    HideDialog();
+                                });
                             }
                             
                             function HideDialog()
@@ -140,16 +139,19 @@
         <%--Modal Pop-Up End--%>
         
         
-    <article style="height:200px;"></article>
     <br clear="all" />
             
     <div id="cartheader" style="background-color:Green; font-size:large; font-family:Comic Sans MS; font-weight:bold; color:Red;">
         <asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"></asp:Label>
         &nbsp;&nbsp;&nbsp;
         <!--Full Page Details Start-->
+        Items:
         <asp:Label ID="noOfItemsLbl" runat="server" Text="Items: 0"></asp:Label>
         &nbsp;&nbsp;&nbsp;
+        Total:
         <asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label>
+        <asp:Button ID="btn_cancel" runat="server" Text="Cancel" 
+            onclick="btn_cancel_Click" style="float:right" />
         <input type="button" id="btn_ConfirmOrder" value="Confirm Order" style="float:right"/>
     </div>
     <br />

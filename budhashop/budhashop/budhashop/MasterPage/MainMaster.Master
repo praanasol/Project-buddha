@@ -50,6 +50,14 @@
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function(data) { return data; },
                 success: function(data) {
+                
+                $.ui.autocomplete.prototype._renderMenu = function( ul, items ) {
+ var self = this;
+ $.each( items, function( index, item ) {
+    if (index < 12) // here we define how many results to show
+       {self._renderItem( ul, item );}
+    });
+}
                     $("#SearchAll").autocomplete({
                         minLength: 0,
                         source: data.d,

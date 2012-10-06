@@ -31,15 +31,11 @@ namespace budhashop.Services
             //public List<BusinessLogicAutoRaksha.ServiceClasses.Area> FetchAreaNames(string areaString)
             var searchObj = new SearchAll();
             var fetchItems = (List<SearchAll>)null;
-            if (System.Web.HttpContext.Current.Cache["CacheSearchObj"] == null)
-            {
-                fetchItems = searchObj.GetSearchList();
-                System.Web.HttpContext.Current.Cache.Insert("CacheSearchObj", fetchItems, null, System.DateTime.Now.AddDays(1), System.Web.Caching.Cache.NoSlidingExpiration);
-            }
-            else
-            {
-                fetchItems = (List<SearchAll>)System.Web.HttpContext.Current.Cache["CacheSearchObj"];
-            }
+           // var items = (List<SearchAll>)null;
+            
+
+            fetchItems = searchObj.GetSearchList();//items.Where(str => str.SearchString.ToLower().Contains(prefixText.ToLower())); 
+                
             //      var filteredAreas= fetchAreas.Where(m => m.AreaName.ToLower().Contains(areaString.ToLower()));
             return fetchItems.ToList();
         }

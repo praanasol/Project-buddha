@@ -17,6 +17,17 @@ namespace budhashop.MasterPage
 {
     public partial class MainMaster : System.Web.UI.MasterPage
     {
+        public string startItem
+        {
+            get
+            {
+                return SearchAll.Text;
+            }
+            set
+            {
+                SearchAll.Text = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

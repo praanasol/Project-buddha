@@ -59,6 +59,15 @@ namespace budhashop.MasterPage {
         protected global::budhashop.UserControls.MainCartControl cartCtrl;
         
         /// <summary>
+        /// SearchAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SearchAll;
+        
+        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>

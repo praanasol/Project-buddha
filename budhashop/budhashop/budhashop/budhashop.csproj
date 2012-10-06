@@ -38,6 +38,12 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -113,10 +119,18 @@
       <DependentUpon>MainMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="searchitems.aspx.cs">
+      <DependentUpon>searchitems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="searchitems.aspx.designer.cs">
+      <DependentUpon>searchitems.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Services\CartService.asmx.cs">
       <DependentUpon>CartService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Services\IsearchItems.cs" />
     <Compile Include="Services\Searchall.aspx.cs">
       <DependentUpon>Searchall.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +141,9 @@
     <Compile Include="Services\SearchIt.asmx.cs">
       <DependentUpon>SearchIt.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\searchItems.svc.cs">
+      <DependentUpon>searchItems.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
@@ -334,9 +351,11 @@
     <Content Include="script\scroll\scroll.js" />
     <Content Include="script\scroll\scroll16.js" />
     <Content Include="scroll_bg.gif" />
+    <Content Include="searchitems.aspx" />
     <Content Include="Services\CartService.asmx" />
     <Content Include="Services\Searchall.aspx" />
     <Content Include="Services\SearchIt.asmx" />
+    <Content Include="Services\searchItems.svc" />
     <Content Include="Services\Services.aspx" />
     <Content Include="Styles\format.css" />
     <Content Include="Styles\jquery.jscrollpane.css" />

@@ -15,6 +15,7 @@ using System.Web.Services;
 using System.Collections.Generic;
 using BusinessEntitiesBS;
 using System.Web.Script.Services;
+using budhashop.CLASS;
 
 namespace budhashop.Services
 {
@@ -23,6 +24,60 @@ namespace budhashop.Services
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        [WebMethod]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static ItemDetails[] SearchItemNames(string searchStr)
+        {
+           DataTable dt = new DataTable();
+            DataTable dtg = new DataTable();
+            List<ItemDetails> details = new List<ItemDetails>();
+            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            DataSet allDataDS = allData.getAllItems();
+            dt = allDataDS.Tables[0];
+            dtg = allDataDS.Tables[1];
+            var cartItemgrp = dtg.AsEnumerable().Where(p => p.Field<string>("GroupName").ToLower().Contains(searchStr.ToLower())).ToList(); ;
+            var cartItem = dt.AsEnumerable().Where(p => p.Field<string>("ItemName").ToLower().Contains(searchStr.ToLower())).ToList(); ;
+
+            foreach (DataRow dtrow in cartItemgrp)
+            {
+
+
+
+               
+                ItemDetails user = new ItemDetails();
+                user.ItemId = dtrow["GroupId"].ToString();
+                user.ItemName = dtrow["GroupName"].ToString();
+                user.ItemDesc = dtrow["Description"].ToString();
+                user.ItemPath = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                user.ItemPrice = dtrow["BilledRate"].ToString();
+                user.ItemQty = dtrow["Qty"].ToString();
+                user.CatId = "1";
+
+                
+
+                details.Add(user);
+
+            }
+            foreach (DataRow dtrow in cartItem)
+            {
+
+                 ItemDetails user = new ItemDetails();
+                 user.ItemId = dtrow["ItemId"].ToString();
+                 user.ItemName = dtrow["ItemName"].ToString();
+                 user.ItemDesc = dtrow["Description"].ToString();
+                 user.ItemPath = dtrow["ImagePath"].ToString();
+                 user.ItemPrice = dtrow["BilledRate"].ToString();
+                 user.ItemQty = dtrow["Qty"].ToString();
+                 user.CatId = dtrow["CategoryId"].ToString();
+
+                details.Add(user);
+
+            }
+
+            return details.ToArray();
+        
         }
        
         [WebMethod]

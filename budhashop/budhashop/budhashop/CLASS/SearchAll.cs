@@ -15,7 +15,7 @@ namespace budhashop.CLASS
 {
     public class SearchAll
     {
-        public int ID { get; set; }
+       // public int ID { get; set; }
         
         public string ItemName { get; set; }
 
@@ -36,7 +36,7 @@ namespace budhashop.CLASS
                 // ProjectActivity prj = new ProjectActivity();
                 SearchAll prj = new SearchAll();
 
-                prj.ID = int.Parse(dt.Rows[i]["ItemId"].ToString());
+               // prj.ID = int.Parse(dt.Rows[i]["ItemId"].ToString());
                
                 prj.ItemName = dt.Rows[i]["ItemName"].ToString();
                 //prj.ActualHours = int.Parse(dt.Rows[i]["ActualHours"].ToString());
@@ -47,13 +47,13 @@ namespace budhashop.CLASS
             int cnt2 = dtg.Rows.Count;
             for (int i = 0; i < cnt2; i++)
             {
-                // ProjectActivity prj = new ProjectActivity();
+                
                 SearchAll prj = new SearchAll();
 
-                prj.ID = int.Parse(dtg.Rows[i]["GroupId"].ToString());
+               // prj.ID = int.Parse(dtg.Rows[i]["GroupId"].ToString());
 
                 prj.ItemName = dtg.Rows[i]["GroupName"].ToString();
-                //prj.ActualHours = int.Parse(dt.Rows[i]["ActualHours"].ToString());
+                
 
                 list.Add(prj);
 

@@ -73,12 +73,12 @@
                     <script type="text/javascript">
                         $(document).ready(function() {
                         
-                              $("#ctl00_cartCtrl_signin").hide();
-                              
-                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0")
-                              {
-                                $("#btn_ConfirmOrder").hide();
-                              }
+//                              $("#ctl00_cartCtrl_signin").hide();
+//                              
+//                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0")
+//                              {
+//                                $("#btn_ConfirmOrder").hide();
+//                              }
                               
                               $("#btnClose").click(function (e)
                               {

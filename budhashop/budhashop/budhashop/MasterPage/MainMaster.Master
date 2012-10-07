@@ -30,16 +30,7 @@
                     $("#ctl00_cartCtrl_orderBtn").removeAttr("disabled");
                 }
                 
-                function DoSearch(){
-                
-                
-                var searchStr = $("#<%=SearchAll.ClientID%>").val();
-                
-               window.location = 'searchitems.aspx?q=' + searchStr;
-
-                
-                    return false;
-                }
+               
           });
     </script>
     <script type="text/javascript"> 
@@ -180,7 +171,9 @@
       	<div id="v_line"></div>
         <div id="search_form"><asp:TextBox ID="SearchAll" runat="server" CssClass="search_form_style"></asp:TextBox></div>
         <div id="go_but" class="go_but_style">
-        	<div id="go_link"><a id="searchBtn" href="" target="_self" onclick="DoSearch()" class="go">GO</a></div>
+        	<div id="go_link">
+                <asp:LinkButton ID="searchBtn" runat="server" CssClass="go" Text="GO" 
+                     OnClick="searchBtn_Click"></asp:LinkButton></div>
         </div>
         <div id="v_line" style="margin-left:13px;"></div>
         <div id="ph" class="style2">8732873888</div>

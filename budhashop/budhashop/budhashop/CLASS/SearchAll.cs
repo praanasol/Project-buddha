@@ -15,7 +15,7 @@ namespace budhashop.CLASS
 {
     public class SearchAll
     {
-       // public int ID { get; set; }
+        public int ID { get; set; }
         
         public string ItemName { get; set; }
 
@@ -50,7 +50,7 @@ namespace budhashop.CLASS
                 
                 SearchAll prj = new SearchAll();
 
-               // prj.ID = int.Parse(dtg.Rows[i]["GroupId"].ToString());
+                prj.ID = int.Parse(dtg.Rows[i]["GroupId"].ToString());
 
                 prj.ItemName = dtg.Rows[i]["GroupName"].ToString();
                 

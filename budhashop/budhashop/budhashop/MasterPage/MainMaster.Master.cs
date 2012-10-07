@@ -48,5 +48,13 @@ namespace budhashop.MasterPage
             // Write the modified stock picks list back to session state.
             Session["CartPicks"] = cartItems;
         }
+
+        protected void searchBtn_Click(object sender, EventArgs e)
+        {
+            string searchStr = SearchAll.Text.ToString();
+            string searchUrl = "searchitems.aspx?q=" + searchStr;
+            Response.Redirect(searchUrl);
+
+        }
     }
 }

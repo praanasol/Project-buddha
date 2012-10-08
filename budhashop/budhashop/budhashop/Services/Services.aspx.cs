@@ -16,13 +16,43 @@ using System.Collections.Generic;
 using BusinessEntitiesBS;
 using System.Web.Script.Services;
 using budhashop.CLASS;
+using InterfacesBS.InterfacesBL;
+using BusinessLogicBS;
+using BusinessLogicBS.BusinessClasses;
 
 namespace budhashop.Services
 {
     public partial class Services : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        [WebMethod]
+        public static CatDetails[] FetchCatNames()
+        {
+            DataTable catgDt = new DataTable();
+           
+            IAdmin getCats = new AdminItems();
+            catgDt = getCats.getCatagories();
+
+            List<CatDetails> details = new List<CatDetails>();
+
+            foreach(DataRow dtrow in catgDt.Rows)
+            {
+
+                CatDetails user = new CatDetails();
+                user.CatId = dtrow["CategoryId"].ToString();
+                user.CatName = dtrow["CategoryName"].ToString();
+               
+
+                details.Add(user);
+
+            }
+
+            return details.ToArray();
 
         }
 
@@ -97,6 +127,7 @@ namespace budhashop.Services
                     user.ItemName = dtrow["GroupName"].ToString();
                 //add image path
                     user.ItemPrice = dtrow["BilledRate"].ToString();
+                    user.CatId = "1";
                     details.Add(user);
                 
             }
@@ -124,6 +155,7 @@ namespace budhashop.Services
                     user.ItemPath = dtrow["ImagePath"].ToString();
                     user.ItemName = dtrow["ItemName"].ToString();
                     user.ItemPrice = dtrow["BilledRate"].ToString();
+                    user.CatId = dtrow["CategoryId"].ToString();
                     details.Add(user);
                 }
             }
@@ -151,6 +183,7 @@ namespace budhashop.Services
                     user.ItemPath = dtrow["ImagePath"].ToString();
                     user.ItemName = dtrow["ItemName"].ToString();
                     user.ItemPrice = dtrow["BilledRate"].ToString();
+                    user.CatId = dtrow["CategoryId"].ToString();
                     details.Add(user);
                 }
             }
@@ -276,6 +309,12 @@ namespace budhashop.Services
             public string ItemDesc { get; set; }
             public string ItemQty { get; set; }
             public string CatId { get; set; }
+        }
+
+        public class CatDetails
+        {
+            public string CatId { get; set; }
+            public string CatName { get; set; }
         }
 
        

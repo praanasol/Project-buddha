@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="budhashop.MasterPage.MainMaster" %>
 <%@ Register src="../UserControls/MainCartControl.ascx" tagname="cart" tagprefix="uc4" %>
 <%@ Register src="~/UserControls/login.ascx" tagname="loginuc" tagprefix="uc_login" %>
+<%@ Register src="~/UserControls/navigation.ascx" tagname="naviuc" tagprefix="uc_navi" %>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
@@ -30,7 +31,7 @@
                     $("#ctl00_cartCtrl_orderBtn").removeAttr("disabled");
                 }
                 
-               
+             
           });
     </script>
     <script type="text/javascript"> 
@@ -39,13 +40,13 @@
 	            $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url: "Services/SearchIt.asmx/FetchItemNames",
+                url: "/Services/SearchIt.asmx/FetchItemNames",
                 dataType: "json",
                 data: "{}",
                 dataFilter: function(data) { return data; },
                 success: function(data) {
                 
-                
+                 
                 $.ui.autocomplete.prototype._renderMenu = function( ul, items ) {
  var self = this;
  $.each( items, function( index, item ) {
@@ -91,10 +92,7 @@
 <body>
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
-     <Services>
-        <asp:ServiceReference Path="~/Services/searchItems.svc" />            
-    </Services>
-
+     
     
     </asp:ScriptManager>
     <div id="wraper">
@@ -139,14 +137,16 @@
 	<div id="nav_row">
     	<!--Navigation Start-->
     	<aside id="navigation">
-        	<nav id="nav">
-            	<ul>
+    	    <uc_navi:naviuc ID="navg" runat="server" />
+        	<%--<nav id="nav">
+            	<ul id="navitems">
                 	<li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
                     <li><a href="../itemspage.aspx?catid=3" target="_self">Devotional</a></li>
                     <li><a href="../itemspage.aspx?catid=5" target="_self">Traditional</a></li>
                     <li><a href="#" target="_self">Trendy Stuff</a></li>
+               
                 </ul>
-            </nav>
+            </nav>--%>
         </aside>
         <!--Navigation End-->
         <!--List items link area Start-->

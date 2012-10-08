@@ -50,6 +50,15 @@ namespace budhashop.MasterPage {
         protected global::budhashop.UserControls.login login_uc;
         
         /// <summary>
+        /// navg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::budhashop.UserControls.navigation navg;
+        
+        /// <summary>
         /// cartCtrl control.
         /// </summary>
         /// <remarks>

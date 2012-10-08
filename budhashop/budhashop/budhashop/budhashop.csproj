@@ -130,7 +130,6 @@
       <DependentUpon>CartService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Services\IsearchItems.cs" />
     <Compile Include="Services\Searchall.aspx.cs">
       <DependentUpon>Searchall.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,9 +140,6 @@
     <Compile Include="Services\SearchIt.asmx.cs">
       <DependentUpon>SearchIt.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Services\searchItems.svc.cs">
-      <DependentUpon>searchItems.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
@@ -165,6 +161,13 @@
     </Compile>
     <Compile Include="UserControls\MainCartControl.ascx.designer.cs">
       <DependentUpon>MainCartControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\navigation.ascx.cs">
+      <DependentUpon>navigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\navigation.ascx.designer.cs">
+      <DependentUpon>navigation.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Userregistrations.ascx.cs">
       <DependentUpon>Userregistrations.ascx</DependentUpon>
@@ -355,7 +358,6 @@
     <Content Include="Services\CartService.asmx" />
     <Content Include="Services\Searchall.aspx" />
     <Content Include="Services\SearchIt.asmx" />
-    <Content Include="Services\searchItems.svc" />
     <Content Include="Services\Services.aspx" />
     <Content Include="Styles\format.css" />
     <Content Include="Styles\jquery.jscrollpane.css" />
@@ -363,6 +365,7 @@
     <Content Include="Styles\menus.css" />
     <Content Include="UserControls\login.ascx" />
     <Content Include="UserControls\MainCartControl.ascx" />
+    <Content Include="UserControls\navigation.ascx" />
     <Content Include="UserControls\Userregistrations.ascx" />
     <Content Include="USER\ChangePassword.aspx" />
     <Content Include="USER\EditDetails.aspx" />

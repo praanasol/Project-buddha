@@ -55,7 +55,7 @@ namespace budhashop.UserControls
                         lbl_login.Text = "LogIn Successful";
                         lbl_status.Text = "Welcome " + txt_lusername.Text;
                         lb_logout.Visible = true;
-                        this.Session["userdetails"] = dt;
+                        this.Session["currentuser"] = dt.Rows[0]["Email"].ToString();
                     }
                     else
                     {
@@ -82,7 +82,7 @@ namespace budhashop.UserControls
 
         protected void lb_logout_Click(object sender, EventArgs e)
         {
-            this.Session["userdetails"] = null;
+            this.Session["currentuser"] = null;
             lbl_login.Text = "";
         }
 

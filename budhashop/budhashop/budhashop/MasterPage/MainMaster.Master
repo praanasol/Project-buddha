@@ -92,7 +92,10 @@
 <body>
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
-     
+    
+        <Services>
+            <asp:ServiceReference Path="~/USER/Services/LoginControl.asmx" />
+        </Services>
     
     </asp:ScriptManager>
     <div id="wraper">

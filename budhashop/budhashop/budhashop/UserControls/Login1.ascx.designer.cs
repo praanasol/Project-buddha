@@ -8,72 +8,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace budhashop.USER {
+namespace budhashop.UserControls {
     
     
-    public partial class OrderPage {
+    public partial class Login1 {
         
         /// <summary>
-        /// loginuc control.
+        /// lbl_emailid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::budhashop.UserControls.Login1 loginuc;
+        protected global::System.Web.UI.WebControls.Label lbl_emailid;
         
         /// <summary>
-        /// registeruc control.
+        /// txt_emailid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::budhashop.UserControls.Register registeruc;
+        protected global::System.Web.UI.WebControls.TextBox txt_emailid;
         
         /// <summary>
-        /// errorLbl control.
+        /// lbl_pwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLbl;
+        protected global::System.Web.UI.WebControls.Label lbl_pwd;
         
         /// <summary>
-        /// noOfItemsLbl control.
+        /// txt_pwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label noOfItemsLbl;
+        protected global::System.Web.UI.WebControls.TextBox txt_pwd;
         
         /// <summary>
-        /// totalLbl control.
+        /// lbl_result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalLbl;
-        
-        /// <summary>
-        /// btn_cancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cancel;
-        
-        /// <summary>
-        /// itemCartDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList itemCartDL;
+        protected global::System.Web.UI.WebControls.Label lbl_result;
     }
 }

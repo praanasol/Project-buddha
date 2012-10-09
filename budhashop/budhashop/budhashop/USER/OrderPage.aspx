@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="budhashop.USER.OrderPage" %>
-<%@ Register Src="~/UserControls/Userregistrations.ascx" TagName="login_register" TagPrefix="uc_login_register" %>
+<%@ Register Src="~/UserControls/Login1.ascx" TagName="loginuc" TagPrefix="uc_login" %>
+<%@ Register Src="~/UserControls/Register.ascx" TagName="registeruc" TagPrefix="uc_register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -35,8 +36,8 @@
                            position:absolute;
                            width:auto;
                            height:auto;
-                           top:35%;
-                           left:25%;
+                           top:60%;
+                           left:60%;
                            margin-left: -190px;
                            margin-top: -100px;
                            background-color: #ffffff;
@@ -48,21 +49,7 @@
                         }
                         .web_dialog_title
                         {
-                           border-bottom: solid 10px #336699;
-                           background-color: #336699;
-                           padding: 4px;
-                           color: White;
-                           font-weight:bold;
-                           text-align:left;
-                        }
-                        .web_dialog_title a
-                        {
-                           color: White;
-                           text-decoration: none;
-                        }
-                        .align_right
-                        {
-                           text-align: right;
+                            text-align: right;
                         }
 
                     </style>
@@ -72,48 +59,60 @@
 
                     <script type="text/javascript">
                         $(document).ready(function() {
-                        
 //                              $("#ctl00_cartCtrl_signin").hide();
 //                              
 //                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0")
 //                              {
+                              $("#RegisterControl").hide();
+                              
+//                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0"){
 //                                $("#btn_ConfirmOrder").hide();
 //                              }
                               
-                              $("#btnClose").click(function (e)
-                              {
+                              $("#btnClose").click(function (e){
                                  HideDialog()
                               });
                               
                               $("#btn_ConfirmOrder").click(function(){
-                                
-                                var usersession='<%= Session["userdetails"] %>';
-                                  
+                                var usersession='<%= this.Session["currentuser"] %>';
+//                                var userstatus=($("#ctl00_ContentPlaceHolder1_loginuc_lbl_result").text());
                                   if(usersession)
                                   {
                                      alert('you are logged in...');
-                                     //location.href = "../USER/EditDetails.aspx";
+                                     location.href = "../USER/AddressPage.aspx";
                                   }
+//                                  else if(userstatus=="Existing User")
+//                                  {
+//                                    alert('you are logged in...');
+//                                     //location.href = "../USER/EditDetails.aspx";
+//                                  }
                                   else
                                   {
                                      ShowDialog();
                                   }
                               });
+                              
+                              $("#hyplink_register").click(function(){
+                                $("#LoginControl").hide();
+                                $("#RegisterControl").show();
+                              });
+                              
+                              $("#hyplink_login").click(function(){
+                                $("#RegisterControl").hide();
+                                $("#LoginControl").show();
+                              });
                         });
-                            function ShowDialog(modal)
-                            {
+                            function ShowDialog(modal){
                                 $("#overlay").show();
                                 $("#dialog").fadeIn("slow");
-                                $("#overlay").click(function (e)
-                                {
+                                $("#overlay").click(function (e){
                                     HideDialog();
                                 });
                             }
                             
-                            function HideDialog()
-                            {
+                            function HideDialog(){
                                 $("#overlay").hide();
-                                $("#dialog").fadeOut("fast");
+                                $("#dialog").fadeOut("slow");
                                 //$("#dialog").fadeOut(300);
                             }
                 	    
@@ -126,13 +125,12 @@
                 <div id="dialog" class="web_dialog">
                    <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
                       <tr>
-                         <td class="web_dialog_title">Login/Register to Continue</td>
-                         <td class="web_dialog_title align_right">
-                            <a href="#" id="btnClose">Close</a>
+                         <td class="web_dialog_title"><a href="#" id="btnClose">Close</a>
                          </td>
                       </tr>
-                         <uc_login_register:login_register ID="login_register" runat="server" />
-                      </table>
+                         </table>
+                         <uc_login:loginuc ID="loginuc" runat="server" />
+                         <uc_register:registeruc ID="registeruc" runat="server" />
                 </div>
             <%--End of Pop-Up Window--%>
                 

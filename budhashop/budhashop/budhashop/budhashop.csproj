@@ -169,6 +169,13 @@
     <Compile Include="UserControls\MainCartControl.ascx.designer.cs">
       <DependentUpon>MainCartControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\mainSearch.ascx.cs">
+      <DependentUpon>mainSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\mainSearch.ascx.designer.cs">
+      <DependentUpon>mainSearch.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\navigation.ascx.cs">
       <DependentUpon>navigation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,6 +398,7 @@
     <Content Include="UserControls\login.ascx" />
     <Content Include="UserControls\Login1.ascx" />
     <Content Include="UserControls\MainCartControl.ascx" />
+    <Content Include="UserControls\mainSearch.ascx" />
     <Content Include="UserControls\navigation.ascx" />
     <Content Include="UserControls\Register.ascx" />
     <Content Include="UserControls\Userregistrations.ascx" />

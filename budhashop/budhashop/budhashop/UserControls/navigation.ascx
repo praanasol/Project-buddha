@@ -7,7 +7,7 @@
 	            $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url: "Services/Services.aspx/FetchCatNames",
+                url: "../Services/Services.aspx/FetchCatNames",
                 dataType: "json",
                 data: "{}",
                

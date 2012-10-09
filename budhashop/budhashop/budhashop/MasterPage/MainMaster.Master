@@ -2,6 +2,7 @@
 <%@ Register src="../UserControls/MainCartControl.ascx" tagname="cart" tagprefix="uc4" %>
 <%@ Register src="~/UserControls/login.ascx" tagname="loginuc" tagprefix="uc_login" %>
 <%@ Register src="~/UserControls/navigation.ascx" tagname="naviuc" tagprefix="uc_navi" %>
+<%@ Register src="~/UserControls/mainSearch.ascx" tagname="searchuc" tagprefix="uc_search" %>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
@@ -34,51 +35,7 @@
              
           });
     </script>
-    <script type="text/javascript"> 
-            
-           $(document).ready(function() {
-	            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: "/Services/SearchIt.asmx/FetchItemNames",
-                dataType: "json",
-                data: "{}",
-                dataFilter: function(data) { return data; },
-                success: function(data) {
-                
-                 
-                $.ui.autocomplete.prototype._renderMenu = function( ul, items ) {
- var self = this;
- $.each( items, function( index, item ) {
-    if (index < 12) // here we define how many results to show
-       {self._renderItem( ul, item );}
-    });
-}
-                    $("[id$=SearchAll]").autocomplete({
-                        minLength: 1,
-                        source: data.d,
-                        focus: function(event, ui) {
-                       // $('[id$=SearchAll]').flushCache();
-                            $("[id$=SearchAll]").val(ui.item.ItemName);
-                            return false;
-                        },
-                        select: function(event, ui) {
-                        
-                            $("[id$=SearchAll]").val(ui.item.ItemName);
-                          //$('#area_hidden').val(ui.item.ID);
-                           // var k=$('#area_hidden').val();
-                            return false;
-                        }
-                    });
-                    
-                    
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert(textStatus);
-                }
-            });
-        });
-    </script>
+    
     
    
 
@@ -172,12 +129,13 @@
      <br clear="all" />
       <div id="search_row">
       	<div id="v_line"></div>
-        <div id="search_form"><asp:TextBox ID="SearchAll" runat="server" CssClass="search_form_style"></asp:TextBox></div>
+      	<uc_search:searchuc ID="srch" runat="server" />
+        <%--<div id="search_form"><asp:TextBox ID="SearchAll" runat="server" CssClass="search_form_style"></asp:TextBox></div>
         <div id="go_but" class="go_but_style">
         	<div id="go_link">
                 <asp:LinkButton ID="searchBtn" runat="server" CssClass="go" Text="GO" 
                      OnClick="searchBtn_Click"></asp:LinkButton></div>
-        </div>
+        </div>--%>
         <div id="v_line" style="margin-left:13px;"></div>
         <div id="ph" class="style2">8732873888</div>
       </div>

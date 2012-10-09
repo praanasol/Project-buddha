@@ -17,17 +17,7 @@ namespace budhashop.MasterPage
 {
     public partial class MainMaster : System.Web.UI.MasterPage
     {
-        public string startItem
-        {
-            get
-            {
-                return SearchAll.Text;
-            }
-            set
-            {
-                SearchAll.Text = value;
-            }
-        }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -49,12 +39,6 @@ namespace budhashop.MasterPage
             Session["CartPicks"] = cartItems;
         }
 
-        protected void searchBtn_Click(object sender, EventArgs e)
-        {
-            string searchStr = SearchAll.Text.ToString();
-            string searchUrl = "searchitems.aspx?q=" + searchStr;
-            Response.Redirect(searchUrl);
-
-        }
+        
     }
 }

@@ -79,14 +79,13 @@ namespace budhashop.Services
                 ItemDetails user = new ItemDetails();
                 user.ItemId = dtrow["GroupId"].ToString();
                 user.ItemName = dtrow["GroupName"].ToString();
-                user.ItemDesc = dtrow["Description"].ToString();
+               user.ItemDesc = dtrow["Description"].ToString();
                 user.ItemPath = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
                 user.ItemPrice = dtrow["BilledRate"].ToString();
                 user.ItemQty = dtrow["Qty"].ToString();
                 user.CatId = "1";
 
                 
-
                 details.Add(user);
 
             }

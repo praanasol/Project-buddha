@@ -15,9 +15,9 @@ namespace budhashop.CLASS
 {
     public class SearchAll
     {
-        public int ID { get; set; }
-        
-        public string ItemName { get; set; }
+        //public int ID { get; set; }
+        public string value { get; set; }
+        public string ItemLink { get; set; }
 
         public List<SearchAll> GetSearchList()
         {
@@ -36,9 +36,11 @@ namespace budhashop.CLASS
                 // ProjectActivity prj = new ProjectActivity();
                 SearchAll prj = new SearchAll();
 
-               // prj.ID = int.Parse(dt.Rows[i]["ItemId"].ToString());
-               
-                prj.ItemName = dt.Rows[i]["ItemName"].ToString();
+                int id = int.Parse(dt.Rows[i]["ItemId"].ToString());
+                int grp = int.Parse(dt.Rows[i]["CategoryId"].ToString());
+
+                prj.value = dt.Rows[i]["ItemName"].ToString();
+                prj.ItemLink = "iteminfo.aspx?id=" + id + "&grp=" + grp;
                 //prj.ActualHours = int.Parse(dt.Rows[i]["ActualHours"].ToString());
 
                 list.Add(prj);
@@ -48,14 +50,15 @@ namespace budhashop.CLASS
             for (int i = 0; i < cnt2; i++)
             {
                 
-                SearchAll prj = new SearchAll();
+                SearchAll prj2 = new SearchAll();
 
-                prj.ID = int.Parse(dtg.Rows[i]["GroupId"].ToString());
-
-                prj.ItemName = dtg.Rows[i]["GroupName"].ToString();
+                int idg = int.Parse(dtg.Rows[i]["GroupId"].ToString());
+                int grpg = 1;
+                prj2.value = dtg.Rows[i]["GroupName"].ToString();
+                prj2.ItemLink = "iteminfo.aspx?id=" + idg + "&grp=" + grpg; 
                 
 
-                list.Add(prj);
+                list.Add(prj2);
 
             }
 

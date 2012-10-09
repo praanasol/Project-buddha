@@ -9,7 +9,10 @@
 
 <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
 <script type="text/javascript">
+//function pageLoad(sender, args)
+//{
 
+//if(args.get_isPartialLoad())
    function checkLogin() {
       var email = $("[id$=txt_emailid]").val();
       var pwd = $("[id$=txt_pwd]").val();
@@ -32,17 +35,17 @@
                 $("#dialog").hide();
 //                document.write("You will be redirected to our main page in 5 seconds!");
 //                setTimeout('Redirect()', 5000);
-//                Redirect();
+              Redirect();
             }
         }
          
     function onerror(result){
         alert("Error calling service method.");
         }
-    
-//    function Redirect() {
-//        window.location="../USER/AddressPage.aspx";
-//        }        
+    //}
+  function Redirect() {
+       window.location="../USER/AddressPage.aspx";
+       }        
 </script>
 
 <body>

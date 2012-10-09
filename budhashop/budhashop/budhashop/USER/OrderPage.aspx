@@ -119,7 +119,8 @@
                     </script>
                     
             <%--Start of Pop-Up Window--%>
-
+            <asp:UpdatePanel ID="loginPop" runat="server">
+            <ContentTemplate>
                 <div id="overlay" class="web_dialog_overlay"></div>
 
                 <div id="dialog" class="web_dialog">
@@ -132,6 +133,8 @@
                          <uc_login:loginuc ID="loginuc" runat="server" />
                          <uc_register:registeruc ID="registeruc" runat="server" />
                 </div>
+                </ContentTemplate>
+                </asp:UpdatePanel>
             <%--End of Pop-Up Window--%>
                 
         <%--Modal Pop-Up End--%>

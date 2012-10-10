@@ -135,7 +135,7 @@ namespace budhashop.Services
         }
 
         [WebMethod]
-        public static ItemDetails[] BindDatatable(string CatgId)
+        public static ItemDetails[] BindDatatable()
         {
             DataTable dt = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
@@ -146,8 +146,8 @@ namespace budhashop.Services
             foreach (DataRow dtrow in dt.Rows)
             {
                 bool FeatureChk = bool.Parse(dtrow["FeaturedFlag"].ToString());
-                int category = int.Parse(dtrow["CategoryId"].ToString());
-                if (FeatureChk && category == int.Parse(CatgId))
+                //int category = int.Parse(dtrow["CategoryId"].ToString());
+                if (FeatureChk)//&& category == int.Parse(CatgId)
                 {
                     ItemDetails user = new ItemDetails();
                     user.ItemId = dtrow["ItemId"].ToString();

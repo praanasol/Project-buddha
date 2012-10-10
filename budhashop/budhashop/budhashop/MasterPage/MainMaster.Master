@@ -35,6 +35,8 @@
                 
              
           });
+          
+         var catArray = []; 
     </script>
     
     

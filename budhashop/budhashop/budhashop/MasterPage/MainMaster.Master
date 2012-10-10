@@ -162,6 +162,11 @@
   Copy Rights @2012. praanasolutions.com
   </footer>
 </div>
+
+<asp:HiddenField ID="cat1Id" runat="server"/>
+<asp:HiddenField ID="cat2Id" runat="server"/>
+<asp:HiddenField ID="cat3Id" runat="server"/>
+<asp:HiddenField ID="cat4Id" runat="server"/>
     </form>
 </body>
 </html>

@@ -1,30 +1,30 @@
 ﻿$(document).ready(function() {
  
- var catArray = []; 
- 
-	            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: "Services/Services.aspx/FetchCatNames",
-                dataType: "json",
-                data: "{}",
-               
-                success: function(data) {
-                
-                var items = [];
+// var catArray = []; 
+// 
+//	            $.ajax({
+//                type: "POST",
+//                contentType: "application/json; charset=utf-8",
+//                url: "Services/Services.aspx/FetchCatNames",
+//                dataType: "json",
+//                data: "{}",
+//               
+//                success: function(data) {
+//                
+//                var items = [];
 
-                $.each(data.d, function(i, item) {
+//                $.each(data.d, function(i, item) {
 
-                
-                catArray.push(parseInt(item.CatId));
+//                
+//                catArray.push(parseInt(item.CatId));
 
-                });  // close each()            
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert(textStatus);
-                }
-            });
-          var xtest = catArray[0];
+//                });  // close each()            
+//                },
+//                error: function(XMLHttpRequest, textStatus, errorThrown) {
+//                    alert(textStatus);
+//                }
+//            });
+//          var xtest = eval(catArray[0]);
             
 $.ajax({
 type: "POST",
@@ -49,7 +49,7 @@ $.ajax({
 type: "POST",
 contentType: "application/json; charset=utf-8",
 url: "Services/Services.aspx/BindDatatable",
-data: "{'CatgId':'1'}",
+data: "{'CatgId':'3'}",
 dataType: "json",
 success: function(data) {
 for (var i = 0; i < data.d.length; i++) {

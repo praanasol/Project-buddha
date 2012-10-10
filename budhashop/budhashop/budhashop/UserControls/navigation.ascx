@@ -23,11 +23,6 @@
                 });  // close each()
 
                $('#navitems').append( items.join('') );
-//               for(var i=0;i<data.d.length;i++)
-//               {
-//                    catArray[i] = data.d[i].CatId;
-//                     $("#navitems ").append('<li><a href="itemspage.aspx?catid='+data.d[i].CatId+'" target="_self">'+data.d[i].CatName+'</a></li>');
-//               }
 
                 
                     

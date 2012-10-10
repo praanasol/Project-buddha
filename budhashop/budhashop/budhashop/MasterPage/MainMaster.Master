@@ -16,6 +16,7 @@
     <link href="../Styles/format.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/menus.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/SearchAll.css" rel="stylesheet" type="text/css" />
 
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>

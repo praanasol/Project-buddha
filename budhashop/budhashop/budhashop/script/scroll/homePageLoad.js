@@ -24,7 +24,7 @@
                     alert(textStatus);
                 }
             });
-          
+          var xtest = catArray[0];
             
 $.ajax({
 type: "POST",
@@ -49,7 +49,7 @@ $.ajax({
 type: "POST",
 contentType: "application/json; charset=utf-8",
 url: "Services/Services.aspx/BindDatatable",
-data: "{'CatgId':'3'}",
+data: "{'CatgId':'1'}",
 dataType: "json",
 success: function(data) {
 for (var i = 0; i < data.d.length; i++) {

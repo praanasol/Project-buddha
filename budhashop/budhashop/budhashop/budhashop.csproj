@@ -395,6 +395,7 @@
     <Content Include="Styles\jquery.jscrollpane.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\menus.css" />
+    <Content Include="Styles\SearchAll.css" />
     <Content Include="UserControls\login.ascx" />
     <Content Include="UserControls\Login1.ascx" />
     <Content Include="UserControls\MainCartControl.ascx" />
@@ -444,7 +445,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2050</DevelopmentServerPort>
+          <DevelopmentServerPort>52861</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

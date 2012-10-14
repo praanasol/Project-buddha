@@ -14,6 +14,7 @@
 
 //if(args.get_isPartialLoad())
    function checkLogin() {
+   
       var email = $("[id$=txt_emailid]").val();
       var pwd = $("[id$=txt_pwd]").val();
       if(email==""){alert("Enter Email Id");}
@@ -25,10 +26,11 @@
      }
         
     function OnSucceeded(result) {
-        $("[id$=lbl_result]").text(result);
-        var usersession='<%= this.Session["currentuser"] %>';
-            if(usersession != "")
+        
+        //var usersession='<%= this.Session["currentuser"] %>';
+            if(result)
             {
+                
                 $("[id$=txt_emailid]").val('');
                 $("[id$=txt_pwd]").val('');
                 $("#overlay").hide();
@@ -36,6 +38,10 @@
 //                document.write("You will be redirected to our main page in 5 seconds!");
 //                setTimeout('Redirect()', 5000);
               Redirect();
+            }
+            else
+            {
+            $("[id$=lbl_result]").text = "Username/Password Wrong";
             }
         }
          

@@ -106,6 +106,7 @@
                                 $("#overlay").show();
                                 $("#dialog").fadeIn("slow");
                                 $("#overlay").click(function (e){
+                                
                                     HideDialog();
                                 });
                             }

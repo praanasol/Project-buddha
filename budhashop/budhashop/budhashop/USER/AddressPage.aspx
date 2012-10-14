@@ -12,10 +12,17 @@
             text-align: left;
         }
     </style>
+    <script type="text/javascript">
+    $("#ctl00_cartCtrl_signin").hide();
+                              
+                              
+    
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <table class="style1" align="center">
+        <div id="adressDiv" runat="server" visible="true">
+        <table id="tbl" class="style1" align="center">
             <tr>
                 <td>
                     Email Id:</td>
@@ -38,7 +45,7 @@
                 ControlToValidate="txt_uname" SetFocusOnError="True" ValidationGroup="name"></asp:RequiredFieldValidator>
                 </td>
                 <td style="margin-left: 40px">
-            <asp:TextBox ID="txt_uname" runat="server" Width="181px"></asp:TextBox>
+                <asp:TextBox ID="txt_uname" runat="server" Width="181px"></asp:TextBox>
                 </td>
                 <td style="margin-left: 40px">
                 <asp:Button ID="btn_updateemail" runat="server" Text="Update" 
@@ -94,6 +101,15 @@
                 </td>
             </tr>
         </table>
-
+        <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" 
+                OnClick="ConfirmBtn_Click" />
+        </div>
+        <div id="cartData">
+        <asp:GridView ID="cartDataGV" runat="server" Visible="false">
+        
+        </asp:GridView>
+        
+        </div>
+<asp:HiddenField ID="totalHidden" runat="server" />
 </asp:Content>
 

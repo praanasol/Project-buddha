@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="navigation.ascx.cs" Inherits="budhashop.UserControls.navigation" %>
 <script type="text/javascript">
-        $(document).ready(function(){
+$(document).ready(function(){
                                
-            
+               var catArray = [];
 	            $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
@@ -34,10 +34,13 @@
             });
              
           });
-    </script>
-    
 
-        <nav id="nav">
+
+
+
+</script>
+
+<nav id="nav">
             	<ul id="navitems">
                 	<li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
                     
@@ -45,3 +48,6 @@
                
                 </ul>
             </nav>
+    
+
+        

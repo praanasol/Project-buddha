@@ -232,6 +232,13 @@
     <Compile Include="USER\OrderPage.aspx.designer.cs">
       <DependentUpon>OrderPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="USER\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="USER\Services\LoginControl.asmx.cs">
       <DependentUpon>LoginControl.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -409,6 +416,7 @@
     <Content Include="USER\ForgotPassword.aspx" />
     <Content Include="USER\Login_Register.aspx" />
     <Content Include="USER\OrderPage.aspx" />
+    <Content Include="USER\ProfilePage.aspx" />
     <Content Include="USER\Services\LoginControl.asmx" />
   </ItemGroup>
   <ItemGroup>

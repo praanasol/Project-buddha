@@ -14,39 +14,39 @@ namespace budhashop.UserControls {
     public partial class Register {
         
         /// <summary>
-        /// txt_emailid control.
+        /// txt_emailid2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_emailid;
+        protected global::System.Web.UI.WebControls.TextBox txt_emailid2;
         
         /// <summary>
-        /// txt_pwd control.
+        /// txt_pwd2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_pwd;
+        protected global::System.Web.UI.WebControls.TextBox txt_pwd2;
         
         /// <summary>
-        /// txt_confirmpwd control.
+        /// txt_confirmpwd2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_confirmpwd;
+        protected global::System.Web.UI.WebControls.TextBox txt_confirmpwd2;
         
         /// <summary>
-        /// btn_register control.
+        /// lbl_result2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_register;
+        protected global::System.Web.UI.WebControls.Label lbl_result2;
     }
 }

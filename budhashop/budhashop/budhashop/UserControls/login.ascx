@@ -1,144 +1,151 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="login.ascx.cs" Inherits="budhashop.UserControls.login" %>
 
 <style type="text/css">
-
-    .style5
+    
+    .logintext
     {
-        width: 100%;
-        background-color: #66FFFF;
-    }
-    .style35
-    {
-    	padding-left:20px;
-    }
-    .style37
-    {
-        width: 176px;
-    }
-    .style38
-    {
-    }
-    .style39
-    {
-    }
-    .style41
-    {
-    }
-</style>
-
-<style type="text/css">
-    #login
-    {	
+    	float:right;
+        background: #f39112;
         font-family: "Courier New" , Courier, monospace;
-        font-size: 23px;
-        color: #364700;
+        font-size: 16px;
+        color: White;
         font-weight: bold;
         text-decoration: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        padding: 4px 12px 6px;
     }
-    	
-    #login_menu
+    .logintext:hover
     {
-        display: none;
-        position: absolute;
-        width:420px;
-        height:50px;
-        right: 80px;
-        background-color:Aqua;
+        background: Green;
+        color: White;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 4px 12px 6px;
     }
-    .style42
+    .usertext
     {
-        width: 7px;
+    	float:right;
+        background: Green;
+        font-family: "Courier New" , Courier, monospace;
+        font-size: 14px;
+        color: White;
+        font-weight: bold;
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        padding: 4px 12px 6px;
     }
+    .usertext:hover
+    {
+        background: #f39112;
+        color: White;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 4px 12px 6px;
+    }
+      
 </style>
 
-<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
-<script>
 
-$(document).ready(function() {
-            
-            $(".login").click(function() {     			
-                $("fieldset#login_menu").toggle("slow");
-            });			
-						 
-			$("fieldset#login_menu").mouseup(function() {
-				return false
-			});			
-			
-			$(document).mouseup(function(e) {
-				if($(e.target).parent("a.login").length==0) {
-					$("fieldset#login_menu").hide();
-				}
-			});
-			
-			$("#btn_lclr").click(function(){
-			    $("[id$=txt_lusername]").val('');
-			    $("[id$=txt_lpassword]").val('');
-                });
-        });
+<script type="text/javascript">
+
+         $(document).ready(function(){
+         
+                        var usersession='<%= this.Session["currentuser"] %>';
+                        if(usersession)
+                            { 
+                                $("#login-required").hide();
+                                $(".logintext").toggleClass("usertext");
+                                
+                            }
+                        else
+                            {
+                               $("#login-success").hide();
+                               $(".logintext").removeClass("usertext");
+                            }
+                        
+                        $(".logintext").click(function(e) {          
+				        e.preventDefault();
+                        $("#user-status").slideToggle();
+                        });
+          });
+          
+          function checkLogin1() {
+              var email = $("[id$=txt_emailid1]").val();
+              var pwd = $("[id$=txt_pwd1]").val();
+              var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+              if(email==""){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
+              else if(email.match(emailFormat)==null){$("[id$=lbl_result1]").text("Enter Valid Email Id");  $("[id$=txt_emailid1]").focus();}
+              else if(pwd==""){$("[id$=lbl_result1]").text("Enter Password");   $("[id$=txt_pwd1]").focus();   }
+              else
+              {
+                budhashop.USER.Services.LoginControl.LoginUser(email, pwd, OnSuccess, onerror);
+              }
+            }
+         function OnSuccess(result) {
+            var result1=false;
+            result1=eval(result);
+                if(result1)
+                {
+                    $("[id$=txt_emailid1]").val('');
+                    $("[id$=txt_pwd1]").val('');
+//                    window.location.assign(window.location.href);
+                    document.location.reload(true);
+                }
+                else
+                {
+                   $("[id$=lbl_result1]").text('Wrong Email Id/Password');
+                } 
+            }
+         
+        function onerror(result){
+            alert("Error calling service method.");
+            }
+         
          
 </script>
+
 <body>
 
-<div>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <a id="login" class="login" href="#" target="_self">LogIn</a>
+<div style="width: 350px;">
+        
+    <div  id="user-status" style="background-color: #99FF99; display:none;" >
+        <div id="login-required">
+        
+            <asp:TextBox ID="txt_emailid1" runat="server" placeholder="Enter EmailId" Width="140px"></asp:TextBox>
+            
+            <asp:TextBox ID="txt_pwd1" runat="server" TextMode="Password" placeholder="Enter Password" Width="140px"></asp:TextBox>
+            
+            <input id="btn_login1" type="button" value="Go" onclick="return checkLogin1();" />
+            
+            <br />
+            
+            <asp:HyperLink ID="hyplink_forgotpwd" runat="server" 
+                NavigateUrl="~/USER/ForgotPassword.aspx">Forgot Password?</asp:HyperLink>
+            
+            <asp:HyperLink ID="hyplink_register" runat="server" 
+                NavigateUrl="~/USER/Login_Register.aspx">Register</asp:HyperLink>
+            
+            <br />
+            
+            <asp:Label ID="lbl_result1" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
+            
+        </div>
+        
+        <div id="login-success">
+            
+            <asp:LinkButton ID="lb_profile" runat="server" onclick="lb_profile_Click">Profile -&gt;</asp:LinkButton>
+            <br />
+            <asp:LinkButton ID="lb_orderhistory" runat="server" 
+                onclick="lb_orderhistory_Click">Order History -&gt;</asp:LinkButton>
+            <br />
+            <asp:LinkButton ID="lb_logout" runat="server" onclick="lb_logout_Click">Logout -&gt;</asp:LinkButton>
+            
+        </div>
+    </div>
     
-    <fieldset id="login_menu">
-        
-            <aside>
-                
-                    <asp:Label ID="lbl_status" runat="server" 
-                        style="font-weight: 700; color: #009933"></asp:Label>&nbsp;
-                    <asp:LinkButton ID="lb_logout" runat="server" Visible="False" 
-                        onclick="lb_logout_Click">Logout</asp:LinkButton>
-                
-           
-            
-                
-                    <asp:Label ID="lbl_uname" runat="server" ForeColor="Red" Text="*"></asp:Label>
-              
-                
-                <asp:TextBox ID="txt_lusername" Text="UserName/EmailId"
-                                            onfocus="if(this.value=='UserName/EmailId')this.value='';"
-                                            onblur="if(this.value=='')this.value='UserName/EmailId';"
-                                            runat="server" Width="181px"></asp:TextBox>
-                
-                
-            
-                
-                <asp:TextBox ID="txt_lpassword" Text="Password"
-                                            onfocus="if(this.value=='Password'){this.value=''};"
-                                            onblur="if(this.value=='')this.value='Password';"
-                                            runat="server" Width="181px"></asp:TextBox>
-                
-                
-                    
-                <asp:Button ID="btn_login" runat="server" Text="Go" 
-                    onclick="btn_login_Click" />
-                    </aside>
-                
-                <%--<td>
-                <input type="button" id="btn_lclr" value="Clear" />
-                </td>--%>
-                
-            
-           <aside>
-                
-                <asp:HyperLink ID="hl_forgotpwd" runat="server" 
-                    NavigateUrl="~/USER/ForgotPassword.aspx">Forgot Password?</asp:HyperLink>
-               
-                
-                <asp:HyperLink ID="hl_register" runat="server" 
-                    NavigateUrl="~/USER/Login_Register.aspx">Register</asp:HyperLink>
-               
-                
-                    <asp:Label ID="lbl_pwd" runat="server" ForeColor="Red" Text="*"></asp:Label>
-                
-                <asp:Label ID="lbl_login" runat="server" ForeColor="Red"></asp:Label>
-                </aside>
-                
-        
-    </fieldset>
+    <asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>
+    
 </div>
-
-
+</body>

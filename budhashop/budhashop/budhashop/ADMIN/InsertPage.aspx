@@ -118,19 +118,20 @@
                                         runat="server" Width="168px"></asp:TextBox>
         <asp:Button ID="btn_search" runat="server" Text="Search" 
             onclick="btn_search_Click" />        
-         <asp:GridView ID="itemGrid" DataKeyNames="ItemID" runat="server" 
-             AutoGenerateColumns="False" AllowPaging="True" PageSize="5" OnPageIndexChanging= "itemGrid_PageIndexChanging">
+         <asp:GridView ID="itemGrid" runat="server" AllowPaging="True" 
+             AutoGenerateColumns="False" 
+             DataKeyNames="ItemID,ItemName,Qty,BilledRate,NetRate" 
+             OnPageIndexChanging="itemGrid_PageIndexChanging" 
+             onrowcommand="itemGrid_RowCommand" PageSize="5">
              <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                 
-         <Columns>
-                 <asp:TemplateField HeaderText="Select">
-           <ItemTemplate >
-                <asp:CheckBox ID="itemChkBox" runat="server" ></asp:CheckBox>
-               
-           </ItemTemplate>
-           
-           </asp:TemplateField>
-                 
+             <Columns>
+                 <asp:TemplateField>
+                     <ItemTemplate>
+                         <asp:LinkButton ID="lb_add" runat="server" 
+                             CommandArgument="<%# Container.DisplayIndex %>" CommandName="Add">Add</asp:LinkButton>
+                     </ItemTemplate>
+                 </asp:TemplateField>
                  <asp:TemplateField HeaderText="Item Id">
                      <ItemTemplate>
                          <asp:Label ID="lbl_itemId" runat="server" Text='<%# Eval("ItemID") %>'></asp:Label>
@@ -156,9 +157,14 @@
                          <asp:Label ID="lbl_itemNR" runat="server" Text='<%# Eval("NetRate") %>'></asp:Label>
                      </ItemTemplate>
                  </asp:TemplateField>
-                 
              </Columns>
          </asp:GridView>
+         <br />
+         
+         <asp:GridView ID="SelectedItemGrid" runat="server">
+         </asp:GridView>
+         
+         <br />
      </div>
     
      <p></p>

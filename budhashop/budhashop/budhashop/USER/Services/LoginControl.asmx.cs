@@ -28,11 +28,11 @@ namespace budhashop.USER.Services
         [WebMethod(EnableSession = true)]
         public bool LoginUser(string emailid, string password)
         {
-            bool flag = false;
-            string pwd = CLASS.PasswordEncryption.EncryptIt(password);
+            //string flag = string.Empty;
+            string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(password);
             BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
             checkuserObj.uname = emailid;
-            checkuserObj.pwd = pwd;
+            checkuserObj.pwd = encryptedpwd;
             try
             {
                 
@@ -42,23 +42,69 @@ namespace budhashop.USER.Services
                 dt = checkuser.checklogin(checkuserObj);
                 if (dt != null)
                 {
-                    flag = true;
+                    //flag = "Existing User";
                     this.Session["currentuser"] = dt.Rows[0]["Email"].ToString();
+                    return true;
                 }
                 else
                 {
-                    flag = false;
+                    //flag = "Invalid User";
+                    return false;
 
                 }
             }
             catch (Exception ex)
             {
-                flag = false;
-
+                //flag = "Error: " + ex;
+                return false;
             }
             
-            return flag;
-        
+            //return flag;        
+        }
+
+        [WebMethod(EnableSession = true)]
+        public bool RegisterUser(string emailid, string password)
+        {
+            try
+            {
+                IUser checkuser = new UserItems();
+
+                //returns the table if given emailid exists
+                dt = checkuser.checkavailability(emailid);
+                if (dt == null)
+                {
+                    string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(password);
+                    BusinessEntitiesBS.UserEntities.userobj userObj = new BusinessEntitiesBS.UserEntities.userobj();
+
+                    userObj.uname = "";
+                    userObj.emailid = emailid;
+                    userObj.pwd = encryptedpwd;
+                    userObj.phno = "";
+                    userObj.address = "";
+                    userObj.userstatus = true;
+                    try
+                    {
+                        IUser userInsert = new UserItems();
+
+                        //insert new user details in database with given values
+                        userInsert.insertUser(userObj);
+                        this.Session["currentuser"] = emailid;
+                        return true;
+                    }
+                    catch (Exception exp)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

@@ -19,71 +19,34 @@ namespace budhashop.UserControls
 {
     public partial class login : System.Web.UI.UserControl
     {
-        public DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbl_uname.Visible = lbl_pwd.Visible = false;
-
-        }
-
-        protected void btn_login_Click(object sender, EventArgs e)
-        {
-            if (txt_lusername.Text == "Enter UserName/EmailId" || txt_lusername.Text == "")
+            if (this.Session["currentuser"] != null)
             {
-                lbl_uname.Visible = true;
-            }
-            else if (txt_lpassword.Text == "Enter Password" || txt_lpassword.Text == "")
-            {
-                lbl_pwd.Visible = true;
+                logintext.Text = this.Session["currentuser"].ToString();
             }
             else
             {
-                lbl_uname.Visible = lbl_pwd.Visible = false;
-                string luname = txt_lusername.Text;
-                string lpassword = CLASS.PasswordEncryption.EncryptIt(txt_lpassword.Text);
-                BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-                checkuserObj.uname = luname;
-                checkuserObj.pwd = lpassword;
-                try
-                {
-                    IUser checkuser = new UserItems();
-
-                    //returns datatable if username and password are matched
-                    dt = checkuser.checklogin(checkuserObj);
-                    if (dt != null)
-                    {
-                        lbl_login.Text = "LogIn Successful";
-                        lbl_status.Text = "Welcome " + txt_lusername.Text;
-                        lb_logout.Visible = true;
-                        this.Session["currentuser"] = dt.Rows[0]["Email"].ToString();
-                    }
-                    else
-                    {
-                        lbl_login.Text = "Invalid User Id / Password";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lbl_login.Text = "Error Occured: " + ex.Message;
-                }
+                logintext.Text = "LogIn";
             }
-        }
-
-        protected void btn_lclr_Click(object sender, EventArgs e)
-        {
-            txt_lusername.Text = "Enter UserName/EmailId";
-            txt_lpassword.Text = "Enter Password";
-        }
-
-        protected void lb_forgotpwd_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/USER/ForgotPassword.aspx");
         }
 
         protected void lb_logout_Click(object sender, EventArgs e)
         {
             this.Session["currentuser"] = null;
-            lbl_login.Text = "";
+            lbl_result1.Text = "";
+            logintext.Text = "LogIn";
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void lb_profile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/USER/ProfilePage.aspx");
+        }
+
+        protected void lb_orderhistory_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/USER/ProfilePage.aspx");
         }
 
     }

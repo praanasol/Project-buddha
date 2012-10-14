@@ -36,10 +36,8 @@
                            position:absolute;
                            width:auto;
                            height:auto;
-                           top:60%;
-                           left:60%;
-                           margin-left: -190px;
-                           margin-top: -100px;
+                           top:30%;
+                           left:40%;
                            background-color: #ffffff;
                            border: solid 2px #336699;
                            padding: 0px;
@@ -59,36 +57,28 @@
 
                     <script type="text/javascript">
                         $(document).ready(function() {
-//                              $("#ctl00_cartCtrl_signin").hide();
-//                              
-//                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0")
-//                              {
                               $("#RegisterControl").hide();
                               
-//                              if($("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text()=="0"){
-//                                $("#btn_ConfirmOrder").hide();
-//                              }
+                              var ItemsCount = $("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text();
+                              if(ItemsCount == "0" || ItemsCount == "Items: 0"){
+                                $("#btn_ConfirmOrder").hide();
+                              }
                               
                               $("#btnClose").click(function (e){
-                                 HideDialog()
+                                 HideDialog();
                               });
                               
                               $("#btn_ConfirmOrder").click(function(){
                                 var usersession='<%= this.Session["currentuser"] %>';
-//                                var userstatus=($("#ctl00_ContentPlaceHolder1_loginuc_lbl_result").text());
                                   if(usersession)
                                   {
-                                     alert('you are logged in...');
                                      location.href = "../USER/AddressPage.aspx";
                                   }
-//                                  else if(userstatus=="Existing User")
-//                                  {
-//                                    alert('you are logged in...');
-//                                     //location.href = "../USER/EditDetails.aspx";
-//                                  }
                                   else
                                   {
-                                     ShowDialog();
+                                    $("#RegisterControl").hide();
+                                    $("#LoginControl").show();
+                                    ShowDialog();
                                   }
                               });
                               
@@ -106,8 +96,7 @@
                                 $("#overlay").show();
                                 $("#dialog").fadeIn("slow");
                                 $("#overlay").click(function (e){
-                                
-                                    HideDialog();
+                                    $("#overlay").unbind("click");
                                 });
                             }
                             

@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="budhashop.MasterPage.MainMaster" %>
 <%@ Register src="../UserControls/MainCartControl.ascx" tagname="cart" tagprefix="uc4" %>
-<%@ Register src="~/UserControls/login.ascx" tagname="loginuc" tagprefix="uc_login" %>
+<%@ Register Src="~/UserControls/login.ascx" TagName="mainloginuc" TagPrefix="uc_mainlogin" %>
 <%@ Register src="~/UserControls/navigation.ascx" tagname="naviuc" tagprefix="uc_navi" %>
 <%@ Register src="~/UserControls/mainSearch.ascx" tagname="searchuc" tagprefix="uc_search" %>
 <!DOCTYPE html>
@@ -86,7 +86,7 @@
           <div id="top_loginlinks_area">
             <nav id="top_loginlinks">
               <ul>
-                <uc_login:loginuc ID="login_uc" runat="server" />
+                <li><a href="#" target="_self">LogIn</a></li>
               </ul>
             </nav>
           </div>
@@ -165,6 +165,9 @@
   </footer>
 </div>
 
+<div id="mainloginuc" style="position:absolute; top:2px; left:30%;">
+    <uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" />
+</div>
 
     </form>
 </body>

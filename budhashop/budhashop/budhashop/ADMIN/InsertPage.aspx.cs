@@ -21,10 +21,19 @@ namespace budhashop.ADMIN
 {
     public partial class InsertPage : System.Web.UI.Page
     {
+        public DataTable dtt;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                DataTable SelectedItemDT = new DataTable();
+                SelectedItemDT.Columns.Add("ItemId");
+                SelectedItemDT.Columns.Add("ItemName");
+                SelectedItemDT.Columns.Add("Quantity");
+                SelectedItemDT.Columns.Add("BilledRate");
+                SelectedItemDT.Columns.Add("Net Rate");
+                this.ViewState["SelectedItemDT"] = SelectedItemDT;
+
                 getcatgs();
                 getItems(Int32.Parse(grpCatDDL.SelectedValue.ToString()));                
             }
@@ -274,32 +283,26 @@ namespace budhashop.ADMIN
         {
             if (grpImageFU.FileName != string.Empty && grpImageFU.FileContent.Length <= 1024000)
             {
-                bool flagItem;                
+                //bool flagItem;                
                 float billedrate = 0, netrate = 0;
 
                 DataTable grpItemsDt = new DataTable();
                 DataColumn dc = new DataColumn("GrpItem", typeof(int));
                 grpItemsDt.Columns.Add(dc);
 
-                foreach (GridViewRow dRow in itemGrid.Rows)
+                foreach (GridViewRow dRow in SelectedItemGrid.Rows)
                 {
-                    flagItem = (dRow.FindControl("itemChkBox") as CheckBox).Checked;
+                    string nrate = dRow.Cells[4].Text.ToString();
+                    string brate = dRow.Cells[3].Text.ToString();
+                    billedrate += float.Parse(brate);
+                    netrate += float.Parse(nrate);
 
-                    if (flagItem)
-                    {
-                        string nrate = (dRow.FindControl("lbl_itemNR") as Label).Text;
-                        string brate = (dRow.FindControl("lbl_itemBR") as Label).Text;
-                        billedrate += float.Parse(brate);
-                        netrate += float.Parse(nrate);
+                    int itemId = Convert.ToInt32(dRow.Cells[0].Text.ToString());
 
-                        int itemId = Convert.ToInt32(itemGrid.DataKeys[dRow.RowIndex].Value);
+                    DataRow dr = grpItemsDt.NewRow();
+                    dr[0] = itemId;
 
-                        DataRow dr = grpItemsDt.NewRow();
-                        dr[0] = itemId;
-
-                        grpItemsDt.Rows.Add(dr);
-
-                    }
+                    grpItemsDt.Rows.Add(dr);
                 }
 
                 string grpItemString = "";
@@ -343,7 +346,7 @@ namespace budhashop.ADMIN
                     if (grpId != -1)
                     {
                         //create folder for item images and save images. show result
-                        string NewDir = Server.MapPath("~/GroupImages/" + "/" + grpId);
+                        string NewDir = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId);
                         try
                         {
                             // Check if directory exists
@@ -358,13 +361,13 @@ namespace budhashop.ADMIN
                             grpMsgLbl.Text = "Error: Floder" + _ex.Message;
                         }
                         string filename = grpId + "Photo.jpg";
-                        grpImageFU.SaveAs(Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename);
+                        grpImageFU.SaveAs(Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + filename);
 
-                        string filePath = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename;
+                        string filePath = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + filename;
                         string newfileMed = grpId + "Photomedium.jpg";
                         string newfileSmall = grpId + "small.jpg";
-                        string resizedImageMed = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + newfileMed;
-                        string resizedImageSmall = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + newfileSmall;
+                        string resizedImageMed = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + newfileMed;
+                        string resizedImageSmall = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + newfileSmall;
                         System.Drawing.Image img = System.Drawing.Image.FromFile(filePath);
 
                         System.Drawing.Bitmap bmpD = img as Bitmap;
@@ -449,6 +452,52 @@ namespace budhashop.ADMIN
             }
         }
 
+        protected void itemGrid_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            dtt = (DataTable)this.ViewState["SelectedItemDT"];
 
+            DataRow row;
+
+            if (e.CommandName.Equals("Add"))
+            {
+                int index = Convert.ToInt32(e.CommandArgument.ToString());
+                //GridViewRow gvr = (GridViewRow)((LinkButton)e.CommandSource).NamingContainer;
+                //int index = gvr.RowIndex;
+                string ItemId = itemGrid.DataKeys[index].Value.ToString();
+                string ItemName = itemGrid.DataKeys[index]["ItemName"].ToString();
+                string ItemQty = itemGrid.DataKeys[index]["Qty"].ToString();
+                string ItemBR = itemGrid.DataKeys[index]["BilledRate"].ToString();
+                string ItemNR = itemGrid.DataKeys[index]["NetRate"].ToString();
+
+                bool isexist = false;
+
+                foreach (DataRow drr in dtt.Rows)
+                {
+                    string ItemId1 = drr["ItemId"].ToString();
+                    if (ItemId == ItemId1)
+                    {
+                        isexist = true;
+                        break;
+                    }
+                }
+
+                if (isexist)
+                {
+                    Response.Write("<script language='javascript'>alert(\"" + "Item Already in Grid" + "\");</script>");
+                }
+                else
+                {
+                    row = dtt.NewRow();
+                    row["ItemId"] = ItemId;
+                    row["ItemName"] = ItemName;
+                    row["Quantity"] = ItemQty;
+                    row["BilledRate"] = ItemBR;
+                    row["Net Rate"] = ItemNR;
+                    dtt.Rows.Add(row);
+                    SelectedItemGrid.DataSource = dtt;
+                    SelectedItemGrid.DataBind();
+                }
+            }
+        }
     }
 }

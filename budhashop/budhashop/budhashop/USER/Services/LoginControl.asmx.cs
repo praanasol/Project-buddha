@@ -26,9 +26,9 @@ namespace budhashop.USER.Services
         public DataTable dt;
 
         [WebMethod(EnableSession = true)]
-        public string LoginUser(string emailid, string password)
+        public bool LoginUser(string emailid, string password)
         {
-            string flag = string.Empty;
+            bool flag = false;
             string pwd = CLASS.PasswordEncryption.EncryptIt(password);
             BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
             checkuserObj.uname = emailid;
@@ -42,18 +42,18 @@ namespace budhashop.USER.Services
                 dt = checkuser.checklogin(checkuserObj);
                 if (dt != null)
                 {
-                    flag = "Existing User";
+                    flag = true;
                     this.Session["currentuser"] = dt.Rows[0]["Email"].ToString();
                 }
                 else
                 {
-                    flag = "Invalid User";
+                    flag = false;
 
                 }
             }
             catch (Exception ex)
             {
-                flag = "Error: " + ex;
+                flag = false;
 
             }
             

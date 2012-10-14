@@ -36,7 +36,7 @@
              
           });
           
-         var catArray = []; 
+         
     </script>
     
     
@@ -165,10 +165,7 @@
   </footer>
 </div>
 
-<asp:HiddenField ID="cat1Id" runat="server"/>
-<asp:HiddenField ID="cat2Id" runat="server"/>
-<asp:HiddenField ID="cat3Id" runat="server"/>
-<asp:HiddenField ID="cat4Id" runat="server"/>
+
     </form>
 </body>
 </html>

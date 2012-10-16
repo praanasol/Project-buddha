@@ -23,7 +23,8 @@ namespace budhashop.UserControls
         {
             if (this.Session["currentuser"] != null)
             {
-                logintext.Text = this.Session["currentuser"].ToString();
+                DataTable dt = (DataTable)this.Session["currentuser"];
+                logintext.Text = dt.Rows[0]["Email"].ToString();
             }
             else
             {

@@ -10,11 +10,9 @@ namespace InterfacesBS.InterfacesBL
     public interface IUser
     {
         void insertUser(userobj userObj);
-        DataTable checkavailability(string checkvalue);
-        DataTable checklogin(userobj checkloginObj);
-        bool UpdatePassword(string emailid, string newpwd);
-        bool UpdateName(string emailid, string newname);
-        bool UpdatePhoneNumber(string emailid, string newphno);
-        bool UpdateAddress(string emailid, string newaddress);
+        DataTable checkavailability(string emailid);
+        DataTable checklogin(string emailid, string pwd);
+        bool UpdatePassword(string userid, string newpwd);
+        bool UpdateProfile(string userid, string newvalue, string fieldname);
     }
 }

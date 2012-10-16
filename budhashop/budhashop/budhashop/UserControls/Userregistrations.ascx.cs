@@ -136,15 +136,12 @@ namespace budhashop.UserControls
         {
             string luname = txt_lusername.Text;
             string lpassword = CLASS.PasswordEncryption.EncryptIt(txt_lpassword.Text);
-            BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-            checkuserObj.uname = luname;
-            checkuserObj.pwd = lpassword;
             try
             {
                 IUser checkuser = new UserItems();
 
                 //returns datatable if username and password are matched
-                dt = checkuser.checklogin(checkuserObj);
+                dt = checkuser.checklogin(luname, lpassword);
                 if (dt != null)
                 {
                     lbl_login.Text = "Log In Successfull";

@@ -54,7 +54,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="3" align="center">
                     <asp:Button ID="btn_fsubmit" runat="server" Text="Submit" onclick="btn_fsubmit_Click" 
                                 ValidationGroup="1" />
                     <asp:Button ID="btn_cancel" runat="server" onclick="btn_cancel_Click" 
@@ -64,7 +64,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <asp:Label ID="lbl_fsubmit1" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lbl_fsubmit" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
     </table>

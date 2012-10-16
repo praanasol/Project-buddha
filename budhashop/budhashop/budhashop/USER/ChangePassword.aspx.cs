@@ -30,18 +30,16 @@ namespace budhashop.USER
             string uname = txt_emailid.Text;
             string oldpassword = CLASS.PasswordEncryption.EncryptIt(txt_oldpwd.Text);
             string newpassword = CLASS.PasswordEncryption.EncryptIt(txt_newpwd.Text);
-            BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-            checkuserObj.uname = uname;
-            checkuserObj.pwd = oldpassword;
             try
             {
                 IUser checkuser = new UserItems();
 
                 //returns a table if given email id and password are matched
-                dt = checkuser.checklogin(checkuserObj);
+                dt = checkuser.checklogin(uname, oldpassword);
                 if (dt != null)
                 {
-                    bool ispwdupdated = checkuser.UpdatePassword(uname, newpassword); 
+                    string userid = dt.Rows[0]["Uid"].ToString();
+                    bool ispwdupdated = checkuser.UpdatePassword(userid, newpassword); 
                     if (ispwdupdated)
                     {
                         lbl_submit.Text = "Password Changed Successfully";

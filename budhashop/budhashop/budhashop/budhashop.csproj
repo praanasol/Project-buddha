@@ -211,13 +211,6 @@
     <Compile Include="USER\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\EditDetails.aspx.cs">
-      <DependentUpon>EditDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="USER\EditDetails.aspx.designer.cs">
-      <DependentUpon>EditDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="USER\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,7 +405,6 @@
     <Content Include="UserControls\Userregistrations.ascx" />
     <Content Include="USER\AddressPage.aspx" />
     <Content Include="USER\ChangePassword.aspx" />
-    <Content Include="USER\EditDetails.aspx" />
     <Content Include="USER\ForgotPassword.aspx" />
     <Content Include="USER\Login_Register.aspx" />
     <Content Include="USER\OrderPage.aspx" />

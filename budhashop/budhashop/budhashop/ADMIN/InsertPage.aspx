@@ -112,10 +112,7 @@
       <asp:Label ID="grpItemsIbl" runat="server" Text="Add Items to group from grid"></asp:Label>
       <!-- Items datagrid to add items selecting all at a time -->
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txt_itemname" Text="Enter Item Name/Id"
-                                        onfocus="if(this.value=='Enter Item Name/Id')this.value='';"
-                                        onblur="if(this.value=='')this.value='Enter Item Name/Id';"
-                                        runat="server" Width="168px"></asp:TextBox>
+        <asp:TextBox ID="txt_itemname" placeholder="Enter Item Name/Id" runat="server" Width="168px"></asp:TextBox>
         <asp:Button ID="btn_search" runat="server" Text="Search" 
             onclick="btn_search_Click" />        
          <asp:GridView ID="itemGrid" runat="server" AllowPaging="True" 

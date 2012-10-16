@@ -20,14 +20,14 @@ namespace BusinessLogicBS.UserClasses
 
         #endregion
 
-        #region IUser Members Check UserName or Email Availability
+        #region IUser Members Check Email Availability
 
-        public DataTable checkavailability(string checkvalue)
+        public DataTable checkavailability(string emailid)
         {
             try
             {
                 IUserDA checkuser = new DataAccessBS.UserClasses.UserDA();
-                return checkuser.checkavailability(checkvalue);
+                return checkuser.checkavailability(emailid);
             }
             catch
             {
@@ -39,12 +39,12 @@ namespace BusinessLogicBS.UserClasses
 
         #region IUser Members Check LogIn
 
-        public DataTable checklogin(BusinessEntitiesBS.UserEntities.userobj checkuserObj)
+        public DataTable checklogin(string emailid, string pwd)
         {
             try
             {
                 IUserDA checklogin = new DataAccessBS.UserClasses.UserDA();
-                return checklogin.checklogin(checkuserObj);
+                return checklogin.checklogin(emailid,pwd);
             }
             catch
             {
@@ -56,12 +56,12 @@ namespace BusinessLogicBS.UserClasses
 
         #region IUser Members Password Update
 
-        public bool UpdatePassword(string emailid, string newpwd)
+        public bool UpdatePassword(string userid, string newpwd)
         {
             try
             {
                 IUserDA checkuser = new DataAccessBS.UserClasses.UserDA();
-                return checkuser.UpdatePassword(emailid, newpwd);
+                return checkuser.UpdatePassword(userid, newpwd);
             }
             catch
             {
@@ -70,46 +70,14 @@ namespace BusinessLogicBS.UserClasses
         }
         #endregion
 
-        #region IUser Members User Name Update
+        #region IUser Members Profile Update
 
-        public bool UpdateName(string emailid, string newname)
+        public bool UpdateProfile(string userid, string newvalue, string fieldname)
         {
             try
             {
-                IUserDA updatename = new DataAccessBS.UserClasses.UserDA();
-                return updatename.UpdateName(emailid, newname);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-        #endregion
-
-        #region IUser Members Phone Number Update
-
-        public bool UpdatePhoneNumber(string emailid, string newphno)
-        {
-            try
-            {
-                IUserDA updatephno = new DataAccessBS.UserClasses.UserDA();
-                return updatephno.UpdatePhoneNumber(emailid, newphno);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-        #endregion
-
-        #region IUser Members Address Update
-
-        public bool UpdateAddress(string emailid, string newaddress)
-        {
-            try
-            {
-                IUserDA updateaddress = new DataAccessBS.UserClasses.UserDA();
-                return updateaddress.UpdateAddress(emailid, newaddress);
+                IUserDA updatefield = new DataAccessBS.UserClasses.UserDA();
+                return updatefield.UpdateProfile(userid, newvalue, fieldname);
             }
             catch
             {

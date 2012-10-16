@@ -22,17 +22,15 @@ namespace budhashop.USER
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (this.Session["currentuser"] != null)
             {
-                if (this.Session["currentuser"] != null)
-                {
-                    string emailid = (string)this.Session["currentuser"];
-                    retrieveUser(emailid);
-                }
-                else
-                {
-                    lbl_status.Text = "You are not Logged in...";
-                }
+                DataTable dt = (DataTable)this.Session["currentuser"];
+                string emailid = dt.Rows[0]["Email"].ToString();
+                retrieveUser(emailid);
+            }
+            else
+            {
+                lbl_status.Text = "You are not Logged in...";
             }
         }
 

@@ -97,15 +97,15 @@ namespace DataAccessBS.AdminClasses
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_ITEMS", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
 
-               string imgPath = "/ItemImages/" + itemObjDa.itemCatagory+"/"+returnedId+ "/" +returnedId+"small.jpg";
+               //string imgPath = "/ItemImages/" + itemObjDa.itemCatagory+"/"+returnedId+ "/" +returnedId+"small.jpg";
 
-               SqlParameter[] imgSqlParams = new SqlParameter[2];
-               imgSqlParams[0] = new SqlParameter("@itemID", returnedId);
-               imgSqlParams[1] = new SqlParameter("@itemImagePath", imgPath);
+               //SqlParameter[] imgSqlParams = new SqlParameter[2];
+               //imgSqlParams[0] = new SqlParameter("@itemID", returnedId);
+               //imgSqlParams[1] = new SqlParameter("@itemImagePath", imgPath);
                
-                int retImgPth = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_ITEM_IMAGEPATH", imgSqlParams);
+               // int retImgPth = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_ITEM_IMAGEPATH", imgSqlParams);
               
-                if (idDt.Rows.Count > 0 && retImgPth > 0)
+                if (idDt.Rows.Count > 0)
                 {
                     return returnedId;
                 }

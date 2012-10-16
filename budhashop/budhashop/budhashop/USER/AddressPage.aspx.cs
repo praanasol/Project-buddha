@@ -29,8 +29,12 @@ namespace budhashop.USER
         {
             if (!IsPostBack)
             {
-                string emailid = (string)this.Session["currentuser"];
-                retrieveUser(emailid);
+                if (Session["currentuser"] != null)
+                {
+                    DataTable dtt = (DataTable)this.Session["currentuser"];
+                    string emailid = dtt.Rows[0]["Email"].ToString();
+                    retrieveUser(emailid);
+                }
 
                 if (Session["CartPicks"] != null)
                 {
@@ -72,7 +76,7 @@ namespace budhashop.USER
         {
             
             //code for adding cart data in db and show back result to user
-            string emailid = (string)this.Session["currentuser"];
+            string emailid = txt_emailid.Text.ToString();
             string shippingAdr = txt_uname.Text.ToString()+";"+txt_phno.Text.ToString()+";"+txt_address.Text.ToString()+";";
             string purchaseDate = "";
 

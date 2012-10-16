@@ -30,20 +30,17 @@ namespace budhashop.USER.Services
         {
             //string flag = string.Empty;
             string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(password);
-            BusinessEntitiesBS.UserEntities.userobj checkuserObj = new BusinessEntitiesBS.UserEntities.userobj();
-            checkuserObj.uname = emailid;
-            checkuserObj.pwd = encryptedpwd;
             try
             {
                 
                 IUser checkuser = new UserItems();
 
                 //returns datatable if username and password are matched
-                dt = checkuser.checklogin(checkuserObj);
+                dt = checkuser.checklogin(emailid, encryptedpwd);
                 if (dt != null)
                 {
                     //flag = "Existing User";
-                    this.Session["currentuser"] = dt.Rows[0]["Email"].ToString();
+                    this.Session["currentuser"] = dt;
                     return true;
                 }
                 else
@@ -88,7 +85,10 @@ namespace budhashop.USER.Services
 
                         //insert new user details in database with given values
                         userInsert.insertUser(userObj);
-                        this.Session["currentuser"] = emailid;
+
+                        dt = userInsert.checklogin(emailid, encryptedpwd);
+
+                        this.Session["currentuser"] = dt;
                         return true;
                     }
                     catch (Exception exp)
@@ -107,13 +107,15 @@ namespace budhashop.USER.Services
             }
         }
 
-        [WebMethod]
-        public bool UpdateName(string emailid, string newname)
+        [WebMethod(EnableSession = true)]
+        public bool UpdateProfile(string newvalue, string fieldname)
         {
+            dt = (DataTable)this.Session["currentuser"];
+            string userid = dt.Rows[0]["Uid"].ToString();
             try
             {
-                IUser updatename = new UserItems();
-                bool isupdated = updatename.UpdateName(emailid, newname);
+                IUser updateprofile = new UserItems();
+                bool isupdated = updateprofile.UpdateProfile(userid, newvalue, fieldname);
                 return isupdated;
             }
             catch
@@ -121,36 +123,6 @@ namespace budhashop.USER.Services
                 return false;
             }
 
-        }
-
-        [WebMethod]
-        public bool UpdatePhoneNumber(string emailid, string newphno)
-        {
-            try
-            {
-                IUser updatephno = new UserItems();
-                bool isupdated = updatephno.UpdatePhoneNumber(emailid, newphno);
-                return isupdated;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        [WebMethod]
-        public bool UpdateAddress(string emailid, string newaddress)
-        {
-            try
-            {
-                IUser updateaddress = new UserItems();
-                bool isupdated = updateaddress.UpdateAddress(emailid, newaddress);
-                return isupdated;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

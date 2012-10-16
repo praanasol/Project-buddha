@@ -113,6 +113,10 @@
 
                     <script type="text/javascript">
                         $(document).ready(function() {
+                            var usersession='<%= this.Session["currentuser"] %>';
+                            if(!usersession){
+                                $("#hyplink_edit").hide();
+                                }
                               
                               $("#btnClose").click(function (e){
                                  HideDialog();
@@ -144,14 +148,13 @@
                             
                             function updateName(){
                                 $("[id$=lbl_result]").text("");
-                                var email = $("[id$=txt_emailidedit]").val();
                                 var newuname = $("[id$=txt_unameedit]").val();
                                 var uname = $("[id$=txt_uname]").val();
                                 if(newuname==""){$("[id$=lbl_result]").text("User Name Cannot be Empty");  $("[id$=txt_nameedit]").focus();}
                                 else if(uname==newuname){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_nameedit]").focus();}
                                 else
                                 {
-                                    budhashop.USER.Services.LoginControl.UpdateName(email, newuname, OnComplete, onerror);
+                                    budhashop.USER.Services.LoginControl.UpdateProfile(newuname, "name", OnComplete, onerror);
                                 }
                             }
                             function OnComplete(result)
@@ -162,7 +165,6 @@
                             
                             function updatePhNum(){
                                 $("[id$=lbl_result]").text("");
-                                var email = $("[id$=txt_emailidedit]").val();
                                 var newphno = $("[id$=txt_phnoedit]").val();
                                 var phno = $("[id$=txt_phno]").val();
                                 var pattern = /^\d{10}$/;
@@ -171,7 +173,7 @@
                                 else if(phno==newphno){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_phnoedit]").focus();}
                                 else
                                 {
-                                    budhashop.USER.Services.LoginControl.UpdatePhoneNumber(email, newphno, OnSucceeded, onerror);
+                                    budhashop.USER.Services.LoginControl.UpdateProfile(newphno, "phno", OnSucceeded, onerror);
                                 }
                             }
                             function OnSucceeded(result)
@@ -182,14 +184,13 @@
                             
                             function updateAddress(){
                                 $("[id$=lbl_result]").text("");
-                                var email = $("[id$=txt_emailidedit]").val();
                                 var newaddress = $("[id$=txt_addressedit]").val();
                                 var address = $("[id$=txt_address]").val();
                                 if(newaddress==""){$("[id$=lbl_result]").text("Address Cannot be Empty");  $("[id$=txt_addressedit]").focus();}
                                 else if(address==newaddress){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_addressedit]").focus();}
                                 else
                                 {
-                                    budhashop.USER.Services.LoginControl.UpdateAddress(email, newaddress, OnCompleted, onerror);
+                                    budhashop.USER.Services.LoginControl.UpdateProfile(newaddress, "address", OnCompleted, onerror);
                                 }
                             }
                             function OnCompleted(result)

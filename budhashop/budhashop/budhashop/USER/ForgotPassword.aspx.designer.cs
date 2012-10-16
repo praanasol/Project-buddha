@@ -122,12 +122,12 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.HyperLink hyplink_login;
         
         /// <summary>
-        /// lbl_fsubmit1 control.
+        /// lbl_fsubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_fsubmit1;
+        protected global::System.Web.UI.WebControls.Label lbl_fsubmit;
     }
 }

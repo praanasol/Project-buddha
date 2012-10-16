@@ -7,6 +7,8 @@ using DataAccessBS.SupportedClasses;
 using System.Data;
 using InterfacesBS.InterfacesDA;
 
+using System.Web;
+
 namespace DataAccessBS.UserClasses
 {
     public class UserDA : IUserDA
@@ -38,17 +40,17 @@ namespace DataAccessBS.UserClasses
 
         #endregion
 
-        #region IUserDA Members Check UserName or EmailId Availability
+        #region IUserDA Members Check EmailId Availability
 
-        public DataTable checkavailability(string checkvalue)
+        public DataTable checkavailability(string emailid)
         {            
                 try
                 {
                     SqlParameter[] sqlParams = new SqlParameter[1];
 
                     //User parameters
-                    sqlParams[0] = new SqlParameter("@uname", checkvalue);
-                    DataTable checkuserDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_USER", sqlParams).Tables[0];
+                    sqlParams[0] = new SqlParameter("@emailid", emailid);
+                    DataTable checkuserDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_EMAIL", sqlParams).Tables[0];
 
                     if (checkuserDT.Rows.Count > 0)
                     {
@@ -68,15 +70,15 @@ namespace DataAccessBS.UserClasses
 
         #region IUserDA Members Check Login
 
-        public DataTable checklogin(BusinessEntitiesBS.UserEntities.userobj checkloginDA)
+        public DataTable checklogin(string emailid, string pwd)
         {
             try
             {
                     SqlParameter[] sqlParams = new SqlParameter[2];
 
                     //User parameters
-                    sqlParams[0] = new SqlParameter("@uname", checkloginDA.uname);
-                    sqlParams[1] = new SqlParameter("@password", checkloginDA.pwd);
+                    sqlParams[0] = new SqlParameter("@uname", emailid);
+                    sqlParams[1] = new SqlParameter("@password", pwd);
                     DataTable LoginDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_LOGIN", sqlParams).Tables[0];
 
                     if (LoginDT.Rows.Count > 0)
@@ -98,14 +100,14 @@ namespace DataAccessBS.UserClasses
 
         #region IUserDA Members Update Password
 
-        public bool UpdatePassword(string emailid, string newpwd)
+        public bool UpdatePassword(string userid, string newpwd)
         {
             try
             {
                 SqlParameter[] sqlParams = new SqlParameter[2];
 
-                sqlParams[0] = new SqlParameter("@Email", emailid);
-                sqlParams[1] = new SqlParameter("@PWD", newpwd);
+                sqlParams[0] = new SqlParameter("@userid", userid);
+                sqlParams[1] = new SqlParameter("@password", newpwd);
                 int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_PASSWORD", sqlParams);
                 bool isUpdated = false;
                 if (count > 0)
@@ -129,77 +131,19 @@ namespace DataAccessBS.UserClasses
 
         #endregion
 
-        #region IUserDA Members Update User Name
+        #region IUserDA Members Update Profile
 
-        public bool UpdateName(string emailid, string newname)
+        public bool UpdateProfile(string userid, string newvalue, string fieldname)
         {
             try
             {
-                SqlParameter[] sqlParams = new SqlParameter[2];
+                SqlParameter[] sqlParams = new SqlParameter[3];
 
-                sqlParams[0] = new SqlParameter("@emailid", emailid);
-                sqlParams[1] = new SqlParameter("@newname", newname);
-                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_USERNAME", sqlParams);
-                bool isUpdated = false;
-                if (count > 0)
-                {
-                    isUpdated = true;
-                }
-                else
-                {
-                    isUpdated = false;
-                }
-                return isUpdated;
-            }
-            catch (System.Data.SqlClient.SqlException ex_msg)
-            {
-                return false;
-            }
-        }
+                sqlParams[0] = new SqlParameter("@uid", userid);
+                sqlParams[1] = new SqlParameter("@newvalue", newvalue);
+                sqlParams[2] = new SqlParameter("@fieldname", fieldname);
 
-        #endregion
-
-        #region IUserDA Members Update Phone Number
-
-        public bool UpdatePhoneNumber(string emailid, string newphno)
-        {
-            try
-            {
-                SqlParameter[] sqlParams = new SqlParameter[2];
-
-                sqlParams[0] = new SqlParameter("@emailid", emailid);
-                sqlParams[1] = new SqlParameter("@newphno", newphno);
-                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_PHONE", sqlParams);
-                bool isUpdated = false;
-                if (count > 0)
-                {
-                    isUpdated = true;
-                }
-                else
-                {
-                    isUpdated = false;
-                }
-                return isUpdated;
-            }
-            catch (System.Data.SqlClient.SqlException ex_msg)
-            {
-                return false;
-            }
-        }
-
-        #endregion
-
-        #region IUserDA Members Update Address
-
-        public bool UpdateAddress(string emailid, string newaddress)
-        {
-            try
-            {
-                SqlParameter[] sqlParams = new SqlParameter[2];
-
-                sqlParams[0] = new SqlParameter("@emailid", emailid);
-                sqlParams[1] = new SqlParameter("@newaddress", newaddress);
-                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_ADDRESS", sqlParams);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_EDIT_PROFILE", sqlParams);
                 bool isUpdated = false;
                 if (count > 0)
                 {

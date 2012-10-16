@@ -274,7 +274,7 @@ namespace budhashop.ADMIN
         protected void grpCatDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             grpMsgLbl.Text = "";
-            txt_itemname.Text = "Enter Item Name/Id";
+            txt_itemname.Text = "";
             int grpCatId = Int32.Parse(grpCatDDL.SelectedValue.ToString());
             getItems(grpCatId);
         }
@@ -346,7 +346,7 @@ namespace budhashop.ADMIN
                     if (grpId != -1)
                     {
                         //create folder for item images and save images. show result
-                        string NewDir = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId);
+                        string NewDir = Server.MapPath("~/GroupImages/" + "/" + grpId);
                         try
                         {
                             // Check if directory exists
@@ -361,13 +361,13 @@ namespace budhashop.ADMIN
                             grpMsgLbl.Text = "Error: Floder" + _ex.Message;
                         }
                         string filename = grpId + "Photo.jpg";
-                        grpImageFU.SaveAs(Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + filename);
+                        grpImageFU.SaveAs(Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename);
 
-                        string filePath = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + filename;
+                        string filePath = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename;
                         string newfileMed = grpId + "Photomedium.jpg";
                         string newfileSmall = grpId + "small.jpg";
-                        string resizedImageMed = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + newfileMed;
-                        string resizedImageSmall = Server.MapPath("~/GroupImages/" + Int32.Parse(CatagoryDDL.SelectedValue) + "/" + grpId + "/") + newfileSmall;
+                        string resizedImageMed = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + newfileMed;
+                        string resizedImageSmall = Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + newfileSmall;
                         System.Drawing.Image img = System.Drawing.Image.FromFile(filePath);
 
                         System.Drawing.Bitmap bmpD = img as Bitmap;
@@ -427,7 +427,7 @@ namespace budhashop.ADMIN
         {
             string itemname = txt_itemname.Text;
             int grpCatId = Int32.Parse(grpCatDDL.SelectedValue.ToString());
-            if (itemname != "Enter Item Name/Id")
+            if (itemname != "")
             {
                 searchDT(itemname, grpCatId);
             }
@@ -442,7 +442,7 @@ namespace budhashop.ADMIN
         {
             itemGrid.PageIndex = e.NewPageIndex;
             int grpCatId = Int32.Parse(grpCatDDL.SelectedValue.ToString());
-            if (txt_itemname.Text == "Enter Item Name/Id")
+            if (txt_itemname.Text == "")
             {
                 getItems(grpCatId);
             }

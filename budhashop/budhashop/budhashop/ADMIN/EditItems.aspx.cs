@@ -76,7 +76,7 @@ namespace budhashop.ADMIN
         protected void ddl_catagory_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbl_status.Text = "";
-            txt_itemname.Text = "Enter Item Name/Id";
+            txt_itemname.Text = "";
             int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
             getItems(grpCatId);
         }
@@ -85,7 +85,7 @@ namespace budhashop.ADMIN
         {
             itemGrid.EditIndex = e.NewEditIndex;
             int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
-            if (txt_itemname.Text == "Enter Item Name/Id")
+            if (txt_itemname.Text == "")
             {
                 getItems(grpCatId);
             }
@@ -99,7 +99,7 @@ namespace budhashop.ADMIN
         {
             itemGrid.EditIndex = -1;
             int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
-            if (txt_itemname.Text == "Enter Item Name/Id")
+            if (txt_itemname.Text == "")
             {
                 getItems(grpCatId);
             }
@@ -140,7 +140,7 @@ namespace budhashop.ADMIN
                     lbl_status.Text = "Updated Successfully";
                     itemGrid.EditIndex = -1;
                     int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
-                    if (txt_itemname.Text == "Enter Item Name/Id")
+                    if (txt_itemname.Text == "")
                     {
                         getItems(grpCatId);
                     }
@@ -227,7 +227,7 @@ namespace budhashop.ADMIN
             {
                 lbl_status.Text = "Item Removed";
                 int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
-                if (txt_itemname.Text == "Enter Item Name/Id")
+                if (txt_itemname.Text == "")
                 {
                     getItems(grpCatId);
                 }
@@ -250,7 +250,7 @@ namespace budhashop.ADMIN
         {
             string itemname = txt_itemname.Text;
             int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
-            if (itemname != "Enter Item Name/Id")
+            if (itemname != "")
             {
                 searchDT(itemname, grpCatId);
             }

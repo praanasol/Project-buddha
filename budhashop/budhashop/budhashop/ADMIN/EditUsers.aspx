@@ -10,9 +10,7 @@
     <form id="form1" runat="server">
     <div>
     
-        <asp:TextBox ID="txt_username" Text="Enter UserName/EmailId/UserId"
-                                        onfocus="if(this.value=='Enter UserName/EmailId/UserId')this.value='';"
-                                        onblur="if(this.value=='')this.value='Enter UserName/EmailId/UserId';"
+        <asp:TextBox ID="txt_username" placeholder="Enter UserName/EmailId/UserId"
                                         runat="server" Width="200px" Height="25px"></asp:TextBox>
         <asp:Button ID="btn_search" runat="server" Text="Search" 
             onclick="btn_search_Click" />        

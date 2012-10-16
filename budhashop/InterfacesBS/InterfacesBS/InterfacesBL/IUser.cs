@@ -13,5 +13,8 @@ namespace InterfacesBS.InterfacesBL
         DataTable checkavailability(string checkvalue);
         DataTable checklogin(userobj checkloginObj);
         bool UpdatePassword(string emailid, string newpwd);
+        bool UpdateName(string emailid, string newname);
+        bool UpdatePhoneNumber(string emailid, string newphno);
+        bool UpdateAddress(string emailid, string newaddress);
     }
 }

@@ -128,5 +128,95 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members Update User Name
+
+        public bool UpdateName(string emailid, string newname)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                sqlParams[0] = new SqlParameter("@emailid", emailid);
+                sqlParams[1] = new SqlParameter("@newname", newname);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_USERNAME", sqlParams);
+                bool isUpdated = false;
+                if (count > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+                return isUpdated;
+            }
+            catch (System.Data.SqlClient.SqlException ex_msg)
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region IUserDA Members Update Phone Number
+
+        public bool UpdatePhoneNumber(string emailid, string newphno)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                sqlParams[0] = new SqlParameter("@emailid", emailid);
+                sqlParams[1] = new SqlParameter("@newphno", newphno);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_PHONE", sqlParams);
+                bool isUpdated = false;
+                if (count > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+                return isUpdated;
+            }
+            catch (System.Data.SqlClient.SqlException ex_msg)
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region IUserDA Members Update Address
+
+        public bool UpdateAddress(string emailid, string newaddress)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                sqlParams[0] = new SqlParameter("@emailid", emailid);
+                sqlParams[1] = new SqlParameter("@newaddress", newaddress);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_CHANGE_ADDRESS", sqlParams);
+                bool isUpdated = false;
+                if (count > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+                return isUpdated;
+            }
+            catch (System.Data.SqlClient.SqlException ex_msg)
+            {
+                return false;
+            }
+        }
+
+        #endregion
     }
 }

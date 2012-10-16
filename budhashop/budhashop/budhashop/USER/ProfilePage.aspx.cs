@@ -24,8 +24,15 @@ namespace budhashop.USER
         {
             if (!IsPostBack)
             {
-                string emailid = (string)this.Session["currentuser"];
-                retrieveUser(emailid);
+                if (this.Session["currentuser"] != null)
+                {
+                    string emailid = (string)this.Session["currentuser"];
+                    retrieveUser(emailid);
+                }
+                else
+                {
+                    lbl_status.Text = "You are not Logged in...";
+                }
             }
         }
 

@@ -106,5 +106,51 @@ namespace budhashop.USER.Services
                 return false;
             }
         }
+
+        [WebMethod]
+        public bool UpdateName(string emailid, string newname)
+        {
+            try
+            {
+                IUser updatename = new UserItems();
+                bool isupdated = updatename.UpdateName(emailid, newname);
+                return isupdated;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        [WebMethod]
+        public bool UpdatePhoneNumber(string emailid, string newphno)
+        {
+            try
+            {
+                IUser updatephno = new UserItems();
+                bool isupdated = updatephno.UpdatePhoneNumber(emailid, newphno);
+                return isupdated;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        [WebMethod]
+        public bool UpdateAddress(string emailid, string newaddress)
+        {
+            try
+            {
+                IUser updateaddress = new UserItems();
+                bool isupdated = updateaddress.UpdateAddress(emailid, newaddress);
+                return isupdated;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -160,8 +160,9 @@ namespace DataAccessBS.AdminClasses
         {
             try
             {
-
-                SqlParameter[] sqlParams = new SqlParameter[7];
+                //long groupId = 0;
+               
+                SqlParameter[] sqlParams = new SqlParameter[9];
 
                 //Catgory parameters
                 sqlParams[0] = new SqlParameter("@grpName", grpObjDa.grpName);
@@ -171,27 +172,16 @@ namespace DataAccessBS.AdminClasses
                 sqlParams[4] = new SqlParameter("@grpNR", grpObjDa.grpNR);
                 sqlParams[5] = new SqlParameter("@grpChk", grpObjDa.fixedGrp);
                 sqlParams[6] = new SqlParameter("@grpQty", grpObjDa.Quantity);
+                sqlParams[7] = new SqlParameter("@separator", ",");
+                sqlParams[8] = new SqlParameter("@Array", grpObjDa.itemIdStr);
+                //sqlParams[9] = new SqlParameter("@GroupId", groupId);
+                //sqlParams[9].Direction = ParameterDirection.Output;     
 
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_GROUP", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
 
-                string imgPath = "/GroupImages/" + returnedId + "/" + returnedId + "small.jpg";
-
-                SqlParameter[] imgSqlParams = new SqlParameter[2];
-                imgSqlParams[0] = new SqlParameter("@grpID", returnedId);
-                imgSqlParams[1] = new SqlParameter("@grpImagePath", imgPath);
-
-                int retImgPth = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_GROUP_IMAGEPATH", imgSqlParams);
                 
-
-                SqlParameter[] grpSqlParams = new SqlParameter[3];
-                grpSqlParams[0] = new SqlParameter("@grpID", returnedId);
-                grpSqlParams[1] = new SqlParameter("@separator", ",");
-                grpSqlParams[2] = new SqlParameter("@Array", grpObjDa.itemIdStr);
-
-                int retItemGrp = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "ParseArray", grpSqlParams);
-
-                if (idDt.Rows.Count > 0 && retImgPth>0 && retItemGrp == -1)
+                if (idDt.Rows.Count > 0)
                 {
                     return returnedId;
                 }

@@ -80,7 +80,7 @@ namespace budhashop.Services
                 user.ItemId = dtrow["GroupId"].ToString();
                 user.ItemName = dtrow["GroupName"].ToString();
                user.ItemDesc = dtrow["Description"].ToString();
-                user.ItemPath = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+               user.ItemPath = dtrow["ImagePath"].ToString();//change this to actual image path when done
                 user.ItemPrice = dtrow["BilledRate"].ToString();
                 user.ItemQty = dtrow["Qty"].ToString();
                 user.CatId = "1";
@@ -124,7 +124,7 @@ namespace budhashop.Services
                     ItemDetails user = new ItemDetails();
                     user.ItemId = dtrow["GroupId"].ToString();
                     user.ItemName = dtrow["GroupName"].ToString();
-                //add image path
+                    user.ItemPath = dtrow["ImagePath"].ToString();
                     user.ItemPrice = dtrow["BilledRate"].ToString();
                     user.CatId = "1";
                     details.Add(user);
@@ -208,7 +208,7 @@ namespace budhashop.Services
                 user.ItemId = cartItem["GroupId"].ToString();
                 user.ItemName = cartItem["GroupName"].ToString();
                 user.ItemDesc = cartItem["Description"].ToString();
-                user.ItemPath = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                user.ItemPath = cartItem["ImagePath"].ToString(); //change this to actual image path when done
                 user.ItemPrice = cartItem["BilledRate"].ToString();
                 user.ItemQty = cartItem["Qty"].ToString();
                 user.CatId = "1";

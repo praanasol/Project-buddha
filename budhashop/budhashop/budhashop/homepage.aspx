@@ -35,12 +35,12 @@
     <!--Gallery Start-->
    <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden;">
    
-    <div id ="groupItems" style="height:240px; width:2400px;">
+    <div id ="groupItems" style="height:240px; width:5500px;">
    <script type="text/javascript">
    $('#but2').click(function(){
    var grpWidth = $('#groupItems').css("margin-left").replace("px","");
    if(grpWidth == -970){$('#but2').css("display","none");}
-     if(grpWidth == -1940){$('#but2').css("display","none"); return;}
+     if(grpWidth == -2910){$('#but2').css("display","none"); return;}
      else{
      
       $('#groupItems').animate({

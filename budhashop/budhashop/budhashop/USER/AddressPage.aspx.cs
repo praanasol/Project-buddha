@@ -83,6 +83,16 @@ namespace budhashop.USER
             
             String cartItems = "";
 
+            foreach (object cartObj in CartDetails)
+            {
+                CartItems item = cartObj as CartItems;
+                int cid = item.ItemId;
+                int qty = item.Qty;
+
+                cartItems += cid + "," + qty + ";";
+             
+            }
+
             string TotalBill = totalHidden.Value;
             //Parent.FindControl("totalLbl").
             
@@ -131,6 +141,7 @@ namespace budhashop.USER
                 if (grpId)
                 {
                     var itemDetails = dtg.AsEnumerable().First(p => p.Field<long>("GroupId") == cid);
+                    
                     if (itemDetails != null)
                     {
                         DataRow dr = CartDT.NewRow();

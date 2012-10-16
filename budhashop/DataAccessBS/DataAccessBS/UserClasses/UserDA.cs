@@ -162,5 +162,51 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members
+
+
+        public int insertOrdersDA(BusinessEntitiesBS.UserEntities.OrderItems orderitems)
+        {
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[8];
+
+                //User parameters
+                sqlParams[0] = new SqlParameter("@userId", orderitems.userid);
+                sqlParams[1] = new SqlParameter("@purchaseDate", orderitems.purchaseDate);
+                sqlParams[2] = new SqlParameter("@ItemString", orderitems.cartItems);
+                sqlParams[3] = new SqlParameter("@totalPrice", orderitems.totalBill);
+                sqlParams[4] = new SqlParameter("@Address", orderitems.ShippingAdr);
+                sqlParams[5] = new SqlParameter("@totalItems", orderitems.totalItems);
+                sqlParams[6] = new SqlParameter("@separator", ';');
+                sqlParams[7] = new SqlParameter("@separator2", ',');
+                
+                DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_ORDER_ITEMS", sqlParams).Tables[0];
+                int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
+
+
+                if (idDt.Rows.Count > 0)
+                {
+                    return returnedId;
+                }
+                else
+                {
+                    return -1;
+                }
+
+                
+
+            }
+            catch (SqlException exc)
+            {
+                
+                throw exc;
+                return -1;
+            }
+        }
+
+        #endregion
     }
 }

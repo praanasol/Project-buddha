@@ -67,19 +67,25 @@ namespace budhashop.UserControls
                 int cid = item.ItemId;
                 int qty = item.Qty;
                 bool grpId = item.GrpChk;
-
+                var cartItems = (List<CartItems>)Session["CartPicks"];
+                var cartItem = cartItems.First(p => p.ItemId == cid);
                 // finding the data item
                 if (grpId)
                 {
+                    
                     var itemDetails = dtg.AsEnumerable().First(p => p.Field<long>("GroupId") == cid);
                     if (itemDetails != null)
                     {
                         DataRow dr = CartDT.NewRow();
                         dr[0] = itemDetails["GroupId"];
-                        dr[1] = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                        dr[1] = itemDetails["ImagePath"]; ;//change this to actual image path when done
                         dr[2] = itemDetails["GroupName"];
                         dr[3] = qty;
-                        dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
+                        float blrte = float.Parse(itemDetails["BilledRate"].ToString());
+                        dr[4] = blrte;
+                        cartItem.TotalBill = blrte;
+                        //float ntrte = float.Parse(itemDetails["NetRate"].ToString());
+                        //cartItem.totalNet = ntrte;
                         float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                         dr[5] = totRate;
                         totalPrice += totRate;
@@ -97,13 +103,18 @@ namespace budhashop.UserControls
                         dr[1] = itemDetails["ImagePath"];
                         dr[2] = itemDetails["ItemName"];
                         dr[3] = qty;
-                        dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
+                        float blrte = float.Parse(itemDetails["BilledRate"].ToString());
+                        dr[4] = blrte;
+                        cartItem.TotalBill = blrte;
+                        //float ntrte = float.Parse(itemDetails["NetRate"].ToString());
+                        //cartItem.totalNet = ntrte;
                         float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                         dr[5] = totRate;
                         totalPrice += totRate;
                         CartDT.Rows.Add(dr);
                     }
                 }
+                Session["CartPicks"] = cartItems;
                 // updating the data row from the itemDetails object.
                 
             }
@@ -116,7 +127,7 @@ namespace budhashop.UserControls
                 totalLbl.Text = totalPrice.ToString();
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;
-                //pagedData.AllowPaging = true;
+                 //pagedData.AllowPaging = true;
                 //pagedData.PageSize = 4;
                 pagedData.CurrentPageIndex = 0;
 
@@ -158,7 +169,7 @@ namespace budhashop.UserControls
                         float updatedTot = int.Parse(qty) * (float.Parse(((Label)e.Item.FindControl("priceLbl")).Text));
                         float Total = float.Parse(totalLbl.Text) + updatedTot - (float.Parse(((Label)e.Item.FindControl("rateLbl")).Text));
                         ((Label)e.Item.FindControl("rateLbl")).Text = updatedTot.ToString();
-                        
+                        cartItem.TotalBill = updatedTot;
                         totalLbl.Text = Total.ToString();
                         Session["CartPicks"] = cartItems;
                     }

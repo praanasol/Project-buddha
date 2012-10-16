@@ -86,5 +86,17 @@ namespace BusinessLogicBS.UserClasses
         }
         #endregion
 
+
+        #region IUser Members
+
+
+        public int insertOrders(BusinessEntitiesBS.UserEntities.OrderItems orderitems)
+        {
+            IUserDA orderInsert = new DataAccessBS.UserClasses.UserDA();
+            return orderInsert.insertOrdersDA(orderitems);
+            
+        }
+
+        #endregion
     }
 }

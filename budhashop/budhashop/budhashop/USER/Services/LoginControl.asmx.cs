@@ -86,9 +86,10 @@ namespace budhashop.USER.Services
                         //insert new user details in database with given values
                         userInsert.insertUser(userObj);
 
-                        dt = userInsert.checklogin(emailid, encryptedpwd);
+                        DataTable dt2 = userInsert.checklogin(emailid, encryptedpwd);
 
-                        this.Session["currentuser"] = dt;
+                        this.Session["currentuser"] = dt2;
+                       
                         return true;
                     }
                     catch (Exception exp)

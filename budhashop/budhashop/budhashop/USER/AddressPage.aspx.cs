@@ -18,6 +18,7 @@ using BusinessLogicBS.UserClasses;
 using BusinessEntitiesBS;
 using System.Collections.Generic;
 using BusinessLogicBS.BusinessClasses;
+using BusinessEntitiesBS.UserEntities;
 
 namespace budhashop.USER
 {
@@ -76,35 +77,55 @@ namespace budhashop.USER
         {
             
             //code for adding cart data in db and show back result to user
-            string emailid = txt_emailid.Text.ToString();
+            DataTable dtt = (DataTable)this.Session["currentuser"];
+            string userid = dtt.Rows[0]["Uid"].ToString();
+            //string emailid = txt_emailid.Text.ToString();
             string shippingAdr = txt_uname.Text.ToString()+";"+txt_phno.Text.ToString()+";"+txt_address.Text.ToString()+";";
-            string purchaseDate = "";
+            string purchaseDate = System.DateTime.Now.ToString();
 
             CartDetails = new List<CartItems>();
 
             CartDetails = (List<CartItems>)Session["CartPicks"];
-
             
             String cartItems = "";
+            float Total = 0;
+            int count = 0;
 
             foreach (object cartObj in CartDetails)
             {
+
                 CartItems item = cartObj as CartItems;
+                count += 1;
                 int cid = item.ItemId;
                 int qty = item.Qty;
-
+                float tot = item.TotalBill;
+                Total += tot;
                 cartItems += cid + "," + qty + ";";
              
             }
 
-            string TotalBill = totalHidden.Value;
-            //Parent.FindControl("totalLbl").
-            
-            float TotalNet = 0;
-            
-            adressDiv.Visible = false;
-            cartDataGV.Visible = true;
-            Session["CartPicks"] = null;
+            float TotalBill = Total;
+            int ItemsCount = count;
+            OrderItems insertOrder = new OrderItems();
+            insertOrder.userid = int.Parse(userid);
+            insertOrder.purchaseDate = purchaseDate;
+            insertOrder.ShippingAdr = shippingAdr;
+            insertOrder.cartItems = cartItems;
+            insertOrder.totalBill = TotalBill;
+            insertOrder.totalItems = ItemsCount;
+
+            UserItems ordr = new UserItems();
+            int purchaseId = ordr.insertOrders(insertOrder);
+            if (purchaseId != -1)
+            {
+                adressDiv.Visible = false;
+                cartDataGV.Visible = true;
+                Session["CartPicks"] = null;
+            }
+            else
+            {
+                //show error
+            }
 
         }
 
@@ -150,7 +171,7 @@ namespace budhashop.USER
                     {
                         DataRow dr = CartDT.NewRow();
                         dr[0] = itemDetails["GroupId"];
-                        dr[1] = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                        dr[1] = itemDetails["ImagePath"];//change this to actual image path when done
                         dr[2] = itemDetails["GroupName"];
                         dr[3] = qty;
                         dr[4] = float.Parse(itemDetails["BilledRate"].ToString());

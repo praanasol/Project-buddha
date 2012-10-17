@@ -79,52 +79,99 @@ namespace budhashop.USER
             //code for adding cart data in db and show back result to user
             DataTable dtt = (DataTable)this.Session["currentuser"];
             string userid = dtt.Rows[0]["Uid"].ToString();
-            //string emailid = txt_emailid.Text.ToString();
-            string shippingAdr = txt_uname.Text.ToString()+";"+txt_phno.Text.ToString()+";"+txt_address.Text.ToString()+";";
-            string purchaseDate = System.DateTime.Now.ToString();
 
-            CartDetails = new List<CartItems>();
+            bool isupdated=true;
 
-            CartDetails = (List<CartItems>)Session["CartPicks"];
-            
-            String cartItems = "";
-            float Total = 0;
-            int count = 0;
-
-            foreach (object cartObj in CartDetails)
+            if (cb_profilechange.Checked)
             {
-
-                CartItems item = cartObj as CartItems;
-                count += 1;
-                int cid = item.ItemId;
-                int qty = item.Qty;
-                float tot = item.TotalBill;
-                Total += tot;
-                cartItems += cid + "," + qty + ";";
-             
+                string newuname = txt_uname.Text.ToString();
+                string newphno = txt_phno.Text.ToString();
+                string newaddress = txt_address.Text.ToString();
+                try
+                {
+                    IUser updateuser = new UserItems();
+                    bool nameupdated = updateuser.UpdateProfile(userid, newuname, "name");
+                    if (nameupdated)
+                    {
+                        bool phnoupdated = updateuser.UpdateProfile(userid, newphno, "phno");
+                        if (phnoupdated)
+                        {
+                            bool addressupdated = updateuser.UpdateProfile(userid, newaddress, "address");
+                            if (!addressupdated)
+                            {
+                                isupdated = false;
+                            }
+                        }
+                        else
+                        {
+                            isupdated = false;
+                        }
+                    }
+                    else
+                    {
+                        isupdated = false;
+                    }
+                }
+                catch
+                {
+                    isupdated = false;
+                }
             }
 
-            float TotalBill = Total;
-            int ItemsCount = count;
-            OrderItems insertOrder = new OrderItems();
-            insertOrder.userid = int.Parse(userid);
-            insertOrder.purchaseDate = purchaseDate;
-            insertOrder.ShippingAdr = shippingAdr;
-            insertOrder.cartItems = cartItems;
-            insertOrder.totalBill = TotalBill;
-            insertOrder.totalItems = ItemsCount;
-
-            UserItems ordr = new UserItems();
-            int purchaseId = ordr.insertOrders(insertOrder);
-            if (purchaseId != -1)
+            if (isupdated)
             {
-                adressDiv.Visible = false;
-                cartDataGV.Visible = true;
-                Session["CartPicks"] = null;
+
+                //string emailid = txt_emailid.Text.ToString();
+                string shippingAdr = txt_uname.Text.ToString() + ";" + txt_phno.Text.ToString() + ";" + txt_address.Text.ToString() + ";";
+                string purchaseDate = System.DateTime.Now.ToString();
+
+                CartDetails = new List<CartItems>();
+
+                CartDetails = (List<CartItems>)Session["CartPicks"];
+
+                String cartItems = "";
+                float Total = 0;
+                int count = 0;
+
+                foreach (object cartObj in CartDetails)
+                {
+
+                    CartItems item = cartObj as CartItems;
+                    count += 1;
+                    int cid = item.ItemId;
+                    int qty = item.Qty;
+                    float tot = item.TotalBill;
+                    Total += tot;
+                    cartItems += cid + "," + qty + ";";
+
+                }
+
+                float TotalBill = Total;
+                int ItemsCount = count;
+                OrderItems insertOrder = new OrderItems();
+                insertOrder.userid = int.Parse(userid);
+                insertOrder.purchaseDate = purchaseDate;
+                insertOrder.ShippingAdr = shippingAdr;
+                insertOrder.cartItems = cartItems;
+                insertOrder.totalBill = TotalBill;
+                insertOrder.totalItems = ItemsCount;
+
+                UserItems ordr = new UserItems();
+                int purchaseId = ordr.insertOrders(insertOrder);
+                if (purchaseId != -1)
+                {
+                    adressDiv.Visible = false;
+                    cartDataGV.Visible = true;
+                    Session["CartPicks"] = null;
+                }
+                else
+                {
+                    //show error
+                }
             }
             else
             {
-                //show error
+                lbl_status.Text = "Error Occured, Try Again";
             }
 
         }

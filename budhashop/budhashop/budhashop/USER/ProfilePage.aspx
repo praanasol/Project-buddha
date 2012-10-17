@@ -50,8 +50,9 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align: right;" colspan="3">
-                    <a href="#" id="hyplink_edit">Edit >></a>
+                <td colspan="3">
+                    <a href="#" id="hyplink_changepwd">Change Password >></a>
+                    <a href="#" id="hyplink_edit" style="float:right;">Edit Profile >></a>
                 </td>
             </tr>            
             <tr>
@@ -92,7 +93,7 @@
                            position:absolute;
                            width:auto;
                            height:auto;
-                           top:40%;
+                           top:28%;
                            left:40%;
                            background-color: #ffffff;
                            border: solid 2px #336699;
@@ -116,10 +117,12 @@
                             var usersession='<%= this.Session["currentuser"] %>';
                             if(!usersession){
                                 $("#hyplink_edit").hide();
+                                $("#hyplink_changepwd").hide();
                                 }
                               
                               $("#btnClose").click(function (e){
-                                 HideDialog();
+                                 $("#overlay").hide();
+                                 $("#ProfileField").fadeOut("slow");
                               });
                               
                               $("#hyplink_edit").click(function(){
@@ -128,24 +131,31 @@
                                 var phno = $("[id$=txt_phno]").val(); $("[id$=txt_phnoedit]").val(phno);
                                 var address = $("[id$=txt_address]").val(); $("[id$=txt_addressedit]").val(address);
                                 var userstatus = $("[id$=lbl_status]").text(); $("[id$=lbl_result]").text(userstatus);
-                                ShowDialog();
-                              });
-                        });
-                        
-                            function ShowDialog(){
+                                
                                 $("#overlay").show();
-                                $("#dialog").fadeIn("slow");
+                                $("#ProfileField").fadeIn("slow");
                                 $("#overlay").click(function (e){
                                     $("#overlay").unbind("click");
                                 });
-                            }
-                            
-                            function HideDialog(){
-                                $("#overlay").hide();
-                                $("#dialog").fadeOut("slow");
-                                //$("#dialog").fadeOut(300);
-                            }
-                            
+                              });
+                              
+                              $("#btnClose1").click(function (e){
+                                 $("#overlay").hide();
+                                 $("#PasswordField").fadeOut("slow");
+                              });
+                              
+                              $("#hyplink_changepwd").click(function(){
+                                var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidpwd]").val(emailid);
+                                 $("[id$=txt_oldpwd]").val(''); $("[id$=txt_newpwd]").val(''); $("[id$=txt_confirmnewpwd]").val('');
+                                
+                                $("#overlay").show();
+                                $("#PasswordField").fadeIn("slow");
+                                $("#overlay").click(function (e){
+                                    $("#overlay").unbind("click");
+                                });
+                              });
+                        });
+                        
                             function updateName(){
                                 $("[id$=lbl_result]").text("");
                                 var newuname = $("[id$=txt_unameedit]").val();
@@ -199,6 +209,26 @@
                                 else{ $("[id$=lbl_result]").text("Error Updating, Try Again..."); }
                             }
                             
+                            function updatePassword(){
+                                $("[id$=lbl_resultpwd]").text("");
+                                var oldpwd = $("[id$=txt_oldpwd]").val();
+                                var newpwd = $("[id$=txt_newpwd]").val();
+                                var newpwd1 = $("[id$=txt_confirmnewpwd]").val();
+                                if(oldpwd==""){$("[id$=lbl_resultpwd]").text("Password Cannot be Empty");  $("[id$=txt_oldpwd]").focus();}
+                                else if(newpwd==""){$("[id$=lbl_resultpwd]").text("Password Cannot be Empty");  $("[id$=txt_newpwd]").focus();}
+                                else if(newpwd.length < 5){$("[id$=lbl_resultpwd]").text("Password Should Contain atleast 5 Characters");  $("[id$=txt_newpwd]").focus();}
+                                else if(newpwd != newpwd1){$("[id$=lbl_resultpwd]").text("Passwords Donot Match");  $("[id$=txt_confirmnewpwd]").focus();}
+                                else
+                                {
+                                    budhashop.USER.Services.LoginControl.UpdatePassword(oldpwd, newpwd, OnReturn, onerror);
+                                }
+                            }
+                            function OnReturn(result)
+                            {
+                                if(result){ $("[id$=lbl_resultpwd]").text("Password Updated..."); }
+                                else{ $("[id$=lbl_resultpwd]").text("Your Old Pasword is Wrong"); $("[id$=txt_oldpwd]").focus(); }
+                            }
+                            
                             function onerror(result){
                                 alert("Error calling service method.");
                                 }
@@ -210,7 +240,7 @@
             <ContentTemplate>
                 <div id="overlay" class="web_dialog_overlay"></div>
 
-                <div id="dialog" class="web_dialog">
+                <div id="ProfileField" class="web_dialog">
                    <table style="width:auto; border: 0px;" cellpadding="3" cellspacing="0">
                       <tr>
                          <td class="web_dialog_title" colspan="3"><a href="#" id="btnClose">Close</a>
@@ -263,6 +293,53 @@
                      </tr>
                 </table>
             </div>
+            <div id="PasswordField" class="web_dialog">
+                   <table style="width:auto; border: 0px;" cellpadding="3" cellspacing="0">
+                      <tr>
+                         <td class="web_dialog_title" colspan="2"><a href="#" id="btnClose1">Close</a>
+                         </td>
+                      </tr>
+                      
+                      <tr>
+                         <td>
+                             Email Id</td>
+                         <td>
+                             <asp:TextBox ID="txt_emailidpwd" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
+                         </td>
+                     </tr>                         
+                     <tr>
+                         <td>
+                             Old Password</td>
+                         <td>
+                             <asp:TextBox ID="txt_oldpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             New Password</td>
+                         <td>
+                             <asp:TextBox ID="txt_newpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             Confirm Password</td>
+                         <td>
+                             <asp:TextBox ID="txt_confirmnewpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                         </td>
+                     </tr>
+                     <tr>
+                        <td colspan="2">
+                            <input id="btn_updatepwd" onclick="return updatePassword();" type="button" value="Update" />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="2" style="text-align: center">
+                            <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
+                        </td>
+                     </tr>
+                   </table>
+                </div>
             </ContentTemplate>
             </asp:UpdatePanel>
             <%--End of Pop-Up Window--%>

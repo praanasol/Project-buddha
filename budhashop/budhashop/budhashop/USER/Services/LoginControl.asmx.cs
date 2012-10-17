@@ -125,5 +125,33 @@ namespace budhashop.USER.Services
             }
 
         }
+
+        [WebMethod(EnableSession = true)]
+        public bool UpdatePassword(string oldpwd, string newpwd)
+        {
+            dt = (DataTable)this.Session["currentuser"];
+            string emailid = dt.Rows[0]["Email"].ToString();
+            string userid = dt.Rows[0]["Uid"].ToString();
+            bool validuser = LoginUser(emailid, oldpwd);
+            if (validuser)
+            {
+                string newpassword = CLASS.PasswordEncryption.EncryptIt(newpwd);
+                try
+                {
+                    IUser updatepassword = new UserItems();
+                    bool ispwdupdated = updatepassword.UpdatePassword(userid, newpassword);
+                    return ispwdupdated;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

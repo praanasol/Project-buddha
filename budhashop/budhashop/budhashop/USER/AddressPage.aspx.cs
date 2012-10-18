@@ -43,7 +43,7 @@ namespace budhashop.USER
 
                     CartDetails = (List<CartItems>)Session["CartPicks"];
 
-                    LoadItems(CartDetails);
+                    LoadItemsFinal(CartDetails);
                 }
 
                 
@@ -176,7 +176,7 @@ namespace budhashop.USER
 
         }
 
-        private void LoadItems(List<CartItems> Cartinfo)
+        private void LoadItemsFinal(List<CartItems> Cartinfo)
         {
 
             DataTable CartDT = new DataTable();//data to be bound to cart datalist

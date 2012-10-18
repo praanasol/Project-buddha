@@ -83,6 +83,13 @@
     <Compile Include="ADMIN\InsertPage.aspx.designer.cs">
       <DependentUpon>InsertPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADMIN\OrdersPage.aspx.cs">
+      <DependentUpon>OrdersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\OrdersPage.aspx.designer.cs">
+      <DependentUpon>OrdersPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Captcha\CaptchaImage.cs" />
     <Compile Include="Captcha\JpegImage.aspx.cs">
       <DependentUpon>JpegImage.aspx</DependentUpon>
@@ -258,6 +265,7 @@
     <Content Include="ADMIN\EditItems.aspx" />
     <Content Include="ADMIN\EditUsers.aspx" />
     <Content Include="ADMIN\InsertPage.aspx" />
+    <Content Include="ADMIN\OrdersPage.aspx" />
     <Content Include="bin\budhashop.dll" />
     <Content Include="bin\budhashop.pdb" />
     <Content Include="bin\BusinessEntitiesBS.dll" />

@@ -22,6 +22,7 @@
     function OnCompleted(result) {
         var result1=false;
         result1=eval(result);
+        
             if(result1)
             {
                 $("[id$=txt_username2]").val('');

@@ -10,18 +10,18 @@
     <form id="form1" runat="server">
     <div>
     
-    <asp:GridView ID="itemGrid" runat="server" AllowPaging="True" 
+    <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" 
              AutoGenerateColumns="False" 
-             DataKeyNames="PurchaseId,Uid,NoItems,TotalBilledRate,PurchaseDate" 
-             OnPageIndexChanging="itemGrid_PageIndexChanging" 
-             onrowcommand="itemGrid_RowCommand" PageSize="5">
+             DataKeyNames="PurchaseId,Uid,NoItems,TotalBilledRate,PurchaseDate,DeliveredFlag,ItemString,ShippingAddress" 
+             OnPageIndexChanging="orderGrid_PageIndexChanging" 
+             onrowcommand="orderGrid_RowCommand" PageSize="10">
              <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                 
              <Columns>
                  <asp:TemplateField>
                      <ItemTemplate>
-                         <asp:LinkButton ID="lb_add" runat="server" 
-                             CommandArgument="<%# Container.DisplayIndex %>" CommandName="Show">Add</asp:LinkButton>
+                         <asp:LinkButton ID="lb_Show" runat="server" 
+                             CommandArgument="<%# Container.DisplayIndex %>" CommandName="show">Full Details</asp:LinkButton>
                      </ItemTemplate>
                  </asp:TemplateField>
                  <asp:TemplateField HeaderText="Purchase Id">
@@ -32,6 +32,9 @@
                  <asp:TemplateField HeaderText="User Id">
                      <ItemTemplate>
                          <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
+                         <asp:HiddenField ID="HiddenItemStr" runat="server" Value='<%#Eval("ItemString") %>'/>
+                         <asp:HiddenField ID="HiddenAddrStr" runat="server" Value='<%#Eval("ShippingAddress") %>'/>
+
                      </ItemTemplate>
                  </asp:TemplateField>
                  <asp:TemplateField HeaderText="Quantity">
@@ -51,11 +54,27 @@
                  </asp:TemplateField>
                  <asp:TemplateField HeaderText="Deliverd">
                      <ItemTemplate>
-                         <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
+                         <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
                      </ItemTemplate>
                  </asp:TemplateField>
              </Columns>
          </asp:GridView>
+    
+    </div>
+    <div id="itemsDiv" runat="server" visible="false">
+    <asp:LinkButton ID="closeDetails" runat="server" onclick="closeDetails_Click">Close</asp:LinkButton>
+    <div style="width:80px;">
+    <asp:Label ID="itemsCount" runat="server"></asp:Label>
+    <asp:Label ID="totalBill" runat="server"></asp:Label>
+    <asp:Label ID="dateP" runat="server"></asp:Label>
+    <asp:Label ID="NameA" runat="server"></asp:Label>
+    <asp:Label ID="PhnA" runat="server"></asp:Label>
+    <asp:Label ID="AdrA" runat="server"></asp:Label>
+    </div>
+    <div>
+    <asp:GridView ID="SelectedOrderGrid" runat="server">
+    </asp:GridView>
+    </div>
     
     </div>
     </form>

@@ -20,7 +20,17 @@ namespace budhashop
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            DataSet allDataDS = new DataSet();
+            
+            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            
+            
+            if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+            {
+                allDataDS = allData.getAllItems();
+                System.Web.HttpContext.Current.Cache.Insert("CacheItemsObj", allDataDS, null, System.DateTime.Now.AddDays(1), System.Web.Caching.Cache.NoSlidingExpiration);
+            }
+            
            
         }
         

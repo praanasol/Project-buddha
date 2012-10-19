@@ -95,8 +95,6 @@ namespace budhashop.ADMIN
             string catDesc = catDescTxt.InnerText.ToString();
             bool catStatus = catStatusCb.Checked;
 
-
-
             BusinessEntitiesBS.Catagory_Entities.catagoryObj catObj = new BusinessEntitiesBS.Catagory_Entities.catagoryObj();
 
             catObj.catagoryName = catName;
@@ -109,6 +107,7 @@ namespace budhashop.ADMIN
                 IAdmin catInsert = new AdminItems();
 
                 int insertCatChk = catInsert.insertCatagory(catObj);
+                
                 if (insertCatChk != -1)
                 {
                     string NewDir = Server.MapPath("~/ItemImages/" + insertCatChk);

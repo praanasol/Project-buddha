@@ -15,5 +15,6 @@ namespace InterfacesBS.InterfacesDA
         bool UpdatePassword(string userid, string newpwd);
         bool UpdateProfile(string userid, string newvalue, string fieldname);
         int insertOrdersDA(OrderItems orderitems);
+        DataTable retrieveOrdersDA();
     }
 }

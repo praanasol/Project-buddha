@@ -208,5 +208,32 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members
+
+
+        public DataTable retrieveOrdersDA()
+        {
+            try
+            {
+
+                DataTable ordersDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_ORDERS").Tables[0];
+
+                if (ordersDT.Rows.Count > 0)
+                {
+                    return ordersDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception exp)
+            {
+                throw exp;
+            }
+        }
+
+        #endregion
     }
 }

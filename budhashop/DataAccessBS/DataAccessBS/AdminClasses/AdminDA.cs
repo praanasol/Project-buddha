@@ -299,7 +299,7 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
-        #region IAdminDA Members SearchItemsDA
+        #region IAdminDA Members SearchUsersDA
 
 
         public DataTable SearchUsersDA(string uname)

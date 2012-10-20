@@ -145,7 +145,7 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
-        #region IAdmin Members SearchItems
+        #region IAdmin Members SearchUsers
 
         public DataTable SearchUsers(string uname)
         {

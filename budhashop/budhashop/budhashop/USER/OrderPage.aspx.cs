@@ -26,6 +26,7 @@ namespace budhashop.USER
         public List<CartItems> CartDetails;
         
         public DataTable dt;
+        public bool adrFlag = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,7 +45,10 @@ namespace budhashop.USER
             }
             if (IsPostBack)
             {
-                ClientScript.RegisterHiddenField("isPostBack", "1");
+                if (adrFlag == true)
+                {
+                    ClientScript.RegisterHiddenField("isPostBack", "1");
+                }
                 
             }
 
@@ -254,8 +258,9 @@ namespace budhashop.USER
                     }
                 }
 
-
+            //ClientScript.RegisterHiddenField("isPostBack", "1");
             return adrdetails.ToArray();
+            
 
                //pge.CartDiv.Visible = false;
                //pge.adressDiv.Visible = true;
@@ -491,6 +496,10 @@ namespace budhashop.USER
                     userpNameLbl.Text = txt_uname.Text.ToString();
                     phnpLbl.Text = txt_phno.Text.ToString();
                     addrpLbl.Text = txt_address.Text.ToString();
+                    
+                    
+                    adrFlag = true;
+                    ClientScript.RegisterHiddenField("isPostBack", "1");
 
 
                 }

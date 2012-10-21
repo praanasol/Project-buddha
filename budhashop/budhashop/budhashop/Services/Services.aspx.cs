@@ -63,8 +63,10 @@ namespace budhashop.Services
            DataTable dt = new DataTable();
             DataTable dtg = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-            DataSet allDataDS = allData.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+
+            DataSet allDataDS = callCache.getCache();
             dt = allDataDS.Tables[0];
             dtg = allDataDS.Tables[1];
             var cartItemgrp = dtg.AsEnumerable().Where(p => p.Field<string>("GroupName").ToLower().Contains(searchStr.ToLower())).ToList(); ;
@@ -72,10 +74,7 @@ namespace budhashop.Services
 
             foreach (DataRow dtrow in cartItemgrp)
             {
-
-
-
-               
+  
                 ItemDetails user = new ItemDetails();
                 user.ItemId = dtrow["GroupId"].ToString();
                 user.ItemName = dtrow["GroupName"].ToString();
@@ -101,7 +100,7 @@ namespace budhashop.Services
                  user.ItemQty = dtrow["Qty"].ToString();
                  user.CatId = dtrow["CategoryId"].ToString();
 
-                details.Add(user);
+                 details.Add(user);
 
             }
 
@@ -114,8 +113,10 @@ namespace budhashop.Services
         {
             DataTable dt = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-            DataSet allDataDS = allData.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+
+            DataSet allDataDS = callCache.getCache();
             dt = allDataDS.Tables[1];
 
             foreach (DataRow dtrow in dt.Rows)
@@ -139,8 +140,10 @@ namespace budhashop.Services
         {
             DataTable dt = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-            DataSet allDataDS = allData.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+
+            DataSet allDataDS = callCache.getCache();
             dt = allDataDS.Tables[0];
 
             foreach (DataRow dtrow in dt.Rows)
@@ -167,8 +170,10 @@ namespace budhashop.Services
         {
             DataTable dt = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-            DataSet allDataDS = allData.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+
+            DataSet allDataDS = callCache.getCache();
             dt = allDataDS.Tables[0];
 
             foreach (DataRow dtrow in dt.Rows)
@@ -196,8 +201,10 @@ namespace budhashop.Services
             DataTable dt = new DataTable();
             DataTable dtg = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-            DataSet allDataDS = allData.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+
+            DataSet allDataDS = callCache.getCache();
             dt = allDataDS.Tables[0];
             dtg = allDataDS.Tables[1];
             int chk = Int32.Parse(grp.ToString());

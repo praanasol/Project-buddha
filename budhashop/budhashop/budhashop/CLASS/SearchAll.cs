@@ -24,8 +24,10 @@ namespace budhashop.CLASS
             DataTable dt = new DataTable();
             DataTable dtg = new DataTable();
             
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-            DataSet allDataDS = allData.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+
+            DataSet allDataDS = callCache.getCache();
             dt = allDataDS.Tables[0];
             dtg = allDataDS.Tables[1];
 

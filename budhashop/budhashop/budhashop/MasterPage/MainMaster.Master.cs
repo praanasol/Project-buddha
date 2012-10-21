@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 using BusinessEntitiesBS;
+using budhashop.CLASS;
 
 namespace budhashop.MasterPage
 {
@@ -26,6 +27,9 @@ namespace budhashop.MasterPage
                 {
                     createSession();
                 }
+
+                
+                
                 
             }
         }

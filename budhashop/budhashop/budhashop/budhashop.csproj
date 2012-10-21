@@ -95,6 +95,7 @@
       <DependentUpon>JpegImage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CLASS\CallCache.cs" />
     <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="CLASS\SearchAll.cs" />
     <Compile Include="homepage.aspx.cs">

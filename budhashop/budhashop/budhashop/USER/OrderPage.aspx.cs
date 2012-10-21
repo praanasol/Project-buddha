@@ -75,8 +75,9 @@ namespace budhashop.USER
             DataSet ds = new DataSet();
             DataTable dtv = new DataTable();
             DataTable dtg = new DataTable();
-            InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
-            ds = callCache.getAllItems();
+            //InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+            ds = callCache.getCache();
             dtv = ds.Tables[0];
             dtg = ds.Tables[1];
             //create cache for group items and store here and loop throuh groups if groupChk is true in session list
@@ -96,7 +97,7 @@ namespace budhashop.USER
                     {
                         DataRow dr = CartDT.NewRow();
                         dr[0] = itemDetails["GroupId"];
-                        dr[1] = "/ItemImages/3/4/4small.jpg";//change this to actual image path when done
+                        dr[1] = itemDetails["ImagePath"];//change this to actual image path when done
                         dr[2] = itemDetails["GroupName"];
                         dr[3] = qty;
                         dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
@@ -298,8 +299,10 @@ namespace budhashop.USER
                 DataSet ds = new DataSet();
                 DataTable dtv = new DataTable();
                 DataTable dtg = new DataTable();
-                InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
-                ds = callCache.getAllItems();
+                //InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
+                budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+            
+                ds = callCache.getCache();
                 dtv = ds.Tables[0];
                 dtg = ds.Tables[1];
                 //create cache for group items and store here and loop throuh groups if groupChk is true in session list

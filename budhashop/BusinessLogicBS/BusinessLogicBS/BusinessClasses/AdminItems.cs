@@ -176,5 +176,23 @@ namespace BusinessLogicBS.BusinessClasses
         }
 
         #endregion
+
+        #region IAdmin Members SearchOrders
+
+        public DataTable SearchOrders(string value1, string value2)
+        {
+            try
+            {
+
+                IAdminDA searchorder = new DataAccessBS.AdminClasses.AdminDA();
+                return searchorder.SearchOrdersDA(value1, value2);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

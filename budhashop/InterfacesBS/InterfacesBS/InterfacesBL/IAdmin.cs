@@ -20,5 +20,7 @@ namespace InterfacesBS.InterfacesBL
 
         DataTable SearchUsers(string uname);
         int UpdateUsers(BusinessEntitiesBS.UserEntities.userobj updateuserObj, int userid);
+
+        DataTable SearchOrders(string value1, string value2);
     }
 }

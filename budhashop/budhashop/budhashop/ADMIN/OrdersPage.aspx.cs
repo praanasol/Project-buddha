@@ -60,15 +60,15 @@ namespace budhashop.ADMIN
         protected void orderGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             orderGrid.PageIndex = e.NewPageIndex;
-            
-            //if (txt_itemname.Text == "")
-            //{
+
+            if (txt_search.Text == "" && txt_datepick.Text == "")
+            {
                 getOrders();
-            //}
-            //else
-            //{
-            //    searchDT(txt_itemname.Text, grpCatId);
-            //}
+            }
+            else
+            {
+                SearchOrders(txt_search.Text, txt_datepick.Text);
+            }
         }
 
         protected void orderGrid_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -155,9 +155,6 @@ namespace budhashop.ADMIN
                             CartDT.Rows.Add(dr);
                         }
 
-                        
-
-
                     }
                     SelectedOrderGrid.DataSource = CartDT;
                     SelectedOrderGrid.DataBind();
@@ -182,5 +179,43 @@ namespace budhashop.ADMIN
             public string CatId { get; set; }
         }
 
+        protected void btn_search_Click(object sender, EventArgs e)
+        {
+            string str = txt_datepick.Text;
+            if (txt_search.Text == "" && txt_datepick.Text=="")
+            {
+                lbl_search.Text = "Please Enter any value to search";
+                getOrders();
+            }
+            else
+            {
+                lbl_search.Text = "";
+                SearchOrders(txt_search.Text, txt_datepick.Text);
+            }
+        }
+
+        private void SearchOrders(string value1,string value2)
+        {
+            try
+            {
+                BusinessLogicBS.BusinessClasses.AdminItems getorders = new BusinessLogicBS.BusinessClasses.AdminItems();
+                DataTable ordersDT = getorders.SearchOrders(value1,value2);
+                if (ordersDT != null)
+                {
+                    orderGrid.DataSource = ordersDT;
+                    orderGrid.DataBind();
+                }
+                else
+                {
+                    lbl_search.Text = "No Orders Found, Try different name...";
+                    orderGrid.DataSource = null;
+                    orderGrid.DataBind();
+                }
+            }
+            catch (Exception iExp)
+            {
+                lbl_search.Text = "Enter Valid Date";
+            }
+        }
     }
 }

@@ -366,5 +366,35 @@ namespace DataAccessBS.AdminClasses
         }
 
         #endregion
+
+        #region IAdminDA Members SearchOrdersDA
+
+
+        public DataTable SearchOrdersDA(string value1,string value2)
+        {
+            try
+            {
+                SqlParameter[] searchParams = new SqlParameter[2];
+                searchParams[0] = new SqlParameter("@Value1", value1);
+                searchParams[1] = new SqlParameter("@Value2", value2);
+
+                DataTable searchuserDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_SEARCH_ORDERS", searchParams).Tables[0];
+
+                if (searchuserDT.Rows.Count > 0)
+                {
+                    return searchuserDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

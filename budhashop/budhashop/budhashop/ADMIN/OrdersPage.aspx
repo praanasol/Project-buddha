@@ -5,10 +5,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Untitled Page</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    
+    <script type="text/javascript">
+    $(function() {
+        $( "#txt_datepick" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+    </script>
+    
+    <style type="text/css">
+       .ui-datepicker {
+         font-size:12px;
+        }
+    </style>
+    
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
+    
+        <asp:TextBox ID="txt_search" runat="server" placeholder="Enter Purchase Id"></asp:TextBox>
+        or
+        <asp:TextBox ID="txt_datepick" runat="server" placeholder="Select Date"></asp:TextBox>
+        <asp:Button ID="btn_search" runat="server" Text="Search" onclick="btn_search_Click" />
+        <br />
+        <asp:Label ID="lbl_search" runat="server"></asp:Label>
+    
+        <br />
+        <br />
+        
     
     <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" 
              AutoGenerateColumns="False" 

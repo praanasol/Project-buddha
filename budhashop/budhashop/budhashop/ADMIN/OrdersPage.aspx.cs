@@ -20,16 +20,7 @@ namespace budhashop.ADMIN
         {
             getOrders();
 
-            DataSet allDataDS = new DataSet();
-
-            InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
-
-
-            if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
-            {
-                allDataDS = allData.getAllItems();
-                System.Web.HttpContext.Current.Cache.Insert("CacheItemsObj", allDataDS, null, System.DateTime.Now.AddDays(1), System.Web.Caching.Cache.NoSlidingExpiration);
-            }
+            
         }
 
         protected void getOrders()
@@ -91,9 +82,10 @@ namespace budhashop.ADMIN
                 //string itemString = (HiddenField)row.Cells[index].FindControl("HiddenItemStr")).Value;
                 //string addrString = ((HiddenField)e.Row.FindControl("HiddenAddrStr")).Value;
 
-
+                budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+            
                 DataSet itemData = new DataSet();
-                itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+                itemData = callCache.getCache();
                 DataTable dt = itemData.Tables[0];
                 DataTable dtg = itemData.Tables[1];
 

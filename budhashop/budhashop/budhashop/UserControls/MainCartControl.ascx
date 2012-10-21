@@ -80,9 +80,10 @@ $('.jspScrollable').mouseleave(function(){
     
     <style type="text/css">
     div#chatlist {
-    width: 350px;
-    height: 300px;
-    border: 1px solid black;
+    width: 510px;
+    max-height:385px;
+    
+    
 }
 div.mousescroll {
     overflow: hidden;
@@ -254,11 +255,11 @@ ul {
         -webkit-border-top-left-radius: 2px;
         -webkit-border-bottom-left-radius: 2px;
         -webkit-border-bottom-right-radius: 2px;
-        background-color: #cccccc;
+        background-color:Transparent;
         display: none;
         position: absolute;
-        width: 300px;
-        height: 400px;
+        width: 500px;
+        height: 500px;
         z-index: 10001;
         border: 1px transparent;
         text-align: left;
@@ -422,41 +423,150 @@ ul {
         
     <fieldset id="signin_menu">
     
-        <asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"
-        ></asp:Label>
+        <%--<asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"
+        ></asp:Label>--%>
         <!--Full Page Details Start-->
-        <asp:Label ID="noOfItemsLbl" runat="server" Text="Items: 0"></asp:Label>
-        <asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label>
-        <asp:Button ID="orderBtn" runat="server" Text="Order Items" 
-            onclick="orderBtn_Click" Enabled="false" />
-        <input type="button" id="hideCartBtn" value="Hide" />
+        
+        
+        
+        <%--<input type="button" id="hideCartBtn" value="Hide" />--%>
         <asp:HiddenField ID="hdnUserId" runat="server"/>
        
        
       <%--  <asp:Panel ID="itempanel" runat="server" CssClass="scroll-pane" Height="300" Width="350" BorderStyle="Solid" BorderColor="Black" ScrollBars="Vertical"> --%>                                                                              
-       <div id="chatlist" class="mousescroll">
-        <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" DataKeyField="ItemId" OnItemCommand ="itemCartDL_ItemCommand">
-            <ItemTemplate>
-                <div>
-                    <aside id="itemValues">
-                        <asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
-                        <asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/>
-                        <asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
-                        <asp:TextBox  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
-                        <asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
-                        <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
-                        <div>
-                        <asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
-                        <asp:LinkButton ID="deleteBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
-                        </div>
-                     </aside>
-                </div>
-            </ItemTemplate>
-        </asp:DataList>
-        </div>
+      
        <%-- </asp:Panel>--%>
        
+      <section id="cart_layout" class="inner_box_style"> 
+    <!-- Cart body start-->
+    <div id="cart_body"> 
+      <!--cart header part start-->
+      <div id="cart_header"> 
+        <!--Cart heder item1 start-->
+        <aside id="c_h_cl1">
+          <p class="style4">Total Items<br />
+          <div class="bg_style1">
+          <asp:Label ID="noOfItemsLbl" runat="server" CssClass="bg_style1" Text="Items: 0"></asp:Label>
+          </div>
+          </p>
+        </aside>
+        <!--Cart heder item1 start--> 
+        <!--Cart heder item2 start-->
+        <aside id="c_h_cl2">
+          <p class="style4">Total Price<br />
+          
+          <div class="bg_style1"><asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label></div>
+          </p>
+        </aside>
+        <!--Cart heder item2 start--> 
+        <!--Cart heder item3 start-->
+        <aside id="c_h_cl3">
+          <div id="c_h_item" class="c_h_cl_box_style">
+            <div id="c_h_item_link"><asp:Button ID="orderBtn" runat="server" CssClass="c_h_link" Text="Make Order" 
+            onclick="orderBtn_Click" Enabled="false" /></div>
+          </div>
+        </aside>
+        <!--Cart heder item3 start--> 
+        <!--Cart heder item4 start-->
+        <aside id="c_h_cl4"> <span><a href="#" target="_self"><img src="../images/arrow_up.gif" width="39" height="17" alt="List" title="List"></a></span>
+          <div style="margin-top:3px;"><a href="#" target="_self" class="hide">Hide</a></div>
+        </aside>
+        <!--Cart heder item4 start--> 
+      </div>
+      <!--cart header part end--> 
       
+      <!--Cart items list part start-->
+      <div id="cartlist_part"> 
+        <!--Cart items list header part start-->
+        <div id="c_l_header_left">
+          <ul>
+            <li>No.</li>
+            <li>Product Details</li>
+            
+			</ul>
+		</div>
+		<div id="c_l_header_right">
+			<ul>
+				<li>Quantity</li>
+				<li>Edit</li>
+			
+          </ul>
+        </div>
+        <!--Cart items list header part End--> 
+        <div id="chatlist" class="mousescroll">
+        <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" DataKeyField="ItemId" OnItemCommand ="itemCartDL_ItemCommand">
+            <ItemTemplate>
+            <div id="itemValues">
+        <!--Cart items list Start-->
+        <section id="cart-list">
+          <div id="c_l_items_row">
+          	 <!--Cart items S No Cl Start-->
+            <aside id="c_l_cl1">
+              <div id="c_l_sno" class="style2">1</div>
+            </aside>
+            <!--Cart items S No Cl End-->
+            <!--Cart items img CL Start-->
+            <aside id="c_l_cl2">
+				<section id="c_l_img"> 
+					
+					<div id="c_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="80px" Height="80px" ImageUrl='<%# Eval("ImagePath")%>'/></div>
+			  </section>
+			  <section id="c_l_fields">
+					
+                          <div id="c_l_field_area">
+                              <div id="c_l_label">ID :</div>
+                              <div id="c_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
+                              </div>
+                          </div>
+						  <div id="c_l_field_area">
+                              <div id="c_l_label" class="style1">Name :</div>
+                              <div id="c_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              </div>
+                          </div>
+						  <div id="c_l_field_area">
+                              <div id="c_l_label">Price :</div>
+                              <div id="c_l_field" class="style4">Rs.<asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
+                              </div>
+                          </div>
+                          <div id="c_l_field_area">
+                              <div id="c_l_label">Total :</div>
+                              <div id="c_l_field" class="style4">Rs. <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
+                              </div>
+                          </div>
+					
+			  </section>
+            </aside>
+            <!--Cart items img CL End-->
+            <!--Cart items Quantity CL Start-->
+            <aside id="c_l_cl3">
+              <div id="c_l_form">
+              <asp:TextBox  ID="qtyTxt" runat="server" CssClass="c_l_form_style" Text='<%# Eval("Qty")%>'></asp:TextBox>
+               </div>
+            </aside>
+            <!--Cart items Quantity CL End-->
+            
+            <!--Cart items Edit CL Start-->
+            <aside id="c_l_cl5">
+              <div id="c_l_edit"> <asp:LinkButton ID="updateBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
+                        </div>
+              <div id="c_l_edit"> <asp:LinkButton ID="deleteBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
+                        </div>
+            </aside>
+            <!--Cart items Edit CL End-->
+          </div>
+        </section>
+        <!--Cart items list End--> 
+        </div>
+            </ItemTemplate>
+        </asp:DataList>
+       
+        
+      </div>
+      <!--Cart items list part End--> 
+    </div>
+    <!-- Cart body end--> 
+    </div>
+  </section>
    
     
         <!--Full Page Details End-->

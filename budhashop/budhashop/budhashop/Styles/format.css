@@ -18,6 +18,30 @@ h2{
 	color:#4d6012;
 	font-weight:bold;
 }
+.style3{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:21px;
+	color:#4d6012;
+	font-weight:bold;
+}
+
+.style4{
+	margin:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#4d6012;
+	font-weight:bold;
+}
+.bg_style1{
+	margin:0px 0px 0px 0px;
+	padding:7px 0px 7px 0px;
+	width:113px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:19px;
+	color:#263102;
+	background:#d9980c;
+}
+
 
 a.link1:link, a.link1:visited{
 	margin:0px 0px 0px 0px;

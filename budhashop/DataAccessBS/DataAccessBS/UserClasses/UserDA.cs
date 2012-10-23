@@ -235,5 +235,35 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members User Orders
+
+
+        public DataTable retrieveUserOrdersDA(string userid)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+
+                sqlParams[0] = new SqlParameter("@uid", userid);
+
+                DataTable ordersDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_USER_ORDERS",sqlParams).Tables[0];
+
+                if (ordersDT.Rows.Count > 0)
+                {
+                    return ordersDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception exp)
+            {
+                throw exp;
+            }
+        }
+
+        #endregion
     }
 }

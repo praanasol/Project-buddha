@@ -109,5 +109,16 @@ namespace BusinessLogicBS.UserClasses
         }
 
         #endregion
+
+        #region IUser Members User Orders
+
+
+        public DataTable getUserOrders(string userid)
+        {
+            IUserDA getOrders = new DataAccessBS.UserClasses.UserDA();
+            return getOrders.retrieveUserOrdersDA(userid);
+        }
+
+        #endregion
     }
 }

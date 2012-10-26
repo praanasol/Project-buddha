@@ -353,6 +353,7 @@ ul {
            
         $(document).ready(function() {      
                  
+                 
             $(".signin").click(function(e) {          
 				e.preventDefault();
 				
@@ -418,9 +419,18 @@ ul {
 --%>
 <body>
 <div id="topnav1" >
-
-    <asp:LinkButton ID="signin" CausesValidation="false" class="signin" runat="server">Show</asp:LinkButton>
-        
+ <aside id="list">
+        	<div id="list_left">
+            	<p class="style1">Items<br /><asp:Label ID="totitems" runat="server" Text="0"></asp:Label></p>
+            </div>
+            <div id="list_v_line"></div>
+            <div id="list_right">
+            	<%--<div id="list_simble"></div>--%>
+            	<%--<span><asp:ImageButton ID="signin1" CausesValidation="false" CssClass="signin" runat="server" ImageUrl="../images/arrow_down.gif" Width="23" Height="11"/></span>
+    --%><asp:LinkButton ID="signin" CausesValidation="false" class="signin" runat="server">Show</asp:LinkButton>
+        </div>
+            
+        </aside>
     <fieldset id="signin_menu">
     
         <%--<asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"
@@ -446,7 +456,7 @@ ul {
         <aside id="c_h_cl1">
           <p class="style4">Total Items<br />
           <div class="bg_style1">
-          <asp:Label ID="noOfItemsLbl" runat="server" CssClass="bg_style1" Text="Items: 0"></asp:Label>
+          <asp:Label ID="noOfItemsLbl" runat="server" CssClass="bg_style1" Text="0"></asp:Label>
           </div>
           </p>
         </aside>
@@ -455,7 +465,7 @@ ul {
         <aside id="c_h_cl2">
           <p class="style4">Total Price<br />
           
-          <div class="bg_style1"><asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label></div>
+          <div class="bg_style1"><asp:Label ID="totalLbl" runat="server" Text="0"></asp:Label></div>
           </p>
         </aside>
         <!--Cart heder item2 start--> 
@@ -469,7 +479,7 @@ ul {
         <!--Cart heder item3 start--> 
         <!--Cart heder item4 start-->
         <aside id="c_h_cl4"> <span><a href="#" target="_self"><img src="../images/arrow_up.gif" width="39" height="17" alt="List" title="List"></a></span>
-          <div style="margin-top:3px;"><a href="#" target="_self" class="hide">Hide</a></div>
+          <div style="margin-top:3px;"><a id="hideCartBtn" href="#" target="_self" class="hide">Hide</a></div>
         </aside>
         <!--Cart heder item4 start--> 
       </div>

@@ -19,6 +19,7 @@
     <link href="../Styles/SearchAll.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../Styles/inner_layout.css">
     <link rel="stylesheet" type="text/css" href="../Styles/inner_format.css">
+   <%-- <link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font">--%>
 
 
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -64,7 +65,7 @@
     <div id="wraper">
     
   <header>
-    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="148" height="226" alt="Budda" title="Budda"></a></aside>
+    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="80" height="113" alt="Budda" title="Budda"></a></aside>
     <aside id="space"></aside>
     
     <!--Header right side area - Start-->
@@ -116,18 +117,18 @@
         </aside>
         <!--Navigation End-->
         <!--List items link area Start-->
-        <aside id="list">
+        <%--<aside id="list">
         	<div id="list_left">
             	<p class="style1">Items<br />14</p>
             </div>
             <div id="list_v_line"></div>
             <div id="list_right">
-            	<div id="list_simble"></div>
+            	<div id="list_simble"></div>--%>
             	<uc4:cart ID="cartCtrl" runat="server" />
            	    <%--<span><a href="#" target="_self"><img src="../images/arrow_down.gif" width="23" height="11" alt="List" title="List"></a></span>
-          --%>  </div>
+          --%>  <%--</div>
             
-        </aside>
+        </aside>--%>
         <!--List items link area End-->
     </div>
       <!--Navigation Row End-->

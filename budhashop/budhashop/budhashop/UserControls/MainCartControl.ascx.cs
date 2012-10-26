@@ -80,7 +80,7 @@ namespace budhashop.UserControls
                     {
                         DataRow dr = CartDT.NewRow();
                         dr[0] = itemDetails["GroupId"];
-                        dr[1] = itemDetails["ImagePath"]; ;//change this to actual image path when done
+                        dr[1] = itemDetails["ImagePath"]; //change this to actual image path when done
                         dr[2] = itemDetails["GroupName"];
                         dr[3] = qty;
                         float blrte = float.Parse(itemDetails["BilledRate"].ToString());
@@ -126,6 +126,7 @@ namespace budhashop.UserControls
                 PagedDataSource pagedData = new PagedDataSource();
                 int rowCnt = CartDT.Rows.Count;
                 noOfItemsLbl.Text = rowCnt.ToString();
+                totitems.Text = rowCnt.ToString();
                 totalLbl.Text = totalPrice.ToString();
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;

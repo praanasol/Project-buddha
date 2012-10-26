@@ -14,7 +14,7 @@ h2{
 }
 .style2{
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:20px;
+	font-size:14px;
 	color:#4d6012;
 	font-weight:bold;
 }
@@ -47,9 +47,9 @@ a.link1:link, a.link1:visited{
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
-	font-size:24px;
+	font-size:14px;
 	color:#51290e;
-	font-weight:bold;
+	
 	text-decoration:none;
 }
 a.link1:hover, a.link1:active{
@@ -60,13 +60,13 @@ a.link1:hover, a.link1:active{
 	margin:0px;
 	padding-left:5px;
 	width:586px;
-	height:35px;
+	height:23px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:20px;
-	color:#364700;
+	font-size:16px;
+	color:#d9b021;
 	font-weight:bold;
-	background:#c0c561;
-	border:#364700 solid 2px;
+	background:#e7cd73;
+	border:#d9b021 solid 2px;
 	border-radius:10px;
 }
 .go_but_style{
@@ -83,7 +83,7 @@ a.go:link, a.go:visited{
 	padding:3px 0px 0px 0px;
 	position:absolute;
 	font-family:"Arial", Gadget, sans-serif;
-	font-size:20px;
+	font-size:12px;
 	color:#364700;
 	font-weight:bold;
 	text-decoration:none;
@@ -100,8 +100,8 @@ a.go:hover, a.go:active{
 	padding:0px;
 	width:985px;
 	height:317px;
-	background:#b4ba44;
-	border:#a2a835 2px solid;
+	background:#efd787;
+	border:#efd787 1px solid;
 	border-radius:5px;
 }
 .but1_style{
@@ -195,7 +195,7 @@ a.add:link, a.add:visited{
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
-	font-size:24px;
+	font-size:12px;
 	color:#f39112;
 	font-weight:bold;
 	text-decoration:none;

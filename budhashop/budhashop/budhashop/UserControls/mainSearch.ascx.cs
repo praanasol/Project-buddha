@@ -34,7 +34,7 @@ namespace budhashop.UserControls
         protected void searchBtn_Click(object sender, EventArgs e)
         {
             string searchStr = SearchAll.Text.ToString();
-            string searchUrl = "searchitems.aspx?q=" + searchStr;
+            string searchUrl = "~/searchitems.aspx?q=" + searchStr;
             Response.Redirect(searchUrl);
 
         }

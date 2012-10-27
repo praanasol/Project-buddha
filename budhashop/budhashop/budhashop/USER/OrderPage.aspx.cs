@@ -18,6 +18,7 @@ using BusinessLogicBS.BusinessClasses;
 using BusinessEntitiesBS;
 using BusinessLogicBS.UserClasses;
 using BusinessEntitiesBS.UserEntities;
+using budhashop.UserControls;
 
 namespace budhashop.USER
 {
@@ -51,6 +52,8 @@ namespace budhashop.USER
                 }
                 
             }
+
+            (Master.FindControl("cart1") as MainCartControl).Visible = false;
 
 
         }

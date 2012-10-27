@@ -127,6 +127,16 @@ namespace budhashop.UserControls
                 int rowCnt = CartDT.Rows.Count;
                 noOfItemsLbl.Text = rowCnt.ToString();
                 totitems.Text = rowCnt.ToString();
+                if (rowCnt > 0)
+                {
+                    orderBtn1.Enabled = true;
+                    errorMsg.Text = "";
+                }
+                else
+                {
+                    orderBtn1.Enabled = false;
+                    errorMsg.Text = "No products added";
+                }
                 totalLbl.Text = totalPrice.ToString();
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;
@@ -141,6 +151,7 @@ namespace budhashop.UserControls
             {
                 itemCartDL.DataSource = "";
                 itemCartDL.DataBind();
+                orderBtn1.Enabled = false;
             }
         }
   

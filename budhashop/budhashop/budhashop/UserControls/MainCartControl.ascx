@@ -128,16 +128,16 @@ ul {
 <style type="text/css">
     #signin
     {
-        background: #ecd891;
-        padding: 4px 6px 6px;
+        
+        padding: 0px 0px 0px;
         font-family: "Courier New" , Courier, monospace;
-        font-size: 16px;
-        color: #363635;
+        font-size: 12px;
+       
         font-weight: bold;
         text-decoration: none;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        padding: 4px 12px 6px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        
     }
     #signin a.menu-open
     {
@@ -148,9 +148,9 @@ ul {
     #topnav1-left
     {
         position: absolute;
-        top: 15px;
-        left: 120px;
-        width: 23px;
+        top: 5px;
+        left: 80px;
+        width: 20px;
         text-align: left;
     }
     #topnav1
@@ -162,16 +162,16 @@ ul {
     }
     #topnav1 a.signin
     {
-        background: #3d3d3c;
-        padding: 4px 6px 6px;
+        
+        padding: 0px 0px 0px;
         font-family: "Courier New" , Courier, monospace;
-        font-size: 16px;
-        color: #ffffff;
+        font-size: 12px;
+        
         font-weight: bold;
         text-decoration: none;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
-        padding: 4px 12px 6px;
+       
     }
     #topnav1 a.signin:hover
     {
@@ -198,7 +198,7 @@ ul {
     }
     #topnav1 a.menu-open
     {
-        background: #000000 !important;
+        background: #e3c353 !important;
         color: #666 !important;
         outline: none;
     }
@@ -352,7 +352,12 @@ ul {
 <script type="text/javascript">
            
         $(document).ready(function() {      
-                 
+               
+               if(($("#noOfItemsLbl").text())!="0")
+                {
+                    $("#orderBtn1").removeAttr("disabled");
+                }
+                  
                  
             $(".signin").click(function(e) {          
 				e.preventDefault();
@@ -421,16 +426,23 @@ ul {
 <div id="topnav1" >
  <aside id="list">
         	<div id="list_left">
-            	<p class="style1">Items<br /><asp:Label ID="totitems" runat="server" Text="0"></asp:Label></p>
+            	<%--<p class="style1" style="font-size:12px;">Cart Items<br /></p>--%>
+            	
+            	<div id="list_simble"></div>
+            	<asp:Label ID="totitems" runat="server" Text="0" CssClass="style1"></asp:Label>
+            	
+            	
             </div>
             <div id="list_v_line"></div>
             <div id="list_right">
             	<%--<div id="list_simble"></div>--%>
             	<%--<span><asp:ImageButton ID="signin1" CausesValidation="false" CssClass="signin" runat="server" ImageUrl="../images/arrow_down.gif" Width="23" Height="11"/></span>
-    --%><asp:LinkButton ID="signin" CausesValidation="false" class="signin" runat="server">Show</asp:LinkButton>
+    --%><div  class="signin"><%--<asp:LinkButton ID="signin1" CausesValidation="false" runat="server">Cart</asp:LinkButton>--%>
+    
+    <span><a id="signin" href="#" target="_self"><img src="../images/arrow_down.gif" width="23" height="11" alt="List" title="List"></a></span></div>
         </div>
             
-        </aside>
+       </aside> 
     <fieldset id="signin_menu">
     
         <%--<asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"
@@ -472,8 +484,8 @@ ul {
         <!--Cart heder item3 start-->
         <aside id="c_h_cl3">
           <div id="c_h_item" class="c_h_cl_box_style">
-            <div id="c_h_item_link"><asp:Button ID="orderBtn" runat="server" CssClass="c_h_link" Text="Make Order" 
-            onclick="orderBtn_Click" Enabled="false" /></div>
+            <div id="c_h_item_link"><asp:LinkButton ID="orderBtn1" runat="server" CssClass="style1" Text="Make Order" 
+            onclick="orderBtn_Click" Enabled="false"/></div>
           </div>
         </aside>
         <!--Cart heder item3 start--> 
@@ -504,7 +516,9 @@ ul {
         </div>
         <!--Cart items list header part End--> 
         <div id="chatlist" class="mousescroll">
+         <asp:Label ID="errorMsg" runat="server" Text="0" CssClass="style1"></asp:Label>
         <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" DataKeyField="ItemId" OnItemCommand ="itemCartDL_ItemCommand">
+           
             <ItemTemplate>
             <div id="itemValues">
         <!--Cart items list Start-->

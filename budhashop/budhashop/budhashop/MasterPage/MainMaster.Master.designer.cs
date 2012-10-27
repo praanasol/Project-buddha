@@ -50,15 +50,6 @@ namespace budhashop.MasterPage {
         protected global::budhashop.UserControls.navigation navg;
         
         /// <summary>
-        /// cartCtrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::budhashop.UserControls.MainCartControl cartCtrl;
-        
-        /// <summary>
         /// srch control.
         /// </summary>
         /// <remarks>
@@ -66,6 +57,15 @@ namespace budhashop.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::budhashop.UserControls.mainSearch srch;
+        
+        /// <summary>
+        /// cart1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::budhashop.UserControls.MainCartControl cart1;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

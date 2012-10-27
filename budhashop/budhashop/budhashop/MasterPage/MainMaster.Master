@@ -34,7 +34,7 @@
         $(document).ready(function(){
                 if(($("#ctl00_cartCtrl_noOfItemsLbl").text())!="0")
                 {
-                    $("#ctl00_cartCtrl_orderBtn").removeAttr("disabled");
+                    $("#ctl00_cartCtrl_orderBtn1").removeAttr("disabled");
                 }
                 
              
@@ -124,7 +124,7 @@
             <div id="list_v_line"></div>
             <div id="list_right">
             	<div id="list_simble"></div>--%>
-            	<uc4:cart ID="cartCtrl" runat="server" />
+            	<%--<uc4:cart ID="cartCtrl" runat="server" />--%>
            	    <%--<span><a href="#" target="_self"><img src="../images/arrow_down.gif" width="23" height="11" alt="List" title="List"></a></span>
           --%>  <%--</div>
             
@@ -144,10 +144,13 @@
                      OnClick="searchBtn_Click"></asp:LinkButton></div>
         </div>--%>
         <div id="v_line" style="margin-left:13px;"></div>
-        <div id="ph" class="style2">8732873888</div>
+        
+        <uc4:cart ID="cart1" runat="server" />
+        
+       <%-- <div id="ph" class="style2">8732873888</div>--%>
       </div>
       <!--Search row End--> 
-    </aside>
+   </aside>
     <!--Header right side area - End--> 
   </header>
   

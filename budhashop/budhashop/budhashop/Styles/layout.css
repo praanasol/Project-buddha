@@ -91,10 +91,10 @@ header{
 	border-radius:3px;
 }
 #list{
-	margin-left:6px;
+	margin-left:3px;
 	padding:0px;
-	width:132px;
-	height:40px;
+	width:113px;
+	height:32px;
 	float:left;
 	background:#f0af21;
 	border-radius:3px;
@@ -103,7 +103,7 @@ header{
 	margin:2px 0px 0px 3px;
 	padding:0px;
 	width:70px;
-	height:36px;
+	height:28px;
 	float:left;
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#a50105), to(#7e1105));
     background: -moz-linear-gradient(#a50105, #7e1105);
@@ -122,8 +122,8 @@ header{
 #list_right{
 	margin:2px 3px 0px 0px;
 	padding:0px;
-	width:55px;
-	height:36px;
+	width:35px;
+	height:28px;
 	float:left;
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#a50105), to(#7e1105));
     background: -moz-linear-gradient(#a50105, #7e1105);
@@ -136,6 +136,7 @@ header{
 	padding:0px;
 	width:30px;
 	height:22px;
+	float:left;
 	background:url(../images/trally.gif) left top no-repeat;
 }
 <!--Search row start-->

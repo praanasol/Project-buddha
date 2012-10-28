@@ -116,7 +116,7 @@
                         </style>
                 <%--End of Style for Pop-Up Window--%>
                     
-                    <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
+                    <%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>--%>
 
                         <script type="text/javascript">
                             $(document).ready(function() {

@@ -56,15 +56,15 @@ namespace budhashop.USER
                     dt = checkuser.checkavailability(emailid);
                     if (dt == null)
                     {
-                        lbl_femailid.Text = "Email Id Do not Exist in our Database";
+                        lbl_femailid.Text = HardCodedValues.BuddaResource.EmailIdNull;
                         // Create a random Captcha and store it in the Session object.
-                        this.Session["CaptchaImageText"] = Captcha.CaptchaImage.GenerateRandomCode(7);
-                        lbl_captcha.Text = "";
+                        this.Session["CaptchaImageText"] = Captcha.CaptchaImage.GenerateRandomCode(HardCodedValues.BudhaConstants.RandomPasswordLength);
+                        lbl_captcha.Text = string.Empty;
                     }
                     else
                     {
                         //if email id exists, then generate a new random password
-                        string newpwd = GenerateRandomPassword(7);
+                        string newpwd = GenerateRandomPassword(HardCodedValues.BudhaConstants.RandomPasswordLength);
 
                         //encrypt the given password to store in database
                         string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(newpwd);

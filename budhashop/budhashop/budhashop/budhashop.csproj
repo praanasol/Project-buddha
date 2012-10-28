@@ -98,6 +98,12 @@
     <Compile Include="CLASS\CallCache.cs" />
     <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="CLASS\SearchAll.cs" />
+    <Compile Include="HardCodedValues\BuddaResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuddaResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="HardCodedValues\BudhaConstants.cs" />
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -438,6 +444,13 @@
     <None Include="script\html5shiv\.gitattributes" />
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HardCodedValues\BuddaResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BuddaResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADMIN\ItemImages\catagory 3\" />

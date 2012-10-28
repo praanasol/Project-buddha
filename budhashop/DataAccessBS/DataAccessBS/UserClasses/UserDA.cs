@@ -15,6 +15,10 @@ namespace DataAccessBS.UserClasses
     {
         #region IUserDA Members Insert User
 
+        /// <summary>
+        ///  This method will do 
+        /// </summary>
+        /// <param name="userobjDA"></param>
         public void insertUserDA(BusinessEntitiesBS.UserEntities.userobj userobjDA)
         {
             try

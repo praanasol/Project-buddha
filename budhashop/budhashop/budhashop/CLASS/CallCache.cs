@@ -12,11 +12,11 @@ using System.Xml.Linq;
 
 namespace budhashop.CLASS
 {
-    public class CallCache
+    internal class CallCache
     {
         DataSet allDataDS;
 
-        public DataSet getCache()
+        internal DataSet getCache()
         {
             allDataDS = new DataSet();
 

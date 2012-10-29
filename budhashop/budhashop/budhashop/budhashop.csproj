@@ -140,10 +140,6 @@
     <Compile Include="searchitems.aspx.designer.cs">
       <DependentUpon>searchitems.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Services\CartService.asmx.cs">
-      <DependentUpon>CartService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Services\Searchall.aspx.cs">
       <DependentUpon>Searchall.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -410,7 +406,6 @@
     <Content Include="script\scroll\scroll16.js" />
     <Content Include="scroll_bg.gif" />
     <Content Include="searchitems.aspx" />
-    <Content Include="Services\CartService.asmx" />
     <Content Include="Services\Searchall.aspx" />
     <Content Include="Services\SearchIt.asmx" />
     <Content Include="Services\Services.aspx" />

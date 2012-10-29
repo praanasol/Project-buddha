@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<script type="text/javascript" src="../script/CartJSONCall.js"></script>
+
 <script type="text/javascript">
 var Id = 0;
 var grpc = 0;
@@ -103,6 +105,7 @@ alert("Error");
 });
 }
 
+            
 </script>
 <br clear="all" />
 <section id="middlebody"> 

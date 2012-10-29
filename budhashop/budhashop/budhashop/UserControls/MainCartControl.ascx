@@ -428,8 +428,8 @@ ul {
         	<div id="list_left">
             	<%--<p class="style1" style="font-size:12px;">Cart Items<br /></p>--%>
             	
-            	<div id="list_simble"></div>
-            	<asp:Label ID="totitems" runat="server" Text="0" CssClass="style1"></asp:Label>
+            	<div id="list_simble" style="margin-top:3px;"></div>
+            	<div class="style1"><asp:Label ID="totitems" runat="server" Text="0" CssClass="style1"></asp:Label></div>
             	
             	
             </div>
@@ -437,9 +437,9 @@ ul {
             <div id="list_right">
             	<%--<div id="list_simble"></div>--%>
             	<%--<span><asp:ImageButton ID="signin1" CausesValidation="false" CssClass="signin" runat="server" ImageUrl="../images/arrow_down.gif" Width="23" Height="11"/></span>
-    --%><div  class="signin"><%--<asp:LinkButton ID="signin1" CausesValidation="false" runat="server">Cart</asp:LinkButton>--%>
+    --%><div  class="signin" style="padding-top:8px;"><%--<asp:LinkButton ID="signin1" CausesValidation="false" runat="server">Cart</asp:LinkButton>--%>
     
-    <span><a id="signin" href="#" target="_self"><img src="../images/arrow_down.gif" width="23" height="11" alt="List" title="List"></a></span></div>
+    <span><a id="signin" href="#" target="_self"><img src="../images/arrow_down.gif" width="31" height="14" alt="List" title="List"></a></span></div>
         </div>
             
        </aside> 

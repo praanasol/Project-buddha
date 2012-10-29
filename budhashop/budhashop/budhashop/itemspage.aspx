@@ -190,7 +190,7 @@ alert("Error");
 <br clear="all" />
 <section id="middlebody"> 
     <!--Cort items Start-->
-    <aside id="left_col" class="in_box_style"> 
+    <%--<aside id="left_col" class="in_box_style"> 
     <div style="height:60px;"><div id="but"><a href="" id="but1" type="button" target="_self" class="but2" style="display:none;"><</a></div>
       <div id="but"><a href="" id="but2" type="button" target="_self" class="but2">></a></div>
        
@@ -232,7 +232,7 @@ alert("Error");
     </div>
     </div>  
     
-    </aside>
+    </aside>--%>
     <!--Cort items End--> 
     <!--Items Start-->
     <aside id="right_col" class="in_box_style"> 

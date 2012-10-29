@@ -51,7 +51,7 @@
         });
     </script>
     
-    <div id="search_form"><asp:TextBox ID="SearchAll" runat="server" CssClass="search_form_style"></asp:TextBox></div>
+    <div id="search_form"><asp:TextBox ID="SearchAll" runat="server"  CssClass="search_form_style" Text="search..."></asp:TextBox></div>
         <div id="go_but" class="go_but_style">
         	<div id="go_link">
                 <asp:LinkButton ID="searchBtn" runat="server" CssClass="go" Text="GO" 

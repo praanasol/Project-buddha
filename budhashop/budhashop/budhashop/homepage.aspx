@@ -12,30 +12,15 @@
 <%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
 <article style="height:200px;"></article>
   <br clear="all" />
-<section id="item_area" class="box_style" style="height:800px;">
+<section id="item_area" class="box_style" style="height:730px;">
   	<div id="box_header">
     	<div id="to_left"><h2>Featured </h2></div>
-      <div id="buttons_area">
-      <div id="but"><a href="#" id="but1" type="button" target="_self" class="but2" style="display:none;"><</a></div>
-      <div id="but"><a href="#" id="but2" type="button" target="_self" class="but2">></a></div>
-        <div id="but" class="but1_style">
-                <div id="but_link"><a href="#" target="_self" class="but1">Featured</a></div>
-
-        </div>
-        <div id="but" class="but2_style">
-                <div id="but_link"><a href="#"  target="_self" class="but2">Featured</a></div>
-
-        </div>
-        <div id="but" class="but3_style">
-                <div id="but_link"><a href="itemspage.aspx?catid=3&page=1" target="_self" class="but3">All Items</a></div>
-
-        </div>
-        </div>
+      
     </div>
     <!--Gallery Start-->
-   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden;height:800px; width:970px;">
+   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px;">
    
-    <div id ="groupItems" style="height:800px; width:970px;">
+    <div id ="groupItems" style="height:650px; width:970px;">
    <script type="text/javascript">
    $('#but2').click(function(){
    var grpWidth = $('#groupItems').css("margin-left").replace("px","");

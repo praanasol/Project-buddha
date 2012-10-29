@@ -62,8 +62,8 @@ a.link1:hover, a.link1:active{
 	width:586px;
 	height:23px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
-	color:#d9b021;
+	font-size:15px;
+	color:#364700;
 	font-weight:bold;
 	background:#e7cd73;
 	border:#d9b021 solid 2px;
@@ -79,8 +79,8 @@ a.link1:hover, a.link1:active{
 	border-radius:10px;
 }
 a.go:link, a.go:visited{
-	margin:3px 0px 0px 2px;
-	padding:3px 0px 0px 0px;
+	margin:2px 0px 0px 3px;
+	padding:2px 0px 0px 0px;
 	position:absolute;
 	font-family:"Arial", Gadget, sans-serif;
 	font-size:12px;
@@ -99,7 +99,7 @@ a.go:hover, a.go:active{
 	margin:0px;
 	padding:0px;
 	width:985px;
-	height:317px;
+	height:312px;
 	background:#efd787;
 	border:#efd787 1px solid;
 	border-radius:5px;
@@ -217,6 +217,7 @@ a.add:hover, a.add:active{
 .rights{
 	margin:0px;
 	padding-top:15px;
+	height:20px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:11px;
 	color:#a2a835;

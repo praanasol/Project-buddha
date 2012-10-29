@@ -5,23 +5,31 @@
     .logintext
     {
     	float:right;
+    	width:55px;
+    	height:20px;
         background: #f39112;
         font-family: "Courier New" , Courier, monospace;
         font-size: 16px;
-        color: White;
+        color: #364700;
         font-weight: bold;
         text-decoration: none;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        padding: 4px 12px 6px;
+        
+        padding: 6px 10px 5px 11px;
+        border-radius:3px;
     }
     .logintext:hover
     {
-        background: Green;
-        color: White;
+        
+        color: #8f0a05;
         font-weight: bold;
         text-decoration: none;
-        padding: 4px 12px 6px;
+         padding: 6px 10px 5px 11px;
+        background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#d67d1c));
+    background: -moz-linear-gradient(#f38d10, #d67d1c);
+    background: linear-gradient(#f38d10, #d67d1c);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
+    
+    border-radius:3px;
     }
     .usertext
     {

@@ -75,7 +75,7 @@
         <div id="top_links_area"> 
           <!--Default links Start-->
           <div id="top_defaultlinks_area">
-            <nav id="top_defaultlinks">
+            <%--<nav id="top_defaultlinks">
               <ul>
                 <li><a href="#" target="_self">Home</a></li>
                 |
@@ -83,17 +83,22 @@
                 |
                 <li><a href="#" target="_self">Contact Us</a></li>
               </ul>
-            </nav>
+            </nav>--%>
           </div>
           <!--Default links End--> 
           <!--login links Start-->
           <div id="top_loginlinks_area">
+            <div id="mainloginuc" style="position:absolute; top:1px; left:58%;">
+            <uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" />
+            </div>
+          </div>
+          <%--<div id="top_loginlinks_area">
             <nav id="top_loginlinks">
               <ul>
                 <li><a href="#" target="_self">LogIn</a></li>
               </ul>
             </nav>
-          </div>
+          </div>--%>
           <!--login links End-->
           <div></div>
         </div>
@@ -167,14 +172,23 @@
     </div>
   
     <br />
-  <footer class="rights">
+  
+</div>
+<footer class="rights">
   Copy Rights @2012. praanasolutions.com
   </footer>
-</div>
-
-<div id="mainloginuc" style="position:absolute; top:2px; left:30%;">
+<%--<div id="top_loginlinks_area">
+    <div id="mainloginuc" style="position:absolute; top:-8px; left:58%;">
+            <nav id="top_loginlinks">
+              <ul>
+                <li><a href="#"><uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" /></a></li>
+              </ul>
+            </nav>
+            </div>
+          </div>--%>
+<%--<div id="mainloginuc" style="position:absolute; top:2px; left:30%;">
     <uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" />
-</div>
+</div>--%>
 
     </form>
 </body>

@@ -9,19 +9,92 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    
+    <script type="text/javascript" src="../script/jquery.pagination.js"></script>
+    
 
+
+    
+    <style type="text/css" media="screen">
+        
+        .pagination
+        {
+        	
+            font-size: 14px;
+        }
+        .pagination a
+        {
+            text-decoration: none;
+            border: solid 1px #AAE;
+            color: #15B;
+        }
+        .pagination a, .pagination span
+        {
+            display: block;
+            float: left;
+            padding: 0.3em 0.5em;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            width: 30px;
+            height: 30px;
+        }
+        .pagination .current
+        {
+            background: #26B;
+            color: #fff;
+            border: solid 1px #AAE;
+        }
+        .pagination .current.prev, .pagination .current.next
+        {
+            color: #999;
+            border-color: #999;
+            background: #fff;
+        }
+    </style>
+
+    <script>
+    var pagination_options = {
+      num_edge_entries: 2,
+      num_display_entries: 8,
+      callback: pageselectCallback,
+      items_per_page:9
+    }
+
+    function pageselectCallback(page_index, jq){
+      var items_per_page = pagination_options.items_per_page;
+      var offset = page_index * items_per_page;
+      var new_content = $('#hiddenresult aside.category_box_style').slice(offset, offset + items_per_page).clone();
+      $('#searchresult').empty().append(new_content);
+      return false;
+    }
+
+    function initPagination() {
+      var num_entries = $('#hiddenresult aside.category_box_style').length;
+      // Create pagination element
+      $("#pagination").pagination(num_entries, pagination_options);
+    }
+  
+//     $(document).ready(function(){   
+//    var url = "http://api.flickr.com/services/feeds/groups_pool.gne?id=44124373027@N01&lang=en-us&format=json&jsoncallback=?";
+// 
+//        // Grab some flickr images of cats
+//        $.getJSON(url, function (data) {
+//            // Format the data using the catTemplate template
+//            $("#catTemplate").tmpl(data.items).appendTo("#hiddenresult");
+//            initPagination();
+//	    //
+//		  $("#fetching").hide();
+//        });
+//    });
+    </script>
 
 
 
 <script type="text/javascript">
 $(document).ready(function() {
 var catID = 3;
-var pageNo = 1;
-var prev = 0;
-var nxt = 0;
-var end = 1;
 
-$('#pj_prev').css("display","none");
 
 var search1 = function() {
   var s = window.location.search.substr(1),
@@ -37,17 +110,10 @@ if(search1.catid != null)
 {
 catID = search1.catid;
 }
-if(search1.page != null)
-{
-pageNo = search1.page;
-if(pageNo>1){
-$('#pj_prev').css("display","inherit");
-prev = parseInt(pageNo)-1;
-$('#pj_prev').attr("href", "itemspage.aspx?catid="+catID+"&page="+prev+"");
-}
 
 
-}
+
+
 if(catID == 1){
 
 $.ajax({
@@ -60,8 +126,11 @@ success: function(data) {
 for (var i = 0; i < data.d.length; i++) {
 
 
- $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp=1" target="_self"><img src="/ItemImages/3/4/4small.jpg" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+ data.d[i].CatId+');">ADD</a></div></div></div> </div></div> </aside>');
+ $("#hiddenresult").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp=1" target="_self"><img src="/ItemImages/3/4/4small.jpg" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+ data.d[i].CatId+');">ADD</a></div></div></div> </div></div> </aside>');
 }
+initPagination();
+	    //
+		  $("#fetching").hide();
 },
 error: function(result) {
 alert("Error");
@@ -80,56 +149,17 @@ data: "{'CatgId':'"+ catID +"'}",
 dataType: "json",
 success: function(data) {
 
-$("#sort_items").append('<a href="itemspage.aspx?catid='+catID+'&page=1" target="_self">1</a>');
-for (var i = 0; i < data.d.length; i++) {
-var incPage = 1;
+ for (var i = 0; i < data.d.length; i++) {
 
 
-if(i/9 == incPage)
-{
-incPage++
-$("#sort_items").append('<a href="itemspage.aspx?catid='+catID+'&page='+incPage+'" target="_self">'+incPage+'</a>'); 
-end = incPage;
-}
+ $("#hiddenresult").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self"><img src="'+data.d[i].ItemPath+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div> </div></div> </aside>');
 
-}
-
-if(pageNo>end)
-{
-LoadItems(1)
-$('#pj_prev').css("display","none");
-$('#pj_next').css("display","inherit");
-$('#pj_next').attr("href", "itemspage.aspx?catid="+catID+"&page=2");
-}
-else{
-LoadItems(pageNo)
-if(end != pageNo){
-nxt = parseInt(pageNo)+1 ;
-
-$('#pj_next').attr("href", "itemspage.aspx?catid="+catID+"&page="+nxt+"");
-}
-else{
-$('#pj_next').css("display","none");
-}
-}
-function LoadItems(pgno)
-{
-
- var start = 0;
- var limit = pgno*9;
- if(pgno != 1){
-    start = limit-9;
- }
- 
- for (var i = start; i < data.d.length; i++) {
- if(i<limit)
-{
-
- $("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self"><img src="'+data.d[i].ItemPath+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div> </div></div> </aside>');
-}
  
  }
- }
+ initPagination();
+	    //
+		  $("#fetching").hide();
+ 
 
 
 },
@@ -137,52 +167,7 @@ error: function(result) {
 alert("Error");
 }
 });
-
-if(catID==3){
-
-$.ajax({
-type: "POST",
-contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/BindGrptable",
-data: "{}",
-dataType: "json",
-success: function(data) {
-for (var i = 0; i < data.d.length; i++) {
-
-
- $("#otherItemBox").append('<aside id="inner_category_box" class="category_box_style" style="width:180px; height:230"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp=1" target="_self"><img src="images/img.gif" alt="Items" title="Items" width="120" height="120" border="0"></a></div><div id="category_bottom_row" style="width:180px"><div id="category_bottom_links" ><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style" style="width:80px; height:30px;"><div id="add_link" ><a id = "addoBtn'+ data.d[i].ItemId+'" href="" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+ data.d[i].CatId+');">ADD</a></div></div></div></div></div></aside>');
-
 }
-},
-error: function(result) {
-alert("Error");
-}
-});
-
-
-}
-else{
-
-$.ajax({
-type: "POST",
-contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/BindDatatable",
-data: "{'CatgId':'"+ catID +"'}",
-dataType: "json",
-success: function(data) {
-for (var i = 0; i < data.d.length; i++) {
-
-$("#otherItemBox").append('<aside id="inner_category_box" class="category_box_style" style="width:150px; height:180"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self"><img src="'+data.d[i].ItemPath+'" alt="Items" title="Items" width="120" height="120" border="0"></a></div><div id="category_bottom_row" style="width:150px"><div id="category_bottom_links" ><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style" style="width:80px; height:30px;"><div id="add_link" ><a id = "addoBtn'+ data.d[i].ItemId+'" href="" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div></div></div></aside>');
-
- }
-},
-error: function(result) {
-alert("Error");
-}
-});
-}
-}
-
  
 });
 
@@ -238,15 +223,31 @@ alert("Error");
     <aside id="right_col" class="in_box_style"> 
       <!--Categories Start-->
       <section id="inner_item_area">
-        <section id="scroll_buttons">
-          <aside id="to_left"><a href="" id="pj_prev" target="_self" class="scroll_arrow_l" ><!--<img src="images/left_arrow.png" width="50" height="50" alt="Button" title="Button">--></a></aside>
-          <aside id="to_right"><a href="" id="pj_next" target="_self" class="scroll_arrow_r"><!--<img src="images/left_arrow.png" width="50" height="50" alt="Button" title="Button">--></a></aside>
-        </section>
+        
         <!--Gallery Start-->
         <div id="inner_box_content"> 
         
         <div id = "itemsBox">
-          
+          <p id="fetching">
+        Fetching items.... 
+    </p>
+    
+    <br style="clear: both;" />
+    <div id="searchresult">
+    </div>
+    <div id="hiddenresult" style="display: none;">
+    </div>
+       
+          <script id="catTemplate" type="text/x-jquery-tmpl">
+        <div class="result">
+    <p>
+            <b>${title}</b>
+            <br />
+            <img src="${media.m}" />
+        </p>
+    </div>
+    </script>
+
          <%-- <!--Category Item part Start-->
           <aside id="inner_category_box" class="category_box_style">
             <div id="category_header"><a href="#" target="_self" class="link1">Name</a></div>
@@ -273,7 +274,7 @@ alert("Error");
       <!--Categories End-->
 	  <!-- Sorting Section Start-->
 	  <section id="sort">
-        <div id="sort_items">  </div>
+         <div id="pagination" class="pagination">
       </section>
       <%--<section id="sort">
         <div id="sort_items"> <a href="#" target="_self">A</a> <a href="#" target="_self">B</a> <a href="#" target="_self">C</a> <a href="#" target="_self">D</a> <a href="#" target="_self">E</a> <a href="#" target="_self">F</a> <a href="#" target="_self">G</a> <a href="#" target="_self">H</a> <a href="#" target="_self">I</a> <a href="#" target="_self">J</a> <a href="#" target="_self">K</a> <a href="#" target="_self">L</a> <a href="#" target="_self">M</a> <a href="#" target="_self">N</a> <a href="#" target="_self">O</a> <a href="#" target="_self">P</a> <a href="#" target="_self">Q</a> <a href="#" target="_self">R</a> <a href="#" target="_self">S</a> <a href="#" target="_self">T</a> <a href="#" target="_self">U</a> <a href="#" target="_self">V</a> <a href="#" target="_self">W</a> <a href="#" target="_self">X</a> <a href="#" target="_self">Y</a> <a href="#" target="_self">Z</a> </div>

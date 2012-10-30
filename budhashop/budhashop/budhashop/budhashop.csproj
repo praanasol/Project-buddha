@@ -392,6 +392,7 @@
     <Content Include="script\jquery-1.8.2.js" />
     <Content Include="script\jquery-ui-1.8.custom.min.js" />
     <Content Include="script\jquery.carousel.js" />
+    <Content Include="script\jquery.pagination.js" />
     <Content Include="script\js.js" />
     <Content Include="script\json2.js" />
     <Content Include="script\paging\jquery-1.6.1.min.js" />
@@ -474,7 +475,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49541</DevelopmentServerPort>
+          <DevelopmentServerPort>3011</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

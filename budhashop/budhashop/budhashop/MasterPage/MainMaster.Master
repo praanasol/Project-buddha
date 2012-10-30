@@ -8,7 +8,7 @@
 
 <%--<html xmlns="http://www.w3.org/1999/xhtml" >--%>
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Go Vedic - Online Shoping Cart - Treditional and Natural Products</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     
     </asp:ContentPlaceHolder>
@@ -74,8 +74,8 @@
       <div id="top_links_row">
         <div id="top_links_area"> 
           <!--Default links Start-->
-          <div id="top_defaultlinks_area">
-            <%--<nav id="top_defaultlinks">
+          <%--<div id="top_defaultlinks_area">
+            <nav id="top_defaultlinks">
               <ul>
                 <li><a href="#" target="_self">Home</a></li>
                 |
@@ -83,8 +83,8 @@
                 |
                 <li><a href="#" target="_self">Contact Us</a></li>
               </ul>
-            </nav>--%>
-          </div>
+            </nav>
+          </div>--%>
           <!--Default links End--> 
           <!--login links Start-->
           <div id="top_loginlinks_area">

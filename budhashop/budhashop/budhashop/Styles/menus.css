@@ -95,6 +95,7 @@
 	font-weight:bold;
 	text-decoration:none;
 	background:#f39112;
+	border-radius:5px;
 }
 #nav ul li a:hover, #nav ul li a:active{
 	margin-left:5px;
@@ -106,7 +107,7 @@
     background: linear-gradient(#f38d10, #d67d1c);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
 	
-
+	border-radius:5px;
 	/*background-color:#f28c11;*/
 	border:#364700 solid 1px;
 }

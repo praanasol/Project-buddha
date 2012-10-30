@@ -39,10 +39,32 @@ h2{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:19px;
 	color:#263102;
-	background:#d9980c;
+	background:#f3ad2c;
 }
 
-
+.bg_style2{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#364700;
+	background:#efd787;
+	border:#a2a835 solid 1px;
+	border-radius:5px;
+}
+.login_form_style{
+	margin:0px;
+	padding-left:5px;
+	width:140px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 1px;
+	border-radius:5px;
+}
 a.link1:link, a.link1:visited{
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
@@ -101,7 +123,7 @@ a.go:hover, a.go:active{
 	width:985px;
 	height:312px;
 	background:#efd787;
-	border:#efd787 1px solid;
+	border:#f3c46d 1px solid;
 	border-radius:5px;
 }
 .but1_style{

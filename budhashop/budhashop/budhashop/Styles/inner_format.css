@@ -83,3 +83,26 @@ a.link1:hover, a.link1:active{
 	text-decoration:none;
 	color:#a00305;
 }
+.f_d_cl_box_style{
+	margin:0px;
+	padding:0px 0px 0px 0px;
+	width:98px;
+	height:28px;
+	background:#8c0b05;
+	border:#2a210f 2px solid;
+	border-radius:5px;
+	text-align:center;
+}
+a.f_d_link:link, a.f_d_link:visited{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	font-family:"Arial", Gadget, sans-serif;
+	font-size:16px;
+	color:#f39112;
+	font-weight:bold;
+	text-decoration:none;
+}
+a.f_d_link:hover, a.f_d_link:active{
+	text-decoration:none;
+	color:#c0c561;
+}

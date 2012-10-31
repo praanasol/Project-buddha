@@ -98,6 +98,13 @@
     <Compile Include="CLASS\CallCache.cs" />
     <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="CLASS\SearchAll.cs" />
+    <Compile Include="fulldetails.aspx.cs">
+      <DependentUpon>fulldetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fulldetails.aspx.designer.cs">
+      <DependentUpon>fulldetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HardCodedValues\BuddaResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +295,7 @@
     <Content Include="bin\InterfacesBS.pdb" />
     <Content Include="Captcha\JpegImage.aspx" />
     <Content Include="Captcha\Refresh.jpg" />
+    <Content Include="fulldetails.aspx" />
     <Content Include="GroupImages\10\10Photo.jpg" />
     <Content Include="GroupImages\10\10Photomedium.jpg" />
     <Content Include="GroupImages\10\10small.jpg" />

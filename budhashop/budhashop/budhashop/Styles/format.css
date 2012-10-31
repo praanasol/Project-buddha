@@ -2,7 +2,7 @@ h2{
 	margin:10px 0px 0px 5px;
 	padding:0px;
 	font-family:Arial, Helvetica, sans-serif;
-	color:#4d6012;
+	color:#d87f1b;
 	font-weight:bold;
 }
 .style1{
@@ -31,6 +31,16 @@ h2{
 	font-size:13px;
 	color:#4d6012;
 	font-weight:bold;
+}
+.text
+{
+	margin:5px 0px;
+	padding:0px;
+	font-family: Sans-Serif;
+	font-size:15px;
+	color:#000000;
+	line-height:20px;
+	text-indent:40px;
 }
 .bg_style1{
 	margin:0px 0px 0px 0px;

@@ -309,5 +309,139 @@
 }
 
 /*cart items list part End*/	
-/*cart items list part End*/
+/*Full Details Start*/
+#full_details_box_header{
+	margin:auto;
+	padding:0px;
+	width:970px;
+	height:30px;
+}
+#full_header_part
+{
+	margin:0px;
+	padding:0px;
+	width:970px;
+	height:120px;
+	float:left;
+}
+#f_d_cl1{
+	margin:0px 0px 0px 0px;
+	padding:0px;
+	width:600px;
+	height:120px;
+	float:left;
+	text-align:center;
+}
+#f_d_img{
+	margin:0px;
+	padding:0px;
+	width:120px;
+	height:120px;
+	float:left;
+	}
+
+#f_d_img_placeholder{
+	margin:auto;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	width:120px;
+	height:120px;
+	text-align:right;
+}
+#f_d_fields{
+	margin-top:20px;
+	padding:0px;
+	width:450px;
+	height:100px;
+	float:left;
+	}
+	
+	#f_d_field_area{
+		margin:4px 0px 4px 0px;
+		padding:0px;
+		width:450px;
+		height:18px;
+		float:left;
+}
+	#f_d_label{
+		margin:0px;
+		padding:0px;
+		width:100px;
+		float:left;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		color:#364700;
+		font-weight:bold;
+		text-align:right;
+}
+#f_d_field{
+		margin:px;
+		margin-left:5px;
+		padding:0px;
+		width:340px;
+		float:left;
+		text-align:left;
+}
+#f_d_cl2
+{
+	margin:0px;
+	padding:0px;
+	width:300px;
+	height:120px;
+	float:left;
+	text-align:center;
+	
+}
+
+#f_d_but
+{
+	margin:auto;
+	margin-top:40px;
+	padding-top:10px;
+	width:auto;
+	height:30px;
+	
+}
+
+#f_d_but a.f_d_link:link, #f_d_but a.f_d_link:visited{
+	margin:0px 0px 0px 0px;
+	padding:5px 10px;
+	font-family:"Arial", Gadget, sans-serif;
+	font-size:13px;
+	color:#eb992f;
+	font-weight:bold;
+	text-decoration:none;
+	background:#8c0b05;
+	border:#2a210f 2px solid;
+	border-radius:5px;
+	text-align:center;
+}
+#f_d_but a.f_d_link:hover, #f_d_but a.f_d_link:active{
+	text-decoration:none;
+	color:#a00305;
+	background:#f39112;
+	border:#364700 solid 2px;
+	border-radius:5px;
+	
+}
+
+#f_d_body
+{
+	margin:0px;
+	padding:0px;
+	width:970px;
+	height:auto;
+	float:left;
+	text-align:justify;
+	border-top:#deb354 solid 1px;
+}
+#f_d_des
+{
+	margin:auto;
+	padding:10px 0px 10px 0px;
+	width:950px;
+	height:auto;
+	clear:both;
+}
+/*Full Details End*/
 	

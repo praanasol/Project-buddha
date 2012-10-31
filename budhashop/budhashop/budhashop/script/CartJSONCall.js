@@ -3,18 +3,22 @@
             $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            url: "../iteminfo.aspx/SetSessionValue",
+            url: "../fullDetails.aspx/SetSessionValue",
             data: "{'ID':'" + id+"','Type':'"+typeC+"'}",
             dataType: "json",
             async:false,
             success: function(data1){
                         
-                       if( eval(data1.d))
+                       if( eval(data1.d) == 1)
                        {
                      alert( "Item Added to cart. ");
                      }
-                     else{
-                     alert( "Item already in cart. ");
+                     else if(eval(data1.d) == 2) {
+                     alert( "Item quantity updated in cart. ");
+                     }
+                     else
+                     {
+                        alert( "Error occured. try again! ");
                      }
                      
                     

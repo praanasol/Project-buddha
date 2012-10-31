@@ -25,13 +25,14 @@
         }
         .pagination a
         {
+        	
             text-decoration: none;
             border: solid 1px #AAE;
             color: #15B;
         }
         .pagination a, .pagination span
         {
-            display: block;
+            display: Block;
             float: left;
             padding: 0.3em 0.5em;
             margin-right: 2px;

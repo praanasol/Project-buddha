@@ -25,7 +25,7 @@ namespace budhashop
 
         [WebMethod(EnableSession = true)]
         //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static bool SetSessionValue(int ID, int Type)
+        public static int SetSessionValue(int ID, int Type)
         {
             string Name = "CartPicks";
             //string sessionVal = String.Empty;
@@ -66,23 +66,35 @@ namespace budhashop
 
                         HttpContext.Current.Session[Name] = cartItems;
 
-                        return true;
+                        return 1;
                     }
                     else
                     {
-                        return false;
+                        var cartItems2 = (List<CartItems>)HttpContext.Current.Session["CartPicks"];
+
+                        if (cartItems2 != null)
+                        {
+                            var cartItem = cartItems2.First(p => p.ItemId == ID);
+                            int qty = cartItem.Qty + 1;
+                            cartItem.Qty = qty;
+                            
+                            
+                            HttpContext.Current.Session["CartPicks"] = cartItems;
+                        }
+
+                        return 2;
                     }
                 }
                 catch
                 {
-                    return false;
+                    return 0;
                     throw;
                 }
             }
             else
             {
 
-                return false;
+                return 0;
             }
 
         }

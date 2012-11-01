@@ -161,10 +161,25 @@
                                     });
                                   });
                                   
-                                  
-                                  
-                                  $("#btnClose2").click(function(){
-                                        $("[id$=itemsDiv]").hide("slow");
+                                  $("tr").filter(function() {
+                                        return $('td', this).length && !$('table', this).length
+                                    })
+                                        .click(function(event) {
+                                            var row = jQuery(this)
+                                            var itemString = row.children("td:eq(2)").text();
+                                            var addrString = row.children("td:eq(3)").text();
+                                            RowSelected(itemString,addrString);
+                                        })
+                                        .mouseover(function() {
+                                            $(this).css("cursor", "pointer");
+                                        })
+                                        .css({ background: "ffffff" }).hover(
+                                            function() { $(this).css({ background: "lightgreen" }); },
+                                            function() { $(this).css({ background: "#ffffff" }); }
+                                        );
+                                    
+                                    $("#btnCloseOrders").click(function(){
+                                        $("#itemsDiv").slideUp("slow");
                                     });
                             });
                             
@@ -246,12 +261,30 @@
                                     }
                                     
                                     
-                                function showitemsDiv()
+                                function RowSelected(itemString,addrString)
                                  {
-                                    $("[id$=itemsDiv]").show("slow");
-                    //                $('#itemsDiv').css("top", +event.pageX);
-                    //                $("#itemsDiv").animate({height:'300px',opacity:'0.4'},"slow");
-                    //                $("#itemsDiv").animate({width:'300px',opacity:'0.8'},"slow");
+                                    $("#itemsDiv").show();
+                                    var primeArray = addrString.split(";");
+                                    $("#NameA").html(primeArray[0]);
+                                    $("#PhnA").html(primeArray[1]);
+                                    $("#AdrA").html(primeArray[2]);
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: "application/json; charset=utf-8",
+                                        url: "ProfilePage.aspx/GetOrderedItems",
+                                        data: "{'itemString':'"+ itemString +"'}",
+                                        dataType: "json",
+                                       
+                                        success: function(data) {
+                                            $("#itemTable tr:gt(0)").remove();
+                                            for (var i = 0; i < data.d.length; i++) {
+                                                $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="60" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
+                                            }
+                                           },
+                                        error: function(data) {
+                                        alert(data);
+                                        }
+                                     });
                                  }
                     	    
                         </script>
@@ -370,118 +403,88 @@
     </div>
     
     <div id="orderHistoryDiv">
-        
-        <div style="float:left; width:auto;">
-            <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" 
-             AutoGenerateColumns="False" 
-             DataKeyNames="PurchaseId,Uid,NoItems,TotalBilledRate,PurchaseDate,DeliveredFlag,ItemString,ShippingAddress" 
-             OnPageIndexChanging="orderGrid_PageIndexChanging" 
-             onrowcommand="orderGrid_RowCommand" 
-            onrowdatabound="orderGrid_RowDataBound">
-             <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
-                
-                 <Columns>
-                     <asp:TemplateField HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn" FooterStyle-CssClass="hiddenColumn">
-                         <ItemTemplate>
-                             <asp:LinkButton ID="lb_Show" runat="server" 
-                                 CommandArgument="<%# Container.DisplayIndex %>" CommandName="show">Full Details</asp:LinkButton>
-                         </ItemTemplate>
-
-<FooterStyle CssClass="hiddenColumn"></FooterStyle>
-
-<HeaderStyle CssClass="hiddenColumn"></HeaderStyle>
-
-<ItemStyle CssClass="hiddenColumn"></ItemStyle>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Purchase Id">
-                         <ItemTemplate>
-                             <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="User Id">
-                         <ItemTemplate>
-                             <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
-                             <asp:HiddenField ID="HiddenItemStr" runat="server" Value='<%#Eval("ItemString") %>'/>
-                             <asp:HiddenField ID="HiddenAddrStr" runat="server" Value='<%#Eval("ShippingAddress") %>'/>
-
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Quantity">
-                         <ItemTemplate>
-                             <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("NoItems") %>'></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Billed Rate">
-                         <ItemTemplate>
-                             <asp:Label ID="lbl_totalBR" runat="server" Text='<%# Eval("TotalBilledRate") %>'></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Date Purchased">
-                         <ItemTemplate>
-                             <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Deliverd">
-                         <ItemTemplate>
-                             <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                 </Columns>
-            </asp:GridView>            
-        </div>
-        
-        <div style="float:left; width:auto;">
-            <div id="itemsDiv" runat="server" style="background:lightgreen; display:none; position:absolute;">
-                <a href="#" id="btnClose2" style="float:right;">Close</a>
-                <div style="width:80px;">
-                    <asp:Label ID="itemsCount" runat="server"></asp:Label>
-                    <asp:Label ID="totalBill" runat="server"></asp:Label>
-                    <asp:Label ID="dateP" runat="server"></asp:Label>
-                    <asp:Label ID="NameA" runat="server"></asp:Label>
-                    <asp:Label ID="PhnA" runat="server"></asp:Label>
-                    <asp:Label ID="AdrA" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <asp:GridView ID="SelectedOrderGrid" runat="server" AutoGenerateColumns="False" style="text-align: center">
-                        <Columns>
-                            <asp:TemplateField HeaderText="Item Id">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_itemId" runat="server" Text='<%# Eval("ItemId") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Name">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_itemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Image">
-                                <ItemTemplate>
-                                    <asp:Image ID="Image_itemImage" runat="server" Height="50px" Width="60px" 
-                                        ImageUrl='<%# Eval("ImagePath") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Quantity">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Billed Rate">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_itemBR" runat="server" Text='<%# Eval("BilledRate") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Total Rate">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_itemTR" runat="server" Text='<%# Eval("TotalRate") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
-                </div>
-            </div>
-        </div>
     
-    </div>
+        <div style="float:left; width:50%;">
+    
+            <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                     OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10">
+                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
+                        
+                     <Columns>
+                         <asp:TemplateField HeaderText="Purchase Id">
+                             <ItemTemplate>
+                                 <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="User Id">
+                             <ItemTemplate>
+                                 <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Item String" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
+                             <ItemTemplate>
+                                 <asp:Label ID="itemString" runat="server" Text='<%# Eval("ItemString") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Address String" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
+                             <ItemTemplate>
+                                 <asp:Label ID="itemString" runat="server" Text='<%# Eval("ShippingAddress") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Quantity">
+                             <ItemTemplate>
+                                 <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("NoItems") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Billed Rate">
+                             <ItemTemplate>
+                                 <asp:Label ID="lbl_totalBR" runat="server" Text='<%# Eval("TotalBilledRate") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Date Purchased">
+                             <ItemTemplate>
+                                 <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Deliverd">
+                             <ItemTemplate>
+                                 <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                     </Columns>
+                 </asp:GridView>
+            
+            </div>
+            
+            <div style="float:left; width:50%;">
+                <div id="itemsDiv" style="background:lightgreen; display:none; position:absolute;">
+                    <a href="#" id="btnCloseOrders" style="float:right;">Close</a><br />
+                    <div>
+                        <%--<asp:Label ID="itemsCount" runat="server"></asp:Label>
+                        <asp:Label ID="totalBill" runat="server"></asp:Label>
+                        <asp:Label ID="dateP" runat="server"></asp:Label>--%>
+                        <label id="NameA"></label><br />
+                        <label id="PhnA"></label><br />
+                        <label id="AdrA"></label><br />
+                    </div>
+                    <br />
+                    <div id="itemsList">
+                        <table id="itemTable" border="1">
+                            <tr>
+                                <th>Item Id</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Billed Rate</th>
+                                <th>Quantity</th>
+                                <th>Total Rate</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            
+            </div>
+    
+        </div>
     </div>        
         
 </asp:Content>

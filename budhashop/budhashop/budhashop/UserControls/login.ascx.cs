@@ -21,22 +21,22 @@ namespace budhashop.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Session["currentuser"] != null)
-            {
-                DataTable dt = (DataTable)this.Session["currentuser"];
-                logintext.Text = dt.Rows[0]["Email"].ToString();
-            }
-            else
-            {
-                logintext.Text = "LogIn";
-            }
+            //if (this.Session["currentuser"] != null)
+            //{
+            //    DataTable dt = (DataTable)this.Session["currentuser"];
+            //    logintext.Text = dt.Rows[0]["Email"].ToString();
+            //}
+            //else
+            //{
+            //    logintext.Text = "LogIn";
+            //}
         }
 
         protected void lb_logout_Click(object sender, EventArgs e)
         {
             this.Session["currentuser"] = null;
             lbl_result1.Text = "";
-            logintext.Text = "LogIn";
+            //logintext.Text = "LogIn";
             Response.Redirect(Request.RawUrl);
         }
 

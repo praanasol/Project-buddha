@@ -26,7 +26,7 @@ namespace budhashop.USER.Services
         public DataTable dt;
 
         [WebMethod(EnableSession = true)]
-        public bool LoginUser(string emailid, string password)
+        public string LoginUser(string emailid, string password)
         {
             //string flag = string.Empty;
             string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(password);
@@ -41,19 +41,19 @@ namespace budhashop.USER.Services
                 {
                     //flag = "Existing User";
                     this.Session["currentuser"] = dt;
-                    return true;
+                    return emailid;
                 }
                 else
                 {
                     //flag = "Invalid User";
-                    return false;
+                    return "nouser";
 
                 }
             }
             catch (Exception ex)
             {
                 //flag = "Error: " + ex;
-                return false;
+                return "nouser";
             }
             
             //return flag;        
@@ -132,8 +132,8 @@ namespace budhashop.USER.Services
             dt = (DataTable)this.Session["currentuser"];
             string emailid = dt.Rows[0]["Email"].ToString();
             string userid = dt.Rows[0]["Uid"].ToString();
-            bool validuser = LoginUser(emailid, oldpwd);
-            if (validuser)
+            string validuser = LoginUser(emailid, oldpwd);
+            if (validuser != "nouser")
             {
                 string newpassword = CLASS.PasswordEncryption.EncryptIt(newpwd);
                 try
@@ -152,6 +152,13 @@ namespace budhashop.USER.Services
                 return false;
             }
 
+        }
+
+        [WebMethod(EnableSession = true)]
+        public string Getuser()
+        {
+            DataTable dt = (DataTable)this.Session["currentuser"];
+            return dt.Rows[0]["Email"].ToString();
         }
     }
 }

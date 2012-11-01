@@ -16,6 +16,9 @@ using InterfacesBS.InterfacesBL;
 using BusinessLogicBS;
 using BusinessLogicBS.UserClasses;
 
+using System.Web.Services;
+using System.Collections.Generic;
+
 namespace budhashop.USER
 {
     public partial class ProfilePage : System.Web.UI.Page
@@ -106,123 +109,57 @@ namespace budhashop.USER
             getOrders();
         }
 
-        protected void orderGrid_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-
-            if (e.CommandName.Equals("show"))
-            {
-                int index = Convert.ToInt32(e.CommandArgument.ToString());
-
-                string PurchaseId = orderGrid.DataKeys[index].Value.ToString();
-                string UserId = orderGrid.DataKeys[index]["Uid"].ToString();
-                string ItemQty = orderGrid.DataKeys[index]["NoItems"].ToString();
-                string totalBill = orderGrid.DataKeys[index]["TotalBilledRate"].ToString();
-                string purchaseDate = orderGrid.DataKeys[index]["PurchaseDate"].ToString();//ItemString
-                bool isDelivered = bool.Parse(orderGrid.DataKeys[index]["DeliveredFlag"].ToString());
-                string itemString = orderGrid.DataKeys[index]["ItemString"].ToString();
-                string addrString = orderGrid.DataKeys[index]["ShippingAddress"].ToString();
-
-                //string itemString = (HiddenField)row.Cells[index].FindControl("HiddenItemStr")).Value;
-                //string addrString = ((HiddenField)e.Row.FindControl("HiddenAddrStr")).Value;
-
-
-                DataSet itemData = new DataSet();
-                itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
-                DataTable dt = itemData.Tables[0];
-                DataTable dtg = itemData.Tables[1];
-
-                //List<string[]> arrays = new List<string[]>();
-                var primeArray = addrString.Split(';');
-
-                string name = primeArray[0];
-                string phone = primeArray[1];
-                string address = primeArray[2];
-
-                NameA.Text = name;
-                PhnA.Text = phone;
-                AdrA.Text = address;
-                //itemsDiv.Visible = true;
-
-                DataTable CartDT = new DataTable();//data to be bound to cart datalist
-                DataColumn dcId = new DataColumn("ItemId", typeof(long));
-                CartDT.Columns.Add(dcId);
-                DataColumn dcPath = new DataColumn("ImagePath", typeof(string));
-                CartDT.Columns.Add(dcPath);
-                DataColumn dcNme = new DataColumn("ItemName", typeof(string));
-                CartDT.Columns.Add(dcNme);
-                DataColumn dcQy = new DataColumn("Qty", typeof(int));
-                CartDT.Columns.Add(dcQy);
-                DataColumn dcBr = new DataColumn("BilledRate", typeof(float));
-                CartDT.Columns.Add(dcBr);
-                DataColumn dcTr = new DataColumn("TotalRate", typeof(float));
-                CartDT.Columns.Add(dcTr);
-
-                //itemString.Remove(itemString.Length);
-                var itemsArray = itemString.Split(';');
-                for (var i = 0; i < itemsArray.Length - 1; i++)
-                {
-                    var items = itemsArray[i].Split(',');
-                    int itemId = int.Parse(items[0].ToString());
-                    int qty = int.Parse(items[1].ToString());
-
-                    var itemDetails = dt.AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
-                    if (itemDetails == null)
-                    {
-                        itemDetails = dtg.AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
-                    }
-
-                    if (itemDetails != null)
-                    {
-                        DataRow dr = CartDT.NewRow();
-                        dr[0] = itemDetails["ItemId"];
-                        dr[1] = itemDetails["ImagePath"];
-                        dr[2] = itemDetails["ItemName"];
-                        dr[3] = qty;
-                        float blrte = float.Parse(itemDetails["BilledRate"].ToString());
-                        dr[4] = blrte;
-                        //cartItem.TotalBill = blrte;
-                        //float ntrte = float.Parse(itemDetails["NetRate"].ToString());
-                        //cartItem.totalNet = ntrte;
-                        float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
-                        dr[5] = totRate;
-
-                        CartDT.Rows.Add(dr);
-                    }
-
-                }
-                SelectedOrderGrid.DataSource = CartDT;
-                SelectedOrderGrid.DataBind();
-
-                //itemsDiv.Visible = true;
-                ClientScriptManager cs = Page.ClientScript;
-                cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "showitemsDiv();", true);
-            }
-        }
-
         public class ItemDetails
         {
             public string ItemId { get; set; }
             public string ItemPath { get; set; }
             public string ItemName { get; set; }
-            public string ItemPrice { get; set; }
+            public string BilledRate { get; set; }
 
             public string ItemQty { get; set; }
-            public string CatId { get; set; }
+            public string TotalRate { get; set; }
         }
 
-        protected void orderGrid_RowDataBound(object sender, GridViewRowEventArgs e)
+        [WebMethod]
+        public static ItemDetails[] GetOrderedItems(string itemString)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            DataSet itemData = new DataSet();
+            itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+            DataTable dt = itemData.Tables[0];
+            DataTable dtg = itemData.Tables[1];
+
+            List<ItemDetails> totalDetails = new List<ItemDetails>();
+
+            var itemsArray = itemString.Split(';');
+            for (var i = 0; i < itemsArray.Length - 1; i++)
             {
-                e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer';this.style.backgroundColor='lightgreen'");
-                e.Row.Attributes["onmouseout"] = "this.style.backgroundColor='transparent';";
-                e.Row.ToolTip = "Click To View Ordered Items";
-                //e.Row.Attributes.Add("onclick", String.Format("javascript:__doPostBack('orderGrid','Select${0}')", e.Row.RowIndex));
-                //e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.orderGrid, "Select$" + e.Row.RowIndex);
-                LinkButton lb_Select = (LinkButton)e.Row.FindControl("lb_Show");
-                e.Row.Attributes["OnClick"] = Page.ClientScript.GetPostBackClientHyperlink(lb_Select, "");
+                var items = itemsArray[i].Split(',');
+                int itemId = int.Parse(items[0].ToString());
+                int qty = int.Parse(items[1].ToString());
+
+                var itemDetails = dt.AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
+                if (itemDetails == null)
+                {
+                    itemDetails = dtg.AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
+                }
+
+                if (itemDetails != null)
+                {
+                    ItemDetails details = new ItemDetails();
+                    details.ItemId = itemDetails["ItemId"].ToString();
+                    details.ItemPath = itemDetails["ImagePath"].ToString();
+                    details.ItemName = itemDetails["ItemName"].ToString();
+                    details.ItemQty = qty.ToString();
+                    float blrte = float.Parse(itemDetails["BilledRate"].ToString());
+                    details.BilledRate = blrte.ToString();
+                    float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
+                    details.TotalRate = totRate.ToString(); ;
+
+                    totalDetails.Add(details);
+                }
+
             }
+            return totalDetails.ToArray();
         }
     }
 }

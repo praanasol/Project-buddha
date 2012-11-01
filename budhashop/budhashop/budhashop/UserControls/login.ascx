@@ -70,10 +70,8 @@
          
                         var usersession='<%= this.Session["currentuser"] %>';
                         if(usersession)
-                            { 
-                                $("#login-required").hide();
-                                $(".logintext").toggleClass("usertext");
-                                
+                            {
+                                budhashop.USER.Services.LoginControl.Getuser(OnSuccess, onerror);
                             }
                         else
                             {
@@ -100,14 +98,16 @@
               }
             }
          function OnSuccess(result) {
-            var result1=false;
-            result1=eval(result);
-                if(result1)
+                if(result!="nouser")
                 {
                     $("[id$=txt_emailid1]").val('');
                     $("[id$=txt_pwd1]").val('');
+                    $("#login-required").hide();
+                    $("#login-success").show();
+                    $(".logintext").toggleClass("usertext");
+                    $("#logintext").html(result);
 //                    window.location.assign(window.location.href);
-                    document.location.reload(true);
+//                    document.location.reload(true);
                 }
                 else
                 {
@@ -126,15 +126,15 @@
 
 <div style="width: 350px;">
         
-    <div  id="user-status">
+    <div  id="user-status" style="display:none;">
     <!--Login Start-->
         <div id="login-required">
             <div id="l_f_bg" class="bg_style2">
             <div id="login_form">
-            <asp:TextBox ID="txt_emailid1" CssClass="login_form_style" Text="Email ID..." runat="server" placeholder="Enter EmailId" Width="140px"></asp:TextBox>
+            <asp:TextBox ID="txt_emailid1" CssClass="login_form_style" runat="server" placeholder="Email ID..."></asp:TextBox>
             </div>
              <div id="login_form">
-            <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" Text="Password..."  runat="server" TextMode="Password" placeholder="Enter Password" Width="140px"></asp:TextBox>
+            <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" runat="server" TextMode="Password" placeholder="Password..."></asp:TextBox>
             </div>
             
             <div id="go_but"  style="float:left;">
@@ -175,7 +175,8 @@
         </div>
     </div>
     
-    <asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>
+    <%--<asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>--%>
+    <a id="logintext" class="logintext" href="#">LogIn</a>
     
 </div>
 </body>

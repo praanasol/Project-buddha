@@ -104,13 +104,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Label lbl_result2;
         
         /// <summary>
-        /// errorLbl control.
+        /// itemCartDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLbl;
+        protected global::System.Web.UI.WebControls.DataList itemCartDL;
         
         /// <summary>
         /// noOfItemsLbl control.
@@ -131,22 +131,31 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Label totalLbl;
         
         /// <summary>
+        /// btn_ConfirmOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_ConfirmOrder;
+        
+        /// <summary>
         /// btn_cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cancel;
+        protected global::System.Web.UI.WebControls.LinkButton btn_cancel;
         
         /// <summary>
-        /// itemCartDL control.
+        /// errorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList itemCartDL;
+        protected global::System.Web.UI.WebControls.Label errorLbl;
         
         /// <summary>
         /// txt_emailidadr control.

@@ -1,0 +1,85 @@
+﻿#p_data_area{
+	margin-top:10px;
+	margin-left:5px;
+	padding:0px;
+	width:985px;
+	height:800px;
+}
+#p_data{
+	margin:auto;
+	margin-bottom:20px;
+	padding:0px;
+	width:400px;
+	height:300px;
+	
+	
+}
+
+#p_d_fields{
+	margin-top:20px;
+	padding:0px;
+	width:360px;
+	height:auto;
+	float:left;
+	
+	}
+	
+	#p_d_field_area{
+		margin:4px 0px 4px 0px;
+		padding:0px;
+		width:350px;
+		height:20px;
+		float:left;
+}
+	#p_d_label{
+		margin:0px;
+		padding:3px 0px 0px 0px;
+		width:100px;
+		float:left;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		color:#364700;
+		font-weight:bold;
+		text-align:right;
+}
+#p_d_field{
+		margin:px;
+		margin-left:5px;
+		padding:0px;
+		width:200px;
+		float:left;
+		text-align:left;
+}
+
+
+/* Grid View Start*/
+
+    .g_head
+    {
+       width:500px;
+       height:20px;
+        color: #36410a;
+        text-decoration: none;
+        padding:5px 5px;
+        text-align:center;
+        background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#d67d1c));
+    background: -moz-linear-gradient(#f38d10, #d67d1c);
+    background: linear-gradient(#f38d10, #d67d1c);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
+    
+    border-radius:3px;
+    }
+
+.p_g_row_style{
+	margin:0px;
+	padding:5px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 1px;
+	border-radius:5px;
+}
+/*Grid View End*/

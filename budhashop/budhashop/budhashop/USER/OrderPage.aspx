@@ -368,37 +368,129 @@
         
     <br clear="all" />
         <div id="CartDiv" style="display:none;">    
-    <div id="cartheader" style="background-color:Green; font-size:large; font-family:Comic Sans MS; font-weight:bold; color:Red;">
-        <asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"></asp:Label>
-        &nbsp;&nbsp;&nbsp;
-        <!--Full Page Details Start-->
-        Items:
-        <asp:Label ID="noOfItemsLbl" runat="server" Text="Items: 0"></asp:Label>
-        &nbsp;&nbsp;&nbsp;
-        Total:
-        <asp:Label ID="totalLbl" runat="server" Text="Total: 0"></asp:Label>
-        <asp:Button ID="btn_cancel" runat="server" Text="Cancel" 
-            onclick="btn_cancel_Click" style="float:right" />
-        <input type="button" id="btn_ConfirmOrder" value="Confirm Order" style="float:right"/>
-    </div>
-    <br />
-    
-    <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" 
+        
+    <div id="cartheader">
+        <!--Order items start-->
+        <section id="o_i_layout" class="box_style">
+            <!--Order items body start-->
+            <div id="o_i_body">
+                <!--Order items header part Start-->
+                <div id="o_i_header">
+                    <!--Cart items list header part start-->
+                    <div id="o_i_header_left">
+                      <ul>
+                        <li>ID</li>
+                        <li>Product Details</li>
+                        
+			            </ul>
+		            </div>
+		            <div id="o_i_header_right">
+			            <ul>
+				            <li>Price</li>
+				            <li style="padding-left:88px;">Edit</li>
+            			
+                      </ul>
+                    </div>
+                    <!--Cart items list header part End--> 
+                </div>
+                <!--Order items header part End-->
+            
+            
+            <!--Order items list Start-->
+            <div id="o_items">
+                
+                <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" 
         DataKeyField="ItemId" OnItemCommand ="itemCartDL_ItemCommand" GridLines="Both" 
         HorizontalAlign="Justify" RepeatLayout="Flow">
         <ItemTemplate>
-            <div>
-                <asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
-                <asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/>
-                <asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
-                <asp:TextBox  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
-                <asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
-                <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
-                <asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
-                <asp:LinkButton ID="deleteBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
+            <div id="o_items_row">
+            <!--Order items S No Cl Start-->
+                    <aside id="o_i_l_cl1">
+                      <div id="o_i_l_sno" class="style2"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'></asp:Label></div>
+                    </aside>
+                    <!--Cart items S No Cl End-->
+                    
+                    <!--Order items img Cl Start-->
+            <aside id="o_i_l_cl2">
+				<section id="o_i_l_img"> 
+					
+					<div id="o_i_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/></a></div>
+			  </section>
+			  <section id="o_i_l_fields">
+					
+                          <div id="o_i_l_field_area">
+                              <div id="o_i_l_label">Name :</div>
+                              <div id="o_i_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              </div>
+                          </div>
+						  <div id="o_i_l_field_area" style="height:30px;">
+                              <div id="o_i_l_label" class="style1" style="padding-top:2px;">Quantity :</div>
+                              <div id="o_i_l_field" class="style4"> <asp:TextBox  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
+                              </div>
+                          </div>
+						  <div id="o_i_l_field_area">
+                              <div id="o_i_l_label">Billed Rate :</div>
+                              <div id="o_i_l_field" class="style4"><asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
+                              </div>
+                          </div>
+                           
+					
+			  </section>
+            </aside>
+            <!--Order items img Cl End-->
+            <!--Order items Total Cl Start-->
+                <aside id="o_i_l_cl3">
+                      <div id="o_i_l_field_area">
+                              <div id="o_i_l_label">Total Rate :</div>
+                              <div id="o_i_l_field" class="style4"> <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
+                              </div>
+                          </div>
+                    </aside>
+            <!--Order items Total Cl End-->
+             <!--Order items Update Cl Start-->
+            <aside id="o_i_l_cl4">
+              <div id="o_i_l_edit"><asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem"  class="c_l_links" >Update</asp:LinkButton></div>
+              <div id="o_i_l_edit"><asp:LinkButton ID="deleteBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem"  class="c_l_links" >Remove</asp:LinkButton></div>
+            </aside>
+            <!--Order items img Cl End-->
+               
+                
+               
+                
+                
             </div>
         </ItemTemplate>
     </asp:DataList>
+                    
+                </div>
+            <!--Order items body End-->
+            <div id="o_i_bottom" class="bg_style1">
+                  <aside id="o_i_r_cl1" class="style4"></aside>
+                    <aside id="o_i_r_cl2" class="style4">Items in Cart :-</aside>
+                    <aside id="o_i_r_cl3" class="style4">Items :&nbsp;&nbsp;<asp:Label ID="noOfItemsLbl" CssClass="style5" runat="server" Text="Items: 0"></asp:Label></aside>
+                    <aside id="o_i_r_cl4" class="style4">Total :&nbsp;&nbsp;<asp:Label ID="totalLbl" CssClass="style5" runat="server" Text="0"></asp:Label></aside>
+                    <aside id="o_i_r_cl5">&nbsp;</aside>
+                    <aside id="o_i_r_cl6">
+                        
+        	             <div id="but_style">   
+                                <asp:LinkButton id="btn_ConfirmOrder" runat="server" CssClass="l_go">Confirm Order</asp:LinkButton>
+                                <asp:LinkButton id="btn_cancel" runat="server" CssClass="l_go" onclick="btn_cancel_Click" >Cancel</asp:LinkButton>
+                        </div>
+                    <%--<input type="button" class="buttons" id="btn_ConfirmOrder" value="Confirm Order"/>--%></aside>
+                    <%--<aside id="o_i_r_cl7"><asp:Button ID="btn_cancel" class="buttons" runat="server" Text="Cancel" 
+            onclick="btn_cancel_Click" /></aside>--%>
+            </div>
+            </div>
+            <!--Order items list End-->
+        </section>
+        <!--Order items End-->
+        <asp:Label ID="errorLbl" runat="server" Font-Bold="true"></asp:Label>
+        
+        
+    </div>
+    <br />
+    
+    
     </div>
     <div id="adressDiv" style="display:none;">
         <table style="width:auto;">

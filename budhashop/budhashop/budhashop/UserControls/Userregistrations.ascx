@@ -96,7 +96,13 @@
         width: 116px;
     }
         </style>
-<body />
+<body>
+<section id="item_area" class="bg_style1">
+    <div id="box_header">
+    	<div id="to_left"><h2>Featured </h2></div>
+        <div id="to_right"><h2>Featured </h2></div>
+    </div>
+</section>
 <table class="style5">
     <tr>
         <td class="style30" colspan="3">
@@ -383,3 +389,4 @@
         </td>
     </tr>
 </table>
+</body>

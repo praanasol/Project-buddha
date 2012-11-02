@@ -106,3 +106,17 @@ a.f_d_link:hover, a.f_d_link:active{
 	text-decoration:none;
 	color:#c0c561;
 }
+
+.p_d_form_style{
+	margin:0px;
+	padding-left:5px;
+	width:200px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 2px;
+	border-radius:5px;
+}

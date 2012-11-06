@@ -149,6 +149,15 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_confirmnewpwd;
         
         /// <summary>
+        /// lbl_resultpwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_resultpwd;
+        
+        /// <summary>
         /// orderGrid control.
         /// </summary>
         /// <remarks>

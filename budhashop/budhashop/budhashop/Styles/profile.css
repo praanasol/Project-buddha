@@ -79,23 +79,70 @@
 }*/
 
 /* Grid View Start*/
-
-    .g_head
+#grid
+{
+	margin:0px 10px;
+	padding:0px;
+	width:500px;
+	float:left;
+}
+#grid_res
+{
+	margin:0px;
+	padding:0px;
+	width:420px;
+	float:left;
+}
+   #grid .g_head
     {
-       width:auto;
-       height:20px;
+       width:450px;
+       height:30px;
+       font-size:12px;
         color: #36410a;
         text-decoration: none;
-        padding:5px 10px;
+        padding:5px 10px 0px 10px;
         text-align:center;
         background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#d67d1c));
 	    background: -moz-linear-gradient(#f38d10, #d67d1c);
 	    background: linear-gradient(#f38d10, #d67d1c);
 	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
 	    border-radius:3px;
+	    border:#8e0a05 solid 2px;
+	    
+	    z-index:1000;
     }
-
+    .p_g_cl
+    {
+    	margin:0px;
+    	padding:5px 5px;
+    }
+.p_g_alt_row_style{
+	margin:2px 0px;
+	padding:5px 10px;
+	height:40px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#efd377;
+	border:#d9b021 solid 1px;
+	border-radius:5px;
+	text-align:center;
+}
 .p_g_row_style{
+	margin:2px 0px;
+	padding:5px 10px;
+	height:40px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 1px;
+	border-radius:5px;
+	text-align:center;
+}
+.p_g_sel_row_style{
 	margin:2px 0px;
 	padding:5px 10px;
 	height:40px;
@@ -115,22 +162,23 @@
 	margin:auto;
 	margin-bottom:0px;
 	padding:0px;
-	width:450px;
-	height:200px;
+	width:440px;
+	height:230px;
 	}
 	.p_f_box_style{
 		margin:0px;
 		padding:0px;
-		width:450px;
-		height:200px;
+		width:440px;
+		height:230px;
 		background:#efd787;
 		border:#f3c46d 1px solid;
 		border-radius:5px;
 }
 #p_f_fields{
-	margin-top:20px;
+	margin-top:10px;
+	margin-left:20px;
 	padding:0px;
-	width:440px;
+	width:410px;
 	height:auto;
 	float:left;
 	
@@ -139,7 +187,7 @@
 	#p_f_field_area{
 		margin:4px 0px 4px 0px;
 		padding:0px;
-		width:440px;
+		width:410px;
 		height:20px;
 		float:left;
 }

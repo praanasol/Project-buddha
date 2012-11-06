@@ -1,124 +1,105 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="ProfilePage.aspx.cs" Inherits="budhashop.USER.ProfilePage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true"
+    CodeBehind="ProfilePage.aspx.cs" Inherits="budhashop.USER.ProfilePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div style="height:auto;">
+    <div id="p_data_area" class="box_style">
         <div id="profileDiv">
-            <table align="center">
-                <tr>
-                    <td>
-                        Email Id</td>
-                    <td>
-                        :</td>
-                    <td>
-                <asp:TextBox ID="txt_emailid" runat="server" Width="180px"
-                            ReadOnly="True" BackColor="#C0C561" ForeColor="Green" BorderStyle="None"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Name</td>
-                    <td>
-                        :</td>
-                    <td style="margin-left: 40px">
-                <asp:TextBox ID="txt_uname" runat="server" Width="180px"
-                            ReadOnly="true" BackColor="#C0C561" ForeColor="Green" BorderStyle="None"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Phone Num</td>
-                    <td>
-                        :</td>
-                    <td>
-                <asp:TextBox ID="txt_phno" runat="server" Width="180px"
-                            ReadOnly="true" BackColor="#C0C561" ForeColor="Green" BorderStyle="None"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Address</td>
-                    <td>
-                        :</td>
-                    <td>
-                <asp:TextBox ID="txt_address" runat="server" TextMode="MultiLine" Width="180px"
-                            ReadOnly="true" BackColor="#C0C561" ForeColor="Green" BorderStyle="None" 
-                            Rows="3"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <a href="#" id="hyplink_changepwd">Change Password >></a>
-                        <a href="#" id="hyplink_edit" style="float:right;">Edit Profile >></a>
-                    </td>
-                </tr>            
-                <tr>
-                    <td style="text-align:center;" colspan="3">
-                <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-            
-            
-             <%--Modal Pop-Up End--%>
-                
-                <%--Style for Pop-Up Window--%>
-                
-                        <style type="text/css">
-
-                            .web_dialog_overlay
-                            {
-                               position: fixed;
-                               top: 0;
-                               right: 0;
-                               bottom: 0;
-                               left: 0;
-                               height: 100%;
-                               width: 100%;
-                               margin: 0;
-                               padding: 0;
-                               background: #000000;
-                               opacity: .5;
-                               filter: alpha(opacity=15);
-                               -moz-opacity: .15;
-                               z-index: 101;
-                               display: none;
-                            }    
-                            .web_dialog
-                            {
-                               display:none;
-                               position:absolute;
-                               width:auto;
-                               height:auto;
-                               top:28%;
-                               left:40%;
-                               background-color: #ffffff;
-                               border: solid 2px #336699;
-                               padding: 0px;
-                               z-index: 102;
-                               font-family: Verdana;
-                               font-size: 10pt;
-                            }
-                            .web_dialog_title
-                            {
-                                text-align: right;
-                            }
-                            .hiddenColumn
-                            {
-                                display: none;
-                            }
-
-                        </style>
-                <%--End of Style for Pop-Up Window--%>
+            <!--Profile Start-->
+            <aside id="p_data">
+                <section id="p_d_fields">
+                    <div id="p_d_field_area">
+                        <div id="p_d_label">
+                            Email ID :</div>
+                        <div id="p_d_field" class="style4">
+                            <asp:TextBox ID="txt_emailid" runat="server" CssClass="p_d_form_style" ReadOnly="True"
+                                ></asp:TextBox>
+                        </div>
+                    </div>
+                    <div id="p_d_field_area">
+                        <div id="p_d_label" class="style1" style="padding-top: 2px;">
+                            Name :</div>
+                        <div id="p_d_field" class="style4">
+                            <asp:TextBox ID="txt_uname" runat="server" CssClass="p_d_form_style" ReadOnly="true"
+                                ></asp:TextBox>
+                        </div>
+                    </div>
+                    <div id="p_d_field_area">
+                        <div id="p_d_label">
+                            Phone No :</div>
+                        <div id="p_d_field" class="style4">
+                            <asp:TextBox ID="txt_phno" runat="server"  CssClass="p_d_form_style" ReadOnly="true"
+                                ></asp:TextBox>
+                        </div>
+                    </div>
+                    <div id="p_d_field_area">
+                        <div id="p_d_label" style="margin-top:25px;">
+                            Address :</div>
+                        <div id="p_d_field" class="style4">
+                            <asp:TextBox ID="txt_address" runat="server" TextMode="MultiLine" Height="70" ReadOnly="true"
+                                 CssClass="p_d_form_style" Rows="3"></asp:TextBox>
+                        </div>
+                    </div>
+                </section>
+                <br style="clear:both;" /><br />
+                <div id="login_links" style="margin:auto; margin-top:40px; padding-left:15px; width:200px;">
+                    <a href="#" ID="hyplink_changepwd" class="l_links">Change Password?</a>
+                    <a href="#" ID="hyplink_edit" class="l_links">Edit Profile</a>
+                    <br />
+                    <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
+                </div>
+            </aside>
+            <!--Profile End-->
+            <%--Modal Pop-Up End--%>
+            <%--Style for Pop-Up Window--%>
+            <style type="text/css">
+                .web_dialog_overlay
+                {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    background: #000000;
+                    opacity: .5;
+                    filter: alpha(opacity=15);
+                    -moz-opacity: .15;
+                    z-index: 101;
+                    display: none;
+                }
+                .web_dialog
+                {
+                    display: none;
+                    position: absolute;
+                    width: auto;
+                    height: auto;
+                    top: 28%;
+                    left: 40%;
                     
-                    <%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>--%>
+                    border: solid 2px #336699;
+                    padding: 0px;
+                    z-index: 102;
+                    font-family: Verdana;
+                    font-size: 10pt;
+                }
+                .web_dialog_title
+                {
+                    text-align: right;
+                }
+                .hiddenColumn
+                {
+                    display: none;
+                }
+            </style>
+            <%--End of Style for Pop-Up Window--%>
+            <%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>--%>
 
-                        <script type="text/javascript">
+            <script type="text/javascript">
                             $(document).ready(function() {
                                 var usersession='<%= this.Session["currentuser"] %>';
                                 if(!usersession){
@@ -287,204 +268,254 @@
                                      });
                                  }
                     	    
-                        </script>
-                        
-                <%--Start of Pop-Up Window--%>
-                <asp:UpdatePanel ID="profileEditPop" runat="server">
-                <ContentTemplate>
-                    <div id="overlay" class="web_dialog_overlay"></div>
+            </script>
 
+            <%--Start of Pop-Up Window--%>
+            <asp:UpdatePanel ID="profileEditPop" runat="server">
+                <ContentTemplate>
+                    <div id="overlay" class="web_dialog_overlay">
+                    </div>
                     <div id="ProfileField" class="web_dialog">
-                       <table style="width:auto; border: 0px;" cellpadding="3" cellspacing="0">
-                          <tr>
-                             <td class="web_dialog_title" colspan="3"><a href="#" id="btnClose">Close</a>
-                             </td>
-                          </tr>
-                             
-                         <tr>
-                             <td>
-                                 Email Id</td>
-                             <td>
-                                 <asp:TextBox ID="txt_emailidedit" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                             <td>
-                                 &nbsp;</td>
-                         </tr>
-                         <tr>
-                             <td>
-                                 Name</td>
-                             <td>
-                                 <asp:TextBox ID="txt_unameedit" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                             <td>
-                                 <input id="btn_updatename" onclick="return updateName();" type="button" value="Update" />
-                             </td>
-                         </tr>
-                         <tr>
-                             <td>
-                                 Phone Number</td>
-                             <td>
-                                 <asp:TextBox ID="txt_phnoedit" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                             <td>
-                                 <input id="btn_updatephno" onclick="return updatePhNum();" type="button" value="Update" />
-                             </td>
-                         </tr>
-                         <tr>
-                             <td>
-                                 Address</td>
-                             <td>
-                                 <asp:TextBox ID="txt_addressedit" runat="server" TextMode="MultiLine" Width="180px" Rows="3"></asp:TextBox>
-                             </td>
-                             <td>
-                                 <input id="btn_updateaddress" onclick="return updateAddress();" type="button" value="Update" />
-                             </td>
-                         </tr>
-                         <tr>
-                             <td colspan="3" style="text-align: center">
-                                 <asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
-                             </td>
-                         </tr>
-                    </table>
-                </div>
-                <div id="PasswordField" class="web_dialog">
-                       <table style="width:auto; border: 0px;" cellpadding="3" cellspacing="0">
-                          <tr>
-                             <td class="web_dialog_title" colspan="2"><a href="#" id="btnClose1">Close</a>
-                             </td>
-                          </tr>
-                          
-                          <tr>
-                             <td>
-                                 Email Id</td>
-                             <td>
-                                 <asp:TextBox ID="txt_emailidpwd" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                         </tr>                         
-                         <tr>
-                             <td>
-                                 Old Password</td>
-                             <td>
-                                 <asp:TextBox ID="txt_oldpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                         </tr>
-                         <tr>
-                             <td>
-                                 New Password</td>
-                             <td>
-                                 <asp:TextBox ID="txt_newpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                         </tr>
-                         <tr>
-                             <td>
-                                 Confirm Password</td>
-                             <td>
-                                 <asp:TextBox ID="txt_confirmnewpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
-                             </td>
-                         </tr>
-                         <tr>
-                            <td colspan="2">
-                                <input id="btn_updatepwd" onclick="return updatePassword();" type="button" value="Update" />
-                            </td>
-                         </tr>
-                         <tr>
-                            <td colspan="2" style="text-align: center">
-                                <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
-                            </td>
-                         </tr>
-                       </table>
+                        <table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
+                            <tr>
+                                <td class="web_dialog_title" colspan="3">
+                                    <a href="#" id="btnClose">Close</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email Id
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_emailidedit" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Name
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_unameedit" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <input id="btn_updatename" onclick="return updateName();" type="button" value="Update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Phone Number
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_phnoedit" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <input id="btn_updatephno" onclick="return updatePhNum();" type="button" value="Update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Address
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_addressedit" runat="server" TextMode="MultiLine" Width="180px"
+                                        Rows="3"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <input id="btn_updateaddress" onclick="return updateAddress();" type="button" value="Update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: center">
+                                    <asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="PasswordField" class="web_dialog">
+                        <div id="p_f_data" class="p_f_box_style">
+                            <section id="p_f_fields">
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Email ID :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_emailidpwd" CssClass="p_f_form_style" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Old Password :</div>
+                                    <div id=p_f_field" class="style4" style="padding-left:2px;">
+                                        <asp:TextBox ID="txt_oldpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        New Password :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_newpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Confirm Password :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_confirmnewpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                             </section>
+                                    </div>
+                        <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
+                            <tr>
+                                <td class="web_dialog_title" colspan="2">
+                                    <a href="#" id="btnClose1">Close</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email Id
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_emailidpwd" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Old Password
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_oldpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    New Password
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_newpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Confirm Password
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txt_confirmnewpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input id="btn_updatepwd" onclick="return updatePassword();" type="button" value="Update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center">
+                                    <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>--%>
                     </div>
                 </ContentTemplate>
-                </asp:UpdatePanel>
-                <%--End of Pop-Up Window--%>
-                    
+            </asp:UpdatePanel>
+            <%--End of Pop-Up Window--%>
             <%--Modal Pop-Up End--%>
-            
-    </div>
-    
-    <div id="orderHistoryDiv">
-    
-        <div style="float:left; width:50%;">
-    
-            <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                     OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10">
-                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
-                        
-                     <Columns>
-                         <asp:TemplateField HeaderText="Purchase Id">
-                             <ItemTemplate>
-                                 <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="User Id">
-                             <ItemTemplate>
-                                 <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                          <asp:TemplateField HeaderText="Item String" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
-                             <ItemTemplate>
-                                 <asp:Label ID="itemString" runat="server" Text='<%# Eval("ItemString") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Address String" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
-                             <ItemTemplate>
-                                 <asp:Label ID="itemString" runat="server" Text='<%# Eval("ShippingAddress") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Quantity">
-                             <ItemTemplate>
-                                 <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("NoItems") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Billed Rate">
-                             <ItemTemplate>
-                                 <asp:Label ID="lbl_totalBR" runat="server" Text='<%# Eval("TotalBilledRate") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Date Purchased">
-                             <ItemTemplate>
-                                 <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Deliverd">
-                             <ItemTemplate>
-                                 <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
-                             </ItemTemplate>
-                         </asp:TemplateField>
-                     </Columns>
-                 </asp:GridView>
-            
+        </div>
+        <div id="orderHistoryDiv">
+            <div>
+                <asp:GridView ID="orderGrid" runat="server" AllowPaging="True"  HeaderStyle-CssClass="g_head" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
+                    OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10" GridLines="None">
+                    <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
+                    <Columns>
+                        <asp:TemplateField HeaderText="Purchase Id">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="User Id">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Item String" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
+                            <ItemTemplate>
+                                <asp:Label ID="itemString" runat="server" Text='<%# Eval("ItemString") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Address String" HeaderStyle-CssClass="hiddenColumn"
+                            ItemStyle-CssClass="hiddenColumn">
+                            <ItemTemplate>
+                                <asp:Label ID="itemString" runat="server" Text='<%# Eval("ShippingAddress") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Quantity">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("NoItems") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Billed Rate">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_totalBR" runat="server" Text='<%# Eval("TotalBilledRate") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Date Purchased">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Deliverd">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
-            
-            <div style="float:left; width:50%;">
-                <div id="itemsDiv" style="background:lightgreen; display:none; position:absolute;">
-                    <a href="#" id="btnCloseOrders" style="float:right;">Close</a><br />
+            <div style="float: left; width: 50%;">
+                <div id="itemsDiv" style="background:#efa927; display: none; position: absolute;">
+                    <a href="#" id="btnCloseOrders" style="float: right;">Close</a><br />
                     <div>
                         <%--<asp:Label ID="itemsCount" runat="server"></asp:Label>
                         <asp:Label ID="totalBill" runat="server"></asp:Label>
                         <asp:Label ID="dateP" runat="server"></asp:Label>--%>
-                        <label id="NameA"></label><br />
-                        <label id="PhnA"></label><br />
-                        <label id="AdrA"></label><br />
+                        <label id="NameA">
+                        </label>
+                        <br />
+                        <label id="PhnA">
+                        </label>
+                        <br />
+                        <label id="AdrA">
+                        </label>
+                        <br />
                     </div>
                     <br />
                     <div id="itemsList">
                         <table id="itemTable" border="1">
                             <tr>
-                                <th>Item Id</th>
-                                <th>Name</th>
-                                <th>Image</th>
-                                <th>Billed Rate</th>
-                                <th>Quantity</th>
-                                <th>Total Rate</th>
+                                <th>
+                                    Item Id
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Billed Rate
+                                </th>
+                                <th>
+                                    Quantity
+                                </th>
+                                <th>
+                                    Total Rate
+                                </th>
                             </tr>
                         </table>
                     </div>
                 </div>
-            
             </div>
-    
         </div>
-    </div>        
-        
+    </div>
 </asp:Content>

@@ -132,6 +132,13 @@
     <Compile Include="itemspage.aspx.designer.cs">
       <DependentUpon>itemspage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="loginpage.aspx.cs">
+      <DependentUpon>loginpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginpage.aspx.designer.cs">
+      <DependentUpon>loginpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\MainMaster.Master.cs">
       <DependentUpon>MainMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,6 +213,13 @@
     </Compile>
     <Compile Include="UserControls\Register.ascx.designer.cs">
       <DependentUpon>Register.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\registration.ascx.cs">
+      <DependentUpon>registration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\registration.ascx.designer.cs">
+      <DependentUpon>registration.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Userregistrations.ascx.cs">
       <DependentUpon>Userregistrations.ascx</DependentUpon>
@@ -347,6 +361,7 @@
     <Content Include="ItemImages\5\9\9small.jpg" />
     <Content Include="iteminfo.aspx" />
     <Content Include="itemspage.aspx" />
+    <Content Include="loginpage.aspx" />
     <Content Include="MasterPage\MainMaster.Master" />
     <Content Include="obj\Debug\budhashop.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\budhashop.dll" />
@@ -428,6 +443,7 @@
     <Content Include="Styles\jquery.jscrollpane.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\menus.css" />
+    <Content Include="Styles\profile.css" />
     <Content Include="Styles\SearchAll.css" />
     <Content Include="UserControls\login.ascx" />
     <Content Include="UserControls\Login1.ascx" />
@@ -435,6 +451,7 @@
     <Content Include="UserControls\mainSearch.ascx" />
     <Content Include="UserControls\navigation.ascx" />
     <Content Include="UserControls\Register.ascx" />
+    <Content Include="UserControls\registration.ascx" />
     <Content Include="UserControls\Userregistrations.ascx" />
     <Content Include="USER\AddressPage.aspx" />
     <Content Include="USER\ChangePassword.aspx" />

@@ -111,3 +111,51 @@
 	/*background-color:#f28c11;*/
 	border:#364700 solid 1px;
 }
+
+/*Buttons Start*/
+#buttons{
+	margin:0px;
+	padding:0px;
+	width:677px;
+	height:40px;
+	float:left;
+
+}
+
+#buttons ul{
+	margin-top:2px;
+	padding-top:5px;
+	height:30px;
+}
+#buttons ul li{
+	margin:0px 0px 0px 0px;
+	padding:0px 2px;
+	display:inline;
+}
+a.buttons:link, a.buttons:visited{
+	margin-left:5px;
+	padding:10px 25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#364700;
+	font-weight:bold;
+	text-decoration:none;
+	background:#f39112;
+	border-radius:5px;
+}
+a.buttons:hover, a.buttons:active{
+	margin-left:5px;
+	padding:5px 14px;
+	color:#8f0a05;
+	text-decoration:none;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#d67d1c));
+    background: -moz-linear-gradient(#f38d10, #d67d1c);
+    background: linear-gradient(#f38d10, #d67d1c);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
+	
+	border-radius:5px;
+	/*background-color:#f28c11;*/
+	border:#364700 solid 1px;
+}
+
+/*Buttons End*/

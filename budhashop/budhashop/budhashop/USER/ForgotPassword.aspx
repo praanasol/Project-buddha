@@ -5,14 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div style="height:500px;">
-    <table cellpadding="0" cellspacing="0" width="520" border="0" class="bg_style2" style="margin-top:100px; margin-left:200px;">
+    <table cellpadding="0" cellspacing="0" width="410" border="0" class="bg_style2" style="margin-top:100px; margin-left:300px;">
      
     <tr>
-        <td align="center" valign="middle" colspan="4" style="height: 40px;"><h2 style="width:480px; margin-right:3px; border-bottom:#deb354 solid 1px;">Forgot Password</h2></td>
+        <td align="center" valign="middle" colspan="4" style="height: 40px;"><h2>Forgot Password</h2></td>
     </tr>
     <tr>
         <td align="center" valign="middle" style="margin-left:20px;">
-              <table cellpadding="0" cellspacing="0" width="500" border="0">
+              <table cellpadding="0" cellspacing="0" width="400" border="0">
     
         <tr>
             <td align="right" valign="middle" style="height: 40px;" class="style2">
@@ -54,19 +54,19 @@
             </td>
         </tr>
         <tr>
-            <td align="center" valign="middle" colspan="4" style="height: 50px;">
-                <table cellpadding="0" cellspacing="0" width="250" border="0">
+            <td align="center" valign="middle" colspan="4" style="padding-left:10px; height: 50px;">
+                <table cellpadding="0" cellspacing="0" width="230" border="0">
                     <tr>
                         <td align="right" valign="middle" style="height: 40px;">
-                            <asp:Button ID="btn_fsubmit" runat="server" Text="Submit" OnClick="btn_fsubmit_Click"
+                            <asp:Button ID="btn_fsubmit" runat="server" CssClass="l_go" Text="Submit" OnClick="btn_fsubmit_Click"
                                 ValidationGroup="1" />
                         </td>
                         <td align="left" valign="middle" style="padding-left: 10px;">
-                            <asp:Button ID="btn_cancel" runat="server" OnClick="btn_cancel_Click" Text="Cancel" />
+                            <asp:Button ID="btn_cancel" runat="server" CssClass="l_go" OnClick="btn_cancel_Click" Text="Cancel" />
                         </td>
                         <td align="right" valign="middle">
-                            <asp:HyperLink ID="hyplink_login" runat="server" NavigateUrl="Login_Register.aspx"
-                                Style="float: right;" CssClass="l_links">LogIn...</asp:HyperLink>
+                            <div><asp:HyperLink ID="hyplink_login" runat="server" NavigateUrl="Login_Register.aspx"
+                                Style="float: right;" CssClass="l_links">LogIn...</asp:HyperLink></div>
                         </td>
                     </tr>
                 </table>

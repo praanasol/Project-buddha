@@ -154,9 +154,9 @@
                                         .mouseover(function() {
                                             $(this).css("cursor", "pointer");
                                         })
-                                        .css({ background: "ffffff" }).hover(
-                                            function() { $(this).css({ background: "lightgreen" }); },
-                                            function() { $(this).css({ background: "#ffffff" }); }
+                                        .css({ background: "e7cd73" }).hover(
+                                            function() { $(this).css({ background: "#f3ad2c" }); },
+                                            function() { $(this).css({ background: "#e7cd73" }); }
                                         );
                                     
                                     $("#btnCloseOrders").click(function(){
@@ -259,7 +259,7 @@
                                         success: function(data) {
                                             $("#itemTable tr:gt(0)").remove();
                                             for (var i = 0; i < data.d.length; i++) {
-                                                $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="60" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
+                                                $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="70" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
                                             }
                                            },
                                         error: function(data) {
@@ -276,7 +276,54 @@
                     <div id="overlay" class="web_dialog_overlay">
                     </div>
                     <div id="ProfileField" class="web_dialog">
-                        <table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
+                        <div id="p_f_data" class="p_f_box_style" style="width:520px; height:270px;">
+                            <section id="login_header"><h3>Edit Profile</h3></section>
+                            <section id="p_f_fields" style="width:490px; height:200px;">
+                                <div id="p_f_field_area" style="width:490px; height:30px;">
+                                    <div id="p_f_label">
+                                        Email ID :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_emailidedit" CssClass="p_f_form_style" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area" style="width:490px; height:30px;">
+                                    <div id="p_f_label" style=" margin-top:2px; padding-top:5px;">
+                                        Name :</div>
+                                    <div id="p_f_field" class="style4" style="padding-top:4px;">
+                                        <asp:TextBox ID="txt_unameedit" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
+                                        
+                                    </div>
+                                    <div id="but_style" style="width:100px;">
+                                        <input id="btn_updatename" class="l_go" onclick="return updateName();" type="button" value="Update" />
+                                        </div>
+                                </div>
+                                <div id="p_f_field_area" style="width:490px; height:30px;">
+                                    <div id="p_f_label" style=" margin-top:2px; padding-top:5px;">
+                                        Phone Number :</div>
+                                    <div id="p_f_field" class="style4" style="padding-top:4px;">
+                                        <asp:TextBox ID="txt_phnoedit" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
+                                        
+                                       
+                                    </div>
+                                    <div id="but_style" style="width:100px;">
+                                     <input id="btn_updatephno" class="l_go" onclick="return updatePhNum();" type="button" value="Update" />
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area" style="width:490px; height:70px;">
+                                    <div id="p_f_label" style=" margin-top:25px; padding-top:5px;">
+                                        Address :</div>
+                                    <div id="p_f_field" class="style4" style="padding-top:4px;">
+                                        <asp:TextBox ID="txt_addressedit" CssClass="p_f_form_style" runat="server" TextMode="MultiLine" Width="180px" Height="70"
+                                        Rows="3"></asp:TextBox>
+                                    </div>
+                                    <div id="but_style" style="width:100px; margin-top:25px;"><input id="btn_updateaddress" class="l_go" onclick="return updateAddress();" type="button" value="Update" /></div>
+                                </div>
+                             </section>
+                             <div id="login_links" style="width:510px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
+                             <div id="to_right" style="margin:0px 0px 0px 13px;"><a href="#" class="l_links" id="btnClose">Close</a></div>
+                             </div>
+                        </div>
+                        <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
                             <tr>
                                 <td class="web_dialog_title" colspan="3">
                                     <a href="#" id="btnClose">Close</a>
@@ -332,10 +379,11 @@
                                     <asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
                                 </td>
                             </tr>
-                        </table>
+                        </table>--%>
                     </div>
                     <div id="PasswordField" class="web_dialog">
                         <div id="p_f_data" class="p_f_box_style">
+                            <section id="login_header"><h3>Forgot Password</h3></section>
                             <section id="p_f_fields">
                                 <div id="p_f_field_area">
                                     <div id="p_f_label">
@@ -347,7 +395,7 @@
                                 <div id="p_f_field_area">
                                     <div id="p_f_label">
                                         Old Password :</div>
-                                    <div id=p_f_field" class="style4" style="padding-left:2px;">
+                                    <div id="p_f_field" class="style4">
                                         <asp:TextBox ID="txt_oldpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
                                     </div>
                                 </div>
@@ -366,7 +414,17 @@
                                     </div>
                                 </div>
                              </section>
+                             
+                             <div id="login_links" style="margin:auto; padding:10px 0px 0px 0px; width:430px; height:60px;">
+                                <div id="but_style" style="margin-left:180px;">
+                             <input id="btn_updatepwd" onclick="return updatePassword();" class="l_go" type="button" value="Update" /><br />
+                             <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
+                             </div>
+                             <div id="to_right" style="margin:40px 0px 0px 13px;"><a href="#" class="l_links" id="btnClose1">Close</a></div>
+                             </div>
+                             
                                     </div>
+                                    
                         <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
                             <tr>
                                 <td class="web_dialog_title" colspan="2">
@@ -423,17 +481,17 @@
             <%--Modal Pop-Up End--%>
         </div>
         <div id="orderHistoryDiv">
-            <div>
-                <asp:GridView ID="orderGrid" runat="server" AllowPaging="True"  HeaderStyle-CssClass="g_head" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
-                    OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10" GridLines="None">
+            <aside id="grid">
+                <asp:GridView ID="orderGrid" runat="server" AllowPaging="True"  CellSpacing="2" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
+                    OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10" GridLines="None" AlternatingRowStyle-Wrap="False">
                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                     <Columns>
-                        <asp:TemplateField HeaderText="Purchase Id">
+                        <asp:TemplateField HeaderText="Purchase Id" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="User Id">
+                        <asp:TemplateField HeaderText="User Id" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
                             </ItemTemplate>
@@ -449,32 +507,32 @@
                                 <asp:Label ID="itemString" runat="server" Text='<%# Eval("ShippingAddress") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Quantity">
+                        <asp:TemplateField HeaderText="Quantity" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("NoItems") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Billed Rate">
+                        <asp:TemplateField HeaderText="Billed Rate" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_totalBR" runat="server" Text='<%# Eval("TotalBilledRate") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Date Purchased">
+                        <asp:TemplateField HeaderText="Date Purchased" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Deliverd">
+                        <asp:TemplateField HeaderText="Deliverd" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-            </div>
-            <div style="float: left; width: 50%;">
-                <div id="itemsDiv" style="background:#efa927; display: none; position: absolute;">
-                    <a href="#" id="btnCloseOrders" style="float: right;">Close</a><br />
+            </aside>
+            <aside id="grid_res">
+                <div id="itemsDiv">
+                    <%--<a href="#" id="btnCloseOrders" style="float: right;">Close</a>--%>
                     <div>
                         <%--<asp:Label ID="itemsCount" runat="server"></asp:Label>
                         <asp:Label ID="totalBill" runat="server"></asp:Label>
@@ -491,31 +549,31 @@
                     </div>
                     <br />
                     <div id="itemsList">
-                        <table id="itemTable" border="1">
+                        <table id="itemTable" width="420" border="0">
                             <tr>
-                                <th>
+                                <th class="g_head">
                                     Item Id
                                 </th>
-                                <th>
+                                <th class="g_head">
                                     Name
                                 </th>
-                                <th>
+                                <th class="g_head">
                                     Image
                                 </th>
-                                <th>
+                                <th class="g_head">
                                     Billed Rate
                                 </th>
-                                <th>
+                                <th class="g_head">
                                     Quantity
                                 </th>
-                                <th>
+                                <th class="g_head">
                                     Total Rate
                                 </th>
                             </tr>
                         </table>
                     </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
 </asp:Content>

@@ -33,7 +33,7 @@
 }
 	#p_d_label{
 		margin:0px;
-		padding:3px 0px 0px 0px;
+		padding:5px 0px 0px 0px;
 		width:100px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
@@ -47,33 +47,58 @@
 		margin-left:5px;
 		padding:0px;
 		width:200px;
+		height:20px;
 		float:left;
 		text-align:left;
 }
-
+.p_d_form_style{
+	margin:0px;
+	padding-left:5px;
+	width:200px;
+	height:20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#efd787;
+	border:#efd787 solid 1px;
+	/*border-radius:0px;*/
+}
+/*.p_d_form_style{
+	margin:0px;
+	padding-left:5px;
+	width:200px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 2px;
+	border-radius:5px;
+}*/
 
 /* Grid View Start*/
 
     .g_head
     {
-       width:500px;
+       width:auto;
        height:20px;
         color: #36410a;
         text-decoration: none;
-        padding:5px 5px;
+        padding:5px 10px;
         text-align:center;
         background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#d67d1c));
-    background: -moz-linear-gradient(#f38d10, #d67d1c);
-    background: linear-gradient(#f38d10, #d67d1c);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
-    
-    border-radius:3px;
+	    background: -moz-linear-gradient(#f38d10, #d67d1c);
+	    background: linear-gradient(#f38d10, #d67d1c);
+	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
+	    border-radius:3px;
     }
 
 .p_g_row_style{
-	margin:0px;
-	padding:5px;
-	height:18px;
+	margin:2px 0px;
+	padding:5px 10px;
+	height:40px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
 	color:#364700;
@@ -81,5 +106,75 @@
 	background:#e7cd73;
 	border:#d9b021 solid 1px;
 	border-radius:5px;
+	text-align:center;
 }
 /*Grid View End*/
+
+/*Forgot Password Area Start*/
+#p_f_data{
+	margin:auto;
+	margin-bottom:0px;
+	padding:0px;
+	width:450px;
+	height:200px;
+	}
+	.p_f_box_style{
+		margin:0px;
+		padding:0px;
+		width:450px;
+		height:200px;
+		background:#efd787;
+		border:#f3c46d 1px solid;
+		border-radius:5px;
+}
+#p_f_fields{
+	margin-top:20px;
+	padding:0px;
+	width:440px;
+	height:auto;
+	float:left;
+	
+	}
+	
+	#p_f_field_area{
+		margin:4px 0px 4px 0px;
+		padding:0px;
+		width:440px;
+		height:20px;
+		float:left;
+}
+	#p_f_label{
+		margin:0px;
+		padding:3px 0px 0px 0px;
+		width:160px;
+		float:left;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		color:#364700;
+		font-weight:bold;
+		text-align:right;
+}
+#p_f_field{
+		margin:0px;
+		margin-left:5px;
+		padding:0px;
+		width:200px;
+		height:20px;
+		float:left;
+		text-align:left;
+}
+.p_f_form_style{
+	margin:0px;
+	padding-left:5px;
+	width:200px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 2px;
+	border-radius:5px;
+}*/
+}
+/*Forgot Password Area End*/

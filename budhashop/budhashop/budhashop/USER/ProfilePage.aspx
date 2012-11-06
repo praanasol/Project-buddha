@@ -335,7 +335,39 @@
                         </table>
                     </div>
                     <div id="PasswordField" class="web_dialog">
-                        <table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
+                        <div id="p_f_data" class="p_f_box_style">
+                            <section id="p_f_fields">
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Email ID :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_emailidpwd" CssClass="p_f_form_style" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Old Password :</div>
+                                    <div id=p_f_field" class="style4" style="padding-left:2px;">
+                                        <asp:TextBox ID="txt_oldpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        New Password :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_newpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Confirm Password :</div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="txt_confirmnewpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
+                                    </div>
+                                </div>
+                             </section>
+                                    </div>
+                        <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
                             <tr>
                                 <td class="web_dialog_title" colspan="2">
                                     <a href="#" id="btnClose1">Close</a>
@@ -383,7 +415,7 @@
                                     <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
                                 </td>
                             </tr>
-                        </table>
+                        </table>--%>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -392,11 +424,11 @@
         </div>
         <div id="orderHistoryDiv">
             <div>
-                <asp:GridView ID="orderGrid" runat="server" AllowPaging="True"  HeaderStyle-CssClass="g_head" AlternatingRowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
-                    OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10">
+                <asp:GridView ID="orderGrid" runat="server" AllowPaging="True"  HeaderStyle-CssClass="g_head" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
+                    OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10" GridLines="None">
                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                     <Columns>
-                        <asp:TemplateField HeaderText="Purchase Id" ControlStyle-Height="40">
+                        <asp:TemplateField HeaderText="Purchase Id">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
                             </ItemTemplate>

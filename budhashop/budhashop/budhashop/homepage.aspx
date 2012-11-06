@@ -57,7 +57,7 @@
       num_edge_entries: 2,
       num_display_entries: 8,
       callback: pageselectCallback,
-      items_per_page:9
+      items_per_page:10
     }
 
     function pageselectCallback(page_index, jq){
@@ -80,15 +80,15 @@
 <%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
 <article style="height:200px;"></article>
   <br clear="all" />
-<section id="item_area" class="box_style" style="height:730px;">
+<section id="item_area" class="box_style" style="height:550px;">
   	<div id="box_header">
-    	<div id="to_left"><h2>Featured </h2></div>
+    	<div id="to_left"><h2>Featured Products</h2></div>
       
     </div>
     <!--Gallery Start-->
    <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px;">
    
-    <div id ="groupItems" style="height:650px; width:970px;">
+    <div id ="groupItems" style="height:550px; width:970px;">
   
           <p id="fetching">
         Fetching Products.... 

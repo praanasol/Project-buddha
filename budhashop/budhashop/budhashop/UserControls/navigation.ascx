@@ -23,10 +23,7 @@ $(document).ready(function(){
 
                $('[id$=navitems]').append( items.join('') );
               
-               
-                    
-                    
-                    
+                   
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     alert(textStatus);

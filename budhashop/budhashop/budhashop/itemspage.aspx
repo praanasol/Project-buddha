@@ -59,7 +59,7 @@
       num_edge_entries: 2,
       num_display_entries: 8,
       callback: pageselectCallback,
-      items_per_page:9
+      items_per_page:10
     }
 
     function pageselectCallback(page_index, jq){
@@ -127,7 +127,7 @@ success: function(data) {
 for (var i = 0; i < data.d.length; i++) {
 
 
- $("#hiddenresult").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp=1" target="_self"><img src="/ItemImages/3/4/4small.jpg" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+ data.d[i].CatId+');">ADD</a></div></div></div> </div></div> </aside>');
+ $("#hiddenresult").append('<aside id="category_box" class="category_box_style"><div id="img_placeholder"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self"><img src="'+ data.d[i].ItemPath+'" alt="Items" title="'+data.d[i].ItemName+'" width="175" height="180" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="category_header"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp=3" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div class="style2" style="margin-top:8px;">Rs.'+data.d[i].ItemPrice+'</div></div> </div></div> </aside>');
 }
 initPagination();
 	    //
@@ -153,7 +153,7 @@ success: function(data) {
  for (var i = 0; i < data.d.length; i++) {
 
 
- $("#hiddenresult").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div id="img_placeholder"><a href="iteminfo.aspx?id='+ data.d[i].ItemId+'&grp='+catID+'" target="_self"><img src="'+data.d[i].ItemPath+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[i].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[i].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[i].ItemId+','+catID+');">ADD</a></div></div></div> </div></div> </aside>');
+ $("#hiddenresult").append('<aside id="category_box" class="category_box_style"><div id="img_placeholder"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self"><img src="'+ data.d[i].ItemPath+'" alt="Items" title="'+data.d[i].ItemName+'" width="175" height="180" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="category_header"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp=3" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div class="style2" style="margin-top:8px;">Rs.'+data.d[i].ItemPrice+'</div></div> </div></div> </aside>');
 
  
  }
@@ -173,7 +173,9 @@ alert("Error");
 });
 
 </script>
-<br clear="all" />
+<div id="catStr" style="height:16px; padding:25px; font-size:16px;">Catagory</div>
+
+
 <section id="middlebody"> 
     <!--Cort items Start-->
     <%--<aside id="left_col" class="in_box_style"> 
@@ -221,12 +223,12 @@ alert("Error");
     </aside>--%>
     <!--Cort items End--> 
     <!--Items Start-->
-    <aside id="right_col" class="in_box_style"> 
+    <aside > 
       <!--Categories Start-->
-      <section id="inner_item_area">
+      <section>
         
         <!--Gallery Start-->
-        <div id="inner_box_content"> 
+        <div id="item_area" class="box_style" style="height:520px;"> 
         
         <div id = "itemsBox">
           <p id="fetching">

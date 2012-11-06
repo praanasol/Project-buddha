@@ -9,14 +9,7 @@
             async:false,
             success: function(data1){
                         
-                       if( eval(data1.d) == 1)
-                       {
-                     alert( "Item Added to cart. ");
-                     }
-                     else if(eval(data1.d) == 2) {
-                     alert( "Item quantity updated in cart. ");
-                     }
-                     else
+                        if(eval(data1.d) == 0)
                      {
                         alert( "Error occured. try again! ");
                      }

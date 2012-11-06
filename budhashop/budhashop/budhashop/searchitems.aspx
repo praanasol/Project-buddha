@@ -137,7 +137,7 @@ alert("Error");
         
         <div id = "itemsBox">
           <p id="fetching">
-        Fetching items.... 
+        Fetching Products.... 
     </p>
     
     <br style="clear: both;" />

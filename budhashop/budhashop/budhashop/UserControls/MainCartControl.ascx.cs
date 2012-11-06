@@ -25,6 +25,13 @@ namespace budhashop.UserControls
         {
          if (!IsPostBack)
          {
+             if (Session["itemCheck"] != null)
+             {
+                 hiddenCheck5.Value = Session["itemCheck"].ToString();
+                 hiddenCheck6.Value = Session["totCheck"].ToString();
+
+             }
+
             if (Session["CartPicks"] != null)
             {
                 CartDetails = new List<CartItems>();
@@ -138,6 +145,8 @@ namespace budhashop.UserControls
                     errorMsg.Text = "No products added";
                 }
                 totalLbl.Text = totalPrice.ToString();
+                Session["itemCheck"] = totitems.Text; // old values will be store in below sessions.
+                Session["totCheck"] = totalLbl.Text;
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;
                  //pagedData.AllowPaging = true;
@@ -162,6 +171,13 @@ namespace budhashop.UserControls
         /// <param name="e"></param>
         protected void itemCartDL_ItemCommand(object source, DataListCommandEventArgs e)
         {
+            if (Session["itemCheck"] != null)
+            {
+
+                hiddenCheck5.Value = Session["itemCheck"].ToString();
+                hiddenCheck6.Value = Session["totCheck"].ToString();
+
+            }
             if (e.CommandName == "UpdateItem")
             {
                 //getting the primary key from the Datalist of the to be updated item.

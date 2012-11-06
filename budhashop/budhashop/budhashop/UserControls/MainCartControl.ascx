@@ -349,42 +349,7 @@ ul {
 
 
 
-<script type="text/javascript">
-           
-        $(document).ready(function() {      
-               
-               if(($("#noOfItemsLbl").text())!="0")
-                {
-                    $("#orderBtn1").removeAttr("disabled");
-                }
-                  
-                 
-            $(".signin").click(function(e) {          
-				e.preventDefault();
-				
-                $("fieldset#signin_menu").toggle();
-				$(".signin").toggleClass("menu-open");
-            });
-            
-            $("#hideCartBtn").click(function(){
-                $(".signin").removeClass("menu-open");
-				$("fieldset#signin_menu").hide();
-            });
-						 
-			$("fieldset#signin_menu").mouseup(function() {
-				return false
-			});
-			
-			
-			$(document).mouseup(function(e) {
-				if($(e.target).parent("a.signin").length==0) {
-					$(".signin").removeClass("menu-open");
-					$("fieldset#signin_menu").hide();
-				}
-			});
-        });        
-        
-</script>
+
 
  <%--<script type="text/javascript">
                                                                       
@@ -430,6 +395,8 @@ ul {
             	
             	<div id="list_simble" style="margin-top:3px;"></div>
             	<div class="style1"><asp:Label ID="totitems" runat="server" Text="0" CssClass="style1"></asp:Label></div>
+            	<asp:HiddenField ID="hiddenCheck5" Value="0" runat="server" />
+                 <asp:HiddenField ID="hiddenCheck6" Value="0" runat="server" />
             	
             	
             </div>

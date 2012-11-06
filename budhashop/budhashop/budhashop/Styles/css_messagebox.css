@@ -1,0 +1,17 @@
+#ctl00_message_2
+    {
+    background: none repeat scroll 0 0 #8C0B05;
+    border: 2px solid #F39112;
+    border-radius: 5px 5px 5px 5px;
+    color: #EB992F;
+    font-family: "Arial",Gadget,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height:20px;
+    width:55px;
+    padding: 22px 10px 5px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    
+    }

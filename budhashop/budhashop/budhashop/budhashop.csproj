@@ -352,6 +352,7 @@
     <Content Include="obj\Debug\budhashop.dll" />
     <Content Include="obj\Debug\budhashop.pdb" />
     <Content Include="result.html" />
+    <Content Include="script\cart-message.js" />
     <Content Include="script\CartJSONCall.js" />
     <Content Include="script\html5shiv\build.xml" />
     <Content Include="script\html5shiv\build\compiler.jar" />
@@ -420,6 +421,7 @@
     <Content Include="Services\Services.aspx" />
     <Content Include="Source\cart.html" />
     <Content Include="Source\cart1.html" />
+    <Content Include="Styles\css_messagebox.css" />
     <Content Include="Styles\format.css" />
     <Content Include="Styles\inner_format.css" />
     <Content Include="Styles\inner_layout.css" />
@@ -483,7 +485,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3011</DevelopmentServerPort>
+          <DevelopmentServerPort>49763</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -19,11 +19,14 @@
     <link href="../Styles/SearchAll.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../Styles/inner_layout.css">
     <link rel="stylesheet" type="text/css" href="../Styles/inner_format.css">
+    <link href="../Styles/css_messagebox.css" rel="stylesheet" type="text/css" />
+    
    <%-- <link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font">--%>
 
 
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+ <script src="../script/cart-message.js" type="text/javascript"></script>
  
     <%--<script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>--%>
     
@@ -88,6 +91,7 @@
           <!--Default links End--> 
           <!--login links Start-->
           <div id="top_loginlinks_area">
+         
             <div id="mainloginuc" style="position:absolute; top:1px; left:58%;">
             <uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" />
             </div>
@@ -122,6 +126,9 @@
         </aside>
         <!--Navigation End-->
         <!--List items link area Start-->
+        <aside id="list" style="width:140px; background:transparent;">
+         <asp:Label ID="message_2" runat="server" Text=""></asp:Label>
+        </aside>
         <%--<aside id="list">
         	<div id="list_left">
             	<p class="style1">Items<br />14</p>

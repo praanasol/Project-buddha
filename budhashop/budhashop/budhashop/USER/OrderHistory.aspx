@@ -78,10 +78,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="float:left; width:40%;">
+    <div style="float:left; width:40%; height:500px; overflow-x:auto;">
     
-    <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-             OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10">
+    <asp:GridView ID="orderGrid" runat="server" AutoGenerateColumns="False" >
              <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                 
              <Columns>

@@ -106,6 +106,10 @@
                                     $("#hyplink_edit").hide();
                                     $("#hyplink_changepwd").hide();
                                     }
+                                
+                                var itemString = $('#<%=orderGrid.ClientID%> td:eq(2)').text();
+                                var addrString = $('#<%=orderGrid.ClientID%> td:eq(3)').text();
+                                RowSelected(itemString,addrString);
                                   
                                   $("#btnClose").click(function (e){
                                      $("#overlay").hide();
@@ -142,10 +146,11 @@
                                     });
                                   });
                                   
-                                  $("tr").filter(function() {
+                                  $("#<%=orderGrid.ClientID%> tr").filter(function() {
                                         return $('td', this).length && !$('table', this).length
                                     })
                                         .click(function(event) {
+                                            $("#itemsDiv").hide();
                                             var row = jQuery(this)
                                             var itemString = row.children("td:eq(2)").text();
                                             var addrString = row.children("td:eq(3)").text();
@@ -244,7 +249,7 @@
                                     
                                 function RowSelected(itemString,addrString)
                                  {
-                                    $("#itemsDiv").show();
+                                    $("#itemsDiv").show(500);
                                     var primeArray = addrString.split(";");
                                     $("#NameA").html(primeArray[0]);
                                     $("#PhnA").html(primeArray[1]);
@@ -263,7 +268,7 @@
                                             }
                                            },
                                         error: function(data) {
-                                        alert(data);
+                                        alert("error");
                                         }
                                      });
                                  }
@@ -482,8 +487,9 @@
         </div>
         <div id="orderHistoryDiv">
             <aside id="grid">
-                <asp:GridView ID="orderGrid" runat="server" AllowPaging="True"  CellSpacing="2" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
-                    OnPageIndexChanging="orderGrid_PageIndexChanging" PageSize="10" GridLines="None" AlternatingRowStyle-Wrap="False">
+            <div style="overflow-x:auto; height:450px;">
+                <asp:GridView ID="orderGrid" runat="server" CellSpacing="2" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
+                    GridLines="None" AlternatingRowStyle-Wrap="False">
                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                     <Columns>
                         <asp:TemplateField HeaderText="Purchase Id" ControlStyle-CssClass="p_g_cl">
@@ -529,6 +535,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+            </div>
             </aside>
             <aside id="grid_res">
                 <div id="itemsDiv">

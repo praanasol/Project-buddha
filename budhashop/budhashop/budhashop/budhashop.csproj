@@ -172,6 +172,13 @@
     <Compile Include="Services\Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeedbackControl.ascx.cs">
+      <DependentUpon>FeedbackControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeedbackControl.ascx.designer.cs">
+      <DependentUpon>FeedbackControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\login.ascx.cs">
       <DependentUpon>login.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,6 +234,13 @@
     </Compile>
     <Compile Include="UserControls\Userregistrations.ascx.designer.cs">
       <DependentUpon>Userregistrations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="USER\AddressPage.aspx.cs">
       <DependentUpon>AddressPage.aspx</DependentUpon>
@@ -349,6 +363,7 @@
     <Content Include="images\right_arrow_hover.png" />
     <Content Include="images\trally.gif" />
     <Content Include="images\trally1.gif" />
+    <Content Include="images\feedback-vertical.png" />
     <Content Include="index.html" />
     <Content Include="ItemImages\3\4\4Photo.jpg" />
     <Content Include="ItemImages\3\4\4Photomedium.jpg" />
@@ -445,6 +460,7 @@
     <Content Include="Styles\menus.css" />
     <Content Include="Styles\profile.css" />
     <Content Include="Styles\SearchAll.css" />
+    <Content Include="UserControls\FeedbackControl.ascx" />
     <Content Include="UserControls\login.ascx" />
     <Content Include="UserControls\Login1.ascx" />
     <Content Include="UserControls\MainCartControl.ascx" />
@@ -453,6 +469,7 @@
     <Content Include="UserControls\Register.ascx" />
     <Content Include="UserControls\registration.ascx" />
     <Content Include="UserControls\Userregistrations.ascx" />
+    <Content Include="UserControls\WebForm1.aspx" />
     <Content Include="USER\AddressPage.aspx" />
     <Content Include="USER\ChangePassword.aspx" />
     <Content Include="USER\ForgotPassword.aspx" />

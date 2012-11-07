@@ -9,43 +9,9 @@
     
 
 
-    
-    <style type="text/css" media="screen">
-        
-        .pagination
-        {
-        	
-            font-size: 14px;
-        }
-        .pagination a
-        {
-            text-decoration: none;
-            border: solid 1px #AAE;
-            color: #15B;
-        }
-        .pagination a, .pagination span
-        {
-            display: block;
-            float: left;
-            padding: 0.3em 0.5em;
-            margin-right: 2px;
-            margin-bottom: 2px;
-            width: 30px;
-            height: 30px;
-        }
-        .pagination .current
-        {
-            background: #26B;
-            color: #fff;
-            border: solid 1px #AAE;
-        }
-        .pagination .current.prev, .pagination .current.next
-        {
-            color: #999;
-            border-color: #999;
-            background: #fff;
-        }
-    </style>
+
+    <link href="Styles/pagination.css" rel="stylesheet" type="text/css" />
+   
 
     <script>
     var pagination_options = {

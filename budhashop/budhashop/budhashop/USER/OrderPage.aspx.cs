@@ -494,12 +494,16 @@ namespace budhashop.USER
                     userpNameLbl.Text = txt_uname.Text.ToString();
                     phnpLbl.Text = txt_phno.Text.ToString();
                     addrpLbl.Text = txt_address.Text.ToString();
+                   
 
 
                     adrFlag = true;
                     ClientScript.RegisterHiddenField("isPostBack", "1");
 
                     sendEmail();
+                    emailsentlbl.Text = "Order information has been sent to your email";
+                    emailsentlbl.Visible = true;
+                    Response.Redirect("../USER/ProfilePage.aspx");
                 }
                 else
                 {

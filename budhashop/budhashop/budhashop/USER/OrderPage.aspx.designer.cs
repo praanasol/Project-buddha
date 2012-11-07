@@ -104,13 +104,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Label lbl_result2;
         
         /// <summary>
-        /// errorLbl control.
+        /// itemCartDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLbl;
+        protected global::System.Web.UI.WebControls.DataList itemCartDL;
         
         /// <summary>
         /// noOfItemsLbl control.
@@ -137,16 +137,16 @@ namespace budhashop.USER {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cancel;
+        protected global::System.Web.UI.WebControls.LinkButton btn_cancel;
         
         /// <summary>
-        /// itemCartDL control.
+        /// errorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList itemCartDL;
+        protected global::System.Web.UI.WebControls.Label errorLbl;
         
         /// <summary>
         /// txt_emailidadr control.
@@ -246,6 +246,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ConfirmBtn;
+        
+        /// <summary>
+        /// emailsentlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label emailsentlbl;
         
         /// <summary>
         /// cartData control.

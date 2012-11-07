@@ -22,11 +22,20 @@ $(document).ready(function(){// this will run when the document.ready event fire
             $("#signin_menu").slideToggle();
         });
     } else if(x < ox && y < oy){
+    if(y==0)
+    {
+    $("[id$=message_2]").html("Cart empty");
+     $("[id$=message_2]").fadeIn(1000, function(){
+             $("[id$=message_2]").fadeOut(3000);
+            
+        });
+    }else{
      $("[id$=message_2]").html("Product removed");
      $("[id$=message_2]").fadeIn(1000, function(){
              $("[id$=message_2]").fadeOut(3000);
             
         });
+        }
     } else {
      $("[id$=message_2]").html("");
     }

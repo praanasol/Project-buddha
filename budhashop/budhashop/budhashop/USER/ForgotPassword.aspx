@@ -5,14 +5,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div style="height:500px;">
-    <table cellpadding="0" cellspacing="0" width="410" border="0" class="bg_style2" style="margin-top:100px; margin-left:300px;">
+    <table cellpadding="0" cellspacing="0" width="450" border="0" class="bg_style2" style="margin-top:100px; margin-left:300px;">
      
     <tr>
         <td align="center" valign="middle" colspan="4" style="height: 40px;"><h2>Forgot Password</h2></td>
     </tr>
     <tr>
         <td align="center" valign="middle" style="margin-left:20px;">
-              <table cellpadding="0" cellspacing="0" width="400" border="0">
+              <table cellpadding="0" cellspacing="0" width="440" border="0">
     
         <tr>
             <td align="right" valign="middle" style="height: 40px;" class="style2">

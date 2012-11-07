@@ -760,3 +760,32 @@
 
 
 /*Order Page End*/	
+
+
+/* Login and Registration Start */
+#log_panel
+{
+	margin:0px;
+	padding:0px;
+	width:975px;
+	height:auto;
+	float:left;
+}
+#log_l_panel
+{
+	margin:0px;
+	padding:0px;
+	width:450px;
+	height:auto;
+	float:left;
+}
+
+#log_r_panel
+{
+	margin:0px;
+	padding:0px;
+	width:500px;
+	height:auto;
+	float:left;
+}
+/* Login and Registration End */

@@ -461,13 +461,20 @@ a.scroll_arrow_r:hover, a.scroll_arrow_r:active{
 	background:url(../images/right_arrow_hover.png) left top no-repeat;
 }
 #sort{
-	margin:10px 0px 0px 0px;
+	margin:10px 0px 0px 5px;
 	padding:0px;
-	width:790px;
+	width:985px;
 	height:50px;
 	border-radius:5px;
-	background:#a2a835;
+	
 }
+ #pages
+        {
+        	margin:auto;
+        	padding-top:13px;
+        	width:auto;
+        	 text-align:center;
+        }
 #sort_items{
 	margin:0px 0px 0px 2px;
 	padding-top:12px;

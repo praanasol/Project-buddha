@@ -98,10 +98,58 @@
         </style>
 <body>
 <section id="item_area" class="bg_style1">
-    <div id="box_header">
-    	<div id="to_left"><h2>Featured </h2></div>
-        <div id="to_right"><h2>Featured </h2></div>
-    </div>
+    <%--<section id="log_panel" class="box_style">
+        <!--Login Panel start-->
+        <aside id="log_l_panel">
+            <div id="p_f_data" class="p_f_box_style">
+                            <section id="login_header"><h3>Forgot Password</h3></section>
+                            <section id="p_f_fields">
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                         User Name<br />
+            (or)
+            Email Id :<asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" 
+                ControlToValidate="txt_lusername" ErrorMessage="*" SetFocusOnError="True" 
+                ValidationGroup="4"></asp:RequiredFieldValidator></div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="TextBox1" runat="server" Width="181px"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="p_f_field_area">
+                                    <div id="p_f_label">
+                                        Password :<asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" 
+                ControlToValidate="txt_lpassword" ErrorMessage="*" SetFocusOnError="True" 
+                ValidationGroup="4"></asp:RequiredFieldValidator></div>
+                                    <div id="p_f_field" class="style4">
+                                        <asp:TextBox ID="TextBox2" runat="server" Width="181px" 
+                TextMode="Password"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div id="to_right" style="margin:40px 0px 0px 13px;"> <asp:HyperLink ID="hyplink_forgotpwd" runat="server" 
+                NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink></div>
+                             </section>
+                             
+                             <div id="login_links" style="margin:auto; padding:10px 0px 0px 0px; width:430px; height:60px;">
+                                <div id="but_style" style="margin-left:180px;">
+                             <asp:Button ID="btn_login" runat="server" Text="Login" ValidationGroup="4" 
+                onclick="btn_login_Click" />
+                             <asp:Button ID="btn_lclr" runat="server" Text="Clear" 
+                onclick="btn_lclr_Click" />
+                             </div>
+                             
+                             </div>
+                             
+                                    </div>
+        </aside>
+        <!--Login Panel End-->
+        <!--Register Panel Start-->
+        <aside id="log_r_panel">
+        
+        </aside>
+        <!--Register Panel End-->
+    </section>--%>
+    
+    
 </section>
 <table class="style5">
     <tr>

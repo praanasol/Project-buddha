@@ -11,10 +11,11 @@
 
     
     <style type="text/css" media="screen">
+       
         
         .pagination
         {
-        	
+        	margin:5px 0px 0px 0px;
             font-size: 14px;
         }
         .pagination a
@@ -25,9 +26,11 @@
         }
         .pagination a, .pagination span
         {
-            display: block;
-            float: left;
-            padding: 0.3em 0.5em;
+        	margin:auto;
+            display:inline;
+            padding:5px 5px;
+            margin-top:4px;
+            margin-left:5px;
             margin-right: 2px;
             margin-bottom: 2px;
             width: 30px;
@@ -35,15 +38,27 @@
         }
         .pagination .current
         {
-            background: #26B;
+            margin:0px 5px;
             color: #fff;
-            border: solid 1px #AAE;
+            background:#f39112;
+	        border:#f39112 solid 2px;
+	        border-radius:5px;
         }
         .pagination .current.prev, .pagination .current.next
         {
-            color: #999;
-            border-color: #999;
-            background: #fff;
+        	margin:0px 0px 0px 0px;
+            font-family:"Arial", Gadget, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	text-decoration:none;
+	background:#f39112;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fe7e28), to(#d85702));
+    background: -moz-linear-gradient(#fe7e28, #d85702);
+    background: linear-gradient(#fe7e28, #d85702);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe7e28', endColorstr='#d85702');
+	border:#364700 solid 2px;
+	border-radius:5px;
         }
     </style>
     <script type="text/javascript" src="script/scroll/homePageLoad.js">
@@ -103,8 +118,10 @@
     </div>
    
     </section>
-     <section id="sort" >
-        <div id="pagination" class="pagination">
+     <section id="sort" class="bg_style1">
+        <div id="pages">
+            <div id="pagination" class="pagination">
+        </div>
     </div>
       </section>
 

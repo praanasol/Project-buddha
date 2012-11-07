@@ -568,6 +568,70 @@
     
     </div>
     <div id="adressDiv" style="display:none;">
+    <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 270px;">
+        <section id="login_header">
+            <h3>
+                Edit Profile</h3>
+        </section>
+        <section id="p_f_fields" style="width: 490px; height: 200px;">
+            <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                <div id="p_f_label">
+                    Email ID :</div>
+                <div id="p_f_field" class="style4">
+                    <asp:TextBox ID="txt_emailidadr" runat="server" Width="180px" ReadOnly="True"></asp:TextBox>
+                </div>
+            </div>
+            <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 5px;">
+                    Name :</div>
+                <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                    <asp:RequiredFieldValidator ID="rfv1" runat="server" ErrorMessage="*" ControlToValidate="txt_uname"
+                        SetFocusOnError="True" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </div>
+                <div id="but_style" style="width: 100px;">
+                    <asp:TextBox ID="txt_uname" runat="server" Width="180px"></asp:TextBox>
+                </div>
+            </div>
+            <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 5px;">
+                    Phone Number :</div>
+                <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                    <asp:RequiredFieldValidator ID="rfv2" runat="server" 
+                        ControlToValidate="txt_phno" ErrorMessage="*" SetFocusOnError="True" 
+                        ValidationGroup="1"></asp:RequiredFieldValidator>
+                </div>
+                <div id="but_style" style="width: 100px;">
+                    <asp:TextBox ID="txt_phno" runat="server" Width="180px"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                        ControlToValidate="txt_phno" ErrorMessage="Enter Valid 10 digit Mobile Number" 
+                        SetFocusOnError="True" ValidationExpression="\d{10}" ValidationGroup="1"></asp:RegularExpressionValidator>
+                </div>
+            </div>
+            <div id="p_f_field_area" style="width: 490px; height: 70px;">
+                <div id="p_f_label" style="margin-top: 25px; padding-top: 5px;">
+                    Address :</div>
+                <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                    <asp:RequiredFieldValidator ID="rfv3" runat="server" 
+                        ControlToValidate="txt_address" ErrorMessage="*" SetFocusOnError="True" 
+                            ValidationGroup="1"></asp:RequiredFieldValidator>
+                </div>
+                <div id="but_style" style="width: 100px; margin-top: 25px;">
+                    <asp:TextBox ID="txt_address" runat="server" TextMode="MultiLine" Width="180px"></asp:TextBox>
+            </div>
+                <div>
+                <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
+                </div>
+        </section>
+        <div id="login_links" style="width: 510px;">
+            Change my Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" />
+            <div id="to_right" style="margin: 0px 0px 0px 13px;">
+                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" OnClick="ConfirmBtn_Click" ValidationGroup="1" /></div>
+        </div>
+    </div>
+    </div>
+    <%--<div id="adressDiv" style="display:none;">
         <table style="width:auto;">
             <tr>
                 <td>
@@ -628,7 +692,7 @@
         </table>
             <p>Change my Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></p>
         <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" OnClick="ConfirmBtn_Click" ValidationGroup="1" />
-        </div>
+        </div>--%>
         
         <div id="cartData" runat="server" Visible="false">
         

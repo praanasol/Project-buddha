@@ -533,23 +533,56 @@
             <aside id="grid_res">
                 <div id="itemsDiv">
                     <%--<a href="#" id="btnCloseOrders" style="float: right;">Close</a>--%>
-                    <div>
+                    
+                    
                         <%--<asp:Label ID="itemsCount" runat="server"></asp:Label>
                         <asp:Label ID="totalBill" runat="server"></asp:Label>
                         <asp:Label ID="dateP" runat="server"></asp:Label>--%>
-                        <label id="NameA">
+                        
+                <section id="p_d_fields" style="margin-top:0px; width:410px; margin-left:5px;">
+                    <section id="login_header"><h3>Result</h3></section>
+                    <div id="p_d_field_area">
+                        <div id="p_d_label">
+                            Email ID :</div>
+                        <div id="p_d_field" class="style4">
+                            <label id="NameA">
+                        </label>
+                        </div>
+                    </div>
+                    <div id="p_d_field_area">
+                        <div id="p_d_label" class="style1" style="padding-top: 2px;">
+                            Name :</div>
+                        <div id="p_d_field" class="style4">
+                            <label id="PhnA">
+                        </label>
+                        </div>
+                    </div>
+                    <div id="p_d_field_area">
+                        <div id="p_d_label">
+                            Phone No :</div>
+                        <div id="p_d_field" class="style4">
+                            <label id="AdrA">
+                        </label>
+                        </div>
+                    </div>
+                    
+                </section>
+               
+            <br style="clear:both;" /><br />
+                        <%--<label id="NameA">
                         </label>
                         <br />
                         <label id="PhnA">
                         </label>
                         <br />
                         <label id="AdrA">
-                        </label>
-                        <br />
-                    </div>
-                    <br />
+                        </label>--%>
+                       
+                   
+                    
                     <div id="itemsList">
-                        <table id="itemTable" width="420" border="0">
+                        <table id="itemTable" width="420" cellspacing="1" cellpadding="1" border="0">
+                            
                             <tr>
                                 <th class="g_head">
                                     Item Id
@@ -569,6 +602,9 @@
                                 <th class="g_head">
                                     Total Rate
                                 </th>
+                            </tr>
+                            <tr>
+                            <td colspan="6" style="height:5px;"></td>
                             </tr>
                         </table>
                     </div>

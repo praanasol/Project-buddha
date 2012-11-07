@@ -92,8 +92,9 @@
 	padding:0px;
 	width:420px;
 	float:left;
+	background:#e7cd73;
 }
-   #grid .g_head
+  .g_head
     {
        width:450px;
        height:30px;
@@ -106,8 +107,8 @@
 	    background: -moz-linear-gradient(#f38d10, #d67d1c);
 	    background: linear-gradient(#f38d10, #d67d1c);
 	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
-	    border-radius:3px;
-	    border:#8e0a05 solid 2px;
+	    /*border-radius:3px;
+	    border:#8e0a05 solid 2px;*/
 	    
 	    z-index:1000;
     }

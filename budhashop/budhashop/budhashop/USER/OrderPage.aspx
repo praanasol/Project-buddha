@@ -226,8 +226,43 @@
 </script>
 
 <body>
+    <div id="LoginControl">
+        <div id="p_f_data" class="p_f_box_style">
+            <section id="login_header">
+                <h3>
+                    Forgot Password</h3>
+            </section>
+            <section id="p_f_fields">
+                <div id="p_f_field_area">
+                    <div id="p_f_label">
+                        Email ID :<asp:Label ID="lbl_emailid" runat="server" Font-Bold="False" ForeColor="Red"
+                            Text="*" Visible="False"></asp:Label></div>
+                    <div id="p_f_field" class="style4">
+                        <asp:TextBox ID="txt_emailid" runat="server" Width="180px"></asp:TextBox>
+                    </div>
+                </div>
+                <div id="p_f_field_area">
+                    <div id="p_f_label">
+                        Password :<asp:Label ID="lbl_pwd" runat="server" Font-Bold="False" ForeColor="Red"
+                            Text="*" Visible="False"></asp:Label></div>
+                    <div id="p_f_field" class="style4">
+                        <asp:TextBox ID="txt_pwd" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                    </div>
+                </div>
+            </section>
+            <div id="login_links" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
+                height: 60px;">
+                <div id="but_style" style="margin-left: 180px;">
+                    <input id="btn_login" type="button" value="LogIn" onclick="return checkLogin();" />
+                </div>
+                <div id="to_right" style="margin: 40px 0px 0px 13px;">
+                    <a href="#" id="hyplink_register">Register</a></div>
+            </div>
+            <asp:Label ID="lbl_result" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
+        </div>
+    </div>
 
-    <table id="LoginControl" class="style1">
+    <%--<table id="LoginControl" class="style1">
         <tr>
             <td colspan="3">Login</td>
         </tr>
@@ -253,8 +288,8 @@
         </tr>
         <tr>
             <td colspan="3">
-                <%--<asp:Button ID="btn_login" runat="server" Text="LogIn" OnClientClick="checkLogin()" />--%>
-                <input id="btn_login" type="button" value="LogIn" onclick="return checkLogin();" />
+                <%--<asp:Button ID="btn_login" runat="server" Text="LogIn" OnClientClick="checkLogin()" />--%>--%>
+                <%--<input id="btn_login" type="button" value="LogIn" onclick="return checkLogin();" />
             </td>
         </tr>
         <tr>
@@ -267,7 +302,7 @@
             <asp:Label ID="lbl_result" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
             </td>
         </tr>
-    </table>
+    </table>--%>
                          <%--<uc_register:registeruc ID="registeruc" runat="server" />--%>
                          <%--Regitration popup--%>
                          <script type="text/javascript">
@@ -315,8 +350,48 @@
         alert("Error calling service method.");
         }        
 </script>
+<div id="RegisterControl">
+        <div id="p_f_data" class="p_f_box_style">
+            <section id="login_header">
+                <h3>
+                    New User Registration</h3>
+            </section>
+            <section id="p_f_fields">
+                <div id="p_f_field_area">
+                    <div id="p_f_label">
+                        Email ID :</div>
+                    <div id="p_f_field" class="style4">
+                        <asp:TextBox ID="txt_emailid2" runat="server" Width="180px"></asp:TextBox>
+                    </div>
+                </div>
+                <div id="p_f_field_area">
+                    <div id="p_f_label">
+                        Password :</div>
+                    <div id="p_f_field" class="style4">
+                        <asp:TextBox ID="txt_pwd2" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                    </div>
+                </div>
+                <div id="p_f_field_area">
+                    <div id="p_f_label">
+                        Confirm Password :</div>
+                    <div id="p_f_field" class="style4">
+                        <asp:TextBox ID="txt_confirmpwd2" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                    </div>
+                </div>
+            </section>
+            <div id="login_links" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
+                height: 60px;">
+                <div id="but_style" style="margin-left: 180px;">
+                    <input id="btn_register" type="button" value="Register" onclick="return checkEmail();" />
+                </div>
+                <div id="to_right" style="margin: 40px 0px 0px 13px;">
+                    <a href="#" id="hyplink_login">Login</a>
+            </div>
+            <asp:Label ID="lbl_result2" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
+        </div>
+    </div>
 
-<table id="RegisterControl">
+<%--<table id="RegisterControl">
     <tr>
         <td style="text-align: center" colspan="2">
             New User Registration</td>
@@ -355,7 +430,7 @@
     <asp:Label ID="lbl_result2" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
         </td>
     </tr>
-</table>
+</table>--%>
 <%--Registration popup end --%>
                          
                 </div>

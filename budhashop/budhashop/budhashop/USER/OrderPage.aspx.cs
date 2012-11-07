@@ -20,12 +20,16 @@ using BusinessLogicBS.UserClasses;
 using BusinessEntitiesBS.UserEntities;
 using budhashop.UserControls;
 
+using System.IO;
+using System.Text;
+using System.Net.Mail;
+
 namespace budhashop.USER
 {
     public partial class OrderPage : System.Web.UI.Page
     {
         public List<CartItems> CartDetails;
-        
+
         public DataTable dt;
         public bool adrFlag = false;
 
@@ -50,11 +54,10 @@ namespace budhashop.USER
                 {
                     ClientScript.RegisterHiddenField("isPostBack", "1");
                 }
-                
+
             }
 
             (Master.FindControl("cart1") as MainCartControl).Visible = false;
-
 
         }
 
@@ -226,55 +229,50 @@ namespace budhashop.USER
             List<AddressDetails> adrdetails = new List<AddressDetails>();
             //budhashop.USER.OrderPage pge = new budhashop.USER.OrderPage();
             if (HttpContext.Current.Session["currentuser"] != null)
+            {
+                DataTable dtt = (DataTable)HttpContext.Current.Session["currentuser"];
+                string emailid = dtt.Rows[0]["Email"].ToString();
+
+                try
                 {
-                    DataTable dtt = (DataTable)HttpContext.Current.Session["currentuser"];
-                    string emailid = dtt.Rows[0]["Email"].ToString();
-                    
-                    try
+
+                    IUser retrieveuser = new UserItems();
+
+                    //returns the table if given emailid exists
+                    DataTable dt2 = retrieveuser.checkavailability(emailid);
+                    if (dt2 != null)
                     {
-                        
-                        IUser retrieveuser = new UserItems();
+                        AddressDetails adr = new AddressDetails();
+                        //pge.txt_emailid.Text
+                        adr.EmailId = dt2.Rows[0]["Email"].ToString();
 
-                        //returns the table if given emailid exists
-                        DataTable dt2 = retrieveuser.checkavailability(emailid);
-                        if (dt2 != null)
-                        {
-                            AddressDetails adr = new AddressDetails();
-                            //pge.txt_emailid.Text
-                                adr.EmailId = dt2.Rows[0]["Email"].ToString();
+                        //txt_uname.Text 
+                        adr.UserName = dt2.Rows[0]["UserName"].ToString();
+                        //pge.txt_phno.Text 
+                        adr.Phone = dt2.Rows[0]["Phone"].ToString();
+                        //pge.txt_address.Text 
+                        adr.Address = dt2.Rows[0]["Address"].ToString();
 
-                            //txt_uname.Text 
-                             adr.UserName   = dt2.Rows[0]["UserName"].ToString();
-                            //pge.txt_phno.Text 
-                              adr.Phone  = dt2.Rows[0]["Phone"].ToString();
-                            //pge.txt_address.Text 
-                              adr.Address  = dt2.Rows[0]["Address"].ToString();
-
-                              adrdetails.Add(adr);
-                        }
-
-                        
+                        adrdetails.Add(adr);
                     }
-                    catch (Exception ex)
-                    {
-                        //pge.lbl_status.Text = "Error Occured : " + ex.Message;
-                        throw ex;
-                    }
+
+
                 }
+                catch (Exception ex)
+                {
+                    //pge.lbl_status.Text = "Error Occured : " + ex.Message;
+                    throw ex;
+                }
+            }
 
             //ClientScript.RegisterHiddenField("isPostBack", "1");
             return adrdetails.ToArray();
-            
 
-               //pge.CartDiv.Visible = false;
-               //pge.adressDiv.Visible = true;
-               //return true;
-            
-        }
 
-        protected void retrieveUser(string emailid)
-        {
-            
+            //pge.CartDiv.Visible = false;
+            //pge.adressDiv.Visible = true;
+            //return true;
+
         }
 
         private void LoadItemsFinal()//List<CartItems> Cartinfo)
@@ -304,7 +302,7 @@ namespace budhashop.USER
                 DataTable dtg = new DataTable();
                 //InterfacesBS.InterfacesBL.InterfaceItems callCache = new ItemsClass();
                 budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
-            
+
                 ds = callCache.getCache();
                 dtv = ds.Tables[0];
                 dtg = ds.Tables[1];
@@ -384,12 +382,6 @@ namespace budhashop.USER
                 Response.Redirect("../homepage.aspx");
             }
 
-            
-        }
-        protected void btn_ConfirmOrder_Click(object sender, EventArgs e)
-        {
-            //CartDiv.Visible = false;
-            //adressDiv.Visible = true;
 
         }
 
@@ -463,7 +455,7 @@ namespace budhashop.USER
                         int cid = item.ItemId;
                         int qty = item.Qty;
                         float tot = item.TotalBill;
-                        Total += tot;
+                        Total += tot * qty;
                         cartItems += cid + "," + qty + ";";
 
                     }
@@ -502,12 +494,12 @@ namespace budhashop.USER
                     userpNameLbl.Text = txt_uname.Text.ToString();
                     phnpLbl.Text = txt_phno.Text.ToString();
                     addrpLbl.Text = txt_address.Text.ToString();
-                    
-                    
+
+
                     adrFlag = true;
                     ClientScript.RegisterHiddenField("isPostBack", "1");
 
-
+                    sendEmail();
                 }
                 else
                 {
@@ -522,13 +514,77 @@ namespace budhashop.USER
 
         }
 
+        private void sendEmail()
+        {
+            //string siteurl = "http://www.autoraksha.com/login/NewPassword.aspx";
+            string smsg1 = "<b>Purchase Id: </b>" + purchaseIdLbl.Text;
+            string smsg2 = "<br><b>Total Bill: </b>" + totalpLbl.Text;
+            string smsg3 = "<br><b>Number Of Items: </b>" + itemspNoLbl.Text;
+            string smsg4 = "<br><b>Purchase Date: </b>" + purchaseDateLbl.Text;
+            string smsg5 = "<br><br><b>Name: </b>" + userpNameLbl.Text;
+            string smsg6 = "<br><b>Phone Number: </b>" + phnpLbl.Text;
+            string smsg7 = "<br><b>Shipping Address: </b>" + addrpLbl.Text + "<br>";
+            string smsg8 = DivToHtml(cartDataGV);
+            string smsg9 = "<br><br><br><br>";
+            string smsg10 = "<b>-Administrator";
+
+            MailMessage message = new MailMessage();
+            try
+            {
+                dt = (DataTable)HttpContext.Current.Session["currentuser"];
+                string emailid = dt.Rows[0]["Email"].ToString();
+
+                message.To.Add(new MailAddress(emailid));
+                message.From = new MailAddress("autoraksha.help@gmail.com");
+
+                message.Subject = "Your Order is Placed Successfully";
+                message.Body = smsg1 + smsg2 + smsg3 + smsg4 + smsg5 + smsg6 + smsg7 + smsg8 + smsg9 + smsg10;
+                message.IsBodyHtml = true;
+                SmtpClient client = new SmtpClient();
+                client.Port = 587; // Gmail works on this port 587
+                client.Host = "smtp.gmail.com";
+                System.Net.NetworkCredential nc = new System.Net.NetworkCredential("autoraksha.help@gmail.com", "arpraana5");
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = nc;
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private string DivToHtml(GridView data)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            try
+            {
+                data.RenderControl(htw);
+                return sb.ToString();
+            }
+            catch (HttpException generatedExceptionName)
+            {
+                throw generatedExceptionName;
+            }
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
+               server control at run time. */
+            /* Write Nothing Here or place return; */
+        }
+
         public class AddressDetails
         {
             public string EmailId { get; set; }
             public string UserName { get; set; }
             public string Phone { get; set; }
             public string Address { get; set; }
-            
+
         }
     }
 }

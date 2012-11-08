@@ -42,7 +42,7 @@ namespace budhashop.CLASS
                 int grp = int.Parse(dt.Rows[i]["CategoryId"].ToString());
 
                 prj.value = dt.Rows[i]["ItemName"].ToString();
-                prj.ItemLink = "iteminfo.aspx?id=" + id + "&grp=" + grp;
+                prj.ItemLink = "fulldetails.aspx?id=" + id + "&grp=" + grp;
                 //prj.ActualHours = int.Parse(dt.Rows[i]["ActualHours"].ToString());
 
                 list.Add(prj);
@@ -57,7 +57,7 @@ namespace budhashop.CLASS
                 int idg = int.Parse(dtg.Rows[i]["GroupId"].ToString());
                 int grpg = 1;
                 prj2.value = dtg.Rows[i]["GroupName"].ToString();
-                prj2.ItemLink = "iteminfo.aspx?id=" + idg + "&grp=" + grpg; 
+                prj2.ItemLink = "fulldetails.aspx?id=" + idg + "&grp=" + grpg; 
                 
 
                 list.Add(prj2);

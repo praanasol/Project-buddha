@@ -177,7 +177,7 @@
   </header>
   
   
-  <div style="height:950px;">
+  <div style="height:auto;">
   
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
@@ -188,7 +188,7 @@
         </asp:ContentPlaceHolder>
     </div>
   
-    <br />
+    <br style="clear:both;" />
   
 </div>
 <footer class="rights">

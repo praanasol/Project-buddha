@@ -46,7 +46,7 @@
 <%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
 <article style="height:200px;"></article>
   <br clear="all" />
-<section id="item_area" class="box_style" style="height:550px;">
+<section id="item_area" class="box_style" style="height:585px;">
   	<div id="box_header">
     	<div id="to_left"><h2>Featured Products</h2></div>
       
@@ -69,7 +69,7 @@
     </div>
    
     </section>
-     <section id="sort" class="bg_style1">
+     <section id="sort" class="box_style">
         <div id="pages">
             <div id="pagination" class="pagination">
         </div>

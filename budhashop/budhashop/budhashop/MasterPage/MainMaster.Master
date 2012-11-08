@@ -189,16 +189,14 @@
   
         </asp:ContentPlaceHolder>
     </div>
-  
-<<<<<<< HEAD
+
     <br />
    <div id="feedbckuc" style="position:absolute; top:1px; left:58%;">
             <uc_fb:feedbck ID="feedbckUc" runat="server" />
             </div>
-=======
+
     <br style="clear:both;" />
   
->>>>>>> 85f6346b79c647ec066879602c8671bc93769859
 </div>
 <footer class="rights">
   Copy Rights @2012. praanasolutions.com

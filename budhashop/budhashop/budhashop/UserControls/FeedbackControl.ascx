@@ -56,8 +56,8 @@
     
 <div id="feedback" class="feedback">
     
-   <div style="width:120px; float:right; cursor:pointer;">
-        <img id="img_fb" alt="FeedBack" src="../images/feedback-vertical.jpg" style="height:35px; width:120px" />
+   <div style="height:24px;width:75px; float:right; cursor:pointer; background-color:Aqua"><a id="img_fb" alt="FeedBack">Feedback</a>
+        <%--<img id="img_fb" alt="FeedBack" src="../images/feedback-vertical.jpg" style="height:24px; width:74px" />--%>
     </div><br />
     
     

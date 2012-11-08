@@ -133,7 +133,7 @@ alert("Error");
          
       </section>
       <!--Categories End-->
-	  <section id="sort" class="bg_style1">
+	  <section id="sort" class="box_style">
 	  <div id="pages">
         <div id="pagination" class="pagination">
     </div>

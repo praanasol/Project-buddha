@@ -30,13 +30,31 @@ namespace budhashop.Services
 
         }
 
+
+        [WebMethod]
+        public static string getCatName(string CatId)
+        {
+            DataTable catgDt = new DataTable();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+            DataSet allDataDS = callCache.getCache();
+            catgDt = allDataDS.Tables[3];
+
+            var catItem = catgDt.AsEnumerable().First(p => p.Field<long>("CategoryId") == long.Parse(CatId));
+
+            string catName = catItem["CategoryName"].ToString();
+
+            return catName;
+        }
+        
         [WebMethod]
         public static CatDetails[] FetchCatNames()
         {
             DataTable catgDt = new DataTable();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+            DataSet allDataDS = callCache.getCache();
+            catgDt = allDataDS.Tables[3];
+            
            
-            IAdmin getCats = new AdminItems();
-            catgDt = getCats.getCatagories();
 
             List<CatDetails> details = new List<CatDetails>();
 

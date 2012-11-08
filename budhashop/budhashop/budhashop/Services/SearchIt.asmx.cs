@@ -39,5 +39,7 @@ namespace budhashop.Services
             //      var filteredAreas= fetchAreas.Where(m => m.AreaName.ToLower().Contains(areaString.ToLower()));
             return fetchItems.ToList();
         }
+
+
     }
 }

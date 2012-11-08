@@ -135,10 +135,26 @@ alert("Error");
 });
 }
  
+ $.ajax({
+type: "POST",
+contentType: "application/json; charset=utf-8",
+url: "Services/Services.aspx/getCatName",
+data: "{'CatId':'"+ catID +"'}",
+dataType: "json",
+success: function(data) {
+$("#catStr").append('<b>'+data.d+'</b>');
+ 
+ 
+ 
+},
+error: function(result) {
+alert("Error");
+}
+});
 });
 
 </script>
-<div id="catStr" style="height:16px; padding:25px; font-size:16px;">Catagory</div>
+<div id="catStr" style="height:16px; padding:25px; font-size:16px;"></div>
 
 
 <section id="middlebody"> 

@@ -241,8 +241,11 @@ alert("Error");
       </section>
       <!--Categories End-->
 	  <!-- Sorting Section Start-->
-	  <section id="sort">
+	  <section id="sort" class="bg_style1">
+	  <div id="pages">
          <div id="pagination" class="pagination">
+         </div>
+         </div>
       </section>
       <%--<section id="sort">
         <div id="sort_items"> <a href="#" target="_self">A</a> <a href="#" target="_self">B</a> <a href="#" target="_self">C</a> <a href="#" target="_self">D</a> <a href="#" target="_self">E</a> <a href="#" target="_self">F</a> <a href="#" target="_self">G</a> <a href="#" target="_self">H</a> <a href="#" target="_self">I</a> <a href="#" target="_self">J</a> <a href="#" target="_self">K</a> <a href="#" target="_self">L</a> <a href="#" target="_self">M</a> <a href="#" target="_self">N</a> <a href="#" target="_self">O</a> <a href="#" target="_self">P</a> <a href="#" target="_self">Q</a> <a href="#" target="_self">R</a> <a href="#" target="_self">S</a> <a href="#" target="_self">T</a> <a href="#" target="_self">U</a> <a href="#" target="_self">V</a> <a href="#" target="_self">W</a> <a href="#" target="_self">X</a> <a href="#" target="_self">Y</a> <a href="#" target="_self">Z</a> </div>

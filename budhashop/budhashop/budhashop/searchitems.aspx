@@ -133,8 +133,10 @@ alert("Error");
          
       </section>
       <!--Categories End-->
-	  <section id="sort">
+	  <section id="sort" class="bg_style1">
+	  <div id="pages">
         <div id="pagination" class="pagination">
+    </div>
     </div>
       </section>
 	  

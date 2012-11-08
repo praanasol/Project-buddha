@@ -1,38 +1,75 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FeedbackControl.ascx.cs" Inherits="budhashop.UserControls.FeedbackControl" %>
 
-<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
+<%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
 <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>
-
+--%>
 <style type="text/css">
     .feedback
     {
+    	
     	position:fixed;
-    	top:30%;
-    	left:-13.7%;
+    	right:0%;
+    	bottom:0%;
+    }
+     .feedback-body
+    {
+    	
+    	width:auto; 
+    	float:left;
+    	position:fixed;
+    	right:-21%;
+    	bottom:0%;
+    	
     }
 </style>
 
 <script type="text/javascript">
     $(document).ready(function(){
         $("#img_fb").click(function(e) {
-            var feedbackoffset = $("#feedback").offset();
-            if(feedbackoffset.left<0)
-                $(".feedback").animate({left:"0%"});
-            else
-                $(".feedback").animate({left:"-13.7%"});
+          
+            
+                //$(".feedback-body").show();
+                $(".feedback-body").animate({right:"0%"});
+                 $("#feedback").hide();
+                 e.stopPropagation();
+           
         });
         $(document).click(function(e) {
-            $(".feedback").animate({left:"-13.7%"});
-        });
-        $(".feedback").click(function(e){
+            $(".feedback-body").animate({right:"-21%"});
+            $("#feedback").show();
             e.stopPropagation();
+            //$(".feedback-body").hide();
+             
+        });
+        $("#feedback-body").click(function(e){
+            e.stopPropagation();
+        });
+        $("#closeimg").click(function(e){
+            $(".feedback-body").animate({right:"-21%"});
+            $("#feedback").show();
         });
     });
 </script>
 
 <body>
+
+    
 <div id="feedback" class="feedback">
-    <div id="feedback-body" style="width:auto; float:left;">
+    
+   <div style="width:120px; float:right; cursor:pointer;">
+        <img id="img_fb" alt="FeedBack" src="../images/feedback-vertical.jpg" style="height:35px; width:120px" />
+    </div><br />
+    
+    
+</div>
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+    
+    <div id="feedback-body" class="feedback-body" >
+        <div style="width:auto; float:left; cursor:pointer;">
+        <img id="closeimg" alt="FeedBack" src="../images/unavailable.png" />
+        </div>
+        <br />
         Enter Your Email Id:<br />
         <asp:RequiredFieldValidator ID="rfv_emailfb" runat="server" 
             ControlToValidate="txt_emailfb" ErrorMessage="*" SetFocusOnError="True" 
@@ -60,9 +97,6 @@
         <asp:Button ID="btn_submitFb" runat="server" Text="Submit" 
             ValidationGroup="feedback" />
     </div>
-    
-    <div style="width:auto; float:left; cursor:pointer;">
-        <img id="img_fb" alt="FeedBack" src="../images/feedback-vertical.jpg" style="height:120px; width:35px" />
-    </div>
-</div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
 </body>

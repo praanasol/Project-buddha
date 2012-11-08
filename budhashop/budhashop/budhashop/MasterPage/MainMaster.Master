@@ -3,6 +3,8 @@
 <%@ Register Src="~/UserControls/login.ascx" TagName="mainloginuc" TagPrefix="uc_mainlogin" %>
 <%@ Register src="~/UserControls/navigation.ascx" tagname="naviuc" tagprefix="uc_navi" %>
 <%@ Register src="~/UserControls/mainSearch.ascx" tagname="searchuc" tagprefix="uc_search" %>
+<%@ Register src="~/UserControls/FeedbackControl.ascx" tagname="feedbck" tagprefix="uc_fb" %>
+
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
@@ -189,7 +191,9 @@
     </div>
   
     <br />
-  
+   <div id="feedbckuc" style="position:absolute; top:1px; left:58%;">
+            <uc_fb:feedbck ID="feedbckUc" runat="server" />
+            </div>
 </div>
 <footer class="rights">
   Copy Rights @2012. praanasolutions.com

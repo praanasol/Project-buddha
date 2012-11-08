@@ -288,10 +288,14 @@ header{
 	height:310px;
 }
 #box_header{
-	margin:0px;
-	padding-left:10px;
-	width:970px;
-	height:30px;
+	margin:auto;
+	margin-bottom:5px;
+	padding:0px;
+	width:985px;
+	height:25px;
+	text-align:left;
+	border-bottom:#f3c46d 1px solid;
+	border-radius:0px;
 }
 
 #but{

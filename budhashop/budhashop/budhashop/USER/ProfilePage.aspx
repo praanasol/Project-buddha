@@ -4,6 +4,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="box_header" style="width:985px;">
+    	<h2>Profile...</h2>
+      
+    </div>
     <div id="p_data_area" class="box_style">
         <div id="profileDiv">
             <!--Profile Start-->

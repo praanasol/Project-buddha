@@ -164,6 +164,7 @@
             <%--Start of Pop-Up Window--%>
             <asp:UpdatePanel ID="loginPop" runat="server">
             <ContentTemplate>
+                
                 <div id="overlay" class="web_dialog_overlay"></div>
 
                 <div id="dialog" class="web_dialog">
@@ -360,9 +361,13 @@
     
       <div id="CartDiv" style="display:none;">    
         
-    
+    <div id="box_header" style="margin-left:0px; width:970px; height:30px;">
+    	<div id="to_left"><h2>Order Items</h2></div>
+      
+    </div>
         <!--Order items start-->
         <section id="o_i_layout" class="box_style">
+        
             <!--Order items body start-->
             <div id="o_i_body">
                 <!--Order items header part Start-->

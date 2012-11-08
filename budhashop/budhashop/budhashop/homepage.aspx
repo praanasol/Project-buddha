@@ -46,11 +46,12 @@
 <%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
 <article style="height:200px;"></article>
   <br clear="all" />
-<section id="item_area" class="box_style" style="height:585px;">
-  	<div id="box_header">
-    	<div id="to_left"><h2>Featured Products</h2></div>
+  <div id="box_header" style="width:985px;">
+    	<h2>Feature Products...</h2>
       
     </div>
+<section id="item_area" class="box_style" style="height:585px;">
+  	
     <!--Gallery Start-->
    <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px;">
    

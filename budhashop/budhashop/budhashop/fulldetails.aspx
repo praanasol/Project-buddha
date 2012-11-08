@@ -116,6 +116,10 @@ alert("Error");
  
 <article style="height:40px;"></article>
   <br clear="all" />
+  <div id="box_header" style="width:985px;">
+    	<h2>Full Details...</h2>
+      
+    </div>
 <section id="item_area" class="box_style" style="height:730px;">
   	<div id="full_details_box_header">
     	<div id="to_left"><h2>Product Details</h2></div>

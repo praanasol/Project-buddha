@@ -191,9 +191,12 @@ alert("Error");
     <aside > 
       <!--Categories Start-->
       <section>
-        
+        <div id="box_header" style="width:985px;">
+    	<h2>Items...</h2>
+      
+    </div>
         <!--Gallery Start-->
-        <div id="item_area" class="box_style" style="height:520px;"> 
+        <div id="item_area" class="box_style" style="height:500px;"> 
         
         <div id = "itemsBox">
           <p id="fetching">
@@ -241,7 +244,7 @@ alert("Error");
       </section>
       <!--Categories End-->
 	  <!-- Sorting Section Start-->
-	  <section id="sort" class="bg_style1">
+	  <section id="sort" class="box_style">
 	  <div id="pages">
          <div id="pagination" class="pagination">
          </div>

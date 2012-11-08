@@ -18,9 +18,16 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div style="height:595px;">
+<div style="padding-top:35px; width:1000px; height:543px;">
+
+<div id="box_header" style="width:100%;">
+    	<h2>Login and New User Registration...</h2>
+      
+    </div>
+   
     <!--Login and Register panel Start-->
     <section id="log_panel" class="box_style">
+    
         <!--Login panel Start-->
         <aside id="log_l_panel">
             <div id="loginDiv" style="width: 400px; height: 200px;">

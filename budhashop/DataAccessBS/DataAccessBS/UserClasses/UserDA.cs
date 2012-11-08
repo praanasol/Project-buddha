@@ -24,15 +24,12 @@ namespace DataAccessBS.UserClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[6];
+                SqlParameter[] sqlParams = new SqlParameter[3];
 
                 //User parameters
                 sqlParams[0] = new SqlParameter("@uname", userobjDA.uname);
                 sqlParams[1] = new SqlParameter("@emailid", userobjDA.emailid);
                 sqlParams[2] = new SqlParameter("@pwd", userobjDA.pwd);
-                sqlParams[3] = new SqlParameter("@phno", userobjDA.phno);
-                sqlParams[4] = new SqlParameter("@address", userobjDA.address);
-                sqlParams[5] = new SqlParameter("@userstatus", userobjDA.userstatus);
                 DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_USERS", sqlParams);
             }
             catch (SqlException exc)

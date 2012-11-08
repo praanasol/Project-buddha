@@ -59,13 +59,13 @@ namespace budhashop.UserControls {
         protected global::System.Web.UI.WebControls.TextBox txt_msg;
         
         /// <summary>
-        /// rv_msg control.
+        /// rev_msg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rv_msg;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_msg;
         
         /// <summary>
         /// btn_submitFb control.

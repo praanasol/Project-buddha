@@ -76,9 +76,6 @@ namespace budhashop.USER.Services
                     userObj.uname = "";
                     userObj.emailid = emailid;
                     userObj.pwd = encryptedpwd;
-                    userObj.phno = "";
-                    userObj.address = "";
-                    userObj.userstatus = true;
                     try
                     {
                         IUser userInsert = new UserItems();

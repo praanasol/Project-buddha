@@ -228,13 +228,6 @@
     <Compile Include="UserControls\registration.ascx.designer.cs">
       <DependentUpon>registration.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Userregistrations.ascx.cs">
-      <DependentUpon>Userregistrations.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\Userregistrations.ascx.designer.cs">
-      <DependentUpon>Userregistrations.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +255,13 @@
     </Compile>
     <Compile Include="USER\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="USER\Login_Register.aspx.cs">
+      <DependentUpon>Login_Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\Login_Register.aspx.designer.cs">
+      <DependentUpon>Login_Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="USER\OrderHistory.aspx.cs">
       <DependentUpon>OrderHistory.aspx</DependentUpon>
@@ -354,6 +354,7 @@
     <Content Include="images\arrowback.PNG" />
     <Content Include="images\arrow_down.gif" />
     <Content Include="images\arrow_up.gif" />
+    <Content Include="images\feedback-vertical.jpg" />
     <Content Include="images\header_bg.gif" />
     <Content Include="images\img.gif" />
     <Content Include="images\left_arrow.png" />
@@ -361,9 +362,10 @@
     <Content Include="images\logo.gif" />
     <Content Include="images\right_arrow.png" />
     <Content Include="images\right_arrow_hover.png" />
+    <Content Include="images\tick.png" />
     <Content Include="images\trally.gif" />
     <Content Include="images\trally1.gif" />
-    <Content Include="images\feedback-vertical.png" />
+    <Content Include="images\unavailable.png" />
     <Content Include="index.html" />
     <Content Include="ItemImages\3\4\4Photo.jpg" />
     <Content Include="ItemImages\3\4\4Photomedium.jpg" />
@@ -469,7 +471,6 @@
     <Content Include="UserControls\navigation.ascx" />
     <Content Include="UserControls\Register.ascx" />
     <Content Include="UserControls\registration.ascx" />
-    <Content Include="UserControls\Userregistrations.ascx" />
     <Content Include="UserControls\WebForm1.aspx" />
     <Content Include="USER\AddressPage.aspx" />
     <Content Include="USER\ChangePassword.aspx" />

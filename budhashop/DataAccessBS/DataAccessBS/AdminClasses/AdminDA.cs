@@ -426,5 +426,32 @@ namespace DataAccessBS.AdminClasses
         }
 
         #endregion
+
+        #region IAdminDA Members getFeedback
+
+
+        public DataTable getFeedbackDA()
+        {
+            try
+            {
+                DataTable feedbackDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_SITE_FEEDBACK").Tables[0];
+
+                if (feedbackDT.Rows.Count > 0)
+                {
+                    return feedbackDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

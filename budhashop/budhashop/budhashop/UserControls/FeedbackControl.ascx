@@ -75,7 +75,28 @@
             $(".feedback-body").animate({right:"-21%"});
             $("#feedback").show();
         });
+        
+        $("#btn_fbclose").click(function(){
+            $("#submittedFbDiv").hide();
+        });
     });
+    
+    function show_submittedFb(status)
+    {
+        if(status=='success')
+        {
+            $("#successFb-body").show();
+            $("#failureFb-body").hide();
+            $("#submittedFbDiv").show();
+        }
+        if(status=='fail')
+        {
+            $("#successFb-body").hide();
+            $("#failureFb-body").show();
+            $("#submittedFbDiv").show();
+        }
+        $("#submittedFbDiv").delay(3200).fadeOut(300);
+    }
 </script>
 
 <body>
@@ -132,4 +153,15 @@
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>
+    <div id="submittedFbDiv" style="display:none; position:fixed; top:40%; left:40%; border:solid 1px;">
+        <div id="successFb-body">
+            <h1>Feedback Submitted Succesfully</h1>
+            <h1>Thank you</h1>
+        </div>
+        <div id="failureFb-body">
+            <h1>Error Submitting Feedback</h1>
+            <h1>Please Try Again</h1>
+        </div>
+        <button type="button" id="btn_fbclose">Close</button>
+    </div>
 </body>

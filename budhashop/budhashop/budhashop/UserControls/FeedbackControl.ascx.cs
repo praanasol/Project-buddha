@@ -28,6 +28,7 @@ namespace budhashop.UserControls
         {
             string email = txt_emailfb.Text;
             string msg = txt_msg.Text;
+            ClientScriptManager cs = Page.ClientScript;
             try
             {
                 IUser feedbackInsert = new UserItems();
@@ -35,16 +36,17 @@ namespace budhashop.UserControls
                 int count = feedbackInsert.insertFeedback(email, msg);
                 if (count > 0)
                 {
-                    Response.Write(@"<script language='javascript'>alert('Feedback Submitted Successfully...')</script>");
+                    cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('success');", true);
                 }
                 else
                 {
-                    Response.Write(@"<script language='javascript'>alert('Error ocuured, Please try again...')</script>");
+                    cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('fail');", true);
                 }
             }
             catch
             {
-                Response.Write(@"<script language='javascript'>alert('Something Wrong, Please try again...')</script>");
+                cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('fail');", true);
+                //Response.Write(@"<script language='javascript'>alert('Something Wrong, Please try again...')</script>");
             }
         }
     }

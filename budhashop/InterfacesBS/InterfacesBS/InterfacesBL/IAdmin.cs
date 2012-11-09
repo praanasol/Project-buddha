@@ -24,5 +24,7 @@ namespace InterfacesBS.InterfacesBL
         DataTable SearchOrders(string value1, string value2);
 
         int checkLogin(string adminid, string pwd);
+
+        DataTable getFeedback();
     }
 }

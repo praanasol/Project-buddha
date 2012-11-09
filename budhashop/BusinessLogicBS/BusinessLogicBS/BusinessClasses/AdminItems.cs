@@ -213,5 +213,23 @@ namespace BusinessLogicBS.BusinessClasses
         }
 
         #endregion
+
+        #region IAdmin Members getFeedback
+
+        public DataTable getFeedback()
+        {
+            try
+            {
+                IAdminDA getFeedback = new DataAccessBS.AdminClasses.AdminDA();
+                return getFeedback.getFeedbackDA();
+            }
+            catch
+            {
+                return null;
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

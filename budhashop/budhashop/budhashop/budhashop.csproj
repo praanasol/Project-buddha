@@ -97,6 +97,13 @@
     <Compile Include="ADMIN\OrdersPage.aspx.designer.cs">
       <DependentUpon>OrdersPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADMIN\SiteFeedback.aspx.cs">
+      <DependentUpon>SiteFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\SiteFeedback.aspx.designer.cs">
+      <DependentUpon>SiteFeedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Captcha\CaptchaImage.cs" />
     <Compile Include="Captcha\JpegImage.aspx.cs">
       <DependentUpon>JpegImage.aspx</DependentUpon>
@@ -486,6 +493,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ADMIN\LoginA.aspx" />
+    <Content Include="ADMIN\SiteFeedback.aspx" />
     <Content Include="ADMIN\Web.config" />
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <None Include="script\html5shiv\.gitattributes" />

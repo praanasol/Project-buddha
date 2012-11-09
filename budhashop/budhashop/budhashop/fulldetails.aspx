@@ -12,7 +12,6 @@
        
         position: absolute;
         z-index: 10002;
-        border: 1px transparent;
         text-align: left;
         padding: 1px;
              
@@ -20,6 +19,9 @@
         left: 205px;
        
         color: #789;
+        
+	border:2px #e1a729 solid;
+	border-radius:5px;
         
     }
 

@@ -452,7 +452,7 @@ ul {
         <!--Cart heder item3 start-->
         <aside id="c_h_cl3">
           <div id="c_h_item" class="c_h_cl_box_style">
-            <div id="c_h_item_link"><asp:LinkButton ID="orderBtn1" runat="server" CssClass="style1" Text="Make Order" 
+            <div id="c_h_item_link"><asp:LinkButton ID="orderBtn1" runat="server" CssClass="c_h_links" Text="Make Order" 
             onclick="orderBtn_Click" Enabled="false"/></div>
           </div>
         </aside>
@@ -470,13 +470,14 @@ ul {
         <!--Cart items list header part start-->
         <div id="c_l_header_left">
           <ul>
-            <li>No.</li>
+            <li>S.No</li>
             <li>Product Details</li>
             
 			</ul>
 		</div>
 		<div id="c_l_header_right">
 			<ul>
+			    <li>Total(Rs)</li>
 				<li>Quantity</li>
 				<li>Edit</li>
 			
@@ -494,7 +495,7 @@ ul {
           <div id="c_l_items_row">
           	 <!--Cart items S No Cl Start-->
             <aside id="c_l_cl1">
-              <div id="c_l_sno" class="style2">1</div>
+              <div id="c_l_sno" class="style2">55</div>
             </aside>
             <!--Cart items S No Cl End-->
             <!--Cart items img CL Start-->
@@ -511,7 +512,7 @@ ul {
                               </div>
                           </div>
 						  <div id="c_l_field_area">
-                              <div id="c_l_label" class="style1">Name :</div>
+                              <div id="c_l_label">Name :</div>
                               <div id="c_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
                               </div>
                           </div>
@@ -520,17 +521,21 @@ ul {
                               <div id="c_l_field" class="style4">Rs.<asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
                               </div>
                           </div>
-                          <div id="c_l_field_area">
-                              <div id="c_l_label">Total :</div>
-                              <div id="c_l_field" class="style4">Rs. <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
-                              </div>
-                          </div>
+                          
 					
 			  </section>
             </aside>
             <!--Cart items img CL End-->
             <!--Cart items Quantity CL Start-->
             <aside id="c_l_cl3">
+              <div id="c_l_form" class="style4">
+              <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
+               </div>
+            </aside>
+            <!--Cart items Quantity CL End-->
+            
+            <!--Cart items Quantity CL Start-->
+            <aside id="c_l_cl4">
               <div id="c_l_form">
               <asp:TextBox  ID="qtyTxt" runat="server" CssClass="c_l_form_style" Text='<%# Eval("Qty")%>'></asp:TextBox>
                </div>

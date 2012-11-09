@@ -46,30 +46,17 @@ a.hide:hover, a.hide:active{
 .c_l_form_style{
 	margin:0px;
 	padding-left:5px;
-	width:60px;
-	height:30px;
+	width:35px;
+	height:20px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:15px;
 	color:#364700;
 	font-weight:bold;
 	background:#e7cd73;
 	border:2px #e1a729 solid;
-	border-radius:8px;
+	border-radius:5px;
 }
-a.c_l_links:link, a.c_l_links:visited{
-	margin:0px 0px 0px 0px;
-	padding:0px 0px 0px 0px;
-	font-family:"Arial", Gadget, sans-serif;
-	font-size:17px;
-	color:#4d6012;
-	font-weight:bold;
-	text-decoration:none;
-}
-a.c_l_links:hover, a.c_l_links:active{
-	text-decoration:none;
-	color:#a00305;
-	
-}
+
 a.link1:link, a.link1:visited{
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;

@@ -81,6 +81,23 @@
 	width:135px;
 	height:32px;
 }
+#c_h_item_link a.c_h_links:link, #c_h_item_link a.c_h_links:visited
+{
+	margin:0px 0px 0px 0px;
+	padding:0px;
+	
+	font-family:Arial;
+	font-size:14px;
+	color:#089abf;
+	font-weight:bold;
+	text-decoration:none;
+}
+#c_h_item_link a.c_h_links:hover, #c_h_item_link a.c_h_links:active
+{
+	color:#f39112;
+	font-weight:bold;
+	text-decoration:none;
+}
 #c_h_cl4{
 	margin:0px 0px 0px 42px;
 	padding:3px 0px 0px 0px;
@@ -112,7 +129,7 @@
 #c_l_header_left{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:325px;
+	width:300px;
 	height:26px;
 	float:left;
 	background:#e3c354;
@@ -121,23 +138,23 @@
 #c_l_header_left ul{
 	margin-top:2px;
 	padding:0px;
-	width:325px;
+	width:300px;
 	float:left;
 	}
 
 #c_l_header_left ul li{
-	margin:0px 30px 0px 20px;
+	margin:0px 40px 0px 5px;
 	padding:0px 0px 0px 0px;
 	display:inline;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:18px;
+	font-size:15px;
 	color:#6a6617;
 	font-weight:bold;
 }
 #c_l_header_right{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:175px;
+	width:200px;
 	height:26px;
 	float:left;
 	background:#e3c354;
@@ -146,26 +163,26 @@
 #c_l_header_right ul{
 	margin-top:2px;
 	padding:0px;
-	width:170px;
+	width:200px;
 	float:left;
-	text-align:right;
+	text-align:left;
 	
 }
 #c_l_header_right ul li{
-	margin:0px 5px 0px 5px;
+	margin:0px 7px 0px 0px;
 	padding:0px 0px 0px 0px;
 	display:inline;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:18px;
+	font-size:15px;
 	color:#6a6617;
 	font-weight:bold;
 }
 #c_l_header_right ul li a:link, #c_l_header_right  ul li a:visited{
-	margin:0px 0px 0px 10px;
-	padding:1px 10px;
+	margin:0px 0px 0px 0px;
+	padding:1px 0px;
 	display:inline;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:18px;
+	font-size:16px;
 	color:#364700;
 	font-weight:bold;
 	text-decoration:none;
@@ -173,8 +190,8 @@
 	border-radius:3px;
 }
 #c_l_header_right ul li a:hover, #c_l_header_right ul li a:active{
-	margin:0px 0px 0px 10px;
-	padding:1px 10px;
+	margin:0px 0px 0px 0px;
+	padding:1px 0px;
 	display:inline;
 	color:#8c0b05;
 	font-weight:bold;
@@ -203,7 +220,7 @@
 #c_l_cl1{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:33px;
+	width:25px;
 	height:120px;
 	float:left;
 	text-align:right;
@@ -212,13 +229,13 @@
 	margin:auto;
 	margin-top:50px;
 	padding:0px;
-	width:33px;
+	width:25px;
 	height:50px;
 }
 #c_l_cl2{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:307px;
+	width:280px;
 	height:120px;
 	float:left;
 	text-align:center;
@@ -236,13 +253,13 @@
 	margin:0px 0px 0px 0px;
 	padding:20px 0px 0px 0px;
 	width:90px;
-	height:80px;
+	height:100px;
 	text-align:right;
 }
 #c_l_fields{
 	margin-top:20px;
 	padding:0px;
-	width:207px;
+	width:190px;
 	height:100px;
 	float:left;
 	}
@@ -250,26 +267,26 @@
 	#c_l_field_area{
 		margin:4px 0px 4px 0px;
 		padding:0px;
-		width:207px;
+		width:190px;
 		height:18px;
 		float:left;
 }
 	#c_l_label{
 		margin:0px;
 		padding:0px;
-		width:60px;
+		width:50px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
-		font-size:14px;
+		font-size:12px;
 		color:#364700;
 		font-weight:bold;
 		text-align:right;
 }
 #c_l_field{
-		margin:px;
+		margin:0px;
 		margin-left:5px;
 		padding:0px;
-		width:142px;
+		width:130px;
 		float:left;
 		text-align:left;
 }
@@ -277,16 +294,24 @@
 #c_l_cl3{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:90px;
+	width:70px;
 	height:120px;
 	float:left;
-	text-align:center;
+	text-align:right;
+}
+#c_l_cl4{
+	margin:0px 0px 0px 0px;
+	padding:0px;
+	width:50px;
+	height:120px;
+	float:left;
+	text-align:left;
 }
 #c_l_form{
 	margin:auto;
 	margin-top:45px;
 	padding:0px;
-	width:80px;
+	width:50px;
 	height:30px;
 	float:left;
 	
@@ -295,19 +320,32 @@
 #c_l_cl5{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:60px;
+	width:50px;
 	height:120px;
 	float:left;
-	text-align:center;
+	text-align:left;
 }
 #c_l_edit{
 	margin-top:10px;
 	padding-top:5px;
-	width:60px;
+	width:50px;
 	height:40px;
 	float:left;
 }
-
+#c_l_edit a.c_l_links:link, #c_l_edit a.c_l_links:visited{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	font-family:"Arial", Gadget, sans-serif;
+	font-size:13px;
+	color:#089abf;
+	font-weight:bold;
+	text-decoration:none;
+}
+#c_l_edit a.c_l_links:hover, #c_l_edit a.c_l_links:active{
+	text-decoration:none;
+	color:#a00305;
+	
+}
 /*cart items list part End*/	
 /*Full Details Start*/
 #full_details_box_header{

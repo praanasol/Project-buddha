@@ -498,7 +498,7 @@
        
     
     <div id="adressDiv" style="display:none;">
-    <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 270px;">
+    <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 300px;">
         <section id="login_header">
             <h3>
                 Edit Profile</h3>
@@ -507,6 +507,7 @@
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
                 <div id="p_f_label" style="margin-top: 2px; padding-top: 2px;">
                     Email ID :</div>
+                    <div id="but_style" class="style4" style="padding-top: 4px; padding-left:5px;"></div>
                 <div id="p_f_field" class="style4">
                     <asp:TextBox ID="txt_emailidadr" CssClass="p_f_form_style" runat="server" Width="180px" ReadOnly="True"></asp:TextBox>
                 </div>
@@ -547,16 +548,16 @@
                             ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
                 <div id="p_f_field" style="width: 100px;">
-                    <asp:TextBox ID="txt_address" CssClass="p_f_form_style" Rows="3" runat="server" TextMode="MultiLine" Width="180px"></asp:TextBox>
+                    <asp:TextBox ID="txt_address" CssClass="p_f_form_style" Rows="3" runat="server" TextMode="MultiLine" Height="70px" Width="180px"></asp:TextBox>
             </div>
                 <div>
                 <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
                 </div>
         </section>
-        <div id="login_links" style="width: 510px;">
-            Change my Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" />
-            <div id="to_right" style="margin: 0px 0px 0px 13px;">
-                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" OnClick="ConfirmBtn_Click" ValidationGroup="1" /></div>
+        <div id="login_links" style="width: 510px; height:30px;">
+            <div id="to_left">Change my Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></div>
+            <div id="but_style" style="margin: 0px 0px 0px 13px;">
+                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" ValidationGroup="1" /></div>
         </div>
     </div>
     </div>

@@ -38,8 +38,7 @@
                            height:auto;
                            top:30%;
                            left:40%;
-                           background-color: #ffffff;
-                           border: solid 2px #336699;
+                         
                            padding: 0px;
                            z-index: 102;
                            font-family: Verdana;
@@ -168,12 +167,7 @@
                 <div id="overlay" class="web_dialog_overlay"></div>
 
                 <div id="dialog" class="web_dialog">
-                   <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
-                      <tr>
-                         <td class="web_dialog_title"><a href="#" id="btnClose">Close</a>
-                         </td>
-                      </tr>
-                         </table>
+                   
                          <%--<uc_login:loginuc ID="loginuc" runat="server" />--%>
                          
 <%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>--%>
@@ -224,38 +218,41 @@
 
 
 <div id="LoginControl">
-        <div id="p_f_data" class="p_f_box_style">
+        <div id="p_f_data" class="p_f_box_style" style="height:200px;">
             <section id="login_header">
                 <h3>
                     Please login</h3>
             </section>
-            <section id="p_f_fields">
-                <div id="p_f_field_area">
-                    <div id="p_f_label">
+            <section id="p_f_fields" style="width:370px;">
+                <div id="p_f_field_area" style="width:370px; height:20px;">
+                    <div id="p_f_label" style="width:130px;">
                         Email ID :<asp:Label ID="lbl_emailid" runat="server" Font-Bold="False" ForeColor="Red"
                             Text="*" Visible="False"></asp:Label></div>
                     <div id="p_f_field" class="style4">
-                        <asp:TextBox ID="txt_emailid" runat="server" Width="180px"></asp:TextBox>
+                        <asp:TextBox ID="txt_emailid" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
                     </div>
                 </div>
-                <div id="p_f_field_area">
-                    <div id="p_f_label">
+                <div id="p_f_field_area" style="width:370px;">
+                    <div id="p_f_label" style="width:130px;">
                         Password :<asp:Label ID="lbl_pwd" runat="server" Font-Bold="False" ForeColor="Red"
                             Text="*" Visible="False"></asp:Label></div>
                     <div id="p_f_field" class="style4">
-                        <asp:TextBox ID="txt_pwd" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                        <asp:TextBox ID="txt_pwd" runat="server" CssClass="p_f_form_style" TextMode="Password" Width="180px"></asp:TextBox>
                     </div>
                 </div>
             </section>
             <div id="login_links" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
-                height: 60px;">
-                <div id="but_style" style="margin-left: 180px;">
-                    <input id="btn_login" type="button" value="LogIn" onclick="return checkLogin();" />
-                </div>
-                <div id="to_right" style="margin: 40px 0px 0px 13px;">
-                    <a href="#" id="hyplink_register">Register</a></div>
+                height: 50px;">
+                <div id="but_style" style="margin-left: 140px;">
+                    <div id="to_left" style="margin: 0px 0px 0px 13px;"><input id="btn_login" type="button" class="l_go" value="LogIn" onclick="return checkLogin();" /></div>
+                     <div id="to_right" style="margin: 5px 0px 0px 13px;">
+                    <a href="#" id="hyplink_register" class="l_links">Register</a></div>
+                </div><br /><br />
+               <%--<div id="to_right" style="margin:43px 0px 0px 22px;"><a href="#" class="l_links" id="btnClose">Close</a></div>--%>
+                  <div style="margin-left:130px; margin-top:10px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label></div>
             </div>
-            <asp:Label ID="lbl_result" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
+            
+            
         </div>
     </div>
 
@@ -317,39 +314,44 @@
                     <div id="p_f_label">
                         Email ID :</div>
                     <div id="p_f_field" class="style4">
-                        <asp:TextBox ID="txt_emailid2" runat="server" Width="180px"></asp:TextBox>
+                        <asp:TextBox ID="txt_emailid2" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
                     </div>
                 </div>
                 <div id="p_f_field_area">
                     <div id="p_f_label">
                         Password :</div>
                     <div id="p_f_field" class="style4">
-                        <asp:TextBox ID="txt_pwd2" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                        <asp:TextBox ID="txt_pwd2" CssClass="p_f_form_style" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
                     </div>
                 </div>
                 <div id="p_f_field_area">
                     <div id="p_f_label">
                         Confirm Password :</div>
                     <div id="p_f_field" class="style4">
-                        <asp:TextBox ID="txt_confirmpwd2" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                        <asp:TextBox ID="txt_confirmpwd2" CssClass="p_f_form_style" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
                     </div>
                 </div>
             </section>
             <div id="login_links" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
-                height: 60px;">
-                <div id="but_style" style="margin-left: 180px;">
-                    <input id="btn_register" type="button" value="Register" onclick="return checkEmail();" />
-                </div>
-                <div id="to_right" style="margin: 40px 0px 0px 13px;">
-                    <a href="#" id="hyplink_login">Login</a>
+                height: 50px;">
+                <div id="but_style" style="margin-left: 170px;">
+                    <div id="to_left" style="margin: 0px 0px 0px 13px;"><input id="btn_register" class="l_go" type="button" value="Register" onclick="return checkEmail();" /></div>
+                    <div id="to_left" style="margin: 5px 0px 0px 13px;">
+                    <a href="#" id="hyplink_login" class="l_links">Login</a>
             </div>
-            <asp:Label ID="lbl_result2" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
+                </div><br />
+                
+            <div style="margin-left:120px; margin-top:20px;"><asp:Label ID="lbl_result2" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label></div>
         </div>
     </div>
 
 <%--Registration popup end --%>
                          
                 </div>
+ <div id="login_links" style="margin:-25px 0px 0px 15px; width:430px; height:30px;">
+ <div id="to_right"><a href="#" class="l_links" id="btnClose">Close</a></div>
+ </div>
+ </div>
                 </ContentTemplate>
                 </asp:UpdatePanel>
             <%--End of Pop-Up Window--%>
@@ -375,7 +377,7 @@
                     <!--Cart items list header part start-->
                     <div id="o_i_header_left">
                       <ul>
-                        <li>ID</li>
+                        <li>S.No</li>
                         <li>Product Details</li>
                         
 			            </ul>
@@ -383,7 +385,8 @@
 		            <div id="o_i_header_right">
 			            <ul>
 				            <li>Price</li>
-				            <li style="padding-left:88px;">Edit</li>
+				            <li style="padding-left:25px;">Quantity</li>
+				            <li>Edit</li>
             			
                       </ul>
                     </div>
@@ -402,7 +405,7 @@
             <div id="o_items_row">
             <!--Order items S No Cl Start-->
                     <aside id="o_i_l_cl1">
-                      <div id="o_i_l_sno" class="style2"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'></asp:Label></div>
+                      <div id="o_i_l_sno" class="style4">22</div>
                     </aside>
                     <!--Cart items S No Cl End-->
                     
@@ -419,9 +422,9 @@
                               <div id="o_i_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
                               </div>
                           </div>
-						  <div id="o_i_l_field_area" style="height:30px;">
-                              <div id="o_i_l_label" class="style1" style="padding-top:2px;">Quantity :</div>
-                              <div id="o_i_l_field" class="style4"> <asp:TextBox  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
+						  <div id="o_i_l_field_area">
+                              <div id="o_i_l_label">ID :</div>
+                              <div id="o_i_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'></asp:Label>
                               </div>
                           </div>
 						  <div id="o_i_l_field_area">
@@ -436,15 +439,24 @@
             <!--Order items img Cl End-->
             <!--Order items Total Cl Start-->
                 <aside id="o_i_l_cl3">
-                      <div id="o_i_l_field_area">
-                              <div id="o_i_l_label">Total Rate :</div>
-                              <div id="o_i_l_field" class="style4"> <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
+                      <div id="o_i_l_field_area" style="width:230px;">
+                              <%--<div id="o_i_l_label" style="width:80px;">Total Rate :</div>--%>
+                              <div id="o_i_l_field" class="style4" style="padding-left:50px; width:100px;"><asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
+                              </div>
+                          </div>
+                    </aside>
+            <!--Order items Total Cl End-->
+            <!--Order items Total Cl Start-->
+                <aside id="o_i_l_cl4">
+                      <div id="o_i_l_field_area" style="width:140px;">
+                              <%--<div id="o_i_l_label" style="width:10px;"></div>--%>
+                              <div id="o_i_l_field" class="style4" style="width:100px;"><asp:TextBox CssClass="o_i_f_form_style"  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
                               </div>
                           </div>
                     </aside>
             <!--Order items Total Cl End-->
              <!--Order items Update Cl Start-->
-            <aside id="o_i_l_cl4">
+            <aside id="o_i_l_cl5">
               <div id="o_i_l_edit"><asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem"  class="c_l_links" >Update</asp:LinkButton></div>
               <div id="o_i_l_edit"><asp:LinkButton ID="deleteBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem"  class="c_l_links" >Remove</asp:LinkButton></div>
             </aside>
@@ -493,50 +505,49 @@
         </section>
         <section id="p_f_fields" style="width: 490px; height: 200px;">
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
-                <div id="p_f_label">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 2px;">
                     Email ID :</div>
                 <div id="p_f_field" class="style4">
-                    <asp:TextBox ID="txt_emailidadr" runat="server" Width="180px" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txt_emailidadr" CssClass="p_f_form_style" runat="server" Width="180px" ReadOnly="True"></asp:TextBox>
                 </div>
             </div>
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
-                <div id="p_f_label" style="margin-top: 2px; padding-top: 5px;">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 4px;">
                     Name :</div>
-                <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                <div id="but_style" class="style4" style="padding-top: 4px;">
                     <asp:RequiredFieldValidator ID="rfv1" runat="server" ErrorMessage="*" ControlToValidate="txt_uname"
                         SetFocusOnError="True" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
-                <div id="but_style" style="width: 100px;">
-                    <asp:TextBox ID="txt_uname" runat="server" Width="180px"></asp:TextBox>
+                <div id="p_f_field" style="width: 100px;">
+                    <asp:TextBox ID="txt_uname" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
                 </div>
             </div>
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
-                <div id="p_f_label" style="margin-top: 2px; padding-top: 5px;">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 4px;">
                     Phone Number :</div>
-                <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                <div id="but_style" class="style4" style="padding-top: 4px;">
                     <asp:RequiredFieldValidator ID="rfv2" runat="server" 
                         ControlToValidate="txt_phno" ErrorMessage="*" SetFocusOnError="True" 
                         ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
-                <div id="but_style" style="width: 100px;">
-                    <asp:TextBox ID="txt_phno" runat="server" Width="180px"></asp:TextBox>
-                </div>
-                <div>
+                <div id="p_f_field" style="width: 100px;">
+                    <asp:TextBox ID="txt_phno" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
+                
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                         ControlToValidate="txt_phno" ErrorMessage="Enter Valid 10 digit Mobile Number" 
                         SetFocusOnError="True" ValidationExpression="\d{10}" ValidationGroup="1"></asp:RegularExpressionValidator>
                 </div>
             </div>
             <div id="p_f_field_area" style="width: 490px; height: 70px;">
-                <div id="p_f_label" style="margin-top: 25px; padding-top: 5px;">
+                <div id="p_f_label" style="margin-top: 25px; padding-top: 4px;">
                     Address :</div>
-                <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                <div id="but_style" class="style4" style="padding-top: 4px;">
                     <asp:RequiredFieldValidator ID="rfv3" runat="server" 
                         ControlToValidate="txt_address" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
-                <div id="but_style" style="width: 100px; margin-top: 25px;">
-                    <asp:TextBox ID="txt_address" runat="server" TextMode="MultiLine" Width="180px"></asp:TextBox>
+                <div id="p_f_field" style="width: 100px;">
+                    <asp:TextBox ID="txt_address" CssClass="p_f_form_style" Rows="3" runat="server" TextMode="MultiLine" Width="180px"></asp:TextBox>
             </div>
                 <div>
                 <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>

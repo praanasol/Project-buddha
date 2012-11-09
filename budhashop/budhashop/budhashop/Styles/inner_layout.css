@@ -475,7 +475,7 @@
 #o_i_header_left{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:600px;
+	width:550px;
 	height:30px;
 	float:left;
 	
@@ -484,12 +484,12 @@
 #o_i_header_left ul{
 	margin-top:4px;
 	padding:0px;
-	width:600px;
+	width:550px;
 	float:left;
 	}
 
 #o_i_header_left ul li{
-	margin:0px 120px 0px 20px;
+	margin:0px 120px 0px 10px;
 	padding:0px 0px 0px 0px;
 	display:inline;
 	font-family:Arial, Helvetica, sans-serif;
@@ -500,7 +500,7 @@
 #o_i_header_right{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:350px;
+	width:400px;
 	height:30px;
 	float:left;
 
@@ -509,13 +509,13 @@
 #o_i_header_right ul{
 	margin-top:4px;
 	padding:0px;
-	width:350px;
+	width:400px;
 	float:left;
 	text-align:left;
 	
 }
 #o_i_header_right ul li{
-	margin:0px 70px 0px 20px;
+	margin:0px 20px 0px 50px;
 	padding:0px 0px 0px 0px;
 	display:inline;
 	font-family:Arial, Helvetica, sans-serif;
@@ -568,14 +568,14 @@
 {
 	margin:0px;
 	padding:0px;
-	width:30px;
+	width:60px;
 	height:150px;
 	float:left;
 	text-align:right;
 }
 #o_i_l_sno{
 	margin:auto;
-	margin-top:50px;
+	margin-top:70px;
 	padding:0px;
 	width:30px;
 	height:50px;
@@ -584,7 +584,7 @@
 #o_i_l_cl2{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:560px;
+	width:480px;
 	height:140px;
 	float:left;
 	
@@ -592,7 +592,7 @@
 #o_i_l_img{
 	margin:0px;
 	padding:0px;
-	width:200px;
+	width:170px;
 	height:150px;
 	float:left;
 	}
@@ -601,14 +601,14 @@
 	margin:auto;
 	margin:0px 0px 0px 0px;
 	padding:5px 0px 0px 0px;
-	width:200px;
+	width:170px;
 	height:140px;
 	text-align:right;
 }
 #o_i_l_fields{
 	margin-top:20px;
 	padding:0px;
-	width:360px;
+	width:300px;
 	height:auto;
 	float:left;
 	}
@@ -616,42 +616,63 @@
 	#o_i_l_field_area{
 		margin:4px 0px 4px 0px;
 		padding:0px;
-		width:350px;
+		width:300px;
 		height:20px;
 		float:left;
 }
 	#o_i_l_label{
 		margin:0px;
 		padding:0px;
-		width:100px;
+		width:80px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
-		font-size:14px;
+		font-size:12px;
 		color:#364700;
 		font-weight:bold;
 		text-align:right;
 }
 #o_i_l_field{
-		margin:px;
+		margin:0px;
 		margin-left:5px;
 		padding:0px;
 		width:200px;
 		float:left;
 		text-align:left;
 }
+.o_i_f_form_style{
+	margin:0px;
+	padding-left:5px;
+	width:50px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#364700;
+	font-weight:bold;
+	background:#e7cd73;
+	border:#d9b021 solid 2px;
+	border-radius:5px;
+}
 #o_i_l_cl3
 {
 	margin:0px 0px 0px 0px;
 	padding:60px 0px 0px 0px;
-	width:250px;
-	height:150px;
+	width:210px;
+	height:80px;
 	float:left;
 	text-align:left;
 }
 #o_i_l_cl4{
 	margin:0px 0px 0px 0px;
+	padding:60px 0px 0px 0px;
+	width:120px;
+	height:80px;
+	float:left;
+	text-align:left;
+}
+#o_i_l_cl5{
+	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
-	width:80px;
+	width:70px;
 	height:150px;
 	float:left;
 	text-align:center;
@@ -684,7 +705,7 @@
 #o_i_r_cl2
 {
 	margin:0px;
-	padding:7px 0px 0px 0px;
+	padding:8px 0px 0px 0px;
 	width:120px;
 	height:20px;
 	float:left;
@@ -693,7 +714,7 @@
 #o_i_r_cl3
 {
 	margin:0px;
-	padding:7px 0px 0px 0px;
+	padding:8px 0px 0px 0px;
 	width:120px;
 	height:20px;
 	float:left;
@@ -702,7 +723,7 @@
 #o_i_r_cl4
 {
 	margin:0px;
-	padding:7px 0px 0px 0px;
+	padding:8px 0px 0px 0px;
 	width:120px;
 	height:20px;
 	float:left;

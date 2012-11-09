@@ -194,5 +194,24 @@ namespace BusinessLogicBS.BusinessClasses
         }
 
         #endregion
+
+        #region IAdmin Members Check Admin Login
+
+        public int checkLogin(string adminid, string pwd)
+        {
+            try
+            {
+
+                IAdminDA login = new DataAccessBS.AdminClasses.AdminDA();
+                return login.checkLoginDA(adminid, pwd);
+            }
+            catch
+            {
+                return -1;
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

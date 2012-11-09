@@ -120,5 +120,16 @@ namespace BusinessLogicBS.UserClasses
         }
 
         #endregion
+
+        #region IUser Members insert Feedback
+
+        public int insertFeedback(string email, string msg)
+        {
+            IUserDA feedbackInsert = new DataAccessBS.UserClasses.UserDA();
+            int count = feedbackInsert.insertFeedbackDA(email, msg);
+            return count;
+        }
+
+        #endregion
     }
 }

@@ -83,6 +83,13 @@
     <Compile Include="ADMIN\InsertPage.aspx.designer.cs">
       <DependentUpon>InsertPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADMIN\LoginA.aspx.cs">
+      <DependentUpon>LoginA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\LoginA.aspx.designer.cs">
+      <DependentUpon>LoginA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADMIN\OrdersPage.aspx.cs">
       <DependentUpon>OrdersPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -95,6 +102,7 @@
       <DependentUpon>JpegImage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CLASS\Authenticate.cs" />
     <Compile Include="CLASS\CallCache.cs" />
     <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="CLASS\SearchAll.cs" />
@@ -104,6 +112,9 @@
     </Compile>
     <Compile Include="fulldetails.aspx.designer.cs">
       <DependentUpon>fulldetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HardCodedValues\BuddaResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -227,13 +238,6 @@
     </Compile>
     <Compile Include="UserControls\registration.ascx.designer.cs">
       <DependentUpon>registration.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="USER\AddressPage.aspx.cs">
       <DependentUpon>AddressPage.aspx</DependentUpon>
@@ -471,7 +475,6 @@
     <Content Include="UserControls\navigation.ascx" />
     <Content Include="UserControls\Register.ascx" />
     <Content Include="UserControls\registration.ascx" />
-    <Content Include="UserControls\WebForm1.aspx" />
     <Content Include="USER\AddressPage.aspx" />
     <Content Include="USER\ChangePassword.aspx" />
     <Content Include="USER\ForgotPassword.aspx" />
@@ -482,10 +485,14 @@
     <Content Include="USER\Services\LoginControl.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADMIN\LoginA.aspx" />
+    <Content Include="ADMIN\Web.config" />
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <None Include="script\html5shiv\.gitattributes" />
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
+    <Content Include="Global.asax" />
+    <Content Include="USER\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="HardCodedValues\BuddaResource.resx">

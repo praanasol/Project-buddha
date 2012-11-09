@@ -162,7 +162,7 @@ namespace budhashop.Captcha
 			Rectangle rect = new Rectangle(0, 0, this.width, this.height);
 
 			// Fill in the background.
-                    SolidBrush whiteBrush = new SolidBrush(Color.LightBlue);
+                    SolidBrush whiteBrush = new SolidBrush(ColorTranslator.FromHtml("#EFD787"));
                     g.FillRectangle(whiteBrush, rect);
                     //HatchBrush hatchBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.LightGray, Color.White);
 			        //g.FillRectangle(hatchBrush, rect);

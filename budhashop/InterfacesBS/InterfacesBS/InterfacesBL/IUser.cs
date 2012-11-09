@@ -17,5 +17,7 @@ namespace InterfacesBS.InterfacesBL
         int insertOrders(OrderItems orderitems);
         DataTable getOrders();
         DataTable getUserOrders(string userid);
+
+        int insertFeedback(string email, string msg);
     }
 }

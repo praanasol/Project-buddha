@@ -266,5 +266,30 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members Insert Feedback
+
+        public int insertFeedbackDA(string email,string msg)
+        {
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                sqlParams[0] = new SqlParameter("@email", email);
+                sqlParams[1] = new SqlParameter("@msg", msg);
+
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_SITE_FEEDBACK", sqlParams);
+
+                return count;
+            }
+            catch (SqlException exc)
+            {
+                throw exc;
+                return -1;
+            }
+        }
+
+        #endregion
     }
 }

@@ -26,5 +26,7 @@ namespace InterfacesBS.InterfacesDA
         int UpdateUserDA(userobj updateuserObjDa, int userid);
 
         DataTable SearchOrdersDA(string value1, string value2);
+
+        int checkLoginDA(string adminid, string pwd);
     }
 }

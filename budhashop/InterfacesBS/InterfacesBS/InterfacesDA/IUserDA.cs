@@ -17,5 +17,7 @@ namespace InterfacesBS.InterfacesDA
         int insertOrdersDA(OrderItems orderitems);
         DataTable retrieveOrdersDA();
         DataTable retrieveUserOrdersDA(string userid);
+
+        int insertFeedbackDA(string email, string msg);
     }
 }

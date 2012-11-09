@@ -127,7 +127,7 @@
         <br />
          <div id="but_style" style="margin:0px 0px 10px 10px;">
         <asp:Button ID="btn_submitFb" CssClass="l_go" runat="server" Text="Submit" 
-            ValidationGroup="feedback" />
+            ValidationGroup="feedback" onclick="btn_submitFb_Click" />
             </div>
     </div>
     </ContentTemplate>

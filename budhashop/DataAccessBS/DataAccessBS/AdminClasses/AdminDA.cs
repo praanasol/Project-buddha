@@ -396,5 +396,35 @@ namespace DataAccessBS.AdminClasses
         }
 
         #endregion
+
+        #region IAdminDA Members Check Admin Login
+
+        public int checkLoginDA(string adminid, string pwd)
+        {
+            try
+            {
+                SqlParameter[] searchParams = new SqlParameter[2];
+                searchParams[0] = new SqlParameter("@aname", adminid);
+                searchParams[1] = new SqlParameter("@password", pwd);
+
+                DataTable searchuserDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_ADMIN", searchParams).Tables[0];
+
+                if (searchuserDT.Rows.Count > 0)
+                {
+                    return searchuserDT.Rows.Count;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch
+            {
+                return -1;
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

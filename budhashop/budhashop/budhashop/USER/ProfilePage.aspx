@@ -247,7 +247,7 @@
                                 }
                                 
                                 function onerror(result){
-                                    alert("Error calling service method.");
+                                    window.location.replace("../homepage.aspx");
                                     }
                                     
                                     

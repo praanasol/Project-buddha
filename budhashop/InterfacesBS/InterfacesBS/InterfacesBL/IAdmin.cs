@@ -22,5 +22,7 @@ namespace InterfacesBS.InterfacesBL
         int UpdateUsers(BusinessEntitiesBS.UserEntities.userobj updateuserObj, int userid);
 
         DataTable SearchOrders(string value1, string value2);
+
+        int checkLogin(string adminid, string pwd);
     }
 }

@@ -80,7 +80,7 @@
     <div id="wraper">
     
   <header>
-    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="80" height="113" alt="Budda" title="Budda"></a></aside>
+    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a></aside>
     <aside id="space"></aside>
     
     <!--Header right side area - Start-->

@@ -495,7 +495,7 @@ ul {
           <div id="c_l_items_row">
           	 <!--Cart items S No Cl Start-->
             <aside id="c_l_cl1">
-              <div id="c_l_sno" class="style2">55</div>
+              <div id="c_l_sno" class="style2"><%# Container.ItemIndex+1 %></div>
             </aside>
             <!--Cart items S No Cl End-->
             <!--Cart items img CL Start-->
@@ -507,13 +507,13 @@ ul {
 			  <section id="c_l_fields">
 					
                           <div id="c_l_field_area">
-                              <div id="c_l_label">ID :</div>
-                              <div id="c_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
+                              <div id="c_l_label">Name:</div>
+                              <div id="c_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
                               </div>
                           </div>
 						  <div id="c_l_field_area">
-                              <div id="c_l_label">Name :</div>
-                              <div id="c_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              <div id="c_l_label">Product Id:</div>
+                              <div id="c_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
                               </div>
                           </div>
 						  <div id="c_l_field_area">
@@ -537,14 +537,21 @@ ul {
             <!--Cart items Quantity CL Start-->
             <aside id="c_l_cl4">
               <div id="c_l_form">
-              <asp:TextBox  ID="qtyTxt" runat="server" CssClass="c_l_form_style" Text='<%# Eval("Qty")%>'></asp:TextBox>
+              
+              <asp:TextBox  ID="qtyTxt" runat="server" CssClass="c_l_form_style" Text='<%# Eval("Qty")%>' MaxLength="2"></asp:TextBox>
+              <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="qtyTxt"
+                                        ErrorMessage="*" SetFocusOnError="True" ValidationGroup="cartValid">empty !</asp:RequiredFieldValidator>
+              <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="cartValid" SetFocusOnError="true" ErrorMessage="Enter valid mobile number." ControlToValidate="qtyTxt" ForeColor="Red" 
+                                                                                              ValidationExpression="^(?:[1-9]|0[1-9]|1[0-9]|20)$">Max 20</asp:RegularExpressionValidator>
+                 
                </div>
+               
             </aside>
             <!--Cart items Quantity CL End-->
             
             <!--Cart items Edit CL Start-->
             <aside id="c_l_cl5">
-              <div id="c_l_edit"> <asp:LinkButton ID="updateBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
+              <div id="c_l_edit"> <asp:LinkButton ID="updateBtn" runat="server" CssClass="c_l_links" CausesValidation="true" ValidationGroup="cartValid" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
                         </div>
               <div id="c_l_edit"> <asp:LinkButton ID="deleteBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
                         </div>
@@ -554,6 +561,7 @@ ul {
         </section>
         <!--Cart items list End--> 
         </div>
+        
             </ItemTemplate>
         </asp:DataList>
        

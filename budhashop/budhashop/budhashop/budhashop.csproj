@@ -514,10 +514,12 @@
     <Folder Include="ADMIN\ItemImages\catagory 4\" />
     <Folder Include="ADMIN\ItemImages\Eco-Friendly Products\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Articles\" />
     <Folder Include="ItemImages\4\" />
     <Folder Include="ItemImages\Catagory 1\" />
     <Folder Include="ItemImages\Catagory 2\" />
     <Folder Include="login\" />
+    <Folder Include="Merchant\" />
     <Folder Include="obj\Debug\Refactor\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>

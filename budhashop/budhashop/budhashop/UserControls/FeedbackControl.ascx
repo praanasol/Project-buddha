@@ -131,7 +131,7 @@
     
 <div id="feedback" class="feedback">
     
-   <div style="height:30px;width:75px; float:right; cursor:pointer;"><a id="img_fb" alt="FeedBack">Feedback</a>
+   <div style="height:30px;width:75px; float:right; cursor:pointer;"><a id="img_fb" alt="Feedback">Feedback</a>
         <%--<img id="img_fb" alt="FeedBack" src="../images/feedback-vertical.jpg" style="height:24px; width:74px" />--%>
     </div><br />
     
@@ -147,7 +147,7 @@
         <br />
         <section id="login_header" style="margin-top:-15px; margin-bottom:5px; width:200px; height:20px; font-size:14px; text-align:center;" />
                     <h3 style="color:#4d6012;">
-                        FeedBack</h3>
+                        Feedback</h3>
                 </section>
         <p style="margin-left:10px;">Enter Your Email Id:</p>
         <%--<asp:RequiredFieldValidator ID="rfv_emailfb" runat="server" 

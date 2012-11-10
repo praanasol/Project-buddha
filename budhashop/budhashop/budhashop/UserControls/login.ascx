@@ -15,6 +15,7 @@
         text-decoration: none;
         padding: 6px 10px 5px 11px;
         border-radius:3px;
+        
     }
     .logintext:hover
     {
@@ -67,7 +68,7 @@
 <script type="text/javascript">
 
          $(document).ready(function(){
-         
+                        $("#closeimg1").hide();
                         var usersession='<%= this.Session["currentuser"] %>';
                         if(usersession)
                             {
@@ -82,7 +83,17 @@
                         $(".logintext").click(function(e) {          
 				        e.preventDefault();
                         $("#user-status").slideToggle();
+                        $(".logintext").hide();
+                        $("#closeimg1").show();
                         });
+                        
+                        $("#closeimg1").click(function(e) {          
+				        e.preventDefault();
+                        $("#user-status").slideToggle();
+                        $(".logintext").show();
+                        $("#closeimg1").hide();
+                        });
+                        
           });
           
           function checkLogin1() {
@@ -106,6 +117,8 @@
                     $("#login-success").show();
                     $(".logintext").toggleClass("usertext");
                     $("#logintext").html(result);
+                    $("#closeimg1").hide();
+                     $(".logintext").hide();
 //                    window.location.assign(window.location.href);
 //                    document.location.reload(true);
                 }
@@ -125,7 +138,7 @@
 <body>
 
 <div style="width: 350px;">
-        
+       
     <div  id="user-status" style="display:none;">
     <!--Login Start-->
         <div id="login-required">
@@ -163,7 +176,15 @@
         </div>
     <!--Login End-->  
       
-        <div id="login-success">
+        
+        <div style="width:auto; float:right; cursor:pointer;">
+        <img id="closeimg1" alt="FeedBack" src="../images/unavailable.png" />
+        </div>
+        
+    </div>
+    <a id="logintext" class="logintext" href="#">LogIn</a> 
+    <%--<asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>--%>
+   <div id="login-success" style="display:none;">
         <div id="logout_links" class="bg_style2">        
             <asp:LinkButton ID="lb_profile" CssClass="l_links" runat="server" onclick="lb_profile_Click">Profile</asp:LinkButton>
             
@@ -173,10 +194,7 @@
             <asp:LinkButton ID="lb_logout" CssClass="l_links" runat="server" onclick="lb_logout_Click">Logout</asp:LinkButton>
             </div>
         </div>
-    </div>
-    
-    <%--<asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>--%>
-    <a id="logintext" class="logintext" href="#">LogIn</a>
     
 </div>
+ 
 </body>

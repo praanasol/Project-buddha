@@ -157,5 +157,28 @@ namespace budhashop.USER.Services
             DataTable dt = (DataTable)this.Session["currentuser"];
             return dt.Rows[0]["Email"].ToString();
         }
+
+        [WebMethod]
+        public bool insertFeedback(string emailid, string msg)
+        {
+            try
+            {
+                IUser feedbackInsert = new UserItems();
+                //insert feedback details in database with given values
+                int count = feedbackInsert.insertFeedback(emailid, msg);
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

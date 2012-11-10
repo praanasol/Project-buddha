@@ -81,22 +81,49 @@
         });
     });
     
-    function show_submittedFb(status)
-    {
-        if(status=='success')
+    function Fb_Submit()
+     {
+        var email = $("[id$=txt_emailfb]").val();
+        var msg = $("[id$=txt_msg]").val();
+        var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+        if(email==""){$("[id$=lbl_emailfb]").text("Enter Email Id");  $("[id$=txt_emailfb]").focus(); }
+        else if(email.match(emailFormat)==null){$("[id$=lbl_emailfb]").text("Enter Valid Email Id");  $("[id$=txt_emailfb]").focus();}
+        else if(msg==""){$("[id$=lbl_msg]").text("Enter Message");   $("[id$=txt_msg]").focus();    $("[id$=lbl_emailfb]").text('');   }
+        else if(msg.length>50){$("[id$=lbl_msg]").text("Should not exeed 50 characters");   $("[id$=txt_msg]").focus();   }
+        else
         {
-            $("#successFb-body").show();
-            $("#failureFb-body").hide();
-            $("#submittedFbDiv").show();
+            $.ajax({
+                type: "POST",
+                url: "../USER/Services/LoginControl.asmx/insertFeedback",
+                data: "{'emailid':'"+ email +"','msg':'"+ msg +"'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+               
+                success: function(data) {
+                    if(data.d){
+                        $("#successFb-body").show();
+                        $("#failureFb-body").hide();
+                        $("[id$=txt_emailfb]").val('');
+                        $("[id$=txt_msg]").val('');
+                        $("[id$=lbl_emailfb]").text('');
+                        $("[id$=lbl_msg]").text('');
+                    }
+                    else {
+                        $("#successFb-body").hide();
+                        $("#failureFb-body").show();
+                    }
+                    $("#submittedFbDiv").show();
+                    $("#submittedFbDiv").delay(3200).fadeOut(300);
+                   },
+                error: function(data) {
+                    $("#successFb-body").hide();
+                    $("#failureFb-body").show();
+                    $("#submittedFbDiv").show();
+                    $("#submittedFbDiv").delay(3200).fadeOut(300);
+                }
+             });
         }
-        if(status=='fail')
-        {
-            $("#successFb-body").hide();
-            $("#failureFb-body").show();
-            $("#submittedFbDiv").show();
-        }
-        $("#submittedFbDiv").delay(3200).fadeOut(300);
-    }
+     }
 </script>
 
 <body>
@@ -123,45 +150,47 @@
                         FeedBack</h3>
                 </section>
         <p style="margin-left:10px;">Enter Your Email Id:</p>
-        <asp:RequiredFieldValidator ID="rfv_emailfb" runat="server" 
+        <%--<asp:RequiredFieldValidator ID="rfv_emailfb" runat="server" 
             ControlToValidate="txt_emailfb" ErrorMessage="*" SetFocusOnError="True" 
-            ToolTip="Email Can not be Empty" ValidationGroup="feedback"></asp:RequiredFieldValidator>
+            ToolTip="Email Can not be Empty" ValidationGroup="feedback"></asp:RequiredFieldValidator>--%>
         <asp:TextBox ID="txt_emailfb" CssClass="f_form_style" runat="server" Width="180px"></asp:TextBox>
         <br />
-        <asp:RegularExpressionValidator ID="rev_emailfb" runat="server" 
+        <asp:Label ID="lbl_emailfb" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+        <%--<asp:RegularExpressionValidator ID="rev_emailfb" runat="server" 
             ControlToValidate="txt_emailfb" ErrorMessage="Enter Valid Email Id" 
             SetFocusOnError="True" 
             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
             ValidationGroup="feedback"></asp:RegularExpressionValidator>
-        <br />
+        <br />--%>
         <p style="margin-left:10px;">Message:</p>
-        <asp:RequiredFieldValidator ID="rfv_msg" runat="server" 
+        <%--<asp:RequiredFieldValidator ID="rfv_msg" runat="server" 
             ControlToValidate="txt_msg" ErrorMessage="*" SetFocusOnError="True" 
-            ToolTip="Message can not be Empty" ValidationGroup="feedback"></asp:RequiredFieldValidator>
+            ToolTip="Message can not be Empty" ValidationGroup="feedback"></asp:RequiredFieldValidator>--%>
         <asp:TextBox ID="txt_msg" CssClass="f_form_style" Width="180px" Height="40" runat="server" TextMode="MultiLine" 
             ValidationGroup="feedback"></asp:TextBox>
         <br />
-        <asp:RegularExpressionValidator ID="rev_msg" runat="server" 
+        <asp:Label ID="lbl_msg" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+        <%--<asp:RegularExpressionValidator ID="rev_msg" runat="server" 
             ControlToValidate="txt_msg" ErrorMessage="Should not exeed 50 characters" 
             SetFocusOnError="True" ValidationExpression="(\s|.){1,50}" 
-            ValidationGroup="feedback"></asp:RegularExpressionValidator>
+            ValidationGroup="feedback"></asp:RegularExpressionValidator>--%>
         <br />
          <div id="but_style" style="margin:0px 0px 10px 10px;">
-        <asp:Button ID="btn_submitFb" CssClass="l_go" runat="server" Text="Submit" 
-            ValidationGroup="feedback" onclick="btn_submitFb_Click" />
+        <button type="button" id="btn_submitFb" class="l_go" onclick="Fb_Submit();">Submit</button>
+        <%--<asp:Button ID="btn_submitFb" CssClass="l_go" runat="server" Text="Submit" 
+            ValidationGroup="feedback" OnClientClick="return Fb_Submit();" />--%>
             </div>
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>
-    <div id="submittedFbDiv" style="display:none; position:fixed; top:40%; left:40%; border:solid 1px;">
+    <div id="submittedFbDiv" style="display:none; position:fixed; top:68%; right:0%; border:solid 1px; font-size:18px; background:#FE7E28">
         <div id="successFb-body">
-            <h1>Feedback Submitted Succesfully</h1>
-            <h1>Thank you</h1>
+            <p>Feedback Submitted Succesfully</p>
+            <p>Thank you...</p>
         </div>
         <div id="failureFb-body">
-            <h1>Error Submitting Feedback</h1>
-            <h1>Please Try Again</h1>
+            <p>Error Submitting Feedback</p>
+            <p>Please Try Again...</p>
         </div>
-        <button type="button" id="btn_fbclose">Close</button>
     </div>
 </body>

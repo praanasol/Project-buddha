@@ -26,28 +26,28 @@ namespace budhashop.UserControls
 
         protected void btn_submitFb_Click(object sender, EventArgs e)
         {
-            string email = txt_emailfb.Text;
-            string msg = txt_msg.Text;
-            ClientScriptManager cs = Page.ClientScript;
-            try
-            {
-                IUser feedbackInsert = new UserItems();
-                //insert feedback details in database with given values
-                int count = feedbackInsert.insertFeedback(email, msg);
-                if (count > 0)
-                {
-                    cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('success');", true);
-                }
-                else
-                {
-                    cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('fail');", true);
-                }
-            }
-            catch
-            {
-                cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('fail');", true);
-                //Response.Write(@"<script language='javascript'>alert('Something Wrong, Please try again...')</script>");
-            }
+            //string email = txt_emailfb.Text;
+            //string msg = txt_msg.Text;
+            //ClientScriptManager cs = Page.ClientScript;
+            //try
+            //{
+            //    IUser feedbackInsert = new UserItems();
+            //    //insert feedback details in database with given values
+            //    int count = feedbackInsert.insertFeedback(email, msg);
+            //    if (count > 0)
+            //    {
+            //        cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('success');", true);
+            //    }
+            //    else
+            //    {
+            //        cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('fail');", true);
+            //    }
+            //}
+            //catch
+            //{
+            //    cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "show_submittedFb('fail');", true);
+            //    //Response.Write(@"<script language='javascript'>alert('Something Wrong, Please try again...')</script>");
+            //}
         }
     }
 }

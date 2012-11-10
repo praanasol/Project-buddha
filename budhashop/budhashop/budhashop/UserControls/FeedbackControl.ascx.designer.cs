@@ -23,15 +23,6 @@ namespace budhashop.UserControls {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// rfv_emailfb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_emailfb;
-        
-        /// <summary>
         /// txt_emailfb control.
         /// </summary>
         /// <remarks>
@@ -41,22 +32,13 @@ namespace budhashop.UserControls {
         protected global::System.Web.UI.WebControls.TextBox txt_emailfb;
         
         /// <summary>
-        /// rev_emailfb control.
+        /// lbl_emailfb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_emailfb;
-        
-        /// <summary>
-        /// rfv_msg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_msg;
+        protected global::System.Web.UI.WebControls.Label lbl_emailfb;
         
         /// <summary>
         /// txt_msg control.
@@ -68,21 +50,12 @@ namespace budhashop.UserControls {
         protected global::System.Web.UI.WebControls.TextBox txt_msg;
         
         /// <summary>
-        /// rev_msg control.
+        /// lbl_msg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_msg;
-        
-        /// <summary>
-        /// btn_submitFb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submitFb;
+        protected global::System.Web.UI.WebControls.Label lbl_msg;
     }
 }

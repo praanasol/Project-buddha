@@ -202,6 +202,7 @@ namespace budhashop.UserControls
                         cartItem.TotalBill = updatedTot;
                         totalLbl.Text = Total.ToString();
                         Session["CartPicks"] = cartItems;
+                        Session["totCheck"] = totalLbl.Text;
                     }
                 }
  

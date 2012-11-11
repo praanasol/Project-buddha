@@ -12,18 +12,18 @@
     <link href="Styles/pagination.css" rel="stylesheet" type="text/css" />
     
 
-    <script type="text/javascript" src="script/scroll/homePageLoad.js">
+    <script type="text/javascript" src="script/scroll/homePageLoad.js"></script>
 
-
-
-</script>
+        
+       
+    
 
     <script>
     var pagination_options = {
       num_edge_entries: 2,
       num_display_entries: 8,
       callback: pageselectCallback,
-      items_per_page:10
+      items_per_page:8
     }
 
     function pageselectCallback(page_index, jq){
@@ -44,7 +44,8 @@
 
  <%--Call for json to update in cart--%>
 <%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
-<article style="height:200px;"></article>
+<%--<article style="height:200px;"></article>--%>
+ 
   <br clear="all" />
   <div id="box_header" style="width:985px;">
     	<h2>Feature Products...</h2>
@@ -53,9 +54,9 @@
 <section id="item_area" class="box_style" style="height:585px;">
   	
     <!--Gallery Start-->
-   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px;">
+   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px; padding-left:20px; padding-right:20px;">
    
-    <div id ="groupItems" style="height:550px; width:970px;">
+    <div id ="groupItems" style="height:580px; width:970px;">
   
           <p id="fetching">
         Fetching Products.... 

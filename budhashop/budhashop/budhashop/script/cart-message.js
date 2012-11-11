@@ -14,7 +14,7 @@ $(document).ready(function(){// this will run when the document.ready event fire
              $("[id$=message_2]").fadeOut(3000);
             $("#signin_menu").slideToggle();
         });
-      }else if (x==ox && y > oy){
+      }else if (x==ox && y != oy){
        
      $("[id$=message_2]").html("Cart updated");
      $("[id$=message_2]").fadeIn(1000, function(){
@@ -48,5 +48,21 @@ $(document).ready(function(){// this will run when the document.ready event fire
         $("#signin").click(function () {
       $("#signin_menu").slideToggle();
     });
+    
+    $("#hideCartBtn").click(function() {
+    $("#signin_menu").slideToggle();
+    
+    });
+    
+    
+    $(document).mouseup(function (e)
+{
+    var container = $("#signin_menu");
+
+    if (container.has(e.target).length == 0)
+    {
+        container.hide();
+    }
+});
    
     });

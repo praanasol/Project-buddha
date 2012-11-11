@@ -24,7 +24,7 @@
       num_edge_entries: 2,
       num_display_entries: 8,
       callback: pageselectCallback,
-      items_per_page:10
+      items_per_page:8
     }
 
     function pageselectCallback(page_index, jq){
@@ -212,7 +212,7 @@ alert("Error");
       
     </div>
         <!--Gallery Start-->
-        <div id="item_area" class="box_style" style="height:500px;"> 
+        <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:600px; width:970px; padding-left:20px; "> 
         
         <div id = "itemsBox">
           <p id="fetching">

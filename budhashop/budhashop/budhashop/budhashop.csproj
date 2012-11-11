@@ -500,6 +500,7 @@
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
     <Content Include="Global.asax" />
+    <Content Include="script\slides.js" />
     <Content Include="USER\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -538,7 +539,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49764</DevelopmentServerPort>
+          <DevelopmentServerPort>60301</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -327,10 +327,10 @@ header{
 	height:180px;
 }
 #category_box{
-	margin:0px 0px 35px 10px;
+	margin:25px 25px 25px 25px;
 	padding:0px;
 	width:182px;
-	height:210px;
+	height:235px;
 	float:left;
 	border-radius:5px;
 }

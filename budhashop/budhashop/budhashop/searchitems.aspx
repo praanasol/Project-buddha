@@ -18,7 +18,7 @@
       num_edge_entries: 2,
       num_display_entries: 8,
       callback: pageselectCallback,
-      items_per_page:10
+      items_per_page:8
     }
 
     function pageselectCallback(page_index, jq){
@@ -104,7 +104,7 @@ alert("Error");
           <aside id="to_right"><a href="" id="pj_next" target="_self" class="scroll_arrow_r"><!--<img src="images/left_arrow.png" width="50" height="50" alt="Button" title="Button">--></a></aside>
         </section>--%>
         <!--Gallery Start-->
-        <div id="item_area" class="box_style" style="height:520px;"> 
+        <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:600px; width:970px; padding-left:20px; "> 
         
         <div id = "itemsBox">
           <p id="fetching">
@@ -133,17 +133,18 @@ alert("Error");
          
       </section>
       <!--Categories End-->
-	  <section id="sort" class="box_style">
-	  <div id="pages">
-        <div id="pagination" class="pagination">
-    </div>
-    </div>
-      </section>
+	 
 	  
    <%-- </aside>--%>
 	
 	  
     <!--Items End--> 
-  </section>
+ 
+   <section id="sort" class="box_style">
+	  <div id="pages">
+        <div id="pagination" class="pagination">
+    </div>
+    </div>
+      </section>
   <!--Middle Body End--> 
 </asp:Content>

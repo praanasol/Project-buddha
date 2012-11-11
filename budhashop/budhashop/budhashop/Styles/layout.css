@@ -2,11 +2,11 @@ body{
 	margin:0px;
 	padding:0px;
 	width:100%;
-	background:#f4df99 url(../images/header_bg.gif) left top repeat-x;
+	background:#000000 url(../images/hexabump.png);
 	font-family:arial;
 	font-size:12px;
 	color:#4d6012;
-	text-align:justify;
+	text-align:justify;debut_dark.png
 }
 div,p,a,span{
 	margin:0px;
@@ -19,6 +19,8 @@ img{
 	margin:auto;
 	width:1000px;
 	height:auto;
+	background:#EFD787 url(../images/header_bg.gif) left top repeat-x;
+	border-left-color:#a00305;
 	}
 header{
 	width:1000px;
@@ -143,7 +145,7 @@ header{
 #logout_links
 {
 	margin:0px;
-	padding:20px 0px 0px 0px;
+	padding:6px 0px 3px 0px;
 	width:300px;
 	height:40px;
 	float:left;
@@ -151,7 +153,7 @@ header{
 }
 #logout_links a.l_links:link, #logout_links a.l_links:visited
 {
-	margin:0px 10px 0px 0px;
+	margin:0px 5px 0px 0px;
 	padding:0px;
 	
 	font-family:Arial;

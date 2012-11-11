@@ -196,11 +196,11 @@
             </div>
 
     <br style="clear:both;" />
-  
-</div>
-<footer class="rights">
+  <footer class="rights">
   Copy Rights @2012. praanasolutions.com
   </footer>
+</div>
+
 <%--<div id="top_loginlinks_area">
     <div id="mainloginuc" style="position:absolute; top:-8px; left:58%;">
             <nav id="top_loginlinks">

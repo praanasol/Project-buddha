@@ -7,14 +7,15 @@
     	float:right;
     	width:55px;
     	height:20px;
-        background: #f39112;
+        background: #ac1812;
         font-family: "Courier New" , Courier, monospace;
         font-size: 16px;
-        color: #364700;
+        color: #d67d1c;
         font-weight: bold;
         text-decoration: none;
         padding: 6px 10px 5px 11px;
         border-radius:3px;
+         display:none;
         
     }
     .logintext:hover
@@ -78,6 +79,8 @@
                             {
                                $("#login-success").hide();
                                $(".logintext").removeClass("usertext");
+                               $(".logintext").show();
+                               
                             }
                         
                         $(".logintext").click(function(e) {          
@@ -185,11 +188,11 @@
     <a id="logintext" class="logintext" href="#">LogIn</a> 
     <%--<asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>--%>
    <div id="login-success" style="display:none;">
-        <div id="logout_links" class="bg_style2">        
+        <div id="logout_links" class="bg_style2" style="width:120px; height:20px; margin-left:235px;">        
             <asp:LinkButton ID="lb_profile" CssClass="l_links" runat="server" onclick="lb_profile_Click">Profile</asp:LinkButton>
             
-            <asp:LinkButton ID="lb_orderhistory" CssClass="l_links" runat="server" 
-                onclick="lb_orderhistory_Click">Order History</asp:LinkButton>
+            <%--<asp:LinkButton ID="lb_orderhistory" CssClass="l_links" runat="server" 
+                onclick="lb_orderhistory_Click">Order History</asp:LinkButton>--%>
             
             <asp:LinkButton ID="lb_logout" CssClass="l_links" runat="server" onclick="lb_logout_Click">Logout</asp:LinkButton>
             </div>

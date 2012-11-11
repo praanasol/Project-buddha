@@ -294,7 +294,7 @@ header{
 	width:985px;
 	height:25px;
 	text-align:left;
-	border-bottom:#f3c46d 1px solid;
+	border-top:#752424 1px solid;
 	border-radius:0px;
 }
 
@@ -329,10 +329,12 @@ header{
 #category_box{
 	margin:25px 25px 25px 25px;
 	padding:0px;
-	width:182px;
-	height:235px;
+	width:172px;
+	height:215px;
 	float:left;
 	border-radius:5px;
+	border-style: double;
+	border-color:#190202;
 }
 #category_header{
 	margin:0px;
@@ -342,10 +344,12 @@ header{
 }
 #img_placeholder{
 	margin:0px;
-	padding:3px;
-	width:178px;
-	height:178px;
+	padding-left:10px;
+	padding-top:10px;
+	width:150px;
+	height:155px;
 	text-align:center;
+	position:relative;
 }
 #category_bottom_row{
 	margin:0px 0px 0px 0px;
@@ -353,7 +357,7 @@ header{
 	width:182px;
 	height:50px;
 	text-align:center;
-	background:#dd8119;
+	background:transparent;
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
 	

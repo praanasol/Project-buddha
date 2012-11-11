@@ -2,7 +2,7 @@ h2{
 	margin:10px 0px 0px 5px;
 	padding:0px;
 	font-family:Arial, Helvetica, sans-serif;
-	color:#d87f1b;
+	color:#752424;
 	font-weight:bold;
 	
 }
@@ -24,8 +24,10 @@ h3{
 .style2{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
-	color:#4d6012;
+	color:#F39112;
 	font-weight:bold;
+	text-align:center;
+	background-color:#7e1b1b;
 }
 .style3{
 	font-family:Arial, Helvetica, sans-serif;
@@ -230,7 +232,7 @@ a.but3:hover, a.but3:active{
 	padding:0px;
 	width:228px;
 	height:228px;
-	background:#a2a835;
+	background:#962824;
 }
 .add_style{
 	margin:0px;

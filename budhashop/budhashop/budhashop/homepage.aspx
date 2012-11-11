@@ -6,11 +6,12 @@
 <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     
     <script type="text/javascript" src="../script/jquery.pagination.js"></script>
-    
+
+    <script src="script/coin-slider.min.js" type="text/javascript"></script>
 
 
     <link href="Styles/pagination.css" rel="stylesheet" type="text/css" />
-    
+    <link href="Styles/coin-slider-styles.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="script/scroll/homePageLoad.js"></script>
 
@@ -40,12 +41,41 @@
       $("#pagination").pagination(num_entries, pagination_options);
     }
     </script>
+    
+    <script type="text/javascript">
+ $(document).ready(function() {
+        $('#coin-slider').coinslider();
+    });
+</script>
 
 
  <%--Call for json to update in cart--%>
 <%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
 <%--<article style="height:200px;"></article>--%>
- 
+ <%--div for the sliding banner--%>
+  <div id='coin-slider'>
+    <a href="img01_url" target="_blank">
+        <img src="images/banner/banner1.jpg">
+        
+    </a>
+ <a href="img01_url" target="_blank">
+        <img src="images/banner/banner2.jpg">
+        
+    </a>
+     <a href="img01_url" target="_blank">
+        <img src="images/banner/banner3.jpg">
+        
+    </a>
+     <a href="img01_url" target="_blank">
+        <img src="images/banner/banner4.jpg">
+        
+    </a>
+     <a href="img01_url" target="_blank">
+        <img src="images/banner/banner5.jpg">
+        
+    </a>
+   
+</div>
   <br clear="all" />
   <div id="box_header" style="width:985px;">
     	<h2>Feature Products...</h2>

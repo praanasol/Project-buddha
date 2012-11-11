@@ -500,7 +500,14 @@
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
     <Content Include="Global.asax" />
+    <Content Include="images\banner\banner1.jpg" />
+    <Content Include="images\banner\banner2.jpg" />
+    <Content Include="images\banner\banner3.jpg" />
+    <Content Include="images\banner\banner4.jpg" />
+    <Content Include="images\banner\banner5.jpg" />
+    <Content Include="script\coin-slider.min.js" />
     <Content Include="script\slides.js" />
+    <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="USER\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -539,7 +546,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60301</DevelopmentServerPort>
+          <DevelopmentServerPort>61890</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

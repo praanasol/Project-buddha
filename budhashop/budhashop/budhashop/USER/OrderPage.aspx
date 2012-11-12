@@ -405,7 +405,7 @@
             <div id="o_items_row">
             <!--Order items S No Cl Start-->
                     <aside id="o_i_l_cl1">
-                      <div id="o_i_l_sno" class="style4">22</div>
+                      <div id="o_i_l_sno" class="style4"><%# Container.ItemIndex+1 %></div>
                     </aside>
                     <!--Cart items S No Cl End-->
                     
@@ -413,7 +413,8 @@
             <aside id="o_i_l_cl2">
 				<section id="o_i_l_img"> 
 					
-					<div id="o_i_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" ImageUrl='<%# Eval("ImagePath")%>'/></a></div>
+					<div id="o_i_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="150" Height="150" ImageUrl='<%# Eval("ImagePath")%>' 
+					PostBackUrl='<%# Page.ResolveUrl("~/fulldetails.aspx?id="+ DataBinder.Eval(Container.DataItem, "ItemId" )+"&grp=3") %>'/></a></div>
 			  </section>
 			  <section id="o_i_l_fields">
 					

@@ -22,26 +22,26 @@ a.c_h_link:link, a.c_h_link:visited{
 	padding:0px 0px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
 	font-size:16px;
-	color:#f39112;
+	color:#e79b3f;
 	font-weight:bold;
 	text-decoration:none;
 }
 a.c_h_link:hover, a.c_h_link:active{
 	text-decoration:none;
-	color:#c0c561;
+	color:#e7cd73;
 }
 a.hide:link, a.hide:visited{
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
 	font-size:24px;
-	color:#f39112;
+	color:#e79b3f;
 	font-weight:bold;
 	text-decoration:none;
 }
 a.hide:hover, a.hide:active{
 	text-decoration:none;
-	color:#c0c561;
+	color:#e7cd73;
 }
 .c_l_form_style{
 	margin:0px;

@@ -88,13 +88,13 @@
 	
 	font-family:Arial;
 	font-size:14px;
-	color:#089abf;
+	color:#e79b3f;
 	font-weight:bold;
 	text-decoration:none;
 }
 #c_h_item_link a.c_h_links:hover, #c_h_item_link a.c_h_links:active
 {
-	color:#f39112;
+	color:#e7cd73;
 	font-weight:bold;
 	text-decoration:none;
 }
@@ -223,6 +223,7 @@
 	width:25px;
 	height:120px;
 	float:left;
+	
 	text-align:right;
 }
 #c_l_sno{
@@ -231,11 +232,12 @@
 	padding:0px;
 	width:25px;
 	height:50px;
+	color:#364700;
 }
 #c_l_cl2{
 	margin:0px 0px 0px 0px;
 	padding:0px;
-	width:280px;
+	width:290px;
 	height:120px;
 	float:left;
 	text-align:center;
@@ -259,7 +261,7 @@
 #c_l_fields{
 	margin-top:20px;
 	padding:0px;
-	width:190px;
+	width:200px;
 	height:100px;
 	float:left;
 	}
@@ -267,14 +269,14 @@
 	#c_l_field_area{
 		margin:4px 0px 4px 0px;
 		padding:0px;
-		width:190px;
+		width:200px;
 		height:18px;
 		float:left;
 }
 	#c_l_label{
 		margin:0px;
 		padding:0px;
-		width:50px;
+		width:65px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
 		font-size:12px;
@@ -337,13 +339,13 @@
 	padding:0px 0px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
 	font-size:13px;
-	color:#089abf;
+	color:#fa6819;
 	font-weight:bold;
 	text-decoration:none;
 }
 #c_l_edit a.c_l_links:hover, #c_l_edit a.c_l_links:active{
 	text-decoration:none;
-	color:#a00305;
+	color:#e79b3f;
 	
 }
 /*cart items list part End*/	
@@ -387,7 +389,7 @@
 	text-align:right;
 }
 #f_d_fields{
-	margin-top:20px;
+	margin-top:10px;
 	padding:0px;
 	width:450px;
 	height:100px;
@@ -404,7 +406,7 @@
 	#f_d_label{
 		margin:0px;
 		padding:0px;
-		width:100px;
+		width:80px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
 		font-size:14px;
@@ -722,6 +724,20 @@
 	height:40px;
 	float:left;
 }
+#o_i_l_edit a.c_l_links:link, #o_i_l_edit a.c_l_links:visited{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	font-family:"Arial", Gadget, sans-serif;
+	font-size:13px;
+	color:#fa6819;
+	font-weight:bold;
+	text-decoration:none;
+}
+#o_i_l_edit a.c_l_links:hover, #o_i_l_edit a.c_l_links:active{
+	text-decoration:none;
+	color:#e7cd73;
+	
+}
 #o_i_bottom
 {
 	margin:5px 0px 0px 0px;
@@ -826,7 +842,7 @@
 {
 	margin:5px 0px 0px 0px;
 	padding:10px;
-	width:985px;
+	width:978px;
 	height:400px;
 	float:left;
 	

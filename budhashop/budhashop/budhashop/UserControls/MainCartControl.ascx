@@ -427,7 +427,7 @@ ul {
       
        <%-- </asp:Panel>--%>
        
-      <section id="cart_layout" class="inner_box_style"> 
+      <section id="cart_layout" class="inner_box_style" style="margin-top:-13px; margin-right:156px;"> 
     <!-- Cart body start-->
     <div id="cart_body"> 
       <!--cart header part start-->
@@ -459,7 +459,7 @@ ul {
         <!--Cart heder item3 start--> 
         <!--Cart heder item4 start-->
         <aside id="c_h_cl4"> <span><a href="#" target="_self"><img src="../images/arrow_up.gif" width="39" height="17" alt="List" title="List"></a></span>
-          <div style="margin-top:3px;"><a id="hideCartBtn" href="#" target="_self" class="hide">Hide</a></div>
+          <div style="margin-top:3px;"><a id="hideCartBtn" href="#" target="_self" class="hide" style="color:#f39112;">Hide</a></div>
         </aside>
         <!--Cart heder item4 start--> 
       </div>
@@ -495,7 +495,7 @@ ul {
           <div id="c_l_items_row">
           	 <!--Cart items S No Cl Start-->
             <aside id="c_l_cl1">
-              <div id="c_l_sno" class="style2"><%# Container.ItemIndex+1 %></div>
+              <div id="c_l_sno" class="style1"><%# Container.ItemIndex+1 %></div>
             </aside>
             <!--Cart items S No Cl End-->
             <!--Cart items img CL Start-->
@@ -507,12 +507,12 @@ ul {
 			  <section id="c_l_fields">
 					
                           <div id="c_l_field_area">
-                              <div id="c_l_label">Name:</div>
+                              <div id="c_l_label">Name :</div>
                               <div id="c_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
                               </div>
                           </div>
 						  <div id="c_l_field_area">
-                              <div id="c_l_label">Product Id:</div>
+                              <div id="c_l_label">Product Id :</div>
                               <div id="c_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
                               </div>
                           </div>

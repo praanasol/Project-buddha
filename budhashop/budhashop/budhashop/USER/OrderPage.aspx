@@ -241,12 +241,12 @@
                     </div>
                 </div>
             </section>
-            <div id="login_links" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
+            <div id="login_links1" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
                 height: 50px;">
                 <div id="but_style" style="margin-left: 140px;">
                     <div id="to_left" style="margin: 0px 0px 0px 13px;"><input id="btn_login" type="button" class="l_go" value="LogIn" onclick="return checkLogin();" /></div>
                      <div id="to_right" style="margin: 5px 0px 0px 13px;">
-                    <a href="#" id="hyplink_register" class="l_links">Register</a></div>
+                    <a href="#" id="hyplink_register" class="l_links1">Register</a></div>
                 </div><br /><br />
                <%--<div id="to_right" style="margin:43px 0px 0px 22px;"><a href="#" class="l_links" id="btnClose">Close</a></div>--%>
                   <div style="margin-left:130px; margin-top:10px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label></div>
@@ -332,12 +332,12 @@
                     </div>
                 </div>
             </section>
-            <div id="login_links" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
+            <div id="login_links1" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
                 height: 50px;">
                 <div id="but_style" style="margin-left: 170px;">
                     <div id="to_left" style="margin: 0px 0px 0px 13px;"><input id="btn_register" class="l_go" type="button" value="Register" onclick="return checkEmail();" /></div>
                     <div id="to_left" style="margin: 5px 0px 0px 13px;">
-                    <a href="#" id="hyplink_login" class="l_links">Login</a>
+                    <a href="#" id="hyplink_login" class="l_links1">Login</a>
             </div>
                 </div><br />
                 
@@ -348,8 +348,8 @@
 <%--Registration popup end --%>
                          
                 </div>
- <div id="login_links" style="margin:-25px 0px 0px 15px; width:430px; height:30px;">
- <div id="to_right"><a href="#" class="l_links" id="btnClose">Close</a></div>
+ <div id="login_links1" style="margin:-25px 0px 0px 15px; width:430px; height:30px;">
+ <div id="to_right"><a href="#" class="l_links1" id="btnClose">Close</a></div>
  </div>
  </div>
                 </ContentTemplate>
@@ -497,7 +497,7 @@
     </div>
        
     
-    <div id="adressDiv" style="display:none;">
+    <div id="adressDiv" style="padding-top:150px; display:none; height:420px;">
     <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 300px;">
         <section id="login_header">
             <h3>

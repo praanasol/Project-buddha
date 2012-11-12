@@ -61,9 +61,9 @@
                         </div>
                     </div>
                 </section>
-                <div id="login_links" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
+                <div id="login_links1" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
                     clear: both;">
-                    <asp:HyperLink ID="hyplink_forgotpwd" runat="server" CssClass="l_links" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
+                    <asp:HyperLink ID="hyplink_forgotpwd" runat="server" CssClass="l_links1" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
                     <br />
                     <div id="but_style" style="width: 200px;">
                         <asp:Button ID="btn_login" CssClass="l_go" runat="server" Text="Login" ValidationGroup="login"
@@ -163,9 +163,9 @@
                             </div>
                     </div>
                 </section>
-                <div id="login_links" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
+                <div id="login_links1" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
                     clear: both;">
-                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="l_links" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
+                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="l_links1" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
                     <br />
                     <div id="but_style" style="width: 200px;">
                         <asp:Button ID="btn_reg" CssClass="l_go" runat="server" OnClick="btn_reg_Click" Text="Register"

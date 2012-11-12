@@ -20,7 +20,8 @@ img{
 	width:1000px;
 	height:auto;
 	background:#EFD787 url(../images/header_bg.gif) left top repeat-x;
-	border-left-color:#a00305;
+	border-left:#e79b3f 1px solid;
+	border-right:#e79b3f 1px solid;
 	}
 header{
 	width:1000px;
@@ -132,13 +133,38 @@ header{
 	
 	font-family:Arial;
 	font-size:12px;
-	color:#089abf;
+	color:#e79b3f;
 	font-weight:bold;
 	text-decoration:none;
 }
 #login_links a.l_links:hover, #login_links a.l_links:active
 {
-	color:#a00305;
+	color:#e7cd73;
+	font-weight:bold;
+	text-decoration:none;
+}
+#login_links1
+{
+	margin:30px 0 0 10px;
+	padding:5px 0px 0px 0px;
+	width:300px;
+	height:20px;
+	clear:both;
+}
+#login_links1 a.l_links1:link, #login_links1 a.l_links1:visited
+{
+	margin:0px 10px 0px 0px;
+	padding:0px;
+	
+	font-family:Arial;
+	font-size:12px;
+	color:#d87f1b;
+	font-weight:bold;
+	text-decoration:none;
+}
+#login_links1 a.l_links1:hover, #login_links1 a.l_links1:active
+{
+	color:#e79b3f;
 	font-weight:bold;
 	text-decoration:none;
 }
@@ -158,13 +184,13 @@ header{
 	
 	font-family:Arial;
 	font-size:12px;
-	color:#089abf;
+	color:#e79b3f;
 	font-weight:bold;
 	text-decoration:none;
 }
 #logout_links a.l_links:hover, #logout_links a.l_links:active
 {
-	color:#a00305;
+	color:#e7cd73;
 	font-weight:bold;
 	text-decoration:none;
 }

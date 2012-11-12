@@ -47,9 +47,9 @@
                     </div>
                 </section>
                 <br style="clear:both;" /><br />
-                <div id="login_links" style="margin:auto; margin-top:40px; padding-left:15px; width:200px;">
-                    <a href="#" ID="hyplink_changepwd" class="l_links">Change Password?</a>
-                    <a href="#" ID="hyplink_edit" class="l_links">Edit Profile</a>
+                <div id="login_links1" style="margin:auto; margin-top:40px; padding-left:15px; width:200px;">
+                    <a href="#" ID="hyplink_changepwd" class="l_links1">Change Password?</a>
+                    <a href="#" ID="hyplink_edit" class="l_links1">Edit Profile</a>
                     <br />
                     <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
                 </div>
@@ -328,8 +328,8 @@
                                     <div id="but_style" style="width:100px; margin-top:25px;"><input id="btn_updateaddress" class="l_go" onclick="return updateAddress();" type="button" value="Update" /></div>
                                 </div>
                              </section>
-                             <div id="login_links" style="width:510px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
-                             <div id="to_right" style="margin:0px 0px 0px 13px;"><a href="#" class="l_links" id="btnClose">Close</a></div>
+                             <div id="login_links1" style="width:510px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
+                             <div id="to_right" style="margin:0px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose">Close</a></div>
                              </div>
                         </div>
                         <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
@@ -424,12 +424,12 @@
                                 </div>
                              </section>
                              
-                             <div id="login_links" style="margin:auto; padding:10px 0px 0px 0px; width:430px; height:60px;">
+                             <div id="login_links1" style="margin:auto; padding:10px 0px 0px 0px; width:430px; height:60px;">
                                 <div id="but_style" style="margin-left:180px;">
                              <input id="btn_updatepwd" onclick="return updatePassword();" class="l_go" type="button" value="Update" /><br />
                              <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
                              </div>
-                             <div id="to_right" style="margin:40px 0px 0px 13px;"><a href="#" class="l_links" id="btnClose1">Close</a></div>
+                             <div id="to_right" style="margin:40px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose1">Close</a></div>
                              </div>
                              
                                     </div>

@@ -502,7 +502,8 @@ ul {
             <aside id="c_l_cl2">
 				<section id="c_l_img"> 
 					
-					<div id="c_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="80px" Height="80px" ImageUrl='<%# Eval("ImagePath")%>'/></div>
+					<div id="c_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="80px" Height="80px" ImageUrl='<%# Eval("ImagePath")%>'
+					PostBackUrl='<%# Page.ResolveUrl("~/fulldetails.aspx?id="+ DataBinder.Eval(Container.DataItem, "ItemId" )+"&grp=3") %>'/></div>
 			  </section>
 			  <section id="c_l_fields">
 					

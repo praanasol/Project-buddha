@@ -452,13 +452,19 @@
                       <div id="o_i_l_field_area" style="width:140px;">
                               <%--<div id="o_i_l_label" style="width:10px;"></div>--%>
                               <div id="o_i_l_field" class="style4" style="width:100px;"><asp:TextBox CssClass="o_i_f_form_style"  ID="qtyTxt" runat="server" Text='<%# Eval("Qty")%>'></asp:TextBox>
+                              <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="qtyTxt"
+                                        ErrorMessage="*" SetFocusOnError="True" ValidationGroup="orderpgVal">empty !</asp:RequiredFieldValidator>
+                                <br />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="orderpgVal" SetFocusOnError="true" ErrorMessage="Enter valid mobile number." ControlToValidate="qtyTxt" ForeColor="Red" 
+                                                                                              ValidationExpression="^(?:[1-9]|0[1-9]|1[0-9]|20)$">Max 20</asp:RegularExpressionValidator>
+              
                               </div>
                           </div>
                     </aside>
             <!--Order items Total Cl End-->
              <!--Order items Update Cl Start-->
             <aside id="o_i_l_cl5">
-              <div id="o_i_l_edit"><asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem"  class="c_l_links" >Update</asp:LinkButton></div>
+              <div id="o_i_l_edit"><asp:LinkButton ID="updateBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" CausesValidation="true" ValidationGroup="orderpgVal"  class="c_l_links" >Update</asp:LinkButton></div>
               <div id="o_i_l_edit"><asp:LinkButton ID="deleteBtn" runat="server" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem"  class="c_l_links" >Remove</asp:LinkButton></div>
             </aside>
             <!--Order items img Cl End-->

@@ -61,11 +61,92 @@ namespace budhashop.HardCodedValues {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email Id Do not Exist in our Database.
+        ///   Looks up a localized string similar to Enter Correct Captcha.
+        /// </summary>
+        internal static string CaptchaError {
+            get {
+                return ResourceManager.GetString("CaptchaError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Occured: .
+        /// </summary>
+        internal static string CatchBlockError {
+            get {
+                return ResourceManager.GetString("CatchBlockError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Email Format.
+        /// </summary>
+        internal static string EmailFormatError {
+            get {
+                return ResourceManager.GetString("EmailFormatError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available....
+        /// </summary>
+        internal static string EmailIdAvailable {
+            get {
+                return ResourceManager.GetString("EmailIdAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email ID already Registered.
+        /// </summary>
+        internal static string EmailIdExist {
+            get {
+                return ResourceManager.GetString("EmailIdExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email ID not Registered.
         /// </summary>
         internal static string EmailIdNull {
             get {
                 return ResourceManager.GetString("EmailIdNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something Wrong, Please try again....
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong Email ID / Password.
+        /// </summary>
+        internal static string LoginFail {
+            get {
+                return ResourceManager.GetString("LoginFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Changed Successfully.
+        /// </summary>
+        internal static string PwdChangeSuccess {
+            get {
+                return ResourceManager.GetString("PwdChangeSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Sent... Check your Email for new Password.
+        /// </summary>
+        internal static string PwdForgotSuccess {
+            get {
+                return ResourceManager.GetString("PwdForgotSuccess", resourceCulture);
             }
         }
     }

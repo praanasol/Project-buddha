@@ -155,7 +155,14 @@ namespace budhashop.USER.Services
         public string Getuser()
         {
             DataTable dt = (DataTable)this.Session["currentuser"];
-            return dt.Rows[0]["Email"].ToString();
+            if (dt != null)
+            {
+                return dt.Rows[0]["Email"].ToString();
+            }
+            else
+            {
+                return "nouser";
+            }
         }
 
         [WebMethod]

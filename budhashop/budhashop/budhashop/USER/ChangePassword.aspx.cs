@@ -42,22 +42,21 @@ namespace budhashop.USER
                     bool ispwdupdated = checkuser.UpdatePassword(userid, newpassword); 
                     if (ispwdupdated)
                     {
-                        lbl_submit.Text = "Password Changed Successfully";
-                        lbl_submit.Font.Bold = true;
+                        lbl_submit.Text = HardCodedValues.BuddaResource.PwdChangeSuccess;
                     }
                     else
                     {
-                        lbl_submit.Text = "Something Wrong,try again!";
+                        lbl_submit.Text = HardCodedValues.BuddaResource.Error;
                     }
                 }
                 else
                 {
-                    lbl_submit.Text = "Invalid User Id / Password";
+                    lbl_submit.Text = HardCodedValues.BuddaResource.LoginFail;
                 }
             }
             catch (Exception ex)
             {
-                lbl_submit.Text = "Error Occured: " + ex.Message;
+                lbl_submit.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
             }
         }
 

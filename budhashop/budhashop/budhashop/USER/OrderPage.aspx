@@ -127,8 +127,8 @@
                             
                             function showadress() {
                             //some code to user
+                            $("#preloader").show();
                             $.ajax({
-                                    $("#preloader").show();
                                         type: "POST",
                                         contentType: "application/json; charset=utf-8",
                                         url: "../USER/OrderPage.aspx/showAdress",

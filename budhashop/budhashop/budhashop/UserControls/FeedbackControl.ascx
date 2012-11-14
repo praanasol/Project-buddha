@@ -3,134 +3,57 @@
 <%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
 <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>
 --%>
-<style type="text/css">
-    .feedback
-    {
-    	
-    	position:fixed;
-    	right:0%;
-    	bottom:0%;
-    	font-family:Arial;
-	font-size:14px;
-	color:#089abf;
-	font-weight:bold;
-	text-decoration:none;
-	
-    }
-     .feedback-body
-    {
-    	
-    	width:auto; 
-    	float:left;
-    	position:fixed;
-    	right:-21%;
-    	bottom:0%;
-    	font-family:Arial, Helvetica, sans-serif;
-		font-size:14px;
-		color:#364700;
-		font-weight:bold;
-    	background:#f5c45a;
-	border:#f4b01b 1px solid;
-	border-radius:5px;
-	box-shadow:-2px -2px 2px #fad480;
-    	
-    }
-    .f_form_style{
-	margin:0px;
-	padding-left:5px;
-	width:200px;
-	height:18px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:13px;
-	color:#364700;
-	font-weight:bold;
-	background:#e7cd73;
-	border:#d9b021 solid 2px;
-	border-radius:5px;
-}
-</style>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#img_fb").click(function(e) {
-          
-            
-                //$(".feedback-body").show();
-                $(".feedback-body").animate({right:"0%"});
-                 $("#feedback").hide();
-                 e.stopPropagation();
-           
-        });
-        $(document).click(function(e) {
-            $(".feedback-body").animate({right:"-21%"});
-            $("#feedback").show();
-            e.stopPropagation();
-            //$(".feedback-body").hide();
-             
-        });
-        $("#feedback-body").click(function(e){
-            e.stopPropagation();
-        });
-        $("#closeimg").click(function(e){
-            $(".feedback-body").animate({right:"-21%"});
-            $("#feedback").show();
-        });
-        
-        $("#btn_fbclose").click(function(){
-            $("#submittedFbDiv").hide();
-        });
-    });
-    
-    function Fb_Submit()
-     {
-        var email = $("[id$=txt_emailfb]").val();
-        var msg = $("[id$=txt_msg]").val();
-        var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-        if(email==""){$("[id$=lbl_emailfb]").text("Enter Email Id");  $("[id$=txt_emailfb]").focus(); }
-        else if(email.match(emailFormat)==null){$("[id$=lbl_emailfb]").text("Enter Valid Email Id");  $("[id$=txt_emailfb]").focus();}
-        else if(msg==""){$("[id$=lbl_msg]").text("Enter Message");   $("[id$=txt_msg]").focus();    $("[id$=lbl_emailfb]").text('');   }
-        else if(msg.length>50){$("[id$=lbl_msg]").text("Should not exeed 50 characters");   $("[id$=txt_msg]").focus();   }
-        else
-        {
-            $("#preloader").show();
-            $.ajax({
-                type: "POST",
-                url: "../USER/Services/LoginControl.asmx/insertFeedback",
-                data: "{'emailid':'"+ email +"','msg':'"+ msg +"'}",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-               
-                success: function(data) {
-                    $("#preloader").hide();
-                    if(data.d){
-                        $("#successFb-body").show();
-                        $("#failureFb-body").hide();
-                        $("[id$=txt_emailfb]").val('');
-                        $("[id$=txt_msg]").val('');
-                        $("[id$=lbl_emailfb]").text('');
-                        $("[id$=lbl_msg]").text('');
-                    }
-                    else {
-                        $("#successFb-body").hide();
-                        $("#failureFb-body").show();
-                    }
-                    $("#submittedFbDiv").show();
-                    $("#submittedFbDiv").delay(3200).fadeOut(300);
-                   },
-                error: function(data) {
-                    $("#preloader").hide();
-                    $("#successFb-body").hide();
-                    $("#failureFb-body").show();
-                    $("#submittedFbDiv").show();
-                    $("#submittedFbDiv").delay(3200).fadeOut(300);
-                }
-             });
-        }
-     }
-</script>
-
 <body>
 
+    <script src="../script/FeedbackControl.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        .feedback
+        {
+        	
+    	    position:fixed;
+    	    right:0%;
+    	    bottom:0%;
+    	    font-family:Arial;
+	    font-size:14px;
+	    color:#089abf;
+	    font-weight:bold;
+	    text-decoration:none;
+    	
+        }
+         .feedback-body
+        {
+        	
+    	    width:auto; 
+    	    float:left;
+    	    position:fixed;
+    	    right:-21%;
+    	    bottom:0%;
+    	    font-family:Arial, Helvetica, sans-serif;
+		    font-size:14px;
+		    color:#364700;
+		    font-weight:bold;
+    	    background:#f5c45a;
+	    border:#f4b01b 1px solid;
+	    border-radius:5px;
+	    box-shadow:-2px -2px 2px #fad480;
+        	
+        }
+        .f_form_style{
+	    margin:0px;
+	    padding-left:5px;
+	    width:200px;
+	    height:18px;
+	    font-family:Arial, Helvetica, sans-serif;
+	    font-size:13px;
+	    color:#364700;
+	    font-weight:bold;
+	    background:#e7cd73;
+	    border:#d9b021 solid 2px;
+	    border-radius:5px;
+    }
+    </style>
+    
     
 <div id="feedback" class="feedback">
     

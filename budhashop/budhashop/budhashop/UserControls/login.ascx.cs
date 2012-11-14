@@ -37,7 +37,7 @@ namespace budhashop.UserControls
             this.Session["currentuser"] = null;
             lbl_result1.Text = "";
             //logintext.Text = "LogIn";
-            Response.Redirect(Request.RawUrl);
+            Response.Redirect("~/homepage.aspx");
         }
 
         protected void lb_profile_Click(object sender, EventArgs e)

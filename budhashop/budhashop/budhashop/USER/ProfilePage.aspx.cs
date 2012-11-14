@@ -72,7 +72,7 @@ namespace budhashop.USER
             }
             catch (Exception ex)
             {
-                lbl_status.Text = "Error Occured : " + ex.Message;
+                lbl_status.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
             }
         }
 

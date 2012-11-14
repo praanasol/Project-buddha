@@ -507,6 +507,10 @@
     <Content Include="images\banner\banner4.jpg" />
     <Content Include="images\banner\banner5.jpg" />
     <Content Include="script\coin-slider.min.js" />
+    <Content Include="script\FeedbackControl.js" />
+    <Content Include="script\loginControl.js" />
+    <Content Include="script\orderPage.js" />
+    <Content Include="script\profilePage.js" />
     <Content Include="script\slides.js" />
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="USER\Web.config" />

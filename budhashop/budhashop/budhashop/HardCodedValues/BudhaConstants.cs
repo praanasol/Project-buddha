@@ -15,6 +15,7 @@ namespace budhashop.HardCodedValues
     public static class BudhaConstants
     {
         public const int RandomPasswordLength = 7;
+        public const string RandomString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     }
 }

@@ -508,12 +508,12 @@ namespace budhashop.USER
                 else
                 {
                     //show error
-                    lbl_status.Text = "Error Occured, Try Again";
+                    lbl_status.Text = HardCodedValues.BuddaResource.Error;
                 }
             }
             else
             {
-                lbl_status.Text = "Error Occured, Try Again";
+                lbl_status.Text = HardCodedValues.BuddaResource.Error;
             }
 
         }

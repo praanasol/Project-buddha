@@ -31,7 +31,7 @@ namespace budhashop.USER
         }
 
         private static Random rand = new Random();
-        private static string randomtext = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static string randomtext = HardCodedValues.BudhaConstants.RandomString;
 
         // Generates and returns a new random password
         public static string GenerateRandomPassword(int length)
@@ -76,24 +76,24 @@ namespace budhashop.USER
                         bool ispwdupdated = checkuser.UpdatePassword(emailid, encryptedpwd);
                         if (ispwdupdated)
                         {
-                            lbl_fsubmit.Text = "Email Sent, Check your email for new Password.";
+                            lbl_fsubmit.Text = HardCodedValues.BuddaResource.PwdForgotSuccess;
                             lbl_fsubmit.Font.Bold = true;
                         }
                         else
                         {
-                            lbl_fsubmit.Text = "Something Wrong,try again!";                            
+                            lbl_fsubmit.Text = HardCodedValues.BuddaResource.Error;                            
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    lbl_fsubmit.Text = "Error Occured: " + ex.Message;
+                    lbl_fsubmit.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
                 }
             }
             else
             {
                 txt_captcha.Text = "";
-                lbl_captcha.Text = "Enter Correct data";
+                lbl_captcha.Text = HardCodedValues.BuddaResource.CaptchaError;
                 // Create a random Captcha and store it in the Session object.
                 this.Session["CaptchaImageText"] = Captcha.CaptchaImage.GenerateRandomCode(7);
                 txt_captcha.Focus();

@@ -82,7 +82,7 @@
             </tr>
             <tr>
                 <td colspan="3" align="center">
-                    <asp:Label ID="lbl_submit" runat="server"></asp:Label>
+                    <asp:Label ID="lbl_submit" ForeColor="Red" Font-Bold="true" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>

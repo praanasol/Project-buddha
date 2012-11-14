@@ -46,7 +46,7 @@ namespace budhashop.USER
                     {
                         imgEmail.ImageUrl = "~/images/unavailable.png";
                         imgEmail.Visible = true;
-                        lbl_checkemail.Text = "Email already registered";
+                        lbl_checkemail.Text = HardCodedValues.BuddaResource.EmailIdExist;
                         lbl_checkemail.ForeColor = System.Drawing.Color.Red;
                         txt_emailid.Focus();
                     }
@@ -54,20 +54,20 @@ namespace budhashop.USER
                     {
                         imgEmail.ImageUrl = "~/images/tick.png";
                         imgEmail.Visible = true;
-                        lbl_checkemail.Text = "Available";
+                        lbl_checkemail.Text = HardCodedValues.BuddaResource.EmailIdAvailable;
                         lbl_checkemail.ForeColor = System.Drawing.Color.Green;
                     }
                 }
                 catch (Exception ex)
                 {
-                    lbl_checkemail.Text = "Error Occured, Refresh Page";
+                    lbl_checkemail.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
                 }
             }
             else
             {
                 imgEmail.ImageUrl = "~/images/unavailable.png";
                 imgEmail.Visible = true;
-                lbl_checkemail.Text = "Invalid Email Format";
+                lbl_checkemail.Text = HardCodedValues.BuddaResource.EmailFormatError;
                 lbl_checkemail.ForeColor = System.Drawing.Color.Red;
                 txt_emailid.Focus();
             }
@@ -80,7 +80,7 @@ namespace budhashop.USER
 
         protected void btn_reg_Click(object sender, EventArgs e)
         {
-            if (lbl_checkemail.Text == "Available")
+            if (lbl_checkemail.Text == HardCodedValues.BuddaResource.EmailIdAvailable)
             {
                 //Check whether the Captcha text is correct or not
                 if (this.txt_captcha.Text == this.Session["CaptchaImageText"].ToString())
@@ -104,18 +104,18 @@ namespace budhashop.USER
                         dt = userInsert.checklogin(emailid, encryptedpwd);
                         this.Session["currentuser"] = dt;
 
-                        lbl_register.Text = "Registration Successfull";
+                        //lbl_register.Text = "Registration Successfull";
                         Response.Redirect("~/USER/ProfilePage.aspx");
                     }
                     catch (Exception exp)
                     {
-                        lbl_register.Text = "Error: " + exp.Message;
+                        lbl_register.Text = HardCodedValues.BuddaResource.CatchBlockError + exp.Message;
                     }
                 }
                 else
                 {
                     txt_captcha.Text = "";
-                    lbl_captcha.Text = "Invalid Captcha...Try Again";
+                    lbl_captcha.Text = HardCodedValues.BuddaResource.CaptchaError;
                     // Create a random Captcha and store it in the Session object.
                     this.Session["CaptchaImageText"] = Captcha.CaptchaImage.GenerateRandomCode(7);
                     txt_captcha.Focus();
@@ -140,18 +140,18 @@ namespace budhashop.USER
                 if (dt != null)
                 {
                     this.Session["currentuser"] = dt;
-                    lbl_login.Text = "Log In Successfull";
+                    //lbl_login.Text = "Log In Successfull";
                     Response.Redirect("~/homepage.aspx");
                     //txt_lusername.Enabled = txt_lpassword.Enabled = false;
                 }
                 else
                 {
-                    lbl_login.Text = "Invalid User Id / Password";
+                    lbl_login.Text = HardCodedValues.BuddaResource.LoginFail;
                 }
             }
             catch (Exception ex)
             {
-                lbl_login.Text = "Error Occured: " + ex.Message;
+                lbl_login.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
             }
         }
 

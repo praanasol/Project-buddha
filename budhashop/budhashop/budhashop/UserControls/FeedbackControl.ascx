@@ -92,6 +92,7 @@
         else if(msg.length>50){$("[id$=lbl_msg]").text("Should not exeed 50 characters");   $("[id$=txt_msg]").focus();   }
         else
         {
+            $("#preloader").show();
             $.ajax({
                 type: "POST",
                 url: "../USER/Services/LoginControl.asmx/insertFeedback",
@@ -100,6 +101,7 @@
                 dataType: "json",
                
                 success: function(data) {
+                    $("#preloader").hide();
                     if(data.d){
                         $("#successFb-body").show();
                         $("#failureFb-body").hide();
@@ -116,6 +118,7 @@
                     $("#submittedFbDiv").delay(3200).fadeOut(300);
                    },
                 error: function(data) {
+                    $("#preloader").hide();
                     $("#successFb-body").hide();
                     $("#failureFb-body").show();
                     $("#submittedFbDiv").show();

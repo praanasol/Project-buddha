@@ -181,11 +181,13 @@
                                     else if(uname==newuname){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_nameedit]").focus();}
                                     else
                                     {
+                                        $("#preloader").show();
                                         budhashop.USER.Services.LoginControl.UpdateProfile(newuname, "name", OnComplete, onerror);
                                     }
                                 }
                                 function OnComplete(result)
                                 {
+                                    $("#preloader").hide();
                                     if(result){ $("[id$=lbl_result]").text("User Name Updated..."); var newuname = $("[id$=txt_unameedit]").val(); $("[id$=txt_uname]").val(newuname); }
                                     else{ $("[id$=lbl_result]").text("Error Updating, Try Again..."); }
                                 }
@@ -200,11 +202,13 @@
                                     else if(phno==newphno){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_phnoedit]").focus();}
                                     else
                                     {
+                                        $("#preloader").show();
                                         budhashop.USER.Services.LoginControl.UpdateProfile(newphno, "phno", OnSucceeded, onerror);
                                     }
                                 }
                                 function OnSucceeded(result)
                                 {
+                                    $("#preloader").hide();
                                     if(result){ $("[id$=lbl_result]").text("Phone Number Updated..."); var newphno = $("[id$=txt_phnoedit]").val();  $("[id$=txt_phno]").val(newphno); }
                                     else{ $("[id$=lbl_result]").text("Error Updating, Try Again..."); }
                                 }
@@ -217,11 +221,13 @@
                                     else if(address==newaddress){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_addressedit]").focus();}
                                     else
                                     {
+                                        $("#preloader").show();
                                         budhashop.USER.Services.LoginControl.UpdateProfile(newaddress, "address", OnCompleted, onerror);
                                     }
                                 }
                                 function OnCompleted(result)
                                 {
+                                    $("#preloader").hide();
                                     if(result){ $("[id$=lbl_result]").text("Address Updated..."); var newaddress = $("[id$=txt_addressedit]").val();   $("[id$=txt_address]").val(newaddress); }
                                     else{ $("[id$=lbl_result]").text("Error Updating, Try Again..."); }
                                 }
@@ -237,11 +243,13 @@
                                     else if(newpwd != newpwd1){$("[id$=lbl_resultpwd]").text("Passwords Donot Match");  $("[id$=txt_confirmnewpwd]").focus();}
                                     else
                                     {
+                                        $("#preloader").show();
                                         budhashop.USER.Services.LoginControl.UpdatePassword(oldpwd, newpwd, OnReturn, onerror);
                                     }
                                 }
                                 function OnReturn(result)
                                 {
+                                    $("#preloader").hide();
                                     if(result){ $("[id$=lbl_resultpwd]").text("Password Updated..."); }
                                     else{ $("[id$=lbl_resultpwd]").text("Your Old Pasword is Wrong"); $("[id$=txt_oldpwd]").focus(); }
                                 }

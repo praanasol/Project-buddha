@@ -128,6 +128,7 @@
                             function showadress() {
                             //some code to user
                             $.ajax({
+                                    $("#preloader").show();
                                         type: "POST",
                                         contentType: "application/json; charset=utf-8",
                                         url: "../USER/OrderPage.aspx/showAdress",
@@ -135,7 +136,7 @@
                                         data: "{}",
                
                                         success: function(data) {
-                                        
+                                        $("#preloader").hide();
                                         for(var i=0;i<data.d.length;i++)
                                         {
                                         $("[id$=txt_uname]").val(data.d[0].UserName);
@@ -149,6 +150,7 @@
                                         // close each()            
                                         },
                                         error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                            $("#preloader").hide();
                                             alert(textStatus);
                                         }
                                     });
@@ -183,6 +185,7 @@
       else if(pwd==""){$("[id$=lbl_result]").text("Enter Password");    $("[id$=txt_pwd]").focus();    }
       else
       {
+        $("#preloader").show();
         budhashop.USER.Services.LoginControl.LoginUser(email, pwd, OnSucceeded, onerror);
       }
      }
@@ -191,6 +194,7 @@
 //        $("[id$=lbl_result]").text(result);
 //        var usersession='<%= this.Session["currentuser"] %>';
 //            if(usersession != "")
+            $("#preloader").hide();
             if(result=='nouser')
             {
                 $("[id$=lbl_result]").text('Wrong Email Id/Password');
@@ -211,6 +215,7 @@
         }
          
     function onerror(result){
+        $("#preloader").hide();
         alert("Error calling service method.");
         }        
 </script>
@@ -274,15 +279,14 @@
       else if(pwd != confirmpwd){$("[id$=lbl_result2]").text("Passwords Do not Match");   $("[id$=txt_confirmpwd2]").focus();}
       else
       {
+        $("#preloader").show();
         budhashop.USER.Services.LoginControl.RegisterUser(email, pwd, OnCompleted, onerror);
       }
      }
         
     function OnCompleted(result) {
-        var result1=false;
-        result1=eval(result);
-        
-            if(result1)
+            $("#preloader").hide();
+            if(result)
             {
                 $("[id$=txt_username2]").val('');
                 $("[id$=txt_emailid2]").val('');
@@ -297,11 +301,7 @@
             {
                $("[id$=lbl_result2]").text('Email Id Already Exists in our Databse');
             } 
-        }
-         
-    function onerror(result){
-        alert("Error calling service method.");
-        }        
+        }       
 </script>
 <div id="RegisterControl">
         <div id="p_f_data" class="p_f_box_style">

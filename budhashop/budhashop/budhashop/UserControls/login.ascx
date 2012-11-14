@@ -103,15 +103,17 @@
               var email = $("[id$=txt_emailid1]").val();
               var pwd = $("[id$=txt_pwd1]").val();
               var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-              if(email==""){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
+              if(email=="Email ID..."){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
               else if(email.match(emailFormat)==null){$("[id$=lbl_result1]").text("Enter Valid Email Id");  $("[id$=txt_emailid1]").focus();}
               else if(pwd==""){$("[id$=lbl_result1]").text("Enter Password");   $("[id$=txt_pwd1]").focus();   }
               else
               {
+                $("#preloader").show();
                 budhashop.USER.Services.LoginControl.LoginUser(email, pwd, OnSuccess, onerror);
               }
             }
          function OnSuccess(result) {
+                $("#preloader").hide();
                 if(result!="nouser")
                 {
                     $("[id$=txt_emailid1]").val('');
@@ -132,6 +134,7 @@
             }
          
         function onerror(result){
+            $("#preloader").hide();
             alert("Error calling service method.");
             }
          
@@ -147,7 +150,8 @@
         <div id="login-required">
             <div id="l_f_bg" class="bg_style2">
             <div id="login_form">
-            <asp:TextBox ID="txt_emailid1" CssClass="login_form_style" runat="server" placeholder="Email ID..."></asp:TextBox>
+            <asp:TextBox ID="txt_emailid1" CssClass="login_form_style" runat="server" Text="Email ID..."
+                onfocus="if(this.value=='Email ID...')this.value='';" onblur="if(this.value=='')this.value='Email ID...';"></asp:TextBox>
             </div>
              <div id="login_form">
             <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" runat="server" TextMode="Password" placeholder="Password..."></asp:TextBox>

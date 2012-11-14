@@ -500,6 +500,7 @@
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
     <Content Include="Global.asax" />
+    <Content Include="images\ajax-loader.gif" />
     <Content Include="images\banner\banner1.jpg" />
     <Content Include="images\banner\banner2.jpg" />
     <Content Include="images\banner\banner3.jpg" />

@@ -506,13 +506,17 @@
     <Content Include="images\banner\banner3.jpg" />
     <Content Include="images\banner\banner4.jpg" />
     <Content Include="images\banner\banner5.jpg" />
+    <Content Include="images\scroll_bg.gif" />
+    <Content Include="mCSB_buttons.png" />
     <Content Include="script\coin-slider.min.js" />
     <Content Include="script\FeedbackControl.js" />
+    <Content Include="script\jquery.mCustomScrollbar.min.js" />
     <Content Include="script\loginControl.js" />
     <Content Include="script\orderPage.js" />
     <Content Include="script\profilePage.js" />
     <Content Include="script\slides.js" />
     <Content Include="Styles\coin-slider-styles.css" />
+    <Content Include="Styles\jquery.mCustomScrollbar.css" />
     <Content Include="USER\Web.config" />
   </ItemGroup>
   <ItemGroup>

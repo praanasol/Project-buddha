@@ -4,6 +4,96 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<!-- styles needed by jScrollPane -->
+<link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+ 
+<!-- latest jQuery direct from google's CDN -->
+
+<!-- the mousewheel plugin - optional to provide mousewheel support -->
+<script type="text/javascript" src="../script/scroll/jquery.mousewheel.js"></script>
+ 
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>
+
+<style type="text/css">
+                .web_dialog_overlay
+                {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    background: #000000;
+                    opacity: .5;
+                    filter: alpha(opacity=15);
+                    -moz-opacity: .15;
+                    z-index: 101;
+                    display: none;
+                }
+                .web_dialog
+                {
+                    display: none;
+                    position: absolute;
+                    width: auto;
+                    height: auto;
+                    top: 28%;
+                    left: 40%;
+                    
+                    border: solid 2px #336699;
+                    padding: 0px;
+                    z-index: 102;
+                    font-family: Verdana;
+                    font-size: 10pt;
+                }
+                .web_dialog_title
+                {
+                    text-align: right;
+                }
+                .hiddenColumn
+                {
+                    display: none;
+                }
+                
+                /*scrollpane custom CSS*/
+.jspVerticalBar {
+    width: 8px;
+    background: transparent;
+    right:10px;
+}
+ 
+.jspHorizontalBar {
+    bottom: 5px;
+    width: 100%;
+    height: 8px;
+    background: transparent;
+}
+.jspTrack {
+    background: transparent;
+}
+ 
+.jspDrag {
+    background: url(../images/scroll_bg.gif) repeat;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+ 
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag {
+    float: left;
+    height: 100%;
+}
+ 
+.jspCorner {
+    display:none
+}
+            </style>
+
     <div id="box_header" style="width:985px;">
     	<h2>Profile...</h2>
       
@@ -57,54 +147,14 @@
             <!--Profile End-->
             <%--Modal Pop-Up End--%>
             <%--Style for Pop-Up Window--%>
-            <style type="text/css">
-                .web_dialog_overlay
-                {
-                    position: fixed;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
-                    background: #000000;
-                    opacity: .5;
-                    filter: alpha(opacity=15);
-                    -moz-opacity: .15;
-                    z-index: 101;
-                    display: none;
-                }
-                .web_dialog
-                {
-                    display: none;
-                    position: absolute;
-                    width: auto;
-                    height: auto;
-                    top: 28%;
-                    left: 40%;
-                    
-                    border: solid 2px #336699;
-                    padding: 0px;
-                    z-index: 102;
-                    font-family: Verdana;
-                    font-size: 10pt;
-                }
-                .web_dialog_title
-                {
-                    text-align: right;
-                }
-                .hiddenColumn
-                {
-                    display: none;
-                }
-            </style>
+            
             <%--End of Style for Pop-Up Window--%>
             <%--<script src="../script/jquery-1.8.2.js" type="text/javascript"></script>--%>
 
             <script type="text/javascript">
                             $(document).ready(function() {
+                            
+                                
                                 var usersession='<%= this.Session["currentuser"] %>';
                                 if(!usersession){
                                     $("#hyplink_edit").hide();
@@ -285,6 +335,25 @@
                                      });
                                  }
                     	    
+           $(function() {
+           
+                        //$('#contentDiv').jScrollPane();
+                        $('[id$=contentDiv]').jScrollPane({
+                            horizontalGutter:5,
+                            verticalGutter:5,
+                            'showArrows': false
+                        });
+                        
+                        $('.jspDrag').hide();
+$('.jspScrollable').mouseenter(function(){
+    $(this).find('.jspDrag').stop(true, true).fadeIn('slow');
+});
+$('.jspScrollable').mouseleave(function(){
+    $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
+});
+                
+                });
+           
             </script>
 
             <%--Start of Pop-Up Window--%>
@@ -499,8 +568,8 @@
         </div>
         <div id="orderHistoryDiv">
             <aside id="grid">
-            <div style="overflow-x:auto; height:450px;">
-                <asp:GridView ID="orderGrid" runat="server" CellSpacing="2" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
+            <div id="contentDiv" style="overflow-x:auto; height:450px;">
+                <asp:GridView ID="orderGrid" runat="server" CellSpacing="6" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
                     GridLines="None" AlternatingRowStyle-Wrap="False">
                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
                     <Columns>
@@ -509,7 +578,7 @@
                                 <asp:Label ID="lbl_PurchaseId" runat="server" Text='<%# Eval("PurchaseId") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="User Id" ControlStyle-CssClass="p_g_cl">
+                        <asp:TemplateField HeaderText="User Id" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
                             </ItemTemplate>
@@ -535,14 +604,15 @@
                                 <asp:Label ID="lbl_totalBR" runat="server" Text='<%# Eval("TotalBilledRate") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Date Purchased" ControlStyle-CssClass="p_g_cl">
+                        <asp:TemplateField HeaderText="Purchase Date" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Deliverd" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_Delivered" runat="server" Text='<%# Eval("DeliveredFlag") %>'></asp:Label>
+                                
+                                <asp:CheckBox ID="cbDelivered" runat="server" Checked='<%# Eval("DeliveredFlag") %>' Enabled="false" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -558,11 +628,11 @@
                         <asp:Label ID="totalBill" runat="server"></asp:Label>
                         <asp:Label ID="dateP" runat="server"></asp:Label>--%>
                         
-                <section id="p_d_fields" style="margin-top:0px; width:410px; margin-left:5px;">
-                    <section id="login_header"><h3>Result</h3></section>
+                <section id="p_d_fields" style="margin-top:0px; width:450px; margin-left:5px;">
+                    <section id="login_header"><h3>Details</h3></section>
                     <div id="p_d_field_area">
                         <div id="p_d_label">
-                            Email ID :</div>
+                            Name :</div>
                         <div id="p_d_field" class="style4">
                             <label id="NameA">
                         </label>
@@ -570,7 +640,7 @@
                     </div>
                     <div id="p_d_field_area">
                         <div id="p_d_label" class="style1" style="padding-top: 2px;">
-                            Name :</div>
+                            Phone :</div>
                         <div id="p_d_field" class="style4">
                             <label id="PhnA">
                         </label>
@@ -578,7 +648,7 @@
                     </div>
                     <div id="p_d_field_area">
                         <div id="p_d_label">
-                            Phone No :</div>
+                            Adress :</div>
                         <div id="p_d_field" class="style4">
                             <label id="AdrA">
                         </label>
@@ -600,20 +670,20 @@
                    
                     
                     <div id="itemsList">
-                        <table id="itemTable" width="420" cellspacing="1" cellpadding="1" border="0">
+                        <table id="itemTable" width="450" cellspacing="1" cellpadding="1" border="0">
                             
                             <tr>
                                 <th class="g_head">
-                                    Item Id
+                                    Product Id
                                 </th>
                                 <th class="g_head">
                                     Name
                                 </th>
                                 <th class="g_head">
-                                    Image
+                                    
                                 </th>
                                 <th class="g_head">
-                                    Billed Rate
+                                    Price
                                 </th>
                                 <th class="g_head">
                                     Quantity

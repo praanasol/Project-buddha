@@ -20,8 +20,8 @@
     <link href="../Styles/menus.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/SearchAll.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../Styles/inner_layout.css">
-    <link rel="stylesheet" type="text/css" href="../Styles/inner_format.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/inner_layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/inner_format.css"/>
 
     <link href="../Styles/css_messagebox.css" rel="stylesheet" type="text/css" />
     
@@ -65,6 +65,7 @@
                     left: 45%;
                     
                 }
+               
         </style>
     
     <script type="text/javascript">
@@ -77,6 +78,9 @@
 
                
           });
+          
+          
+
           
          
     </script>

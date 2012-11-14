@@ -25,19 +25,16 @@
             color:#364700;
 	font-weight:bold;
 	text-decoration:none;
-	background:#f39112;
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fe7e28), to(#d85702));
-    background: -moz-linear-gradient(#fe7e28, #d85702);
-    background: linear-gradient(#fe7e28, #d85702);
+	
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe7e28', endColorstr='#d85702');
-	border:#364700 solid 2px;
+
 	border-radius:5px;
         }
         .pagination .current
         {
             margin:0px 5px;
             color: #fff;
-            background:#f39112;
+            background:#962824;
 	        border:#f39112 solid 2px;
 	        border-radius:5px;
         }

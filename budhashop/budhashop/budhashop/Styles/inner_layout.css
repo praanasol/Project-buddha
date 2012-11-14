@@ -6,6 +6,10 @@
 	float:left;
 }
 
+.img_class
+{
+	margin-top:7px;
+}
 #cart_body{
 	margin:0px 0px 0px 12px;
 	padding:0px;
@@ -358,10 +362,12 @@
 }
 #full_header_part
 {
-	margin:0px;
+	margin-left:200px;
+	border-radius:5px;
 	padding:0px;
-	width:970px;
-	height:120px;
+	width:600px;
+	background-color:#962824;
+	height:150px;
 	float:left;
 }
 #f_d_cl1{
@@ -370,7 +376,10 @@
 	width:600px;
 	height:120px;
 	float:left;
+	
+	border-radius:5px;`
 	text-align:center;
+	
 }
 #f_d_img{
 	margin:0px;
@@ -410,7 +419,7 @@
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
 		font-size:14px;
-		color:#364700;
+		color:#dd8119;
 		font-weight:bold;
 		text-align:right;
 }
@@ -436,12 +445,16 @@
 #f_d_but
 {
 	margin:auto;
-	margin-top:40px;
-	padding-top:10px;
+	
+	
+	margin-left:350px;
+	
 	width:auto;
 	height:30px;
 	
 }
+
+
 
 #f_d_but a.f_d_link:link, #f_d_but a.f_d_link:visited{
 	margin:0px 0px 0px 0px;
@@ -875,4 +888,6 @@
 	height:auto;
 	float:right;
 }
+
+
 /* Login and Registration End */

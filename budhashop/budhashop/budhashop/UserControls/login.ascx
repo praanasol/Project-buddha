@@ -11,7 +11,7 @@
     	    float:right;
     	    width:55px;
     	    height:20px;
-            background: #ac1812;
+            background: #6E1C1C;
             font-family: "Courier New" , Courier, monospace;
             font-size: 16px;
             color: #d67d1c;

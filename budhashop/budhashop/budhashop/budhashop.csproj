@@ -514,6 +514,7 @@
     <Content Include="script\loginControl.js" />
     <Content Include="script\orderPage.js" />
     <Content Include="script\profilePage.js" />
+    <Content Include="script\fullDetailsPage.js" />
     <Content Include="script\slides.js" />
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="Styles\jquery.mCustomScrollbar.css" />

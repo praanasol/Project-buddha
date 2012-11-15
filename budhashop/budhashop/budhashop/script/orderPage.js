@@ -12,28 +12,28 @@
         }
 
         var ItemsCount = $("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text();
-        if(ItemsCount == "0" || ItemsCount == "Items: 0"){
-            $("#btn_ConfirmOrder").hide();
+        if(ItemsCount == "0"){
+//            $("#btn_ConfirmOrder").hide();
+            window.location.replace("../homepage.aspx");
         }
 
         $("#btnClose").click(function (e){
+            //Clear Login Popup Fields
+            $("[id$=lbl_result]").text("");
+            $("[id$=txt_emailid]").val('');
+            $("[id$=txt_pwd]").val('');
+            //Clear Register Popup Fields
+            $("[id$=lbl_result2]").text("");
+            $("[id$=txt_emailid2]").val('');
+            $("[id$=txt_pwd2]").val('');
+            $("[id$=txt_confirmpwd2]").val('');
+            //Close Popup
             HideDialog();
         });
 
         $("#btn_ConfirmOrder").click(function(){
-            var usersession='<%= this.Session["currentuser"] %>';
-            if(usersession)
-            {
-                showadress();
-                //location.href = "../USER/AddressPage.aspx";
-                //budhashop.USER.OrderPage.showAdress(OnCompleted2, onerror2);
-            }
-            else
-            {
-                $("#RegisterControl").hide();
-                $("#LoginControl").show();
-                ShowDialog();
-            }
+            $("#preloader").show();
+            budhashop.USER.Services.LoginControl.Getuser(CheckUserSession, onerror);
         });
         
         $("#hyplink_register").click(function(){
@@ -60,6 +60,20 @@ function HideDialog(){
         $("#overlay").hide();
         $("#dialog").fadeOut("slow");
         //$("#dialog").fadeOut(300);
+    }
+
+function CheckUserSession(result){
+        $("#preloader").hide();
+        if(result!='nouser')
+        {
+            showadress();
+        }
+        else
+        {
+            $("#RegisterControl").hide();
+            $("#LoginControl").show();
+            ShowDialog();
+        }
     }
 
 function showadress() {
@@ -124,7 +138,7 @@ function OnSucceeded(result) {
             //setTimeout('Redirect()', 5000);
             //window.location="../USER/AddressPage.aspx";
             showadress();
-            budhashop.USER.Services.LoginControl.Getuser(OnSuccess, onerror);
+            budhashop.USER.Services.LoginControl.Getuser(CheckSession, onerror);
         } 
     }
 
@@ -157,7 +171,7 @@ function OnCompleted(result) {
             $("#overlay").hide();
             $("#dialog").hide();
             showadress();
-            budhashop.USER.Services.LoginControl.Getuser(OnSuccess, onerror);
+            budhashop.USER.Services.LoginControl.Getuser(CheckSession, onerror);
         }
         else
         {

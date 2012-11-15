@@ -1,12 +1,7 @@
 ﻿$(document).ready(function() {
-        var usersession='<%= this.Session["currentuser"] %>';
-        if(!usersession){
-            $("#hyplink_edit").hide();
-            $("#hyplink_changepwd").hide();
-        }
-
-        var itemString = $('#<%=orderGrid.ClientID%> td:eq(2)').text();
-        var addrString = $('#<%=orderGrid.ClientID%> td:eq(3)').text();
+        
+        var itemString = $('.orderGrid tr td:eq(2)').text();
+        var addrString = $('.orderGrid tr td:eq(3)').text();
         RowSelected(itemString,addrString);
 
         $("#btnClose").click(function (e){
@@ -29,10 +24,10 @@
             });
         });
 
-//        $("#btnClose1").click(function (e){
-//            $("#overlay").hide();
-//            $("#PasswordField").fadeOut("slow");
-//        });
+        $("#btnClose1").click(function (e){
+            $("#overlay").hide();
+            $("#PasswordField").fadeOut("slow");
+        });
 
         $("#hyplink_changepwd").click(function(){
             var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidpwd]").val(emailid);
@@ -46,7 +41,7 @@
             });
         });
 
-        $("#<%=orderGrid.ClientID%> tr").filter(function() {
+        $(".orderGrid tr").filter(function() {
             return $('td', this).length && !$('table', this).length
         })
             .click(function(event) {
@@ -67,6 +62,22 @@
 //            $("#btnCloseOrders").click(function(){
 //                $("#itemsDiv").slideUp("slow");
 //            });
+
+            //Scripts for Scroll Pane
+                //$('#contentDiv').jScrollPane();
+                $('[id$=contentDiv]').jScrollPane({
+                    horizontalGutter:5,
+                    verticalGutter:5,
+                    'showArrows': false
+                });
+                
+                $('.jspDrag').hide();
+                $('.jspScrollable').mouseenter(function(){
+                    $(this).find('.jspDrag').stop(true, true).fadeIn('slow');
+                });
+                $('.jspScrollable').mouseleave(function(){
+                    $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
+                });
 });
 
 function RowSelected(itemString,addrString)
@@ -172,7 +183,7 @@ function updatePassword(){
     
 function OnReturn(result) {
         $("#preloader").hide();
-        if(result){ $("[id$=lbl_resultpwd]").text("Password Updated..."); }
+        if(result){ $("[id$=lbl_resultpwd]").text("Password Changed Succesfully..."); }
         else{ $("[id$=lbl_resultpwd]").text("Your Old Pasword is Wrong"); $("[id$=txt_oldpwd]").focus(); }
     }
 

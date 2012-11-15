@@ -431,7 +431,7 @@ ul {
       <div id="cart_header"> 
         <!--Cart heder item1 start-->
         <aside id="c_h_cl1">
-          <p class="style4">Total Items<br />
+          <p class="tstyle4">Total Items<br />
           <div class="bg_style1">
           <asp:Label ID="noOfItemsLbl" runat="server" CssClass="bg_style1" Text="0"></asp:Label>
           </div>
@@ -440,7 +440,7 @@ ul {
         <!--Cart heder item1 start--> 
         <!--Cart heder item2 start-->
         <aside id="c_h_cl2">
-          <p class="style4">Total Price<br />
+          <p class="tstyle4">Total Price<br />
           
           <div class="bg_style1"><asp:Label ID="totalLbl" runat="server" Text="0"></asp:Label></div>
           </p>

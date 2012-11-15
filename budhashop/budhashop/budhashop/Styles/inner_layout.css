@@ -177,7 +177,7 @@
     font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
     font-weight: bold;
-    margin: 0 5px 0 10px;
+    margin: 0 5px 0 35px;
     padding: 0;
 }
 #c_l_header_right ul li a:link, #c_l_header_right  ul li a:visited{
@@ -216,7 +216,7 @@
 	margin:1px 0px 0px 0px;
 	padding:0px;
 	width:430px;
-	height:120px;
+	height:100px;
 	float:left;
 	background:#F3AD2C;
 }
@@ -224,55 +224,55 @@
 	margin:0px 0px 0px 0px;
 	padding:0px;
 	width:25px;
-	height:120px;
+	height:80px;
 	float:left;
 	
 	text-align:right;
 }
 #c_l_sno{
 	margin:auto;
-	margin-top:50px;
+	margin-top:30px;
 	padding:0px;
 	width:25px;
-	height:50px;
+	height:20px;
 	color:#364700;
 }
 #c_l_cl2 {
     float: left;
-    height: 120px;
+    height: 80px;
     margin: 0 0 0 5px;
     padding: 0;
     text-align: center;
-    width: 240px;
+    width: 220px;
 }
 #c_l_img{
 	margin:0px;
 	padding:0px;
 	width:90px;
-	height:120px;
+	height:80px;
 	float:left;
 	}
 
 #c_l_img_placeholder{
 	margin:auto;
 	margin:0px 0px 0px 0px;
-	padding:30px 0px 0px 0px;
+	padding:15px 0px 0px 0px;
 	width:70px;
 	height:70px;
 	text-align:right;
 }
 #c_l_fields{
-	margin-top:20px;
+	margin-top:15px;
 	padding-left:0px;
-	width:150px;
-	height:100px;
+	width:120px;
+	height:60px;
 	float:left;
 	}
 	
 	#c_l_field_area{
 		margin:4px 0px 4px 0px;
 		padding:0px;
-		width:140px;
+		width:120px;
 		height:18px;
 		float:left;
 }
@@ -291,8 +291,19 @@
 		margin:0px;
 		margin-left:2px;
 		padding:0px;
-		width:80px;
+		width:60px;
 		float:left;
+		text-align:left;
+		font-size:12px;
+		color:#8C0B05;
+		 font-weight:bold;
+}
+#c_l_field_Name{
+		margin:0px;
+		margin-left:40px;
+		padding:5px;
+		
+		
 		text-align:left;
 		font-size:12px;
 		color:#8C0B05;
@@ -301,7 +312,7 @@
 		
 #c_l_cl3 {
     float: left;
-    height: 120px;
+    height: 80px;
     margin-right: 0px;
     padding: 0;
     text-align: left;
@@ -309,7 +320,7 @@
 }
 #c_l_cl4 {
     float: left;
-    height: 120px;
+    height: 80px;
     margin-left: 15px;
     padding: 0;
     text-align: left;
@@ -317,7 +328,7 @@
 }
 #c_l_form{
 	margin:auto;
-	margin-top:45px;
+	margin-top:15px;
 	padding:0px;
 	width:50px;
 	height:30px;
@@ -326,15 +337,15 @@
 }
 
 #c_l_cl5{
-	margin:0px 0px 0px 0px;
+	margin:0px 0px 0px 10px;
 	padding:0px;
-	width:45px;
-	height:120px;
+	width:60px;
+	height:80px;
 	float:left;
 	text-align:left;
 }
 #c_l_edit{
-	margin-top:42px;
+	margin-top:15px;
 	padding-top:2px;
 	padding-left:6px;
 	width:30px;
@@ -346,7 +357,7 @@
 	margin:0px 0px 0px 0px;
 	padding:0px 0px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
-	font-size:10px;
+	font-size:11px;
 	color:#8C0B05;
 	font-weight:bold;
 	text-decoration:none;

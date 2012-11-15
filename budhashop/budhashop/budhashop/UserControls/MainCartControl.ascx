@@ -1,20 +1,25 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainCartControl.ascx.cs" Inherits="budhashop.UserControls.MainCartControl" %>
 
- <%--<link href="../Styles/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+ <!-- styles needed by jScrollPane -->
+<%--<link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+ 
+<!-- latest jQuery direct from google's CDN -->
 
-    <script src="../script/scroll/jquery.mousewheel.js" type="text/javascript"></script>
-    <script src="../script/scroll/jquery.jscrollpane.min.js" type="text/javascript"></script>
+<!-- the mousewheel plugin - optional to provide mousewheel support -->
+<script type="text/javascript" src="../script/scroll/jquery.mousewheel.js"></script>
+ 
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>--%>
 
-    <script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>
+<%--<script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>--%>
     
 
-<script type="text/javascript">
+<%--<script type="text/javascript">
 
-$ (function(){
+$(document).ready(function() {
 
 
-
-	$('.scroll-pane').jScrollPane({
+	$('[id$=chatlist]').jScrollPane({
     horizontalGutter:5,
     verticalGutter:5,
     'showArrows': false
@@ -27,6 +32,7 @@ $('.jspScrollable').mouseenter(function(){
 $('.jspScrollable').mouseleave(function(){
     $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
 });
+
 });
 </script>
 <style type="text/css">
@@ -91,10 +97,11 @@ div.mousescroll {
 div.mousescroll:hover {
     overflow-y: scroll;
 }
+.slimScrollDiv { border: 1px solid #ccc; margin:10px; }
 ul {
     list-style-type: none;
 }
-.slimScrollDiv { border: 1px solid #ccc; margin:10px; }
+
 </style>
 ​
 <style type="text/css">
@@ -266,7 +273,7 @@ ul {
         text-align: left;
         padding: 2px;
         top: 165px;
-        right: 180px;
+        right: 140px;
         margin-top: 5px;
         padding-top: -2px;
         margin-right: -1px;
@@ -490,7 +497,14 @@ ul {
         <!--Cart items list Start-->
         <section id="cart-list">
           <div id="c_l_items_row">
+          
           	 <!--Cart items S No Cl Start-->
+          	 <div id="Div1" style="height:20px;">
+                             
+                              <div id="c_l_field_Name"><asp:Label ID="Label1" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              </div>
+                          </div>
+                          <div>
             <aside id="c_l_cl1">
               <div id="c_l_sno" class="style1"><%# Container.ItemIndex+1 %></div>
             </aside>
@@ -504,11 +518,7 @@ ul {
 			  </section>
 			  <section id="c_l_fields">
 					
-                          <div id="c_l_field_area">
-                             
-                              <div id="c_l_field"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
-                              </div>
-                          </div>
+                          
                            <div id="c_l_field_area">
                               <div id="c_l_label">Price :</div>
                               <div id="c_l_field" >Rs.<asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
@@ -552,10 +562,11 @@ ul {
             <aside id="c_l_cl5">
               <div id="c_l_edit"> <asp:LinkButton ID="updateBtn" runat="server" CssClass="c_l_links" CausesValidation="true" ValidationGroup="cartValid" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
                         </div>
-              <div id="c_l_edit" style="margin-top:35px;"> <asp:LinkButton ID="deleteBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
+              <div id="c_l_edit" style="margin-top:20px;"> <asp:LinkButton ID="deleteBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
                         </div>
             </aside>
             <!--Cart items Edit CL End-->
+          </div>
           </div>
         </section>
         <!--Cart items list End--> 

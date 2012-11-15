@@ -3,17 +3,17 @@
 	padding:0px;
 	width:532px;
 	height:auto;
-	background:#e1a729;
+	background:#811005;
 	border:#811005 6px solid;
 	border-radius:10px;
 }
 .c_h_cl_box_style{
 	margin:0px;
 	padding:0px 0px 0px 0px;
-	width:135px;
-	height:41px;
-	background:#8c0b05;
-	border:#2a210f 2px solid;
+	width:100px;
+	height:30px;
+	background:linear-gradient(#8c0b05, #981D18) repeat scroll 0 0 transparent;
+	border:#F3AD2C 1px solid;
 	border-radius:5px;
 	text-align:center;
 }
@@ -31,17 +31,17 @@ a.c_h_link:hover, a.c_h_link:active{
 	color:#e7cd73;
 }
 a.hide:link, a.hide:visited{
-	margin:0px 0px 0px 0px;
-	padding:0px 0px 0px 0px;
+	margin:0px 3px 0px 0px;
+	padding:5px 5px 0px 0px;
 	font-family:"Arial", Gadget, sans-serif;
-	font-size:24px;
-	color:#e79b3f;
+	font-size:12px;
+	color:#8C0B05;
 	font-weight:bold;
 	text-decoration:none;
 }
 a.hide:hover, a.hide:active{
 	text-decoration:none;
-	color:#e7cd73;
+	color:#8C0B05;
 }
 .c_l_form_style{
 	margin:0px;
@@ -49,7 +49,7 @@ a.hide:hover, a.hide:active{
 	width:35px;
 	height:20px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:15px;
+	font-size:14px;
 	color:#364700;
 	font-weight:bold;
 	background:#e7cd73;

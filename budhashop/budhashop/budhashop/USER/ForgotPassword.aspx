@@ -47,8 +47,8 @@
                 <asp:TextBox ID="txt_captcha" CssClass="login_form_style" runat="server" Width="180px"></asp:TextBox>
             </td>
             <td align="left" valign="middle">
-                <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="20px" ImageUrl="~/Captcha/Refresh.jpg"
-                    OnClick="imgbtn_refreshcaptcha_Click" Width="20px" />
+                <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="30px" ImageUrl="~/Captcha/Refresh.png"
+                    OnClick="imgbtn_refreshcaptcha_Click" Width="30px" />
                 <br />
                 <asp:Label ID="lbl_captcha" runat="server" ForeColor="Red"></asp:Label>
             </td>

@@ -80,8 +80,8 @@ $('.jspScrollable').mouseleave(function(){
     
     <style type="text/css">
     div#chatlist {
-    width: 510px;
-    max-height:385px;
+    width: 448px;
+    max-height:250px;
     
     
 }
@@ -277,10 +277,7 @@ ul {
     {
         margin: 0;
     }
-    #signin_menu a
-    {
-        color: #6AC;
-    }
+    
     #signin_menu label
     {
         font-weight: normal;
@@ -452,14 +449,14 @@ ul {
         <!--Cart heder item3 start-->
         <aside id="c_h_cl3">
           <div id="c_h_item" class="c_h_cl_box_style">
-            <div id="c_h_item_link"><asp:LinkButton ID="orderBtn1" runat="server" CssClass="c_h_links" Text="Make Order" 
+            <div id="c_h_item_link"><asp:LinkButton ID="orderBtn1" runat="server" CssClass="c_h_links" Text="Proceed" 
             onclick="orderBtn_Click" Enabled="false"/></div>
           </div>
         </aside>
         <!--Cart heder item3 start--> 
         <!--Cart heder item4 start-->
-        <aside id="c_h_cl4"> <span><a href="#" target="_self"><img src="../images/arrow_up.gif" width="39" height="17" alt="List" title="List"></a></span>
-          <div style="margin-top:3px;"><a id="hideCartBtn" href="#" target="_self" class="hide" style="color:#f39112;">Hide</a></div>
+        <aside id="c_h_cl4"> 
+          <div><a id="hideCartBtn" href="#" target="_self" class="hide" style="color:#8C0B05; font-size:12px; padding:0px 0px 0px 3px;">Hide</a></div>
         </aside>
         <!--Cart heder item4 start--> 
       </div>
@@ -470,7 +467,7 @@ ul {
         <!--Cart items list header part start-->
         <div id="c_l_header_left">
           <ul>
-            <li>S.No</li>
+           
             <li>Product Details</li>
             
 			</ul>
@@ -479,7 +476,7 @@ ul {
 			<ul>
 			    <li>Total(Rs)</li>
 				<li>Quantity</li>
-				<li>Edit</li>
+				
 			
           </ul>
         </div>
@@ -502,26 +499,27 @@ ul {
             <aside id="c_l_cl2">
 				<section id="c_l_img"> 
 					
-					<div id="c_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="80px" Height="80px" ImageUrl='<%# Eval("ImagePath")%>'
+					<div id="c_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="60px" Height="60px" ImageUrl='<%# Eval("ImagePath")%>'
 					PostBackUrl='<%# Page.ResolveUrl("~/fulldetails.aspx?id="+ DataBinder.Eval(Container.DataItem, "ItemId" )+"&grp=3") %>'/></div>
 			  </section>
 			  <section id="c_l_fields">
 					
                           <div id="c_l_field_area">
-                              <div id="c_l_label">Name :</div>
-                              <div id="c_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                             
+                              <div id="c_l_field"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              </div>
+                          </div>
+                           <div id="c_l_field_area">
+                              <div id="c_l_label">Price :</div>
+                              <div id="c_l_field" >Rs.<asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
                               </div>
                           </div>
 						  <div id="c_l_field_area">
                               <div id="c_l_label">Product Id :</div>
-                              <div id="c_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
+                              <div id="c_l_field" ><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'> </asp:Label>
                               </div>
                           </div>
-						  <div id="c_l_field_area">
-                              <div id="c_l_label">Price :</div>
-                              <div id="c_l_field" class="style4">Rs.<asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
-                              </div>
-                          </div>
+						 
                           
 					
 			  </section>
@@ -529,7 +527,7 @@ ul {
             <!--Cart items img CL End-->
             <!--Cart items Quantity CL Start-->
             <aside id="c_l_cl3">
-              <div id="c_l_form" class="style4">
+              <div id="c_l_form" class="style4" style="color:#8C0B05">
               <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
                </div>
             </aside>
@@ -554,7 +552,7 @@ ul {
             <aside id="c_l_cl5">
               <div id="c_l_edit"> <asp:LinkButton ID="updateBtn" runat="server" CssClass="c_l_links" CausesValidation="true" ValidationGroup="cartValid" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="UpdateItem" >Update</asp:LinkButton>
                         </div>
-              <div id="c_l_edit"> <asp:LinkButton ID="deleteBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
+              <div id="c_l_edit" style="margin-top:35px;"> <asp:LinkButton ID="deleteBtn" runat="server" CssClass="c_l_links" CommandArgument = '<%# Eval("ItemId")%>' CommandName ="RemoveItem" >Remove</asp:LinkButton>
                         </div>
             </aside>
             <!--Cart items Edit CL End-->

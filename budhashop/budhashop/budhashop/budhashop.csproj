@@ -499,6 +499,7 @@
     <None Include="script\html5shiv\.gitattributes" />
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
+    <Content Include="Captcha\Refresh.PNG" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\banner\banner1.jpg" />
@@ -556,7 +557,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61476</DevelopmentServerPort>
+          <DevelopmentServerPort>53032</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

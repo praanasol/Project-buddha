@@ -65,12 +65,13 @@ h3{
 }
 .bg_style1{
 	margin:0px 0px 0px 0px;
-	padding:7px 0px 7px 0px;
+	padding:2px 0px 2px 0px;
 	width:113px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:19px;
+	font-size:14px;
 	color:#263102;
-	background:#f3ad2c;
+	background:#DD8119;
+	font-weight:bold;
 }
 
 .bg_style2{
@@ -125,8 +126,8 @@ a.link1:hover, a.link1:active{
 	width:586px;
 	height:23px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:15px;
-	color:#512912;
+	font-size:12px;
+	color:#364700;
 	font-weight:bold;
 	background:#efeea9;
 	border:#d9b021 solid 2px;

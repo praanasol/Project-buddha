@@ -143,8 +143,8 @@
                                 ValidationGroup="register"></asp:CompareValidator>
                             <asp:Image ID="img_captcha" runat="server" Height="40px" ImageUrl="~/Captcha/JpegImage.aspx"
                                 Width="181px" />
-                            <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="20px" ImageUrl="~/Captcha/Refresh.jpg"
-                                Width="20px" OnClick="imgbtn_refreshcaptcha_Click" />
+                            <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="30px" ImageUrl="~/Captcha/Refresh.png"
+                                Width="30px" OnClick="imgbtn_refreshcaptcha_Click" />
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 490px; height: 50px;">

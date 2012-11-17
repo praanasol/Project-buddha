@@ -113,22 +113,22 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.DataList itemCartDL;
         
         /// <summary>
-        /// noOfItemsLbl control.
+        /// noOfItemsLbl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label noOfItemsLbl;
+        protected global::System.Web.UI.WebControls.Label noOfItemsLbl2;
         
         /// <summary>
-        /// totalLbl control.
+        /// totalLbl2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalLbl;
+        protected global::System.Web.UI.WebControls.Label totalLbl2;
         
         /// <summary>
         /// btn_cancel control.

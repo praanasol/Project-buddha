@@ -380,7 +380,7 @@
     border: 9px solid #8A0C05;
     border-radius: 5px 5px 5px 5px;
     float: left;
-    height: 150px;
+    height: auto;
     margin-left: 200px;
     padding: 0;
     width: 600px;
@@ -415,7 +415,7 @@
     border-style:double;
 }
 #f_d_fields{
-	margin-top:10px;
+	margin-top:25px;
 	padding:0px;
 	width:450px;
 	height:100px;
@@ -454,10 +454,11 @@
 {
 	margin:0px;
 	padding:0px;
-	width:300px;
-	height:120px;
+	width:600px;
+	height:auto;
 	float:left;
 	text-align:center;
+	clear:both;
 	
 }
 
@@ -505,15 +506,17 @@
 	height:auto;
 	float:left;
 	text-align:justify;
-	border-top:#deb354 solid 1px;
+	
 }
-#f_d_des
-{
-	margin:auto;
-	padding:10px 0px 10px 0px;
-	width:900px;
-	height:auto;
-	clear:both;
+#f_d_des {
+    clear: both;
+    height: 200px;
+    margin: auto;
+    padding: 0px 0 10px 10px;
+    text-align: left;
+    width: 580px;
+    margin-top: 35px;
+    margin-left: 5px;
 }
 /*Full Details End*/
 

@@ -139,8 +139,8 @@ namespace budhashop.USER
                 DataView dv = new DataView();
                 PagedDataSource pagedData = new PagedDataSource();
                 int rowCnt = CartDT.Rows.Count;
-                noOfItemsLbl.Text = rowCnt.ToString();
-                totalLbl.Text = totalPrice.ToString();
+                noOfItemsLbl2.Text = rowCnt.ToString();
+                totalLbl2.Text = totalPrice.ToString();
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;
                 //pagedData.AllowPaging = true;
@@ -183,10 +183,10 @@ namespace budhashop.USER
 
                         cartItem.Qty = int.Parse(qty);
                         float updatedTot = int.Parse(qty) * (float.Parse(((Label)e.Item.FindControl("priceLbl")).Text));
-                        float Total = float.Parse(totalLbl.Text) + updatedTot - (float.Parse(((Label)e.Item.FindControl("rateLbl")).Text));
+                        float Total = float.Parse(totalLbl2.Text) + updatedTot - (float.Parse(((Label)e.Item.FindControl("rateLbl")).Text));
                         ((Label)e.Item.FindControl("rateLbl")).Text = updatedTot.ToString();
 
-                        totalLbl.Text = Total.ToString();
+                        totalLbl2.Text = Total.ToString();
                         Session["CartPicks"] = cartItems;
                     }
                 }

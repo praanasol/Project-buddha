@@ -291,8 +291,8 @@
             <div id="o_i_bottom" class="bg_style1">
                   <aside id="o_i_r_cl1" class="style4"></aside>
                     <aside id="o_i_r_cl2" class="style4">Items in Cart :-</aside>
-                    <aside id="o_i_r_cl3" class="style4">Items :&nbsp;&nbsp;<asp:Label ID="noOfItemsLbl" CssClass="style5" runat="server" Text="Items: 0"></asp:Label></aside>
-                    <aside id="o_i_r_cl4" class="style4">Total :&nbsp;&nbsp;<asp:Label ID="totalLbl" CssClass="style5" runat="server" Text="0"></asp:Label></aside>
+                    <aside id="o_i_r_cl3" class="style4">Items :&nbsp;&nbsp;<asp:Label ID="noOfItemsLbl2" CssClass="style5" runat="server" Text="Items: 0"></asp:Label></aside>
+                    <aside id="o_i_r_cl4" class="style4">Total :&nbsp;&nbsp;<asp:Label ID="totalLbl2" CssClass="style5" runat="server" Text="0"></asp:Label></aside>
                     <aside id="o_i_r_cl5">&nbsp;</aside>
                     <aside id="o_i_r_cl6">
                         

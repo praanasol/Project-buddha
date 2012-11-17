@@ -59,7 +59,7 @@ namespace budhashop.ADMIN
             }
             catch (Exception cExp)
             {
-                ItemMessageLbl.Text = "Error occured" + cExp.Message;
+                ItemMessageLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + cExp.Message;
             }
 
 
@@ -78,14 +78,14 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    grpMsgLbl.Text = "No Data for items! change the catagory";
+                    grpMsgLbl.Text = HardCodedValues.BuddaResource.ItemsNull;
                     itemGrid.DataSource = null;
                     itemGrid.DataBind();
                 }
             }
             catch (Exception iExp)
             {
-                grpMsgLbl.Text = "Error Occured: " + iExp.Message;
+                grpMsgLbl.Text =HardCodedValues.BuddaResource.CatchBlockError + iExp.Message;
             }
         }
 
@@ -118,26 +118,26 @@ namespace budhashop.ADMIN
                         {
                             // Create the directory.
                             Directory.CreateDirectory(NewDir);
-                            catMsgLbl.Text = "Catagory inserted";
+                            catMsgLbl.Text = HardCodedValues.BuddaResource.CatogoryAdd;
 
                         }
                     }
                     catch (IOException _ex)
                     {
-                        catMsgLbl.Text = "Error: Floder" + _ex.Message;
+                        catMsgLbl.Text = HardCodedValues.BuddaResource.FloderError + _ex.Message;
                     }
 
                 }
                 else
                 {
-                    catMsgLbl.Text = "Catagory not inserted";
+                    catMsgLbl.Text = HardCodedValues.BuddaResource.CatogoryNotAdded;
                     catMsgLbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception exp)
             {
                 //throw exp;
-                catMsgLbl.Text = "Unable to connect" + exp.Message;
+                catMsgLbl.Text = HardCodedValues.BuddaResource.ConnectionError + exp.Message;
                 catMsgLbl.ForeColor = System.Drawing.Color.Red;
             }
 
@@ -183,7 +183,7 @@ namespace budhashop.ADMIN
                         }
                         catch (IOException _ex)
                         {
-                            ItemMessageLbl.Text = "Error: Floder" + _ex.Message;
+                            ItemMessageLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + _ex.Message;
                         }
 
                         //string filename = Path.GetFileName(PhotoFU.FileName);
@@ -205,17 +205,17 @@ namespace budhashop.ADMIN
                         Bitmap bmpDriverSmall = new Bitmap(bmpD, 170, 126);
                         bmpDriverSmall.Save(resizedImageSmall, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                        ItemMessageLbl.Text = "Item inserted sucessfully";
+                        ItemMessageLbl.Text = HardCodedValues.BuddaResource.ItemAdd;
 
                     }
                     else
                     {
-                        ItemMessageLbl.Text = "Error: unable to add item. Database Error!";
+                        ItemMessageLbl.Text = HardCodedValues.BuddaResource.AddItemFail;
                     }
                 }
                 catch (Exception iExp)
                 {
-                    ItemMessageLbl.Text = "Error: " + iExp.Message;
+                    ItemMessageLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + iExp.Message;
                 }
 
             }
@@ -246,20 +246,20 @@ namespace budhashop.ADMIN
                         }
                         else
                         {
-                            ItemMessageLbl.Text = "Selected file is not an image";
+                            ItemMessageLbl.Text = HardCodedValues.BuddaResource.ImageFileError;
                             return false;
                         }
                     }
                     catch (Exception ex)
                     {
-                        ItemMessageLbl.Text = "Selected file is not an image.<br />" + ex.Message;
+                        ItemMessageLbl.Text = HardCodedValues.BuddaResource.ImageFileError + ex.Message;
                         return false;
                     }
 
                 }
                 else
                 {
-                    ItemMessageLbl.Text = "File is too Large. only 1mb allowed";
+                    ItemMessageLbl.Text = HardCodedValues.BuddaResource.ImageSizeError;
                     return false;
 
                 }
@@ -357,7 +357,7 @@ namespace budhashop.ADMIN
                         }
                         catch (IOException _ex)
                         {
-                            grpMsgLbl.Text = "Error: Floder" + _ex.Message;
+                            grpMsgLbl.Text = HardCodedValues.BuddaResource.FloderError + _ex.Message;
                         }
                         string filename = grpId + "Photo.jpg";
                         grpImageFU.SaveAs(Server.MapPath("~/GroupImages/" + "/" + grpId + "/") + filename);
@@ -377,22 +377,22 @@ namespace budhashop.ADMIN
                         Bitmap bmpDriverSmall = new Bitmap(bmpD, 170, 126);
                         bmpDriverSmall.Save(resizedImageSmall, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                        grpMsgLbl.Text = "Group Inserted sucessfully";
+                        grpMsgLbl.Text =HardCodedValues.BuddaResource.GroupAdd;
 
                     }
                     else
                     {
-                        grpMsgLbl.Text = "Error Occured! Group not inserted. Database Error!";
+                        grpMsgLbl.Text = HardCodedValues.BuddaResource.GroupNotAdded;
                     }
                 }
                 else
                 {
-                    grpMsgLbl.Text = "Select items for the group";
+                    grpMsgLbl.Text = HardCodedValues.BuddaResource.ItemSelect;
                 }
             }
             else
             {
-                grpMsgLbl.Text = "Image is too Large, Only 1mb is allowed";
+                grpMsgLbl.Text = HardCodedValues.BuddaResource.ImageSizeError;
             }
 
         }
@@ -411,14 +411,14 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    grpMsgLbl.Text = "No Items Found, Enter Existing Item Name";
+                    grpMsgLbl.Text =HardCodedValues.BuddaResource.NoItemError;
                     itemGrid.DataSource = null;
                     itemGrid.DataBind();
                 }
             }
             catch (Exception iExp)
             {
-                grpMsgLbl.Text = "Error Occured: " + iExp.Message;
+                grpMsgLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + iExp.Message;
             }
         }
 
@@ -433,7 +433,7 @@ namespace budhashop.ADMIN
             else
             {
                 getItems(grpCatId);
-                grpMsgLbl.Text = "Please Enter Item Name/Id to search";
+                grpMsgLbl.Text = HardCodedValues.BuddaResource.EnterID;
             }
         }
 
@@ -482,7 +482,7 @@ namespace budhashop.ADMIN
 
                 if (isexist)
                 {
-                    Response.Write("<script language='javascript'>alert(\"" + "Item Already in Grid" + "\");</script>");
+                    Response.Write("<script language='javascript'>alert(\"" + HardCodedValues.BuddaResource.ItemRepeat + "\");</script>");
                 }
                 else
                 {

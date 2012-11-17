@@ -48,7 +48,7 @@ namespace budhashop.ADMIN
             }
             else
             {
-                lbl_submit.Text = "Invalid Login Credentials";
+                lbl_submit.Text = HardCodedValues.BuddaResource.LoginFail;
             }
         }
     }

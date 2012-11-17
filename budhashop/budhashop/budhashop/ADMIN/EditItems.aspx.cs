@@ -62,14 +62,14 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    lbl_status.Text = "No Data for items! change the catagory";
+                    lbl_status.Text = HardCodedValues.BuddaResource.ItemsNull;
                     itemGrid.DataSource = null;
                     itemGrid.DataBind();
                 }
             }
             catch (Exception iExp)
             {
-                lbl_status.Text = "Error Occured: " + iExp.Message;
+                lbl_status.Text = HardCodedValues.BuddaResource.CatchBlockError + iExp.Message;
             }
         }
 
@@ -137,7 +137,7 @@ namespace budhashop.ADMIN
                 int updated = UpdateItems.UpdateItems(UpdateItemObj, itemid);
                 if (updated != -1)
                 {
-                    lbl_status.Text = "Updated Successfully";
+                    lbl_status.Text = HardCodedValues.BuddaResource.UpdateSuccess;
                     itemGrid.EditIndex = -1;
                     int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
                     if (txt_itemname.Text == "")
@@ -151,12 +151,12 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    lbl_status.Text = "Error Occured.. Row Not Updated";
+                    lbl_status.Text = HardCodedValues.BuddaResource.UpdateFail;
                 }
             }
             else
             {
-                lbl_status.Text = "Selected file is not an image or it is greater than 1mb";
+                lbl_status.Text = HardCodedValues.BuddaResource.ImageError;
             }
         }
 
@@ -199,19 +199,19 @@ namespace budhashop.ADMIN
                         }
                         else
                         {
-                            lbl_status.Text = "Selected file is not an image";
+                            lbl_status.Text = HardCodedValues.BuddaResource.ImageFileError;
                             return false;
                         }
                     }
                     catch (Exception ex)
                     {
-                        lbl_status.Text = "Selected file is not an image.<br />" + ex.Message;
+                        lbl_status.Text = HardCodedValues.BuddaResource.ImageFileError + ex.Message;
                         return false;
                     }
                 }
                 else
                 {
-                    lbl_status.Text = "File is too Large. only 1mb allowed";
+                    lbl_status.Text = HardCodedValues.BuddaResource.ImageSizeError;
                     return false;
                 }
             }
@@ -225,7 +225,7 @@ namespace budhashop.ADMIN
             int removed = RemoveItem.removeItems(itemid);
             if (removed == -1)
             {
-                lbl_status.Text = "Item Removed";
+                lbl_status.Text = HardCodedValues.BuddaResource.ItemDeleted;
                 int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
                 if (txt_itemname.Text == "")
                 {
@@ -238,7 +238,7 @@ namespace budhashop.ADMIN
             }
             else
             {
-                lbl_status.Text = "Error Occured while Removing the Item, Try again";
+                lbl_status.Text = HardCodedValues.BuddaResource.ItemRemovalError;
             }
         }
 
@@ -257,7 +257,7 @@ namespace budhashop.ADMIN
             else
             {
                 getItems(grpCatId);
-                lbl_status.Text = "Please Enter Item Name/Id to search";
+                lbl_status.Text = HardCodedValues.BuddaResource.EnterID;
             }
         }
 
@@ -275,14 +275,14 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    lbl_status.Text = "No Items Found, Enter Existing Item Name";
+                    lbl_status.Text = HardCodedValues.BuddaResource.NoItemError;
                     itemGrid.DataSource = null;
                     itemGrid.DataBind();
                 }
             }
             catch (Exception iExp)
             {
-                lbl_status.Text = "Error Occured: " + iExp.Message;                
+                lbl_status.Text = HardCodedValues.BuddaResource.CatchBlockError  + iExp.Message;                
             }
         }
 

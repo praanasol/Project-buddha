@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddItemFail" xml:space="preserve">
+    <value>Error: unable to add item. Database Error!</value>
+  </data>
   <data name="CaptchaError" xml:space="preserve">
     <value>Enter Correct Captcha</value>
   </data>
   <data name="CatchBlockError" xml:space="preserve">
     <value>Error Occured: </value>
+  </data>
+  <data name="CatogoryAdd" xml:space="preserve">
+    <value>Catagory inserted</value>
+  </data>
+  <data name="CatogoryNotAdded" xml:space="preserve">
+    <value>Catagory not inserted</value>
+  </data>
+  <data name="ConnectionError" xml:space="preserve">
+    <value>Unable to connect</value>
   </data>
   <data name="EmailFormatError" xml:space="preserve">
     <value>Invalid Email Format</value>
@@ -135,16 +147,85 @@
   <data name="EmailIdNull" xml:space="preserve">
     <value>Email ID not Registered</value>
   </data>
+  <data name="EnterID" xml:space="preserve">
+    <value>Please Enter Item Name/Id to search</value>
+  </data>
+  <data name="EnterValue" xml:space="preserve">
+    <value>Please Enter any value to search</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Something Wrong, Please try again...</value>
   </data>
+  <data name="FloderError" xml:space="preserve">
+    <value>Error: Floder</value>
+  </data>
+  <data name="GroupAdd" xml:space="preserve">
+    <value>Group Inserted sucessfully</value>
+  </data>
+  <data name="GroupNotAdded" xml:space="preserve">
+    <value>Error Occured! Group not inserted. Database Error!</value>
+  </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>Selected file is not an image or it is greater than 1mb</value>
+  </data>
+  <data name="ImageFileError" xml:space="preserve">
+    <value>Selected file is not an image</value>
+  </data>
+  <data name="ImageSizeError" xml:space="preserve">
+    <value>File is too Large. only 1mb allowed</value>
+  </data>
+  <data name="InvalidDate" xml:space="preserve">
+    <value>Enter Valid Date</value>
+  </data>
+  <data name="ItemAdd" xml:space="preserve">
+    <value>Item inserted sucessfully</value>
+  </data>
+  <data name="ItemDeleted" xml:space="preserve">
+    <value>Item Removed</value>
+  </data>
+  <data name="ItemRemovalError" xml:space="preserve">
+    <value>Error Occured while Removing the Item, Try again</value>
+  </data>
+  <data name="ItemRepeat" xml:space="preserve">
+    <value>Item Already in Grid</value>
+  </data>
+  <data name="ItemSelect" xml:space="preserve">
+    <value>Select items for the group</value>
+  </data>
+  <data name="ItemsNull" xml:space="preserve">
+    <value>No Data for items! change the catagory</value>
+  </data>
   <data name="LoginFail" xml:space="preserve">
     <value>Wrong Email ID / Password</value>
+  </data>
+  <data name="NoItemError" xml:space="preserve">
+    <value>No Items Found, Enter Existing Item Name</value>
+  </data>
+  <data name="NoOrderError" xml:space="preserve">
+    <value>No Orders Found, Try different name...</value>
+  </data>
+  <data name="OrderAdd" xml:space="preserve">
+    <value>Order placed successfully</value>
+  </data>
+  <data name="OrderInfoSent" xml:space="preserve">
+    <value>Order information has been sent to your email</value>
   </data>
   <data name="PwdChangeSuccess" xml:space="preserve">
     <value>Password Changed Successfully</value>
   </data>
   <data name="PwdForgotSuccess" xml:space="preserve">
     <value>Email Sent... Check your Email for new Password</value>
+  </data>
+  <data name="PwdGenerate" xml:space="preserve">
+    <value>New password has been generated, find your details below:</value>
+  </data>
+  <data name="UpdateFail" xml:space="preserve">
+    <value>Error Occured.. Row Not Updated</value>
+  </data>
+  <data name="UpdateSuccess" xml:space="preserve">
+    <value>Updated Successfully</value>
+  </data>
+  <data name="UserNull" xml:space="preserve">
+    <value>No Users Found, Enter Existing User Name</value>
   </data>
 </root>

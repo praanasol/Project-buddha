@@ -176,7 +176,7 @@ namespace budhashop.ADMIN
             string str = txt_datepick.Text;
             if (txt_search.Text == "" && txt_datepick.Text=="")
             {
-                lbl_search.Text = "Please Enter any value to search";
+                lbl_search.Text = HardCodedValues.BuddaResource.EnterValue;
                 getOrders();
             }
             else
@@ -199,14 +199,14 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    lbl_search.Text = "No Orders Found, Try different name...";
+                    lbl_search.Text = HardCodedValues.BuddaResource.NoOrderError;
                     orderGrid.DataSource = null;
                     orderGrid.DataBind();
                 }
             }
             catch (Exception iExp)
             {
-                lbl_search.Text = "Enter Valid Date";
+                lbl_search.Text = HardCodedValues.BuddaResource.InvalidDate;
             }
         }
     }

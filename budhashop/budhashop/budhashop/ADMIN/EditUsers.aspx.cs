@@ -37,14 +37,14 @@ namespace budhashop.ADMIN
                 }
                 else
                 {
-                    lbl_status.Text = "No Users Found, Enter Existing User Name";
+                    lbl_status.Text = HardCodedValues.BuddaResource.UserNull;
                     userGrid.DataSource = null;
                     userGrid.DataBind();
                 }
             }
             catch (Exception iExp)
             {
-                lbl_status.Text = "Error Occured: " + iExp.Message;
+                lbl_status.Text = HardCodedValues.BuddaResource.CatchBlockError+ iExp.Message;
             }
         }
 
@@ -92,13 +92,14 @@ namespace budhashop.ADMIN
             int updated = UpdateUsers.UpdateUsers(UpdateUserObj, userid);
             if (updated != -1)
             {
-                lbl_status.Text = "Updated Successfully";
+                lbl_status.Text = HardCodedValues.BuddaResource.UpdateSuccess;
+                
                 userGrid.EditIndex = -1;
                 searchDT(txt_username.Text);
             }
             else
             {
-                lbl_status.Text = "Error Occured.. Row Not Updated";
+                lbl_status.Text = HardCodedValues.BuddaResource.UpdateFail;
             }
         }
 

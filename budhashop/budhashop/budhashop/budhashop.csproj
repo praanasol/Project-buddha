@@ -511,11 +511,13 @@
     <Content Include="mCSB_buttons.png" />
     <Content Include="script\coin-slider.min.js" />
     <Content Include="script\FeedbackControl.js" />
+    <Content Include="script\itemsPage.js" />
     <Content Include="script\jquery.mCustomScrollbar.min.js" />
     <Content Include="script\loginControl.js" />
     <Content Include="script\orderPage.js" />
     <Content Include="script\profilePage.js" />
     <Content Include="script\fullDetailsPage.js" />
+    <Content Include="script\searchItemsPage.js" />
     <Content Include="script\slides.js" />
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="Styles\jquery.mCustomScrollbar.css" />

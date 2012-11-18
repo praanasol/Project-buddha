@@ -15,6 +15,12 @@
             $(".logintext").show();
             $("#closeimg1").hide();
         });
+        
+        $('#login-required').keypress(function(e) {
+            if(e.which == 13) { // Checks for the enter key
+                checkLogin1();
+            }
+        });
 });
 
 function CheckSession(result) {
@@ -34,9 +40,9 @@ function checkLogin1() {
         var email = $("[id$=txt_emailid1]").val();
         var pwd = $("[id$=txt_pwd1]").val();
         var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-        if(email=="Email ID..."){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
+        if(email=="" || email=="Email ID..."){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
         else if(email.match(emailFormat)==null){$("[id$=lbl_result1]").text("Enter Valid Email Id");  $("[id$=txt_emailid1]").focus();}
-        else if(pwd=="Pwd"){$("[id$=lbl_result1]").text("Enter Password");   $("[id$=txt_pwd1]").focus();   }
+        else if(pwd=="" || pwd=="      "){$("[id$=lbl_result1]").text("Enter Password");   $("[id$=txt_pwd1]").focus();   }
         else
         {
             $("#preloader").show();

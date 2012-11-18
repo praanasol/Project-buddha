@@ -76,8 +76,8 @@
                 onfocus="if(this.value=='Email ID...')this.value='';" onblur="if(this.value=='')this.value='Email ID...';"></asp:TextBox>
             </div>
              <div id="login_form">
-            <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" runat="server" TextMode="Password" value="Pwd"
-                onfocus="if(this.value=='Pwd')this.value='';" onblur="if(this.value=='')this.value='Pwd';"></asp:TextBox>
+            <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" runat="server" TextMode="Password" value="      "
+                onfocus="if(this.value=='      ')this.value='';" onblur="if(this.value=='')this.value='      ';"></asp:TextBox>
             </div>
             
             <div id="go_but"  style="float:left;">

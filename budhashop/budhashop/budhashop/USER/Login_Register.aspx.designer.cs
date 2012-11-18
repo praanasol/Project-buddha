@@ -14,6 +14,15 @@ namespace budhashop.USER {
     public partial class Login_Register {
         
         /// <summary>
+        /// loginpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel loginpanel;
+        
+        /// <summary>
         /// rfv1 control.
         /// </summary>
         /// <remarks>
@@ -30,6 +39,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_lusername;
+        
+        /// <summary>
+        /// rev1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev1;
         
         /// <summary>
         /// rfv2 control.
@@ -84,6 +102,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_login;
+        
+        /// <summary>
+        /// registerPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel registerPanel;
         
         /// <summary>
         /// rfv3 control.

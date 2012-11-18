@@ -1,159 +1,18 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="itemspage.aspx.cs" Inherits="budhashop.itemspage" Title="Untitled Page" %>
 
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     
     <script type="text/javascript" src="../script/jquery.pagination.js"></script>
-    
-
-
-    
 
     <link href="Styles/pagination.css" rel="stylesheet" type="text/css" />
 
-    <script>
-    var pagination_options = {
-      num_edge_entries: 2,
-      num_display_entries: 8,
-      callback: pageselectCallback,
-      items_per_page:8
-    }
+    <script src="script/itemsPage.js" type="text/javascript"></script>
 
-    function pageselectCallback(page_index, jq){
-      var items_per_page = pagination_options.items_per_page;
-      var offset = page_index * items_per_page;
-      var new_content = $('#hiddenresult aside.category_box_style').slice(offset, offset + items_per_page).clone();
-      $('#searchresult').empty().append(new_content);
-      return false;
-    }
-
-    function initPagination() {
-      var num_entries = $('#hiddenresult aside.category_box_style').length;
-      // Create pagination element
-      $("#pagination").pagination(num_entries, pagination_options);
-    }
-  
-//     $(document).ready(function(){   
-//    var url = "http://api.flickr.com/services/feeds/groups_pool.gne?id=44124373027@N01&lang=en-us&format=json&jsoncallback=?";
-// 
-//        // Grab some flickr images of cats
-//        $.getJSON(url, function (data) {
-//            // Format the data using the catTemplate template
-//            $("#catTemplate").tmpl(data.items).appendTo("#hiddenresult");
-//            initPagination();
-//	    //
-//		  $("#fetching").hide();
-//        });
-//    });
-    </script>
-
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-var catID = 3;
-
-
-var search1 = function() {
-  var s = window.location.search.substr(1),
-    p = s.split(/\&/), l = p.length, kv, r = {};
-  if (l === 0) {return false;}
-  while (l--) {
-    kv = p[l].split(/\=/);
-    r[kv[0]] = decodeURIComponent(kv[1] || '') || true;
-  }
-  return r;
-}();
-if(search1.catid != null)
-{
-catID = search1.catid;
-}
-
-
-
-
-if(catID == 1){
-
-$.ajax({
-type: "POST",
-contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/BindGrptable",
-data: "{}",
-dataType: "json",
-success: function(data) {
-for (var i = 0; i < data.d.length; i++) {
-
-
- $("#hiddenresult").append('<aside id="category_box" class="category_box_style"><div id="img_placeholder"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self"><img src="'+ data.d[i].ItemPath+'" alt="Items" title="'+data.d[i].ItemName+'" width="150" height="150" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="category_header"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp=3" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div class="style2" style="margin-top:8px;">Rs.'+data.d[i].ItemPrice+'</div></div> </div></div> </aside>');
-}
-initPagination();
-	    //
-		  $("#fetching").hide();
-},
-error: function(result) {
-alert("Error");
-}
-});
-
-}
-else{
-
-
-$.ajax({
-type: "POST",
-contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/BindItemsData",
-data: "{'CatgId':'"+ catID +"'}",
-dataType: "json",
-success: function(data) {
-
- for (var i = 0; i < data.d.length; i++) {
-
-
- $("#hiddenresult").append('<aside id="category_box" class="category_box_style"><div id="img_placeholder"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self"><img src="'+ data.d[i].ItemPath+'" alt="Items" title="'+data.d[i].ItemName+'" width="150" height="150" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="category_header"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp=3" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div class="style2" style="margin-top:8px;">Rs.'+data.d[i].ItemPrice+'</div></div> </div></div> </aside>');
-
- 
- }
- initPagination();
-	    //
-		  $("#fetching").hide();
- 
-
-
-},
-error: function(result) {
-alert("Error");
-}
-});
-}
- 
- $.ajax({
-type: "POST",
-contentType: "application/json; charset=utf-8",
-url: "Services/Services.aspx/getCatName",
-data: "{'CatId':'"+ catID +"'}",
-dataType: "json",
-success: function(data) {
-$("#catStr").append('<b>'+data.d+'</b>');
- 
- 
- 
-},
-error: function(result) {
-alert("Error");
-}
-});
-});
-
-</script>
 <div id="catStr" style="height:16px; padding:25px; font-size:16px;"></div>
 
 

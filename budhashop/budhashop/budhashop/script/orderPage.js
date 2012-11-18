@@ -45,6 +45,18 @@
             $("#RegisterControl").hide();
             $("#LoginControl").show();
         });
+        
+        $('#LoginControl').keypress(function(e) {
+            if(e.which == 13) { // Checks for the enter key
+                checkLogin();
+            }
+        });
+        
+        $('#RegisterControl').keypress(function(e) {
+            if(e.which == 13) { // Checks for the enter key
+                checkEmail();
+            }
+        });
 });
 
 function ShowDialog(){

@@ -14,6 +14,15 @@ namespace budhashop.UserControls {
     public partial class mainSearch {
         
         /// <summary>
+        /// SearchUC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel SearchUC;
+        
+        /// <summary>
         /// SearchAll control.
         /// </summary>
         /// <remarks>

@@ -3,19 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            
-        });
-        function moveCursorToEnd()
-        {
-            var emailtext = $("#txt_emailid").text();
-            $("#txt_emailid").text('');
-            $("#txt_emailid").focus();
-            $("#txt_emailid").text(emailtext);
-        }
-    </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div style="padding-top:35px; width:1000px; height:543px;">
@@ -30,6 +17,7 @@
     
         <!--Login panel Start-->
         <aside id="log_l_panel">
+        <asp:Panel ID="loginpanel" DefaultButton="btn_login" runat="server">
             <div id="loginDiv" style="width: 400px; height: 200px;">
                 <section id="login_header">
                     <h3>
@@ -46,6 +34,12 @@
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_lusername" CssClass="p_f_form_style" runat="server" Width="181px"
                                 ValidationGroup="login"></asp:TextBox>
+                            <br />
+                            <asp:RegularExpressionValidator ID="rev1" runat="server" 
+                                ControlToValidate="txt_lusername" ErrorMessage="Invalid Email Format" 
+                                SetFocusOnError="True" 
+                                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                                ValidationGroup="login"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 380px; height: 30px;">
@@ -56,7 +50,7 @@
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="login"></asp:RequiredFieldValidator>
                         </div>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
-                            <asp:TextBox ID="txt_lpassword" CssClass="p_f_form_style" runat="server" Width="181px"
+                            <asp:TextBox ID="txt_lpassword" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="181px"
                                 ValidationGroup="login"></asp:TextBox>
                         </div>
                     </div>
@@ -73,11 +67,13 @@
                     </div>
                 </div>
             </div>
+        </asp:Panel>
         </aside>
         <!--Login panel End-->
         <aside id="v_devide"></aside>
         <!-- Register Panel Start-->
         <aside id="log_r_panel">
+        <asp:Panel ID="registerPanel" DefaultButton="btn_reg" runat="server">
             <div id="registerDiv" style="width: 500px; height: 390px;">
                 <section id="login_header">
                     <h3>
@@ -176,6 +172,7 @@
                     </div>
                 </div>
             </div>
+        </asp:Panel>
         </aside>
         <!--Register Panel End-->
     </section>

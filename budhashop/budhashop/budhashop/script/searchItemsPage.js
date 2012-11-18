@@ -1,5 +1,4 @@
 ﻿$(document).ready(function() {
-    $('#coin-slider').coinslider();
     
     var pagination_options = {
         num_edge_entries: 2,
@@ -22,36 +21,32 @@
         $("#pagination").pagination(num_entries, pagination_options);
     }
     
-    var catArray2 = [];
+    var search1 = function() {
+        var s = window.location.search.substr(1),
+        p = s.split(/\&/), l = p.length, kv, r = {};
+        if (l === 0) {return false;}
+        while (l--) {
+            kv = p[l].split(/\=/);
+            r[kv[0]] = decodeURIComponent(kv[1] || '') || true;
+        }
+        return r;
+    }();
+    var srch = "";
+    if(search1.q != null){
+        srch = search1.q;
+    }
     
     $.ajax({
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        url: "Services/Services.aspx/FetchCatNames",
-        dataType: "json",
-        data: "{}",
-
-        success: function(data) {
-            var items = [];
-            $.each(data.d, function(i, item) {
-                catArray2.push(parseInt(item.CatId));
-            });  // close each()            
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(textStatus);
-        }
-    });
-
-    $.ajax({
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        url: "Services/Services.aspx/BindDatatable",
-        data: "{}",
+        url: "Services/Services.aspx/SearchItemNames",
+        data: "{'searchStr':'"+ srch +"'}",
         dataType: "json",
         success: function(data) {
             for (var i = 0; i < data.d.length; i++) {
                 $("#hiddenresult").append('<aside id="category_box" class="category_box_style"><div id="img_placeholder"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp='+ data.d[i].CatId+'" target="_self"><img src="'+ data.d[i].ItemPath+'" alt="Items" title="'+data.d[i].ItemName+'" width="150" height="150" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="category_header"><a href="fullDetails.aspx?id='+ data.d[i].ItemId+'&grp=3" target="_self" class="link1">'+ data.d[i].ItemName+'</a></div><div class="style2" style="margin-top:8px;">Rs.'+data.d[i].ItemPrice+'</div></div> </div></div> </aside>');
             }
+            $("#searchStr").append('<b>Search results for "'+ srch +'":</b>');
             initPagination();
             $("#fetching").hide();
         },

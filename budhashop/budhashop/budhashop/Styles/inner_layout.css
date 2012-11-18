@@ -384,6 +384,10 @@
     margin-left: 200px;
     padding: 0;
     width: 600px;
+    -moz-box-shadow:inset 0px 0px 34px 10px #ac7713;
+-webkit-box-shadow:inset 0px 0px 34px 10px #ac7713;
+box-shadow:inset 0px 0px 34px 10px #ac7713;
+
     	   
 
 }

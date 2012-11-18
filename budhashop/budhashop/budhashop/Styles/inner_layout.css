@@ -130,7 +130,7 @@
 }
 /*cart items list header part Start*/
 #c_l_header_left {
-    background: none repeat scroll 0 0 #F3AD2C;
+    background: none repeat scroll 0 0 #e8b048;
     float: left;
     height: 26px;
     margin: 0;
@@ -160,7 +160,7 @@
 	width:240px;
 	height:26px;
 	float:left;
-	background:#F3AD2C;
+	background:#e8b048;
 }
 
 #c_l_header_right ul{
@@ -218,7 +218,7 @@
 	width:430px;
 	height:100px;
 	float:left;
-	background:#F3AD2C;
+	background:#e8b048;
 }
 #c_l_cl1{
 	margin:0px 0px 0px 0px;
@@ -384,6 +384,8 @@
     margin-left: 200px;
     padding: 0;
     width: 600px;
+    	   
+
 }
 #f_d_cl1{
 	margin:0px 0px 0px 0px;

@@ -36,6 +36,9 @@
     	    background:#f5c45a;
 	    border:#f4b01b 1px solid;
 	    border-radius:5px;
+	    -moz-box-shadow:0px 0px 2px 2px #d6a163;
+-webkit-box-shadow:0px 0px 2px 2px #d6a163;
+box-shadow:0px 0px 2px 2px #d6a163;
 	    
         	
         }

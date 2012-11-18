@@ -277,8 +277,11 @@ ul {
         margin-top: 5px;
         padding-top: -2px;
         margin-right: -1px;
-        color: #789;
-        font-size: 11px;
+        font-family:Arial;
+	font-size:14px;
+	color:#e79b3f;
+	font-weight:bold;
+	text-decoration:none;
     }
     #signin_menu p
     {

@@ -79,7 +79,7 @@
 }
  
 .jspDrag {
-    background: url(../images/scroll_bg.gif) repeat;
+    background: #f39112;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
@@ -406,7 +406,7 @@
                                 <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Deliverd" ControlStyle-CssClass="p_g_cl">
+                        <asp:TemplateField HeaderText="Deliverd">
                             <ItemTemplate>
                                 
                                 <asp:CheckBox ID="cbDelivered" runat="server" Checked='<%# Eval("DeliveredFlag") %>' Enabled="false" />
@@ -426,25 +426,25 @@
                         <asp:Label ID="dateP" runat="server"></asp:Label>--%>
                         
                 <section id="p_d_fields" style="margin-top:0px; width:450px; margin-left:5px;">
-                    <section id="login_header"><h3>Details</h3></section>
+                    <section id="login_header" style="margin:0px; width:440px;"><h2>Details</h2></section>
                     <div id="p_d_field_area">
-                        <div id="p_d_label">
+                        <div id="p_r_d_label">
                             Name :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field" class="style4" style="padding-top: 5px;">
                             <label id="NameA">
                         </label>
                         </div>
                     </div>
                     <div id="p_d_field_area">
-                        <div id="p_d_label" class="style1" style="padding-top: 2px;">
+                        <div id="p_r_d_label" class="style1">
                             Phone :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field" class="style4" style="padding-top: 5px;">
                             <label id="PhnA">
                         </label>
                         </div>
                     </div>
                     <div id="p_d_field_area">
-                        <div id="p_d_label">
+                        <div id="p_r_d_label">
                             Adress :</div>
                         <div id="p_d_field" class="style4">
                             <label id="AdrA">

@@ -133,6 +133,7 @@ namespace budhashop.ADMIN
                     catMsgLbl.Text = HardCodedValues.BuddaResource.CatogoryNotAdded;
                     catMsgLbl.ForeColor = System.Drawing.Color.Red;
                 }
+                ClearCache();
             }
             catch (Exception exp)
             {
@@ -212,6 +213,8 @@ namespace budhashop.ADMIN
                     {
                         ItemMessageLbl.Text = HardCodedValues.BuddaResource.AddItemFail;
                     }
+                    ClearCache();
+                
                 }
                 catch (Exception iExp)
                 {
@@ -394,6 +397,7 @@ namespace budhashop.ADMIN
             {
                 grpMsgLbl.Text = HardCodedValues.BuddaResource.ImageSizeError;
             }
+            ClearCache();
 
         }
 
@@ -498,5 +502,11 @@ namespace budhashop.ADMIN
                 }
             }
         }
+
+        private void ClearCache()
+        {
+            System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
+        }
+    
     }
 }

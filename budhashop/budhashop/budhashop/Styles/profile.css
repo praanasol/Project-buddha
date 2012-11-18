@@ -1,7 +1,7 @@
 ﻿#p_data_area{
 	margin-top:10px;
 	margin-left:5px;
-	padding:0px;
+	padding:10px 0px 0px  0px;
 	width:985px;
 	height:800px;
 }
@@ -41,6 +41,17 @@
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
 		font-size:14px;
+		color:#efd787;
+		font-weight:bold;
+		text-align:right;
+}
+	#p_r_d_label{
+		margin:0px;
+		padding:5px 0px 0px 0px;
+		width:100px;
+		float:left;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
 		color:#364700;
 		font-weight:bold;
 		text-align:right;
@@ -54,6 +65,7 @@
 		float:left;
 		text-align:left;
 }
+
 .p_d_form_style{
 	margin:0px;
 	padding-left:5px;
@@ -65,7 +77,7 @@
 	font-weight:bold;
 	background:#efd787;
 	border:#efd787 solid 1px;
-	/*border-radius:0px;*/
+	border-radius:5px;
 }
 /*.p_d_form_style{
 	margin:0px;

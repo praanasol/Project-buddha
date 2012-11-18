@@ -36,7 +36,7 @@
     	    background:#f5c45a;
 	    border:#f4b01b 1px solid;
 	    border-radius:5px;
-	    box-shadow:-2px -2px 2px #fad480;
+	    
         	
         }
         .f_form_style{
@@ -49,7 +49,7 @@
 	    color:#364700;
 	    font-weight:bold;
 	    background:#e7cd73;
-	    border:#d9b021 solid 2px;
+	    border:#dc8d53 solid 2px;
 	    border-radius:5px;
     }
     </style>

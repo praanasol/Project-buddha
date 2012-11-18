@@ -6,6 +6,16 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+<link href="../Styles/scrollpane_custom.css" rel="stylesheet" type="text/css" media="all" />
+ 
+<!-- latest jQuery direct from google's CDN -->
+
+<!-- the mousewheel plugin - optional to provide mousewheel support -->
+<script type="text/javascript" src="../script/scroll/jquery.mousewheel.js"></script>
+ 
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>
 
     <script src="../script/orderPage.js" type="text/javascript"></script>
 
@@ -175,8 +185,8 @@
     
       <div id="CartDiv" style="display:none;">    
         
-    <div id="box_header" style="margin-left:0px; width:970px; height:30px;">
-    	<div id="to_left"><h2>Order Items</h2></div>
+    <div id="box_header" style="margin-left:15px; width:970px; height:30px;">
+    	<div id="to_left"><h2>Products in Cart</h2></div>
       
     </div>
         <!--Order items start-->
@@ -196,7 +206,7 @@
 		            </div>
 		            <div id="o_i_header_right">
 			            <ul>
-				            <li>Price</li>
+				            <li>Total Price (INR)</li>
 				            <li style="padding-left:25px;">Quantity</li>
 				            <li>Edit</li>
             			
@@ -225,23 +235,23 @@
             <aside id="o_i_l_cl2">
 				<section id="o_i_l_img"> 
 					
-					<div id="o_i_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="150" Height="150" ImageUrl='<%# Eval("ImagePath")%>' 
+					<div id="o_i_l_img_placeholder"><a href="#" target="_self"><asp:ImageButton runat="server" ID="itemImage" Width="130" Height="130" ImageUrl='<%# Eval("ImagePath")%>' 
 					PostBackUrl='<%# Page.ResolveUrl("~/fulldetails.aspx?id="+ DataBinder.Eval(Container.DataItem, "ItemId" )+"&grp=3") %>'/></a></div>
 			  </section>
 			  <section id="o_i_l_fields">
 					
                           <div id="o_i_l_field_area">
-                              <div id="o_i_l_label">Name :</div>
-                              <div id="o_i_l_field" class="style4"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              
+                              <div id="o_i_l_field" class="style4" style="font-size:18px;"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
                               </div>
                           </div>
 						  <div id="o_i_l_field_area">
-                              <div id="o_i_l_label">ID :</div>
+                              <div id="o_i_l_label">Product Id :</div>
                               <div id="o_i_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'></asp:Label>
                               </div>
                           </div>
 						  <div id="o_i_l_field_area">
-                              <div id="o_i_l_label">Billed Rate :</div>
+                              <div id="o_i_l_label">Price :</div>
                               <div id="o_i_l_field" class="style4"><asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
                               </div>
                           </div>
@@ -254,7 +264,7 @@
                 <aside id="o_i_l_cl3">
                       <div id="o_i_l_field_area" style="width:230px;">
                               <%--<div id="o_i_l_label" style="width:80px;">Total Rate :</div>--%>
-                              <div id="o_i_l_field" class="style4" style="padding-left:50px; width:100px;"><asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
+                              <div id="o_i_l_field" class="style4" style="padding-left:20px; width:100px; font-size:16px;"><asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
                               </div>
                           </div>
                     </aside>
@@ -290,16 +300,16 @@
             <!--Order items body End-->
             <div id="o_i_bottom" class="bg_style1">
                   <aside id="o_i_r_cl1" class="style4"></aside>
-                    <aside id="o_i_r_cl2" class="style4">Items in Cart :-</aside>
-                    <aside id="o_i_r_cl3" class="style4">Items :&nbsp;&nbsp;<asp:Label ID="noOfItemsLbl2" CssClass="style5" runat="server" Text="Items: 0"></asp:Label></aside>
-                    <aside id="o_i_r_cl4" class="style4">Total :&nbsp;&nbsp;<asp:Label ID="totalLbl2" CssClass="style5" runat="server" Text="0"></asp:Label></aside>
-                    <aside id="o_i_r_cl5">&nbsp;</aside>
+                    
+                    <aside id="o_i_r_cl3" class="style4">Total Products :<asp:Label ID="noOfItemsLbl2" CssClass="style5" runat="server" Text="Items: 0"></asp:Label></aside>
+                    <aside id="o_i_r_cl4" class="style4">Total Payment :<asp:Label ID="totalLbl2" CssClass="style5" runat="server" Text="0"></asp:Label></aside>
+                    <aside id="o_i_r_cl5"></aside>
                     <aside id="o_i_r_cl6">
                         
         	             <div id="but_style">   
-        	                    <input type="button" class="l_go" id="btn_ConfirmOrder" value="Confirm Order"/>
+        	                    <input type="button" class="l_go" id="btn_ConfirmOrder" value="Confirm Payment"/>
                                 <%--<asp:LinkButton id="btn_ConfirmOrder" runat="server" CssClass="l_go">Confirm Order</asp:LinkButton>
-                               --%> <asp:LinkButton id="btn_cancel" runat="server" CssClass="l_go" onclick="btn_cancel_Click" >Cancel</asp:LinkButton>
+                               --%> <asp:LinkButton id="btn_cancel" runat="server" CssClass="l_go" onclick="btn_cancel_Click" >Continue Shopping</asp:LinkButton>
                         </div>
                     <%--<input type="button" class="buttons" id="btn_ConfirmOrder" value="Confirm Order"/>--%></aside>
                     <%--<aside id="o_i_r_cl7"><asp:Button ID="btn_cancel" class="buttons" runat="server" Text="Cancel" 
@@ -316,11 +326,15 @@
     </div>
        
     
-    <div id="adressDiv" style="padding-top:150px; display:none; height:420px;">
+    <div id="adressDiv" style="padding-top:10px; display:none; height:420px;">
+    <div id="box_header" style="margin-left:15px; width:970px; height:30px;">
+    	<div id="to_left"><h2>Shipping Address details.</h2></div>
+      
+    </div>
     <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 300px;">
         <section id="login_header">
             <h3>
-                Edit Profile</h3>
+                Edit shipping address.</h3>
         </section>
         <section id="p_f_fields" style="width: 490px; height: 200px;">
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
@@ -374,9 +388,12 @@
                 </div>
         </section>
         <div id="login_links" style="width: 510px; height:30px;">
-            <div id="to_left">Change my Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></div>
+            <div id="to_left">Change your Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></div>
             <div id="but_style" style="margin: 0px 0px 0px 13px;">
-                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" ValidationGroup="1" /></div>
+                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" ValidationGroup="1" />
+                 <asp:LinkButton ID="back_btn" runat="server" Text="Back" CssClass="l_go" PostBackUrl="~/USER/OrderPage.aspx"></asp:LinkButton>
+            </div>
+                 
         </div>
     </div>
     </div>

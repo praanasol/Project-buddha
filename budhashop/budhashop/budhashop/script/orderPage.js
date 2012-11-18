@@ -57,6 +57,20 @@
                 checkEmail();
             }
         });
+        
+        $('[id$=o_items]').jScrollPane({
+                    horizontalGutter:5,
+                    verticalGutter:5,
+                    'showArrows': false
+                });
+                
+                $('.jspDrag').hide();
+                $('.jspScrollable').mouseenter(function(){
+                    $(this).find('.jspDrag').stop(true, true).fadeIn('slow');
+                });
+                $('.jspScrollable').mouseleave(function(){
+                    $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
+                });
 });
 
 function ShowDialog(){

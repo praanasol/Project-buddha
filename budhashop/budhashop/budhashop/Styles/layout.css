@@ -22,8 +22,11 @@ img{
 	width:1000px;
 	height:auto;
 	background:#EFD787 url(../images/header_bg.gif) left top repeat-x;
-	border-left:#e79b3f 1px solid;
-	border-right:#e79b3f 1px solid;
+	
+	-moz-box-shadow:inset 0px 0px 5px 3px #ac7713;
+-webkit-box-shadow:inset 0px 0px 5px 3px #ac7713;
+box-shadow:inset 0px 0px 5px 3px #ac7713;
+	
 	}
 header{
 	width:1000px;

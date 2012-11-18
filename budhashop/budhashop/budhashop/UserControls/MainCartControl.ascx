@@ -475,6 +475,7 @@ ul {
       <!--Cart items list part start-->
       <div id="cartlist_part"> 
         <!--Cart items list header part start-->
+        <div id="c_l_header">
         <div id="c_l_header_left">
           <ul>
            
@@ -489,6 +490,7 @@ ul {
 				
 			
           </ul>
+        </div>
         </div>
         <!--Cart items list header part End--> 
         <div id="chatlist" class="mousescroll">

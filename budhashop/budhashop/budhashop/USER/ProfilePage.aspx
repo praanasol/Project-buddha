@@ -18,6 +18,7 @@
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>
 
+    <link href="../Styles/scrollpane_custom.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
                 .web_dialog_overlay
                 {
@@ -61,39 +62,7 @@
                     display: none;
                 }
                 
-                /*scrollpane custom CSS*/
-.jspVerticalBar {
-    width: 8px;
-    background: transparent;
-    right:10px;
-}
- 
-.jspHorizontalBar {
-    bottom: 5px;
-    width: 100%;
-    height: 8px;
-    background: transparent;
-}
-.jspTrack {
-    background: transparent;
-}
- 
-.jspDrag {
-    background: #f39112;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-}
- 
-.jspHorizontalBar .jspTrack,
-.jspHorizontalBar .jspDrag {
-    float: left;
-    height: 100%;
-}
- 
-.jspCorner {
-    display:none
-}
+                
             </style>
 
     <div id="box_header" style="width:985px;">

@@ -21,6 +21,8 @@ namespace budhashop.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txt_emailid1.Attributes.Add("onkeypress", "return controlEnter('" + btn_login1.ClientID + "', event)");
+            txt_pwd1.Attributes.Add("onkeypress", "return controlEnter('" + btn_login1.ClientID + "', event)");
             //if (this.Session["currentuser"] != null)
             //{
             //    DataTable dt = (DataTable)this.Session["currentuser"];

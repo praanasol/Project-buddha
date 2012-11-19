@@ -507,7 +507,9 @@
     <Content Include="images\banner\banner3.jpg" />
     <Content Include="images\banner\banner4.jpg" />
     <Content Include="images\banner\banner5.jpg" />
+    <Content Include="images\check.jpg" />
     <Content Include="images\scroll_bg.gif" />
+    <Content Include="images\uncheck.jpg" />
     <Content Include="mCSB_buttons.png" />
     <Content Include="script\coin-slider.min.js" />
     <Content Include="script\FeedbackControl.js" />

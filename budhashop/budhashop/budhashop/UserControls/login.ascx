@@ -64,6 +64,19 @@
         } 
     </style>
     
+    <script type="text/javascript" language="javascript">
+        function controlEnter (obj, event)
+        {      
+             var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;      
+             if (keyCode == 13) {                  
+                document.getElementById(obj).click();
+                            return false;      
+             }      
+             else  {
+                           return true; 
+             } 
+        }
+    </script>
     
 <div style="width: 350px;">
        
@@ -82,7 +95,7 @@
             
             <div id="go_but"  style="float:left;">
             
-        	<a href="#" id="btn_login1" class="l_go" onclick="return checkLogin1();" >Go
+        	<a href="" id="btn_login1" class="l_go" onclick="return checkLogin1();" runat="server" >Go
                 <%--<input id="btn_login1" type="button" value="Go" onclick="return checkLogin1();" />--%></a>
                 
              </div>   

@@ -16,11 +16,11 @@
             $("#closeimg1").hide();
         });
         
-        $('#login-required').keypress(function(e) {
-            if(e.which == 13) { // Checks for the enter key
-                checkLogin1();
-            }
-        });
+//        $('#login-required').keypress(function(e) {
+//            if(e.which == 13) { // Checks for the enter key
+//                checkLogin1();
+//            }
+//        });
 });
 
 function CheckSession(result) {

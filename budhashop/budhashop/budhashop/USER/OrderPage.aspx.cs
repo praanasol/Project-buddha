@@ -35,6 +35,13 @@ namespace budhashop.USER
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txt_emailid.Attributes.Add("onkeypress", "return controlEnter('" + btn_login.ClientID + "', event)");
+            txt_pwd.Attributes.Add("onkeypress", "return controlEnter('" + btn_login.ClientID + "', event)");
+
+            txt_emailid2.Attributes.Add("onkeypress", "return controlEnter('" + btn_register.ClientID + "', event)");
+            txt_pwd2.Attributes.Add("onkeypress", "return controlEnter('" + btn_register.ClientID + "', event)");
+            txt_confirmpwd2.Attributes.Add("onkeypress", "return controlEnter('" + btn_register.ClientID + "', event)");
+
             if (!IsPostBack)
             {
                 if (Session["CartPicks"] != null)

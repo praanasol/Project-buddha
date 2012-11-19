@@ -36,7 +36,7 @@
             window.location.replace("homepage.aspx");//redirect to home page
         }
         var flag = 0;
-        if(grpc==1)
+        if(grpc==0)
         {
             flag = 1;
         }
@@ -64,6 +64,10 @@
                 $("#nameTxt").append(data.d[0].ItemName);
                 $("#priceTxt").append(data.d[0].ItemPrice);
                 $("#descBox").append(data.d[0].ItemDesc);
+                 $("#backBtn").append('<a id="bBtn" href="../itemspage.aspx?catid='+ data.d[0].CatId+'" class="f_d_link" style="color:#512912">Browse all products</a>');
+                $("#featuredBtn").append('<a id="bBtn" href="../homepage.aspx" class="f_d_link" style="color:#512912">Featured products</a>');
+                
+                
 
             }
         },

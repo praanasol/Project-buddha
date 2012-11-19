@@ -40,6 +40,7 @@
  
   <div id="box_header" style="width:985px;">
     	<h2>Product Details</h2>
+    	
       
     </div>
      <br clear="all" />
@@ -117,7 +118,15 @@
     </div>
     </div>
     </section>
-<div style="height:65px;"></div>
+<div style="height:160px;">
+<div id="backBtn" style="float:left; margin:20px 0 0 330px; background:#AC7713; padding:5px;border:#981d18 solid 1px;
+	border-radius:5px;"></div>
+	
+	<div id="featuredBtn" style="float:left; margin:20px 0 0 30px; background:#AC7713; padding:5px;border:#981d18 solid 1px;
+	border-radius:5px;"></div>
+    	
+    	
+
 
 
 </asp:Content>

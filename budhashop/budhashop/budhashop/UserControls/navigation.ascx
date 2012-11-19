@@ -22,7 +22,7 @@ $(document).ready(function(){
                 });  // close each()
 
                $('[id$=navitems]').append( items.join('') );
-              
+              $('[id$=footerNav]').append( items.join('') );
                    
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 <nav id="nav">
             	<ul id="navitems">
-            	    <li><a href="../homepage.aspx" target="_self" style="font-size:10px;">Home</a></li>
+            	    <li><a href="../homepage.aspx" target="_self">Home</a></li>
                 	<li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
                     
                     

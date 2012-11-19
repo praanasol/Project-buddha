@@ -108,7 +108,13 @@
     <div id="wraper">
     
   <header>
-    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a></aside>
+    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a>
+    <br />
+    <div style="margin:12px 0px 0px 60px;">
+    <a href="../Articles/articleHome.aspx" class="l_go"  target="_self">Articles</a>
+    </div>
+    
+    </aside>
     <aside id="space"></aside>
     
     <!--Header right side area - Start-->
@@ -225,7 +231,19 @@
 
     <br style="clear:both;" />
   <footer class="rights">
+  <div>
+  <aside style="height:50px;">
+  <nav id="nav" style="font-size:10px;">
+  <ul id="footerNav" style="margin:10px 210px 0 0;">
+  <li><a href="../homepage.aspx" target="_self" >Home</a></li>
+  <li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
+  </ul>
+  </nav>
+  </aside>
+  <aside>
   Copy Rights @2012. praanasolutions.com
+  </aside>
+  </div>
   </footer>
 </div>
 

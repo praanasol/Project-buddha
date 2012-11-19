@@ -67,7 +67,7 @@
       <!--Categories Start-->
       <section>
         <div id="box_header" style="width:985px;">
-    	<h2>Items...</h2>
+    	<h2>All Products</h2>
       
     </div>
         <!--Gallery Start-->

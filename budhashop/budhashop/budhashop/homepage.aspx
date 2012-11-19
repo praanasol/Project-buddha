@@ -44,7 +44,7 @@
 </div>
   <br clear="all" />
   <div id="box_header" style="width:985px;">
-    	<h2>Feature Products...</h2>
+    	<h2>Featured Products</h2>
       
     </div>
 <section id="item_area" class="box_style" style="height:585px;">

@@ -93,10 +93,10 @@
                 onfocus="if(this.value=='      ')this.value='';" onblur="if(this.value=='')this.value='      ';"></asp:TextBox>
             </div>
             
-            <div id="go_but"  style="float:left;">
+            <div id="go_but" style="float:left; margin-left:8px;">
             
-        	<a href="" id="btn_login1" class="l_go" onclick="return checkLogin1();" runat="server" >Go
-                <%--<input id="btn_login1" type="button" value="Go" onclick="return checkLogin1();" />--%></a>
+        	<a href="" id="btn_login1" class="l_go" onclick="return checkLogin1();" runat="server" >Go</a>
+                <%--<input id="btn_login1" type="button" value="Go" onclick="return checkLogin1();" />--%>
                 
              </div>   
                <div id="login_links">

@@ -104,6 +104,13 @@
     <Compile Include="ADMIN\SiteFeedback.aspx.designer.cs">
       <DependentUpon>SiteFeedback.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Articles\articleHome.aspx.cs">
+      <DependentUpon>articleHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articles\articleHome.aspx.designer.cs">
+      <DependentUpon>articleHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Captcha\CaptchaImage.cs" />
     <Compile Include="Captcha\JpegImage.aspx.cs">
       <DependentUpon>JpegImage.aspx</DependentUpon>
@@ -499,6 +506,7 @@
     <None Include="script\html5shiv\.gitattributes" />
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
+    <Content Include="Articles\articleHome.aspx" />
     <Content Include="Captcha\Refresh.PNG" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
@@ -539,7 +547,6 @@
     <Folder Include="ADMIN\ItemImages\catagory 4\" />
     <Folder Include="ADMIN\ItemImages\Eco-Friendly Products\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Articles\" />
     <Folder Include="ItemImages\4\" />
     <Folder Include="ItemImages\Catagory 1\" />
     <Folder Include="ItemImages\Catagory 2\" />

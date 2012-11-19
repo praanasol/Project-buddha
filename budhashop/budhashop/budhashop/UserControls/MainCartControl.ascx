@@ -273,10 +273,10 @@ ul {
         text-align: left;
         padding: 2px;
         top: 165px;
-        right: 140px;
+        
         margin-top: 5px;
         padding-top: -2px;
-        margin-right: -1px;
+        margin-left: 292px;
         font-family:Arial;
 	font-size:14px;
 	color:#e79b3f;

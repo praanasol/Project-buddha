@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace budhashop.UserControls {
+namespace budhashop.Articles {
     
     
-    public partial class navigation {
+    public partial class articleHome {
     }
 }

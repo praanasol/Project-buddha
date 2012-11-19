@@ -21,6 +21,7 @@ img{
 	margin:auto;
 	width:1000px;
 	height:auto;
+	min-height:700px;
 	background:#EFD787 url(../images/header_bg.gif) left top repeat-x;
 	
 	-moz-box-shadow:inset 0px 0px 5px 3px #ac7713;
@@ -106,6 +107,7 @@ header{
 	background:#f39112;
 	border:#512912 solid 2px;
 	border-radius:10px;
+	
 }
 #go_but a.l_go:hover, #go_but a.l_go:active{
 	text-decoration:none;
@@ -210,7 +212,7 @@ header{
 #navigation{
 	margin:0px;
 	padding:0px;
-	width:679px;
+	width:650px;
 	height:40px;
 	float:left;
 	
@@ -545,10 +547,10 @@ a.scroll_arrow_r:hover, a.scroll_arrow_r:active{
 footer{
 	margin:0px;
 	padding:0px;
-	height:34px;
-	border-top:#a2a835 solid 1px;
+	height:80px;
+	border:#a2a835 solid 1px;
 	text-align:center;
-	background:url(../images/footer_bg.gif) left top repeat-x;
+	background:#4d1c1c ;
 }
 #to_left{
 	float:left;

@@ -16,7 +16,7 @@
     	    bottom:0%;
     	    font-family:Arial;
 	    font-size:14px;
-	    color:#7ca831;
+	    color:#ac7713;
 	    font-weight:bold;
 	    text-decoration:none;
     	
@@ -30,15 +30,15 @@
     	    right:-21%;
     	    bottom:0%;
     	    font-family:Arial, Helvetica, sans-serif;
-		    font-size:14px;
-		    color:#364700;
-		    font-weight:bold;
-    	    background:#f5c45a;
+		    font-size:12px;
+		    color:#512912;
+		    
+    	    background:#E8B048;
 	    border:#f4b01b 1px solid;
 	    border-radius:5px;
-	    -moz-box-shadow:0px 0px 2px 2px #d6a163;
--webkit-box-shadow:0px 0px 2px 2px #d6a163;
-box-shadow:0px 0px 2px 2px #d6a163;
+	    -moz-box-shadow:inset 0px 0px 10px 3px #ac7713;
+-webkit-box-shadow:inset 0px 0px 10px 3px #ac7713;
+box-shadow:inset 0px 0px 10px 3px #ac7713;
 	    
         	
         }
@@ -74,8 +74,8 @@ box-shadow:0px 0px 2px 2px #d6a163;
         <img id="closeimg" alt="FeedBack" src="../images/unavailable.png" />
         </div>
         <br />
-        <section id="login_header" style="margin-top:-15px; margin-bottom:5px; width:200px; height:20px; font-size:14px; text-align:center;" />
-                    <h3 style="color:#4d6012;">
+        <section id="login_header" style="margin-top:-15px; margin-bottom:5px; width:200px; height:20px; font-size:12px; text-align:center;" />
+                    <h3 >
                         Feedback</h3>
                 </section>
         <p style="margin-left:10px;">Enter Your Email Id:</p>

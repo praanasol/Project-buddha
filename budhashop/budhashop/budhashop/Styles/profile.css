@@ -9,9 +9,9 @@
 	margin:auto;
 	margin-bottom:20px;
 	padding:0px;
-	width:400px;
+	width:500px;
 	height:250px;
-	background-color:#962824;
+	
 	border-radius:5px;
 	border-style:double;
 	
@@ -19,9 +19,9 @@
 }
 
 #p_d_fields{
-	margin-top:20px;
+	margin:20px 0 0 50px;
 	padding:0px;
-	width:360px;
+	width:460px;
 	height:auto;
 	float:left;
 	
@@ -40,8 +40,8 @@
 		width:100px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
-		font-size:14px;
-		color:#efd787;
+		font-size:12px;
+		color:#512912;
 		font-weight:bold;
 		text-align:right;
 }
@@ -51,8 +51,8 @@
 		width:100px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
-		font-size:14px;
-		color:#364700;
+		font-size:12px;
+		color:#512912;
 		font-weight:bold;
 		text-align:right;
 }
@@ -73,7 +73,7 @@
 	height:20px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
-	color:#364700;
+	color:#512912;
 	font-weight:bold;
 	background:#efd787;
 	border:#efd787 solid 1px;
@@ -96,18 +96,22 @@
 /* Grid View Start*/
 #grid
 {
-	margin:0px 10px;
+	margin:0px 10px 0 20px;
 	padding:0px;
-	width:500px;
+	width:410px;
 	float:left;
+	border:#d9b021 solid 1px;
+	padding:10px;
+	
 }
 #grid_res
 {
 	margin:0px;
 	padding:0px;
-	width:450px;
+	width:470px;
 	float:left;
 	background:#e7cd73;
+	border:#d9b021 solid 1px;
 }
   .g_head
     {
@@ -138,7 +142,7 @@
 	height:40px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
-	color:#364700;
+	color:#512912;
 	font-weight:bold;
 	background:#efd377;
 	border:#d9b021 solid 1px;
@@ -151,7 +155,7 @@
 	height:40px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
-	color:#364700;
+	color:#512912;
 	font-weight:bold;
 	background:#e7cd73;
 	border:#d9b021 solid 1px;
@@ -164,7 +168,7 @@
 	height:40px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:13px;
-	color:#364700;
+	color:#512912;
 	font-weight:bold;
 	background:#e7cd73;
 	border:#d9b021 solid 1px;
@@ -186,8 +190,13 @@
 		padding:0px;
 		width:440px;
 		height:230px;
-		background:#efd787;
-		border:#f3c46d 1px solid;
+		background:#E8B048;
+		
+		 -moz-box-shadow:inset 0px 0px 30px 8px #ac7713;
+-webkit-box-shadow:inset 0px 0px 30px 8px #ac7713;
+box-shadow:inset 0px 0px 30px 8px #ac7713;
+ border: #8A0C05 1px solid;
+		
 		border-radius:5px;
 }
 #p_f_fields{
@@ -213,8 +222,8 @@
 		width:160px;
 		float:left;
 		font-family:Arial, Helvetica, sans-serif;
-		font-size:14px;
-		color:#364700;
+		font-size:12px;
+		color:#512912;
 		font-weight:bold;
 		text-align:right;
 }
@@ -233,9 +242,9 @@
 	width:200px;
 	height:18px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:13px;
-	color:#364700;
-	font-weight:bold;
+	font-size:12px;
+	color:#512912;
+	
 	background:#e7cd73;
 	border:#d9b021 solid 2px;
 	border-radius:5px;

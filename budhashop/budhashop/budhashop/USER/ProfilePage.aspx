@@ -2,11 +2,12 @@
     CodeBehind="ProfilePage.aspx.cs" Inherits="budhashop.USER.ProfilePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+
+
+ 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <script src="../script/profilePage.js" type="text/javascript"></script>
-
 <!-- styles needed by jScrollPane -->
 <link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
  
@@ -17,8 +18,11 @@
  
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>
+ <script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>
+
 
     <link href="../Styles/scrollpane_custom.css" rel="stylesheet" type="text/css" />
+    <script src="../script/profilePage.js" type="text/javascript"></script>
 <style type="text/css">
                 .web_dialog_overlay
                 {
@@ -47,7 +51,7 @@
                     top: 28%;
                     left: 40%;
                     
-                    border: solid 2px #336699;
+                   
                     padding: 0px;
                     z-index: 102;
                     font-family: Verdana;
@@ -64,15 +68,34 @@
                 
                 
             </style>
+            <style type="text/css">
+    div#itemsList {
+    width: 470px;
+    height:230px;
+    
+    
+}
+div.mousescroll {
+    overflow: hidden;
+}
+div.mousescroll:hover {
+    overflow-y: scroll;
+}
+.slimScrollDiv { border: 1px solid #ccc; margin:10px; }
+ul {
+    list-style-type: none;
+}
+
+</style>
 
     <div id="box_header" style="width:985px;">
-    	<h2>Profile...</h2>
+    	<h2>Profile Page</h2>
       
     </div>
     <div id="p_data_area" class="box_style">
         <div id="profileDiv">
             <!--Profile Start-->
-            <aside id="p_data">
+            <aside id="p_data" class="p_f_box_style">
                 <section id="p_d_fields">
                     <div id="p_d_field_area">
                         <div id="p_d_label">
@@ -116,13 +139,7 @@
                 </div>
             </aside>
             <!--Profile End-->
-            <%--Modal Pop-Up End--%>
-            <%--Style for Pop-Up Window--%>
-            
-            <%--End of Style for Pop-Up Window--%>
-            
-
-            <%--Start of Pop-Up Window--%>
+          <!--Popup start-->
             <asp:UpdatePanel ID="profileEditPop" runat="server">
                 <ContentTemplate>
                     <div id="overlay" class="web_dialog_overlay">
@@ -175,67 +192,11 @@
                              <div id="to_right" style="margin:0px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose">Close</a></div>
                              </div>
                         </div>
-                        <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
-                            <tr>
-                                <td class="web_dialog_title" colspan="3">
-                                    <a href="#" id="btnClose">Close</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Email Id
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_emailidedit" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                                <td>
-                                    &nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Name
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_unameedit" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <input id="btn_updatename" onclick="return updateName();" type="button" value="Update" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Phone Number
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_phnoedit" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <input id="btn_updatephno" onclick="return updatePhNum();" type="button" value="Update" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Address
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_addressedit" runat="server" TextMode="MultiLine" Width="180px"
-                                        Rows="3"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <input id="btn_updateaddress" onclick="return updateAddress();" type="button" value="Update" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" style="text-align: center">
-                                    <asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
-                                </td>
-                            </tr>
-                        </table>--%>
+                        
                     </div>
                     <div id="PasswordField" class="web_dialog">
                         <div id="p_f_data" class="p_f_box_style">
-                            <section id="login_header"><h3>Forgot Password</h3></section>
+                            <section id="login_header"><h3>Change Password</h3></section>
                             <section id="p_f_fields">
                                 <div id="p_f_field_area">
                                     <div id="p_f_label">
@@ -277,64 +238,21 @@
                              
                                     </div>
                                     
-                        <%--<table style="width: auto; border: 0px;" cellpadding="3" cellspacing="0">
-                            <tr>
-                                <td class="web_dialog_title" colspan="2">
-                                    <a href="#" id="btnClose1">Close</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Email Id
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_emailidpwd" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Old Password
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_oldpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    New Password
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_newpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Confirm Password
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txt_confirmnewpwd" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <input id="btn_updatepwd" onclick="return updatePassword();" type="button" value="Update" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="text-align: center">
-                                    <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
-                                </td>
-                            </tr>
-                        </table>--%>
+                        
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <%--End of Pop-Up Window--%>
             <%--Modal Pop-Up End--%>
         </div>
+        <div id="box_header" style="width:985px;">
+    	<h2>Purchase History</h2>
+      
+    </div>
         <div id="orderHistoryDiv">
             <aside id="grid">
-            <div id="contentDiv" style="overflow-x:auto; height:450px;">
+           <%-- <div id="contentDiv" class="scroll-pane" style="height:350px;">--%>
+            <asp:Panel ID="contentDiv" runat="server" CssClass="scroll-pane" Height="350" ScrollBars="Vertical">
                 <asp:GridView ID="orderGrid" CssClass="orderGrid" runat="server" CellSpacing="6" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
                     GridLines="None" AlternatingRowStyle-Wrap="False">
                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
@@ -383,17 +301,13 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-            </div>
+               </asp:Panel>
+           <%-- </div>--%>
             </aside>
             <aside id="grid_res">
-                <div id="itemsDiv">
-                    <%--<a href="#" id="btnCloseOrders" style="float: right;">Close</a>--%>
-                    
-                    
-                        <%--<asp:Label ID="itemsCount" runat="server"></asp:Label>
-                        <asp:Label ID="totalBill" runat="server"></asp:Label>
-                        <asp:Label ID="dateP" runat="server"></asp:Label>--%>
-                        
+                <div id="itemsDiv" style="height:370px;">
+                
+                
                 <section id="p_d_fields" style="margin-top:0px; width:450px; margin-left:5px;">
                     <section id="login_header" style="margin:0px; width:440px;"><h2>Details</h2></section>
                     <div id="p_d_field_area">
@@ -424,19 +338,13 @@
                 </section>
                
             <br style="clear:both;" /><br />
-                        <%--<label id="NameA">
-                        </label>
-                        <br />
-                        <label id="PhnA">
-                        </label>
-                        <br />
-                        <label id="AdrA">
-                        </label>--%>
-                       
+                        
                    
                     
-                    <div id="itemsList">
-                        <table id="itemTable" width="450" cellspacing="1" cellpadding="1" border="0">
+                    <div id="itemsList" class="mousescroll">
+                   
+                   <div>
+                        <table id="itemTable">
                             
                             <tr>
                                 <th class="g_head">
@@ -462,7 +370,12 @@
                             <td colspan="6" style="height:5px;"></td>
                             </tr>
                         </table>
+                       </div>
+                         
+                       
                     </div>
+                  
+                  
                 </div>
             </aside>
         </div>

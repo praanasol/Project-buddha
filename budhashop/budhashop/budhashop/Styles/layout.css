@@ -5,7 +5,7 @@ body{
 	background:#4d1c1c;
 	font-family:arial;
 	font-size:12px;
-	color:#4d6012;
+	color:#512912;
 	text-align:justify;
 	debut_dark.png
 }
@@ -100,18 +100,18 @@ header{
 	padding:3px 3px 3px 3px;
 	font-family:"Arial", Gadget, sans-serif;
 	font-size:13px;
-	color:#364700;
+	color:#512912;
 	font-weight:bold;
 	text-decoration:none;
 	background:#f39112;
-	border:#364700 solid 2px;
+	border:#512912 solid 2px;
 	border-radius:10px;
 }
 #go_but a.l_go:hover, #go_but a.l_go:active{
 	text-decoration:none;
 	color:#a00305;
 	background:#f39112;
-	border:#364700 solid 2px;
+	border:#512912 solid 2px;
 	border-radius:10px;
 	
 }
@@ -121,7 +121,7 @@ header{
 	padding:0px;
 	height:25px;
 	text-align:center;
-	border-bottom:#deb354 solid 1px;
+	border-bottom:#F3C46D solid 1px;
 }
 #login_links
 {
@@ -163,13 +163,13 @@ header{
 	
 	font-family:Arial;
 	font-size:12px;
-	color:#d87f1b;
+	color:#512912;
 	font-weight:bold;
 	text-decoration:none;
 }
 #login_links1 a.l_links1:hover, #login_links1 a.l_links1:active
 {
-	color:#e79b3f;
+	color:#FE7E28;
 	font-weight:bold;
 	text-decoration:none;
 }
@@ -327,7 +327,7 @@ header{
 	width:985px;
 	height:25px;
 	text-align:left;
-	border-top:#752424 1px solid;
+	
 	border-radius:0px;
 }
 

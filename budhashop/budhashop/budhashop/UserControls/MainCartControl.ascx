@@ -542,7 +542,7 @@ ul {
             <!--Cart items img CL End-->
             <!--Cart items Quantity CL Start-->
             <aside id="c_l_cl3">
-              <div id="c_l_form" class="style4" style="color:#8C0B05">
+              <div id="c_l_form" class="style4">
               <asp:Label ID="rateLbl" runat="server" Text='<%# Eval("TotalRate")%>'> </asp:Label>
                </div>
             </aside>

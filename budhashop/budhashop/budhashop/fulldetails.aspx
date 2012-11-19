@@ -70,13 +70,13 @@
 					
                           <div id="f_d_field_area">
                               
-                              <div id="f_d_label" class="style1">Name :</div>
+                             
                               <div id="f_d_field" class="style4"><a id="nameTxt"></a>
                               </div>
                                                        
                           </div>
 						  <div id="f_d_field_area">
-                              <div id="f_d_label">ID :</div>
+                              <div id="f_d_label">Product Id :</div>
                               <div id="f_d_field" class="style4"><a id="idTxt"></a>
                              </div>
                           </div>

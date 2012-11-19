@@ -65,11 +65,15 @@
 
             //Scripts for Scroll Pane
                 //$('#contentDiv').jScrollPane();
-                $('[id$=contentDiv]').jScrollPane({
+                
+               
+                $('.scroll-pane').jScrollPane({
                     horizontalGutter:5,
                     verticalGutter:5,
                     'showArrows': false
                 });
+                
+                
                 
                 $('.jspDrag').hide();
                 $('.jspScrollable').mouseenter(function(){
@@ -98,7 +102,7 @@ function RowSelected(itemString,addrString)
         success: function(data) {
         $("#itemTable tr:gt(0)").remove();
         for (var i = 0; i < data.d.length; i++) {
-            $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="70" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
+            $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="50" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
         }
     },
     error: function(data) {

@@ -42,7 +42,7 @@ namespace budhashop.ADMIN
                 string returnUrl = Request.QueryString["ReturnUrl"];
 
                 // check if it exists, if not then redirect to default page
-                if (returnUrl == null) returnUrl = "~/ADMIN/";
+                if (returnUrl == null) returnUrl = "~/ADMIN/InsertPage.aspx";
 
                 Response.Redirect(returnUrl);
             }

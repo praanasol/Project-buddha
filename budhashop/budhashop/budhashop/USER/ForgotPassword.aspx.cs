@@ -69,13 +69,13 @@ namespace budhashop.USER
                         //encrypt the given password to store in database
                         string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(newpwd);
 
-                        //send the new password to the user email id
-                        sendEmail(emailid, newpwd);
-
                         //update the new password in database
                         bool ispwdupdated = checkuser.UpdatePassword(emailid, encryptedpwd);
                         if (ispwdupdated)
                         {
+                            //send the new password to the user email id
+                            sendEmail(emailid, newpwd);
+
                             lbl_fsubmit.Text = HardCodedValues.BuddaResource.PwdForgotSuccess;
                             lbl_fsubmit.Font.Bold = true;
                         }

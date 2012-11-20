@@ -10,18 +10,7 @@
         });
 
         $("#hyplink_edit").click(function(){
-            var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidedit]").val(emailid);
-            var uname = $("[id$=txt_uname]").val(); $("[id$=txt_unameedit]").val(uname);
-            var phno = $("[id$=txt_phno]").val(); $("[id$=txt_phnoedit]").val(phno);
-            var address = $("[id$=txt_address]").val(); $("[id$=txt_addressedit]").val(address);
-            var userstatus = $("[id$=lbl_status]").text(); $("[id$=lbl_result]").text(userstatus);
-
-            $("#overlay").show();
-            $("#ProfileField").fadeIn("slow");
-            
-            $("#overlay").click(function (e){
-                $("#overlay").unbind("click");
-            });
+            budhashop.USER.Services.LoginControl.Getuser(CheckUserStatus, onerror);
         });
 
         $("#btnClose1").click(function (e){
@@ -30,15 +19,7 @@
         });
 
         $("#hyplink_changepwd").click(function(){
-            var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidpwd]").val(emailid);
-            $("[id$=txt_oldpwd]").val(''); $("[id$=txt_newpwd]").val(''); $("[id$=txt_confirmnewpwd]").val('');
-
-            $("#overlay").show();
-            $("#PasswordField").fadeIn("slow");
-            
-            $("#overlay").click(function (e){
-                $("#overlay").unbind("click");
-            });
+            budhashop.USER.Services.LoginControl.Getuser(CheckUserStatus1, onerror);            
         });
 
         $(".orderGrid tr").filter(function() {
@@ -86,30 +67,87 @@
 
 function RowSelected(itemString,addrString)
 {
-    $("#itemsDiv").show(500);
-    var primeArray = addrString.split(";");
-    $("#NameA").html(primeArray[0]);
-    $("#PhnA").html(primeArray[1]);
-    $("#AdrA").html(primeArray[2]);
-    
     $.ajax({
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        url: "ProfilePage.aspx/GetOrderedItems",
-        data: "{'itemString':'"+ itemString +"'}",
+        url: "/USER/Services/LoginControl.asmx/Getuser",
         dataType: "json",
 
         success: function(data) {
-        $("#itemTable tr:gt(0)").remove();
-        for (var i = 0; i < data.d.length; i++) {
-            $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="50" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
-        }
-    },
-    error: function(data) {
-        alert("error");
+            if(data.d!='nouser'){
+                $("#itemsDiv").show(500);
+                var primeArray = addrString.split(";");
+                $("#NameA").html(primeArray[0]);
+                $("#PhnA").html(primeArray[1]);
+                $("#AdrA").html(primeArray[2]);
+                
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "ProfilePage.aspx/GetOrderedItems",
+                    data: "{'itemString':'"+ itemString +"'}",
+                    dataType: "json",
+
+                    success: function(data) {
+                        $("#itemTable tr:gt(0)").remove();
+                        for (var i = 0; i < data.d.length; i++) {
+                            $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="50" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
+                        }
+                    },
+                    error: function(data) {
+                        alert("error");
+                    }
+                });
+            }
+            else{
+                alert('Your Session has Expired...');
+                window.location.replace('../homepage.aspx');
+            }
+        },
+        error: function(data) {
+            alert("error");
         }
     });
 }
+
+function CheckUserStatus(result){
+        if(result!='nouser'){
+            var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidedit]").val(emailid);
+            var uname = $("[id$=txt_uname]").val(); $("[id$=txt_unameedit]").val(uname);
+            var phno = $("[id$=txt_phno]").val(); $("[id$=txt_phnoedit]").val(phno);
+            var address = $("[id$=txt_address]").val(); $("[id$=txt_addressedit]").val(address);
+            var userstatus = $("[id$=lbl_status]").text(); $("[id$=lbl_result]").text(userstatus);
+
+            $("#overlay").show();
+            $("#ProfileField").fadeIn("slow");
+            
+            $("#overlay").click(function (e){
+                $("#overlay").unbind("click");
+            });
+        }
+        else{
+            alert('Your Session has Expired...');
+            window.location.replace('../homepage.aspx');
+        }
+    }
+    
+function CheckUserStatus1(result){
+        if(result!='nouser'){
+            var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidpwd]").val(emailid);
+            $("[id$=txt_oldpwd]").val(''); $("[id$=txt_newpwd]").val(''); $("[id$=txt_confirmnewpwd]").val('');
+
+            $("#overlay").show();
+            $("#PasswordField").fadeIn("slow");
+            
+            $("#overlay").click(function (e){
+                $("#overlay").unbind("click");
+            });
+        }
+        else{
+            alert('Your Session has Expired...');
+            window.location.replace('../homepage.aspx');
+        }
+    }
 
 function updateName(){
         $("[id$=lbl_result]").text("");
@@ -192,7 +230,7 @@ function OnReturn(result) {
     }
 
 function onerror(result){
-        $("#preloader").hide();
         //alert("Error Calling service method:);
+        alert('Your Session has Expired...');
         window.location.replace("../homepage.aspx");
     }

@@ -25,6 +25,16 @@ namespace budhashop.USER
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txt_emailidpwd.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatepwd.ClientID + "', event)");
+            txt_oldpwd.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatepwd.ClientID + "', event)");
+            txt_newpwd.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatepwd.ClientID + "', event)");
+            txt_confirmnewpwd.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatepwd.ClientID + "', event)");
+
+            //txt_emailidedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatename.ClientID + "', event)");
+            txt_unameedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatename.ClientID + "', event)");
+            txt_phnoedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatephno.ClientID + "', event)");
+            txt_addressedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updateaddress.ClientID + "', event)");
+
             if (this.Session["currentuser"] != null)
             {
                 //ProfileDiv Start

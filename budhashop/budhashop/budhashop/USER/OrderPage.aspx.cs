@@ -394,29 +394,35 @@ namespace budhashop.USER
 
         protected void ConfirmBtn_Click(object sender, EventArgs e)
         {
-
-            //code for adding cart data in db and show back result to user
-            DataTable dtt = (DataTable)this.Session["currentuser"];
-            string userid = dtt.Rows[0]["Uid"].ToString();
-
-            bool isupdated = true;
-
-            if (cb_profilechange.Checked)
+            if (this.Session["currentuser"] != null)
             {
-                string newuname = txt_uname.Text.ToString();
-                string newphno = txt_phno.Text.ToString();
-                string newaddress = txt_address.Text.ToString();
-                try
+                //code for adding cart data in db and show back result to user
+                DataTable dtt = (DataTable)this.Session["currentuser"];
+                string userid = dtt.Rows[0]["Uid"].ToString();
+
+                bool isupdated = true;
+
+                if (cb_profilechange.Checked)
                 {
-                    IUser updateuser = new UserItems();
-                    bool nameupdated = updateuser.UpdateProfile(userid, newuname, "name");
-                    if (nameupdated)
+                    string newuname = txt_uname.Text.ToString();
+                    string newphno = txt_phno.Text.ToString();
+                    string newaddress = txt_address.Text.ToString();
+                    try
                     {
-                        bool phnoupdated = updateuser.UpdateProfile(userid, newphno, "phno");
-                        if (phnoupdated)
+                        IUser updateuser = new UserItems();
+                        bool nameupdated = updateuser.UpdateProfile(userid, newuname, "name");
+                        if (nameupdated)
                         {
-                            bool addressupdated = updateuser.UpdateProfile(userid, newaddress, "address");
-                            if (!addressupdated)
+                            bool phnoupdated = updateuser.UpdateProfile(userid, newphno, "phno");
+                            if (phnoupdated)
+                            {
+                                bool addressupdated = updateuser.UpdateProfile(userid, newaddress, "address");
+                                if (!addressupdated)
+                                {
+                                    isupdated = false;
+                                }
+                            }
+                            else
                             {
                                 isupdated = false;
                             }
@@ -426,101 +432,101 @@ namespace budhashop.USER
                             isupdated = false;
                         }
                     }
-                    else
+                    catch
                     {
                         isupdated = false;
                     }
                 }
-                catch
+
+                if (isupdated)
                 {
-                    isupdated = false;
-                }
-            }
 
-            if (isupdated)
-            {
+                    //string emailid = txt_emailid.Text.ToString();
+                    string shippingAdr = txt_uname.Text.ToString() + ";" + txt_phno.Text.ToString() + ";" + txt_address.Text.ToString() + ";";
+                    string purchaseDate = System.DateTime.Now.ToString();
 
-                //string emailid = txt_emailid.Text.ToString();
-                string shippingAdr = txt_uname.Text.ToString() + ";" + txt_phno.Text.ToString() + ";" + txt_address.Text.ToString() + ";";
-                string purchaseDate = System.DateTime.Now.ToString();
+                    CartDetails = new List<CartItems>();
 
-                CartDetails = new List<CartItems>();
+                    CartDetails = (List<CartItems>)Session["CartPicks"];
 
-                CartDetails = (List<CartItems>)Session["CartPicks"];
+                    String cartItems = "";
+                    float Total = 0;
+                    int count = 0;
 
-                String cartItems = "";
-                float Total = 0;
-                int count = 0;
-
-                if (CartDetails != null)
-                {
-                    foreach (object cartObj in CartDetails)
+                    if (CartDetails != null)
                     {
+                        foreach (object cartObj in CartDetails)
+                        {
 
-                        CartItems item = cartObj as CartItems;
-                        count += 1;
-                        int cid = item.ItemId;
-                        int qty = item.Qty;
-                        float tot = item.TotalBill;
-                        Total += tot * qty;
-                        cartItems += cid + "," + qty + ";";
+                            CartItems item = cartObj as CartItems;
+                            count += 1;
+                            int cid = item.ItemId;
+                            int qty = item.Qty;
+                            float tot = item.TotalBill;
+                            Total += tot * qty;
+                            cartItems += cid + "," + qty + ";";
 
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect("../homepage.aspx");
+                    }
+
+                    float TotalBill = Total;
+                    int ItemsCount = count;
+                    OrderItems insertOrder = new OrderItems();
+                    insertOrder.userid = int.Parse(userid);
+                    insertOrder.purchaseDate = purchaseDate;
+                    insertOrder.ShippingAdr = shippingAdr;
+                    insertOrder.cartItems = cartItems;
+                    insertOrder.totalBill = TotalBill;
+                    insertOrder.totalItems = ItemsCount;
+
+                    UserItems ordr = new UserItems();
+                    int purchaseId = ordr.insertOrders(insertOrder);
+                    if (purchaseId != -1)
+                    {
+                        LoadItemsFinal();
+                        //CartDiv.Visible = false;
+                        //adressDiv.Visible = false;
+                        cartData.Visible = true;
+                        cartDataGV.Visible = true;
+                        Session["CartPicks"] = null;
+                        lbl_status.Text = "Order placed successfully";
+
+                        purchaseIdLbl.Text = purchaseId.ToString();
+                        totalpLbl.Text = TotalBill.ToString();
+                        itemspNoLbl.Text = ItemsCount.ToString();
+                        purchaseDateLbl.Text = purchaseDate;
+                        userpNameLbl.Text = txt_uname.Text.ToString();
+                        phnpLbl.Text = txt_phno.Text.ToString();
+                        addrpLbl.Text = txt_address.Text.ToString();
+
+
+
+                        adrFlag = true;
+                        ClientScript.RegisterHiddenField("isPostBack", "1");
+
+                        sendEmail();
+                        emailsentlbl.Text = "Order information has been sent to your email";
+                        emailsentlbl.Visible = true;
+                        Response.Redirect("../USER/ProfilePage.aspx");
+                    }
+                    else
+                    {
+                        //show error
+                        lbl_status.Text = HardCodedValues.BuddaResource.Error;
                     }
                 }
                 else
                 {
-                    Response.Redirect("../homepage.aspx");
-                }
-
-                float TotalBill = Total;
-                int ItemsCount = count;
-                OrderItems insertOrder = new OrderItems();
-                insertOrder.userid = int.Parse(userid);
-                insertOrder.purchaseDate = purchaseDate;
-                insertOrder.ShippingAdr = shippingAdr;
-                insertOrder.cartItems = cartItems;
-                insertOrder.totalBill = TotalBill;
-                insertOrder.totalItems = ItemsCount;
-
-                UserItems ordr = new UserItems();
-                int purchaseId = ordr.insertOrders(insertOrder);
-                if (purchaseId != -1)
-                {
-                    LoadItemsFinal();
-                    //CartDiv.Visible = false;
-                    //adressDiv.Visible = false;
-                    cartData.Visible = true;
-                    cartDataGV.Visible = true;
-                    Session["CartPicks"] = null;
-                    lbl_status.Text = "Order placed successfully";
-
-                    purchaseIdLbl.Text = purchaseId.ToString();
-                    totalpLbl.Text = TotalBill.ToString();
-                    itemspNoLbl.Text = ItemsCount.ToString();
-                    purchaseDateLbl.Text = purchaseDate;
-                    userpNameLbl.Text = txt_uname.Text.ToString();
-                    phnpLbl.Text = txt_phno.Text.ToString();
-                    addrpLbl.Text = txt_address.Text.ToString();
-                   
-
-
-                    adrFlag = true;
-                    ClientScript.RegisterHiddenField("isPostBack", "1");
-
-                    sendEmail();
-                    emailsentlbl.Text = "Order information has been sent to your email";
-                    emailsentlbl.Visible = true;
-                    Response.Redirect("../USER/ProfilePage.aspx");
-                }
-                else
-                {
-                    //show error
                     lbl_status.Text = HardCodedValues.BuddaResource.Error;
                 }
             }
             else
             {
-                lbl_status.Text = HardCodedValues.BuddaResource.Error;
+                Response.Write(@"<script language='javascript'>alert('Your Session has Expired...');window.location.replace('../homepage.aspx');</script>");
             }
 
         }

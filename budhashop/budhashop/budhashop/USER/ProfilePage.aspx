@@ -163,7 +163,7 @@ ul {
                                         
                                     </div>
                                     <div id="but_style" style="width:100px;">
-                                        <input id="btn_updatename" class="l_go" onclick="return updateName();" type="button" value="Update" />
+                                        <input id="btn_updatename" class="l_go" onclick="return updateName();" type="button" value="Update" runat="server" />
                                         </div>
                                 </div>
                                 <div id="p_f_field_area" style="width:490px; height:30px;">
@@ -175,7 +175,7 @@ ul {
                                        
                                     </div>
                                     <div id="but_style" style="width:100px;">
-                                     <input id="btn_updatephno" class="l_go" onclick="return updatePhNum();" type="button" value="Update" />
+                                     <input id="btn_updatephno" class="l_go" onclick="return updatePhNum();" type="button" value="Update" runat="server" />
                                     </div>
                                 </div>
                                 <div id="p_f_field_area" style="width:490px; height:70px;">
@@ -185,7 +185,7 @@ ul {
                                         <asp:TextBox ID="txt_addressedit" CssClass="p_f_form_style" runat="server" TextMode="MultiLine" Width="180px" Height="70"
                                         Rows="3"></asp:TextBox>
                                     </div>
-                                    <div id="but_style" style="width:100px; margin-top:25px;"><input id="btn_updateaddress" class="l_go" onclick="return updateAddress();" type="button" value="Update" /></div>
+                                    <div id="but_style" style="width:100px; margin-top:25px;"><input id="btn_updateaddress" class="l_go" onclick="return updateAddress();" type="button" value="Update" runat="server" /></div>
                                 </div>
                              </section>
                              <div id="login_links1" style="width:510px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
@@ -230,7 +230,7 @@ ul {
                              
                              <div id="login_links1" style="margin:auto; padding:10px 0px 0px 0px; width:430px; height:60px;">
                                 <div id="but_style" style="margin-left:180px;">
-                             <input id="btn_updatepwd" onclick="return updatePassword();" class="l_go" type="button" value="Update" /><br />
+                             <input id="btn_updatepwd" onclick="return updatePassword();" class="l_go" type="button" value="Update" runat="server" /><br />
                              <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
                              </div>
                              <div id="to_right" style="margin:40px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose1">Close</a></div>

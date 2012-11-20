@@ -86,6 +86,15 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_unameedit;
         
         /// <summary>
+        /// btn_updatename control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btn_updatename;
+        
+        /// <summary>
         /// txt_phnoedit control.
         /// </summary>
         /// <remarks>
@@ -95,6 +104,15 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_phnoedit;
         
         /// <summary>
+        /// btn_updatephno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btn_updatephno;
+        
+        /// <summary>
         /// txt_addressedit control.
         /// </summary>
         /// <remarks>
@@ -102,6 +120,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_addressedit;
+        
+        /// <summary>
+        /// btn_updateaddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btn_updateaddress;
         
         /// <summary>
         /// lbl_result control.
@@ -147,6 +174,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_confirmnewpwd;
+        
+        /// <summary>
+        /// btn_updatepwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btn_updatepwd;
         
         /// <summary>
         /// lbl_resultpwd control.

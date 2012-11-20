@@ -29,6 +29,26 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <div id="top links" style="float:right; background-color:Menu;">
+        
+        <asp:HyperLink ID="hyplink_insertItems" runat="server" 
+            NavigateUrl="~/ADMIN/InsertPage.aspx">Insert Items-&gt;</asp:HyperLink>
+    &nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="hyplink_editItems" runat="server" 
+            NavigateUrl="~/ADMIN/EditItems.aspx">Edit Items-&gt;</asp:HyperLink>
+    &nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="hyplink_editUsers" runat="server" 
+            NavigateUrl="~/ADMIN/EditUsers.aspx">Edit Users-&gt;</asp:HyperLink>
+    &nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="hyplink_ordersList" runat="server" 
+            NavigateUrl="~/ADMIN/OrdersPage.aspx">Orders List-&gt;</asp:HyperLink>
+    &nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="hyplink_siteFeedbacks" runat="server" 
+            NavigateUrl="~/ADMIN/SiteFeedback.aspx">Site Feedbacks-&gt;</asp:HyperLink>
+        
+    </div>
+    <br />
+    <br />
     <div>
     
         <asp:TextBox ID="txt_search" runat="server" placeholder="Enter Purchase Id"></asp:TextBox>

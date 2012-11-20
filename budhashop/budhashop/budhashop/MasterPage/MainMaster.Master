@@ -40,9 +40,9 @@
 
  <%--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>--%>
-   <%-- <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
  
-    <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>--%>
+    <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>
     
         <style type="text/css">
                 .preloader
@@ -108,10 +108,10 @@
     <div id="wraper">
     
   <header>
-    <aside id="logo"><a href="../homepage.aspx" target="_self"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a>
+    <aside id="logo"><a href="../homepage.aspx" target="_self" style="margin-left:10px;"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a>
     <br />
-    <div style="margin:12px 0px 0px 60px;">
-    <a href="../Articles/articleHome.aspx" class="l_go"  target="_self">Articles</a>
+    <div style="margin:12px 0px 0px 45px;">
+    <a href="../Articles/articleHome.aspx" class="link1"  target="_self">Articles</a>
     </div>
     
     </aside>
@@ -234,7 +234,7 @@
   <div>
   <aside style="height:50px;">
   <nav id="nav" style="font-size:10px;">
-  <ul id="footerNav" style="margin:10px 210px 0 0;">
+  <ul id="footerNav" style="margin:15px 0px 0 -60; width:100%;">
   <li><a href="../homepage.aspx" target="_self" >Home</a></li>
   <li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
   </ul>

@@ -16,7 +16,7 @@ $(document).ready(function(){
 
                 $.each(data.d, function(i, item) {
 
-                items.push('<li><a href="../itemspage.aspx?catid=' + item.CatId+ '">' + item.CatName + '</a></li>');
+                items.push('<li><a href="../itemspage.aspx?catid=' + item.CatId+ '" tittle="' + item.desc+ '">' + item.CatName + '</a></li>');
                catArray.push(parseInt(item.CatId));
 
                 });  // close each()

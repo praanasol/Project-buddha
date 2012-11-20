@@ -95,7 +95,7 @@
             
             <div id="go_but" style="float:left; margin-left:8px;">
             
-        	<a href="" id="btn_login1" class="l_go" onclick="return checkLogin1();" runat="server" >Go</a>
+        	<a href="" id="btn_login1" class="l_go" onclick="return checkLogin1();" runat="server">Go</a>
                 <%--<input id="btn_login1" type="button" value="Go" onclick="return checkLogin1();" />--%>
                 
              </div>   
@@ -108,9 +108,14 @@
                 NavigateUrl="~/USER/Login_Register.aspx">Register</asp:HyperLink>
             
             <br />
-            
             <asp:Label ID="lbl_result1" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>
+           
+           
             </div> 
+             <div style="width:auto; float:right;cursor:pointer;">
+             
+        <img id="closeimg1" alt="close" src="../images/close.png"  />
+        </div>
         </div>
         
             
@@ -120,12 +125,10 @@
     <!--Login End-->  
       
         
-        <div style="width:auto; float:right; cursor:pointer;">
-        <img id="closeimg1" alt="FeedBack" src="../images/unavailable.png" />
-        </div>
+        
         
     </div>
-    <a id="logintext" class="logintext" href="#">LogIn</a> 
+    <a id="logintext" class="logintext" href="#">Login</a> 
     <%--<asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>--%>
    <div id="login-success" style="display:none;">
         <div id="logout_links" class="bg_style2" style="width:120px; height:20px; margin-left:235px;">        

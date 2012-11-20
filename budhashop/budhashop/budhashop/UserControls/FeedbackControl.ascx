@@ -71,7 +71,7 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
     
     <div id="feedback-body" class="feedback-body" >
         <div style="width:auto; float:left; cursor:pointer;">
-        <img id="closeimg" alt="FeedBack" src="../images/unavailable.png" />
+        <img id="closeimg" alt="FeedBack" src="../images/close.png" />
         </div>
         <br />
         <section id="login_header" style="margin-top:-15px; margin-bottom:5px; width:200px; height:20px; font-size:12px; text-align:center;" />

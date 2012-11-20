@@ -290,7 +290,7 @@ ul {
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Purchase Date" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate") %>'></asp:Label>
+                                <asp:Label ID="lbl_purchaseDate" runat="server" Text='<%# Eval("PurchaseDate1") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Deliverd">

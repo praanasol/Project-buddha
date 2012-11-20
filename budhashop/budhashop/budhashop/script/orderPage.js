@@ -201,7 +201,7 @@ function OnCompleted(result) {
         }
         else
         {
-            $("[id$=lbl_result2]").text('Email Id Already Exists in our Databse');
+            $("[id$=lbl_result2]").text('Email Id already registered.');
         } 
     }
     

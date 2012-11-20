@@ -48,8 +48,8 @@
                            position:absolute;
                            width:auto;
                            height:auto;
-                           top:30%;
-                           left:40%;
+                           top:45%;
+                           left:32%;
                          
                            padding: 0px;
                            z-index: 102;
@@ -109,7 +109,7 @@
             <div id="login_links1" style="margin: auto; padding: 10px 0px 0px 0px; width: 430px;
                 height: 50px;">
                 <div id="but_style" style="margin-left: 140px;">
-                    <div id="to_left" style="margin: 0px 0px 0px 13px;"><input id="btn_login" type="button" class="l_go" value="LogIn" onclick="return checkLogin();" runat="server" /></div>
+                    <div id="to_left" style="margin: 0px 0px 0px 13px;"><input id="btn_login" type="button" class="l_go" value="Login" onclick="return checkLogin();" runat="server" /></div>
                      <div id="to_right" style="margin: 5px 0px 0px 13px;">
                     <a href="#" id="hyplink_register" class="l_links1">Register</a></div>
                 </div><br /><br />

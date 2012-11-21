@@ -119,6 +119,50 @@
 	/*background-color:#f28c11;*/
 	
 }
+#nav_bottom{
+	margin:0px;
+	padding:0px;
+	width:677px;
+	height:40px;
+	float:left;
+
+}
+
+#nav_bottom ul{
+	margin-top:2px;
+	padding-top:5px;
+	height:30px;
+	margin-left:-40px;
+}
+#nav_bottom ul li{
+	margin:0px 0px 0px 0px;
+	padding:0px 2px;
+	display:inline;
+}
+#nav_bottom ul li a:link, #nav_bottom ul li a:visited{
+	margin-left:1px;
+	padding:10px 25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#f38d10;
+	font-weight:bold;
+	text-decoration:none;
+	
+	border-radius:0px;
+	
+    
+}
+#nav_bottom ul li a:hover, #nav_bottom ul li a:active{
+	margin-left:1px;
+	padding:10px 25px;
+	font-size:14px;
+	font-weight:bold;
+	color:#8f0a05;
+	text-decoration:none;
+	
+	/*background-color:#f28c11;*/
+	
+}
 
 /*Buttons Start*/
 #buttons{

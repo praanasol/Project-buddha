@@ -120,6 +120,20 @@
     <Compile Include="CLASS\CallCache.cs" />
     <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="CLASS\SearchAll.cs" />
+    <Compile Include="contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorpage.aspx.cs">
+      <DependentUpon>errorpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorpage.aspx.designer.cs">
+      <DependentUpon>errorpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="fulldetails.aspx.cs">
       <DependentUpon>fulldetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -508,6 +522,8 @@
     <None Include="script\html5shiv\readme.md" />
     <Content Include="Articles\articleHome.aspx" />
     <Content Include="Captcha\Refresh.PNG" />
+    <Content Include="contactus.aspx" />
+    <Content Include="errorpage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\banner\banner1.jpg" />
@@ -517,8 +533,16 @@
     <Content Include="images\banner\banner5.jpg" />
     <Content Include="images\check.jpg" />
     <Content Include="images\close.png" />
+    <Content Include="images\debut_dark.png" />
+    <Content Include="images\footer_bg.gif" />
+    <Content Include="images\footer_bg1.gif" />
+    <Content Include="images\header_bg1.gif" />
+    <Content Include="images\header_bg2.gif" />
+    <Content Include="images\hexabump.png" />
+    <Content Include="images\logo1.gif" />
     <Content Include="images\scroll_bg.gif" />
     <Content Include="images\uncheck.jpg" />
+    <Content Include="images\wild_oliva.png" />
     <Content Include="mCSB_buttons.png" />
     <Content Include="script\coin-slider.min.js" />
     <Content Include="script\FeedbackControl.js" />
@@ -527,6 +551,11 @@
     <Content Include="script\jquery.nicescroll.min.js" />
     <Content Include="script\loginControl.js" />
     <Content Include="script\orderPage.js" />
+    <Content Include="script\paging\homePageLoad.js" />
+    <Content Include="script\paging\jquery.jscrollpane.min.js" />
+    <Content Include="script\paging\mwheelIntent.js" />
+    <Content Include="script\paging\scroll.js" />
+    <Content Include="script\paging\scroll16.js" />
     <Content Include="script\profilePage.js" />
     <Content Include="script\fullDetailsPage.js" />
     <Content Include="script\searchItemsPage.js" />

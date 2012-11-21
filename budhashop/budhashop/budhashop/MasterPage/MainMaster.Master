@@ -11,7 +11,7 @@
 
 <%--<html xmlns="http://www.w3.org/1999/xhtml" >--%>
 <head id="Head1" runat="server">
-    <title>Go Vedic - Online Shoping Cart - Treditional and Natural Products</title>
+    <title>Go Vedic - Online Shopping - Traditional and Natural Products</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     
     </asp:ContentPlaceHolder>
@@ -232,11 +232,20 @@
     <br style="clear:both;" />
   <footer class="rights">
   <div>
-  <aside style="height:50px;">
-  <nav id="nav" style="font-size:10px;">
-  <ul id="footerNav" style="margin:15px 0px 0 -60; width:100%;">
+  <aside style="height:20px;">
+  <nav id="nav_bottom" style="font-size:10px;">
+  <ul id="footerNav" style=" width:100%;">
   <li><a href="../homepage.aspx" target="_self" >Home</a></li>
   <li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
+  </ul>
+  </nav>
+  </aside>
+  <aside style="height:20px;">
+  <nav id="nav_bottom">
+  <ul id="Ul1" style="width:100%;font-size:8px;">
+  <li><a href="../homepage.aspx" target="_self" style="font-size:10px;">Shipping Details</a></li>
+  <li><a href="../homepage.aspx" target="_self" style="font-size:10px;" >Terms & conditions</a></li>
+  <li><a href="../contactus.aspx" target="_self" style="font-size:10px;">Contact us</a></li>
   </ul>
   </nav>
   </aside>

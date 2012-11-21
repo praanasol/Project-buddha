@@ -1,12 +1,30 @@
 ﻿$(document).ready(function() {
+        var emailid = $("[id$=txt_emailid]").val();
+        var uname = $("[id$=txt_uname]").val();
+        var phno = $("[id$=txt_phno]").val();
+        var address = $("[id$=txt_address]").val();
         
-        var itemString = $('.orderGrid tr td:eq(2)').text();
-        var addrString = $('.orderGrid tr td:eq(3)').text();
-        RowSelected(itemString,addrString);
+        if(uname=="" || phno=="" || address==""){
+            $("[id$=lbl_status]").text("Profile Incomplete...");
+            $('#profileIncomplete').show();
+            $("#profileIncomplete").delay(3200).fadeOut(300);
+        }
+        
+        if(!$('#MyGrid tr').length) {
+            // grid is empty
+            $('#itemsDiv').hide();
+            $('#grid_res').hide();
+        }
+        
+        else {
+            var itemString = $('.orderGrid tr td:eq(2)').text();
+            var addrString = $('.orderGrid tr td:eq(3)').text();
+            RowSelected(itemString,addrString);
+        }
 
         $("#btnClose").click(function (e){
-            $("#overlay").hide();
             $("#ProfileField").fadeOut("slow");
+            $("#overlay").hide();
         });
 
         $("#hyplink_edit").click(function(){
@@ -14,8 +32,8 @@
         });
 
         $("#btnClose1").click(function (e){
-            $("#overlay").hide();
             $("#PasswordField").fadeOut("slow");
+            $("#overlay").hide("slow");
         });
 
         $("#hyplink_changepwd").click(function(){
@@ -116,14 +134,10 @@ function CheckUserStatus(result){
             var uname = $("[id$=txt_uname]").val(); $("[id$=txt_unameedit]").val(uname);
             var phno = $("[id$=txt_phno]").val(); $("[id$=txt_phnoedit]").val(phno);
             var address = $("[id$=txt_address]").val(); $("[id$=txt_addressedit]").val(address);
-            var userstatus = $("[id$=lbl_status]").text(); $("[id$=lbl_result]").text(userstatus);
+            $("[id$=lbl_result]").text('');
 
-            $("#overlay").show();
+            $("#overlay").show(300);
             $("#ProfileField").fadeIn("slow");
-            
-            $("#overlay").click(function (e){
-                $("#overlay").unbind("click");
-            });
         }
         else{
             alert('Your Session has Expired...');
@@ -135,13 +149,10 @@ function CheckUserStatus1(result){
         if(result!='nouser'){
             var emailid = $("[id$=txt_emailid]").val(); $("[id$=txt_emailidpwd]").val(emailid);
             $("[id$=txt_oldpwd]").val(''); $("[id$=txt_newpwd]").val(''); $("[id$=txt_confirmnewpwd]").val('');
+            $("[id$=lbl_resultpwd]").text('');
 
             $("#overlay").show();
             $("#PasswordField").fadeIn("slow");
-            
-            $("#overlay").click(function (e){
-                $("#overlay").unbind("click");
-            });
         }
         else{
             alert('Your Session has Expired...');

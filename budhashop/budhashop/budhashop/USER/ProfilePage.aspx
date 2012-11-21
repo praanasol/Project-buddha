@@ -3,10 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-
-
- 
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <!-- styles needed by jScrollPane -->
 <link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
@@ -48,8 +46,8 @@
                     position: absolute;
                     width: auto;
                     height: auto;
-                    top: 28%;
-                    left: 40%;
+                    top: 26.2%;
+                    left: 32.2%;
                     
                    
                     padding: 0px;
@@ -100,15 +98,15 @@ ul {
                     <div id="p_d_field_area">
                         <div id="p_d_label">
                             Email ID :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field">
                             <asp:TextBox ID="txt_emailid" runat="server" CssClass="p_d_form_style" ReadOnly="True"
                                 ></asp:TextBox>
                         </div>
                     </div>
                     <div id="p_d_field_area">
-                        <div id="p_d_label" class="style1" style="padding-top: 2px;">
+                        <div id="p_d_label">
                             Name :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field">
                             <asp:TextBox ID="txt_uname" runat="server" CssClass="p_d_form_style" ReadOnly="true"
                                 ></asp:TextBox>
                         </div>
@@ -116,15 +114,15 @@ ul {
                     <div id="p_d_field_area">
                         <div id="p_d_label">
                             Phone No :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field">
                             <asp:TextBox ID="txt_phno" runat="server"  CssClass="p_d_form_style" ReadOnly="true"
                                 ></asp:TextBox>
                         </div>
                     </div>
                     <div id="p_d_field_area">
-                        <div id="p_d_label" style="margin-top:25px;">
+                        <div id="p_d_label">
                             Address :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field">
                             <asp:TextBox ID="txt_address" runat="server" TextMode="MultiLine" Height="70" ReadOnly="true"
                                  CssClass="p_d_form_style" Rows="3"></asp:TextBox>
                         </div>
@@ -135,7 +133,7 @@ ul {
                     <a href="#" ID="hyplink_changepwd" class="l_links1">Change Password?</a>
                     <a href="#" ID="hyplink_edit" class="l_links1">Edit Profile</a>
                     <br />
-                    <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lbl_status" runat="server" ForeColor="Red" Font-Bold="true" style="margin-left:-135px;"></asp:Label>
                 </div>
             </aside>
             <!--Profile End-->
@@ -145,17 +143,17 @@ ul {
                     <div id="overlay" class="web_dialog_overlay">
                     </div>
                     <div id="ProfileField" class="web_dialog">
-                        <div id="p_f_data" class="p_f_box_style" style="width:520px; height:270px;">
+                        <div id="p_f_data" class="p_f_box_style" style="width:501px; height:251px;">
                             <section id="login_header"><h3>Edit Profile</h3></section>
-                            <section id="p_f_fields" style="width:490px; height:200px;">
-                                <div id="p_f_field_area" style="width:490px; height:30px;">
+                            <section id="p_f_fields" style="margin-left:10px; width:471px; height:180px;">
+                                <div id="p_f_field_area" style="width:490px; height:21px;">
                                     <div id="p_f_label">
                                         Email ID :</div>
                                     <div id="p_f_field" class="style4">
                                         <asp:TextBox ID="txt_emailidedit" CssClass="p_f_form_style" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div id="p_f_field_area" style="width:490px; height:30px;">
+                                <div id="p_f_field_area" style="width:490px; height:25px;">
                                     <div id="p_f_label" style=" margin-top:2px; padding-top:5px;">
                                         Name :</div>
                                     <div id="p_f_field" class="style4" style="padding-top:4px;">
@@ -166,7 +164,7 @@ ul {
                                         <input id="btn_updatename" class="l_go" onclick="return updateName();" type="button" value="Update" runat="server" />
                                         </div>
                                 </div>
-                                <div id="p_f_field_area" style="width:490px; height:30px;">
+                                <div id="p_f_field_area" style="width:490px; height:25px;">
                                     <div id="p_f_label" style=" margin-top:2px; padding-top:5px;">
                                         Phone Number :</div>
                                     <div id="p_f_field" class="style4" style="padding-top:4px;">
@@ -188,52 +186,52 @@ ul {
                                     <div id="but_style" style="width:100px; margin-top:25px;"><input id="btn_updateaddress" class="l_go" onclick="return updateAddress();" type="button" value="Update" runat="server" /></div>
                                 </div>
                              </section>
-                             <div id="login_links1" style="width:510px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
+                             <div id="login_links1" style="width:491px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
                              <div id="to_right" style="margin:0px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose">Close</a></div>
                              </div>
                         </div>
                         
                     </div>
                     <div id="PasswordField" class="web_dialog">
-                        <div id="p_f_data" class="p_f_box_style">
+                        <div id="p_f_data" class="p_f_box_style" style="width:501px; height:251px;">
                             <section id="login_header"><h3>Change Password</h3></section>
-                            <section id="p_f_fields">
-                                <div id="p_f_field_area">
+                            <section id="p_f_fields" style="margin-left:45px; width:471px; height:165px;">
+                                <div id="p_f_field_area" style="width:490px; height:25px;">
                                     <div id="p_f_label">
                                         Email ID :</div>
                                     <div id="p_f_field" class="style4">
                                         <asp:TextBox ID="txt_emailidpwd" CssClass="p_f_form_style" ReadOnly="true" runat="server" Width="180px"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div id="p_f_field_area">
+                                <div id="p_f_field_area" style="width:490px; height:25px;">
                                     <div id="p_f_label">
                                         Old Password :</div>
                                     <div id="p_f_field" class="style4">
                                         <asp:TextBox ID="txt_oldpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div id="p_f_field_area">
+                                <div id="p_f_field_area" style="width:490px; height:25px;">
                                     <div id="p_f_label">
                                         New Password :</div>
                                     <div id="p_f_field" class="style4">
                                         <asp:TextBox ID="txt_newpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div id="p_f_field_area">
+                                <div id="p_f_field_area" style="width:490px; height:25px;">
                                     <div id="p_f_label">
                                         Confirm Password :</div>
                                     <div id="p_f_field" class="style4">
                                         <asp:TextBox ID="txt_confirmnewpwd" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="180px"></asp:TextBox>
                                     </div>
                                 </div>
-                             </section>
                              
-                             <div id="login_links1" style="margin:auto; padding:10px 0px 0px 0px; width:430px; height:60px;">
-                                <div id="but_style" style="margin-left:180px;">
-                             <input id="btn_updatepwd" onclick="return updatePassword();" class="l_go" type="button" value="Update" runat="server" /><br />
-                             <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red"></asp:Label>
+                             <div id="but_style" style="margin-left:180px; padding:5px 0px 0px 0px;">
+                             <input id="btn_updatepwd" onclick="return updatePassword();" class="l_go" type="button" value="Update" runat="server" />
                              </div>
-                             <div id="to_right" style="margin:40px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose1">Close</a></div>
+                             </section>
+                             <div id="login_links1" style="width:491px; padding:10px 0px 0px 0px;">
+                                <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red" style="margin-left:100px;"></asp:Label>
+                                <div id="to_right" style="margin:10px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose1">Close</a></div>
                              </div>
                              
                                     </div>
@@ -253,9 +251,14 @@ ul {
             <aside id="grid">
            <%-- <div id="contentDiv" class="scroll-pane" style="height:350px;">--%>
             <asp:Panel ID="contentDiv" runat="server" CssClass="scroll-pane" Height="350" ScrollBars="Vertical">
-                <asp:GridView ID="orderGrid" CssClass="orderGrid" runat="server" CellSpacing="6" CellPadding="2"  HeaderStyle-CssClass="g_head"  AlternatingRowStyle-CssClass="p_g_alt_row_style" RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
-                    GridLines="None" AlternatingRowStyle-Wrap="False">
+                <asp:GridView ID="orderGrid" CssClass="orderGrid" runat="server" 
+                    CellSpacing="6" CellPadding="2"  HeaderStyle-CssClass="g_head"  
+                    AlternatingRowStyle-CssClass="p_g_alt_row_style" 
+                    RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
+                    GridLines="None" AlternatingRowStyle-Wrap="False" 
+                    EmptyDataText="No Purchases yet.">
                     <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
+                    <RowStyle CssClass="p_g_row_style" />
                     <Columns>
                         <asp:TemplateField HeaderText="Purchase Id" ControlStyle-CssClass="p_g_cl">
                             <ItemTemplate>
@@ -300,6 +303,8 @@ ul {
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
+                    <HeaderStyle CssClass="g_head" />
+                    <AlternatingRowStyle CssClass="p_g_alt_row_style" Wrap="False" />
                 </asp:GridView>
                </asp:Panel>
            <%-- </div>--%>
@@ -379,5 +384,8 @@ ul {
                 </div>
             </aside>
         </div>
+    </div>
+    <div id="profileIncomplete" style="display:none; top: 163px; left: 38%; position: absolute; height: 20px; width: 268px; padding: 5px 20px 0px;" class="p_f_box_style">
+        <b>Your Profile is Incomplete. Update Your Profile...</b>
     </div>
 </asp:Content>

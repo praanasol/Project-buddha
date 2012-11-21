@@ -49,7 +49,7 @@
                            width:auto;
                            height:auto;
                            top:45%;
-                           left:32%;
+                           left:35%;
                          
                            padding: 0px;
                            z-index: 102;

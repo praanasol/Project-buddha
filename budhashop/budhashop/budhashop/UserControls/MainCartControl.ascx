@@ -272,7 +272,7 @@ ul {
         border: 1px transparent;
         text-align: left;
         padding: 2px;
-        top: 165px;
+        top: 188px;
         
         margin-top: 5px;
         padding-top: -2px;

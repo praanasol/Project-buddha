@@ -96,7 +96,7 @@
 	font-weight:bold;
 	text-decoration:none;
 	background:#ac1812;
-	border-radius:0px;
+	border-radius:8px;
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ac1812), to(#981d18));
     background: -moz-linear-gradient(#ac1812, #981d18);
     background: linear-gradient(#ac1812, #981d18);
@@ -115,7 +115,7 @@
     background: linear-gradient(#f38d10, #d67d1c);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
 	
-	border-radius:0px;
+	border-radius:8px;
 	/*background-color:#f28c11;*/
 	
 }
@@ -144,7 +144,7 @@
 	padding:10px 25px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
-	color:#f38d10;
+	color:#D67D1C;
 	font-weight:bold;
 	text-decoration:none;
 	
@@ -157,7 +157,7 @@
 	padding:10px 25px;
 	font-size:14px;
 	font-weight:bold;
-	color:#8f0a05;
+	color:#f28c11;
 	text-decoration:none;
 	
 	/*background-color:#f28c11;*/

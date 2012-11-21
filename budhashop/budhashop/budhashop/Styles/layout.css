@@ -1,6 +1,6 @@
 body{
 	margin:0px;
-	padding:0px;
+	padding:20px 0 20px 0;
 	width:100%;
 	background:#4d1c1c;
 	font-family:arial;
@@ -27,6 +27,7 @@ img{
 	-moz-box-shadow:inset 0px 0px 5px 3px #ac7713;
 -webkit-box-shadow:inset 0px 0px 5px 3px #ac7713;
 box-shadow:inset 0px 0px 5px 3px #ac7713;
+border-radius:20px;
 	
 	}
 header{
@@ -82,7 +83,7 @@ header{
 		}
 		#l_f_bg
 		{
-			margin:0px;
+			margin:10px;
 			padding:0px;
 			width:350px;
 			height:70px;
@@ -219,16 +220,21 @@ header{
 }
 #list{
 	margin-left:30px;
-	 margin-top:-13px;
+	 margin-top:-12px;
 	padding:0px;
 	width:113px;
-	height:32px;
+	height:28px;
 	float:left;
-	background:#f0af21;
-	border-radius:3px;
+	/*background:#f0af21;*/
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#a10205), to(#830f05));
+    background: -moz-linear-gradient(#a10205, #830f05);
+    background: linear-gradient(#a10205, #830f05);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#a10205, endColorstr=#830f05);
+	border-radius:5px;
+	
 }
 #list_left{
-	margin:2px 0px 0px 3px;
+	margin:0px 0px 0px 3px;
 	padding:0px;
 	width:70px;
 	height:28px;
@@ -241,14 +247,14 @@ header{
 	text-align:center;
 }
 #list_v_line{
-	margin-top:2px;
+	margin-top:0px;
 	width:1px;
-	height:18px;
+	height:28px;
 	float:left;
 	background:#f39112;
 }
 #list_right{
-	margin:2px 3px 0px 0px;
+	margin:0px -1px 0px 0px;
 	padding:0px;
 	width:35px;
 	height:28px;
@@ -544,12 +550,24 @@ a.scroll_arrow_r:hover, a.scroll_arrow_r:active{
 	text-decoration:none;
 }
 footer{
-	margin:0px;
+	margin:5px;
 	padding:0px;
 	height:80px;
-	border:#a2a835 solid 1px;
+	
 	text-align:center;
-	background:#4d1c1c ;
+	
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#7E1B1B), to(#4d1c12));
+    background: -moz-linear-gradient(#7E1B1B, #4d1c12);
+    background: linear-gradient(#7E1B1B, #4d1c12);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7E1B1B, endColorstr=#4d1c12);
+    
+    -moz-box-shadow:inset 0px 0px 5px 2px #ac7713;
+-webkit-box-shadow:inset 0px 0px 5px 2px #ac7713;
+box-shadow:inset 0px 0px 5px 3px #ac7713;
+border-radius:20px;
+border-top-left-radius: 1px;
+border-top-right-radius: 1px;
+
 }
 #to_left{
 	float:left;

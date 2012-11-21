@@ -8,6 +8,7 @@
     <style type="text/css">
         .logintext
         {
+        	margin-top:22px;
     	    float:right;
     	    width:55px;
     	    height:20px;
@@ -18,8 +19,14 @@
             font-weight: bold;
             text-decoration: none;
             padding: 6px 10px 5px 11px;
-            border-radius:3px;
+            border-radius:5px;
             display:none;
+            /*border:solid 1px;
+            border-top-color:#6E1C1C;
+             border-bottom-color:#ac7713;
+             border-left-color:#ac7713;
+             border-right-color:#ac7713;*/
+           
         }
         .logintext:hover
         {
@@ -31,7 +38,12 @@
             background: -moz-linear-gradient(#f38d10, #d67d1c);
             background: linear-gradient(#f38d10, #d67d1c);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
-            border-radius:3px;
+            border-radius:5px;
+            border:solid 1px;
+            border-top-color:#ac7713;
+             border-bottom-color:#ac7713;
+             border-left-color:#ac7713;
+             border-right-color:#ac7713;
         }
         .usertext
         {
@@ -80,7 +92,7 @@
     
 <div style="width: 350px;">
        
-    <div  id="user-status" style="display:none;">
+    <div  id="user-status" style="display:none; margin-top:18px;">
     <!--Login Start-->
         <div id="login-required">
             <div id="l_f_bg" class="bg_style2">

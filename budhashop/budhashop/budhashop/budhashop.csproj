@@ -157,26 +157,12 @@
     <Compile Include="homepage.aspx.designer.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iteminfo.aspx.cs">
-      <DependentUpon>iteminfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="iteminfo.aspx.designer.cs">
-      <DependentUpon>iteminfo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="itemspage.aspx.cs">
       <DependentUpon>itemspage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="itemspage.aspx.designer.cs">
       <DependentUpon>itemspage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="loginpage.aspx.cs">
-      <DependentUpon>loginpage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="loginpage.aspx.designer.cs">
-      <DependentUpon>loginpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage\MainMaster.Master.cs">
       <DependentUpon>MainMaster.Master</DependentUpon>
@@ -225,13 +211,6 @@
     <Compile Include="UserControls\login.ascx.designer.cs">
       <DependentUpon>login.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Login1.ascx.cs">
-      <DependentUpon>Login1.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\Login1.ascx.designer.cs">
-      <DependentUpon>Login1.ascx</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\MainCartControl.ascx.cs">
       <DependentUpon>MainCartControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,34 +232,6 @@
     <Compile Include="UserControls\navigation.ascx.designer.cs">
       <DependentUpon>navigation.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Register.ascx.cs">
-      <DependentUpon>Register.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\Register.ascx.designer.cs">
-      <DependentUpon>Register.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\registration.ascx.cs">
-      <DependentUpon>registration.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\registration.ascx.designer.cs">
-      <DependentUpon>registration.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="USER\AddressPage.aspx.cs">
-      <DependentUpon>AddressPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="USER\AddressPage.aspx.designer.cs">
-      <DependentUpon>AddressPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="USER\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="USER\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="USER\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -288,19 +239,12 @@
     <Compile Include="USER\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\Login_Register.aspx.cs">
-      <DependentUpon>Login_Register.aspx</DependentUpon>
+    <Compile Include="USER\LoginRegister.aspx.cs">
+      <DependentUpon>LoginRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\Login_Register.aspx.designer.cs">
-      <DependentUpon>Login_Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="USER\OrderHistory.aspx.cs">
-      <DependentUpon>OrderHistory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="USER\OrderHistory.aspx.designer.cs">
-      <DependentUpon>OrderHistory.aspx</DependentUpon>
+    <Compile Include="USER\LoginRegister.aspx.designer.cs">
+      <DependentUpon>LoginRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="USER\OrderPage.aspx.cs">
       <DependentUpon>OrderPage.aspx</DependentUpon>
@@ -408,9 +352,7 @@
     <Content Include="ItemImages\5\9\9Photo.jpg" />
     <Content Include="ItemImages\5\9\9Photomedium.jpg" />
     <Content Include="ItemImages\5\9\9small.jpg" />
-    <Content Include="iteminfo.aspx" />
     <Content Include="itemspage.aspx" />
-    <Content Include="loginpage.aspx" />
     <Content Include="MasterPage\MainMaster.Master" />
     <Content Include="obj\Debug\budhashop.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\budhashop.dll" />
@@ -483,8 +425,6 @@
     <Content Include="Services\Searchall.aspx" />
     <Content Include="Services\SearchIt.asmx" />
     <Content Include="Services\Services.aspx" />
-    <Content Include="Source\cart.html" />
-    <Content Include="Source\cart1.html" />
     <Content Include="Styles\css_messagebox.css" />
     <Content Include="Styles\format.css" />
     <Content Include="Styles\inner_format.css" />
@@ -497,17 +437,11 @@
     <Content Include="Styles\SearchAll.css" />
     <Content Include="UserControls\FeedbackControl.ascx" />
     <Content Include="UserControls\login.ascx" />
-    <Content Include="UserControls\Login1.ascx" />
     <Content Include="UserControls\MainCartControl.ascx" />
     <Content Include="UserControls\mainSearch.ascx" />
     <Content Include="UserControls\navigation.ascx" />
-    <Content Include="UserControls\Register.ascx" />
-    <Content Include="UserControls\registration.ascx" />
-    <Content Include="USER\AddressPage.aspx" />
-    <Content Include="USER\ChangePassword.aspx" />
     <Content Include="USER\ForgotPassword.aspx" />
-    <Content Include="USER\Login_Register.aspx" />
-    <Content Include="USER\OrderHistory.aspx" />
+    <Content Include="USER\LoginRegister.aspx" />
     <Content Include="USER\OrderPage.aspx" />
     <Content Include="USER\Services\LoginControl.asmx" />
   </ItemGroup>

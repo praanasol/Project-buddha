@@ -145,7 +145,7 @@ namespace budhashop.USER
 
         protected void btn_cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login_Register.aspx");
+            Response.Redirect("LoginRegister.aspx");
         }
     }
 }

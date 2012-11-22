@@ -17,7 +17,7 @@ using BusinessLogicBS.UserClasses;
 
 namespace budhashop.USER
 {
-    public partial class Login_Register : System.Web.UI.Page
+    public partial class LoginRegister : System.Web.UI.Page
     {
         public DataTable dt;
 

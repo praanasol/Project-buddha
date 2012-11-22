@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true"
-    CodeBehind="Login_Register.aspx.cs" Inherits="budhashop.USER.Login_Register" %>
+    CodeBehind="LoginRegister.aspx.cs" Inherits="budhashop.USER.LoginRegister" Title="Login and register - Go Vedic - Online Shopping - Traditional and Natural Products" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 

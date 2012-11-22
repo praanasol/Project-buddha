@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="contactus.aspx.cs" Inherits="budhashop.contactus" Title="Contact Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="contactus.aspx.cs" Inherits="budhashop.contactus" Title="Contact Page  - Go Vedic - Online Shopping - Traditional and Natural Products" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

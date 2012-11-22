@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="budhashop.USER.OrderPage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="budhashop.USER.OrderPage" Title="Purchase Details - Go Vedic - Online Shoping - Traditional and Natural Products" %>
 <%--<%@ Register Src="~/UserControls/Login1.ascx" TagName="loginuc" TagPrefix="uc_login" %>
 <%@ Register Src="~/UserControls/Register.ascx" TagName="registeruc" TagPrefix="uc_register" %>--%>
 

@@ -117,7 +117,7 @@
                 NavigateUrl="~/USER/ForgotPassword.aspx">Forgot Password?</asp:HyperLink>
             
             <asp:HyperLink ID="hyplink_register" CssClass="l_links" runat="server" 
-                NavigateUrl="~/USER/Login_Register.aspx">Register</asp:HyperLink>
+                NavigateUrl="~/USER/LoginRegister.aspx">Register</asp:HyperLink>
             
             <br />
             <asp:Label ID="lbl_result1" runat="server" ForeColor="Red" Font-Bold="True"></asp:Label>

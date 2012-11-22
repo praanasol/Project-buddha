@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master"  AutoEventWireup="true" CodeBehind="fulldetails.aspx.cs" Inherits="budhashop.fulldetails" Title="Go Vedic - Online Shoping Cart - Treditional and Natural Products" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master"  AutoEventWireup="true" CodeBehind="fulldetails.aspx.cs" Inherits="budhashop.fulldetails" Title="Product Details - Go Vedic - Online Shopping - Traditional and Natural Products" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

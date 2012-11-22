@@ -21,7 +21,7 @@ namespace budhashop.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txt_emailfb.Attributes.Add("onkeypress", "return controlEnter('" + btn_submitFb.ClientID + "', event)");
         }
 
         protected void btn_submitFb_Click(object sender, EventArgs e)

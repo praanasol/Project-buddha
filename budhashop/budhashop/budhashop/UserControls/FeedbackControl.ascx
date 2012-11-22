@@ -105,7 +105,7 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
             ValidationGroup="feedback"></asp:RegularExpressionValidator>--%>
         <br />
          <div id="but_style" style="margin:0px 0px 10px 10px;">
-        <button type="button" id="btn_submitFb" class="l_go" onclick="Fb_Submit();">Submit</button>
+        <button type="button" id="btn_submitFb" class="l_go" onclick="Fb_Submit();" runat="server">Submit</button>
         <%--<asp:Button ID="btn_submitFb" CssClass="l_go" runat="server" Text="Submit" 
             ValidationGroup="feedback" OnClientClick="return Fb_Submit();" />--%>
             </div>

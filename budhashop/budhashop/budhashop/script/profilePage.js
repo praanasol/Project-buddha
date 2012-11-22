@@ -12,7 +12,7 @@
             $("[id$=lbl_status]").text("Profile Incomplete...");
         }
         
-        if(!$('.orderGrid tr').length) {
+        if($('.orderGrid tr').length==1) {
             // grid is empty
             $('#itemsDiv').hide();
             $('#grid_res').hide();
@@ -52,11 +52,13 @@
             return $('td', this).length && !$('table', this).length
         })
             .click(function(event) {
-                $("#itemsDiv").hide();
-                var row = jQuery(this)
-                var itemString = row.children("td:eq(2)").text();
-                var addrString = row.children("td:eq(3)").text();
-                RowSelected(itemString,addrString);
+                if($('.orderGrid tr').length!=1){
+                    $("#itemsDiv").hide();
+                    var row = jQuery(this)
+                    var itemString = row.children("td:eq(2)").text();
+                    var addrString = row.children("td:eq(3)").text();
+                    RowSelected(itemString,addrString);
+                }
             })
             .mouseover(function() {
                 $(this).css("cursor", "pointer");

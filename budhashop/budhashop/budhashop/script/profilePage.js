@@ -5,8 +5,10 @@
         var address = $("[id$=txt_address]").val();
         
         if(uname=="" || phno=="" || address==""){
-            $('#profileIncomplete').delay(750).show("explode", {pieces: 16}, 500);
-            $("#profileIncomplete").delay(3000).effect("explode", {color:"#AC1812",mode:"fadeOut"}, 500);
+            $('#profileIncomplete').fadeIn(500);
+            $("#profileIncomplete").delay(4000).fadeOut(500);
+//            $('#profileIncomplete').delay(750).show("explode", {pieces: 16}, 500);
+//            $("#profileIncomplete").delay(3000).effect("explode", {color:"#AC1812",mode:"fadeOut"}, 500);
             $("[id$=lbl_status]").text("Profile Incomplete...");
         }
         
@@ -136,7 +138,7 @@ function CheckUserStatus(result){
             var address = $("[id$=txt_address]").val(); $("[id$=txt_addressedit]").val(address);
             $("[id$=lbl_result]").text('');
 
-            $("#overlay").show(300);
+            $("#overlay").show();
             $("#ProfileField").fadeIn("slow");
         }
         else{

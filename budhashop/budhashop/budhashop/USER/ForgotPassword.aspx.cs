@@ -109,31 +109,31 @@ namespace budhashop.USER
         
         protected void sendEmail(string emailid, string password)
         {
-            //string siteurl = "http://www.autoraksha.com/login/NewPassword.aspx";
+            
             string smsg = "New password has been generated, find your details below:<br>";
             smsg += "<br><b>Your Mail Id: </b>" + emailid;
             smsg += "<br><b>New Password: </b>" + password;
-            //smsg += "<br><b>USe the password above to login and please change it by uing link below: </b>";
-            //smsg += "<br><b>Title of Post: </b><br><a>"+ siteurl + "</a>";
             smsg += "<br><br><br><br>";
-            smsg += "<b>Administrator";
+            smsg += "<b>-govedic.com";
             
 
             MailMessage message = new MailMessage();
             try
             {
                 message.To.Add(new MailAddress(emailid));
-                message.From = new MailAddress("autoraksha.help@gmail.com");
+                message.From = new MailAddress("support@govedic.com");
 
                 message.Subject = "PASSWORD CHANGE";
                 message.Body = smsg;
                 message.IsBodyHtml = true;
+
                 SmtpClient client = new SmtpClient();
-                client.Port = 587; // Gmail works on this port 587
-                client.Host = "smtp.gmail.com";
-                System.Net.NetworkCredential nc = new System.Net.NetworkCredential("autoraksha.help@gmail.com", "arpraana5");
-                client.EnableSsl = true;
+                client.Port = 25; // Gmail works on this port 587
+                client.Host = "smtp.net4india.com";
+                System.Net.NetworkCredential nc = new System.Net.NetworkCredential("support@govedic.com", "nrmr#ps24");
+                client.EnableSsl = false;
                 client.UseDefaultCredentials = false;
+
                 client.Credentials = nc;
                 client.Send(message);
             }

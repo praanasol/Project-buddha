@@ -534,6 +534,7 @@ namespace budhashop.USER
         private void sendEmail()
         {
             //string siteurl = "http://www.autoraksha.com/login/NewPassword.aspx";
+            string smsg = "Your order is placed succesfully, find your details below:<br>";
             string smsg1 = "<b>Purchase Id: </b>" + purchaseIdLbl.Text;
             string smsg2 = "<br><b>Total Bill: </b>" + totalpLbl.Text;
             string smsg3 = "<br><b>Number Of Items: </b>" + itemspNoLbl.Text;
@@ -543,7 +544,7 @@ namespace budhashop.USER
             string smsg7 = "<br><b>Shipping Address: </b>" + addrpLbl.Text + "<br>";
             string smsg8 = DivToHtml(cartDataGV);
             string smsg9 = "<br><br><br><br>";
-            string smsg10 = "<b>-Administrator";
+            string smsg10 = "<b>-govedic.com";
 
             MailMessage message = new MailMessage();
             try
@@ -552,19 +553,22 @@ namespace budhashop.USER
                 string emailid = dt.Rows[0]["Email"].ToString();
 
                 message.To.Add(new MailAddress(emailid));
-                message.From = new MailAddress("autoraksha.help@gmail.com");
+                message.From = new MailAddress("support@govedic.com");
 
                 message.Subject = "Your Order is Placed Successfully";
                 message.Body = smsg1 + smsg2 + smsg3 + smsg4 + smsg5 + smsg6 + smsg7 + smsg8 + smsg9 + smsg10;
                 message.IsBodyHtml = true;
+                
                 SmtpClient client = new SmtpClient();
-                client.Port = 587; // Gmail works on this port 587
-                client.Host = "smtp.gmail.com";
-                System.Net.NetworkCredential nc = new System.Net.NetworkCredential("autoraksha.help@gmail.com", "arpraana5");
-                client.EnableSsl = true;
+                client.Port = 25; // Gmail works on this port 587
+                client.Host = "smtp.net4india.com";
+                System.Net.NetworkCredential nc = new System.Net.NetworkCredential("support@govedic.com", "nrmr#ps24");
+                client.EnableSsl = false;
                 client.UseDefaultCredentials = false;
+
                 client.Credentials = nc;
                 client.Send(message);
+                
             }
             catch (Exception ex)
             {

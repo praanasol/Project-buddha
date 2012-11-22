@@ -45,5 +45,11 @@ namespace budhashop.ADMIN
             gv_feedback.PageIndex = e.NewPageIndex;
             getFeedBackList();
         }
+
+        protected void lb_logout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("../ADMIN/LoginA.aspx");
+        }
     }
 }

@@ -209,5 +209,11 @@ namespace budhashop.ADMIN
                 lbl_search.Text = HardCodedValues.BuddaResource.InvalidDate;
             }
         }
+
+        protected void lb_logout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("../ADMIN/LoginA.aspx");
+        }
     }
 }

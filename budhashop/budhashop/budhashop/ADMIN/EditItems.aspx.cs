@@ -292,5 +292,11 @@ namespace budhashop.ADMIN
             int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
             getItems(grpCatId);
         }
+
+        protected void lb_logout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("../ADMIN/LoginA.aspx");
+        }
     }
 }

@@ -24,7 +24,9 @@
     &nbsp;&nbsp;&nbsp;
         <asp:HyperLink ID="hyplink_siteFeedbacks" runat="server" 
             NavigateUrl="~/ADMIN/SiteFeedback.aspx">Site Feedbacks-&gt;</asp:HyperLink>
-        
+    &nbsp;&nbsp;&nbsp;
+        <asp:LinkButton ID="lb_logout" runat="server" onclick="lb_logout_Click">LogOut-&gt</asp:LinkButton>
+            
     </div>
     <br />
     <br />

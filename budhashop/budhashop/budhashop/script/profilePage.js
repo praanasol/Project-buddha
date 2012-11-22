@@ -25,6 +25,12 @@
         }
 
         $("#btnClose").click(function (e){
+            var uname = $("[id$=txt_uname]").val();
+            var phno = $("[id$=txt_phno]").val();
+            var address = $("[id$=txt_address]").val();
+            if(uname!="" && phno!="" && address!=""){
+                $("[id$=lbl_status]").text("");
+            }
             $("#ProfileField").fadeOut("slow");
             $("#overlay").hide();
         });

@@ -507,6 +507,12 @@ namespace budhashop.ADMIN
         {
             System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
         }
+
+        protected void lb_logout_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("../ADMIN/LoginA.aspx");
+        }
     
     }
 }

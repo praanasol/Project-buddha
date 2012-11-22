@@ -8,7 +8,7 @@
         .pagination a
         {
             text-decoration: none;
-            border: solid 1px #AAE;
+            border: solid 1px #f39112;
             color: #15B;
         }
         .pagination a, .pagination span

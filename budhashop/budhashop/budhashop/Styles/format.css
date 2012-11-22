@@ -92,8 +92,9 @@ h3{
 	font-size:12px;
 	color:#364700;
 	background:#6E1C1C;
-	border:#981d18 solid 1px;
+	/*border:#981d18 solid 1px;*/
 	border-radius:5px;
+	box-shadow: 0 0 4px 2px #AC7713 inset;
 }
 .bg_style3{
 	margin:0px 0px 0px 0px;

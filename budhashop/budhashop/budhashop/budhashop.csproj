@@ -449,6 +449,7 @@
     <Content Include="ADMIN\LoginA.aspx" />
     <Content Include="ADMIN\SiteFeedback.aspx" />
     <Content Include="ADMIN\Web.config" />
+    <None Include="fonts\SAMARN__.TTF" />
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <None Include="script\html5shiv\.gitattributes" />
     <None Include="script\html5shiv\.gitignore" />

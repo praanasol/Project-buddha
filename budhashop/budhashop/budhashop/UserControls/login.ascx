@@ -8,7 +8,7 @@
     <style type="text/css">
         .logintext
         {
-        	margin-top:22px;
+        	margin-top:12px;
     	    float:right;
     	    width:55px;
     	    height:20px;
@@ -21,6 +21,7 @@
             padding: 6px 10px 5px 11px;
             border-radius:5px;
             display:none;
+            box-shadow: 0 0 3px 2px #AC7713 inset;
             /*border:solid 1px;
             border-top-color:#6E1C1C;
              border-bottom-color:#ac7713;
@@ -39,11 +40,8 @@
             background: linear-gradient(#f38d10, #d67d1c);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
             border-radius:5px;
-            border:solid 1px;
-            border-top-color:#ac7713;
-             border-bottom-color:#ac7713;
-             border-left-color:#ac7713;
-             border-right-color:#ac7713;
+            box-shadow: 0 0 3px 2px #AC7713 inset;
+           
         }
         .usertext
         {
@@ -92,7 +90,7 @@
     
 <div style="width: 350px;">
        
-    <div  id="user-status" style="display:none; margin-top:18px;">
+    <div  id="user-status" style="display:none;">
     <!--Login Start-->
         <div id="login-required">
             <div id="l_f_bg" class="bg_style2">
@@ -142,8 +140,8 @@
     </div>
     <a id="logintext" class="logintext" href="#">Login</a> 
     <%--<asp:LinkButton ID="logintext" CausesValidation="false" class="logintext" runat="server">LogIn</asp:LinkButton>--%>
-   <div id="login-success" style="display:none;">
-        <div id="logout_links" class="bg_style2" style="width:120px; height:20px; margin-left:235px;">        
+   <div id="login-success" style="display:none;margin-top:10px;">
+        <div id="logout_links" class="bg_style2" style="width:120px; height:20px; margin-left:235px; ">        
             <asp:LinkButton ID="lb_profile" CssClass="l_links" runat="server" onclick="lb_profile_Click">Profile</asp:LinkButton>
             
             <%--<asp:LinkButton ID="lb_orderhistory" CssClass="l_links" runat="server" 

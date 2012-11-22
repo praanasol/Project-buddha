@@ -307,9 +307,10 @@
                     <aside id="o_i_r_cl6">
                         
         	             <div id="but_style">   
-        	                    <input type="button" class="l_go" id="btn_ConfirmOrder" value="Confirm Payment"/>
+        	                    <input type="button" class="l_go" id="btn_ConfirmOrder" value="Confirm Payment" style=" height:40px; font-size:16px;"/>
+        	                    <input type="button" class="l_go" id="btn_cancel" value="Continue Shopping" style=" height:40px;"/>
                                 <%--<asp:LinkButton id="btn_ConfirmOrder" runat="server" CssClass="l_go">Confirm Order</asp:LinkButton>
-                               --%> <asp:LinkButton id="btn_cancel" runat="server" CssClass="l_go" onclick="btn_cancel_Click" >Continue Shopping</asp:LinkButton>
+                               --%>
                         </div>
                     <%--<input type="button" class="buttons" id="btn_ConfirmOrder" value="Confirm Order"/>--%></aside>
                     <%--<aside id="o_i_r_cl7"><asp:Button ID="btn_cancel" class="buttons" runat="server" Text="Cancel" 

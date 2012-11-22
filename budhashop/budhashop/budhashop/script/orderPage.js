@@ -36,6 +36,11 @@
             budhashop.USER.Services.LoginControl.Getuser(CheckUserSession, onerror);
         });
         
+        $("#btn_cancel").click(function(){
+           
+           window.location.replace("../homepage.aspx");
+        });
+        
         $("#hyplink_register").click(function(){
             $("#LoginControl").hide();
             $("#RegisterControl").show();

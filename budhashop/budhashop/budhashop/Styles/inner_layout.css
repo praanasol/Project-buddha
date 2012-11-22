@@ -859,7 +859,7 @@ box-shadow:inset 0px 0px 8px 2px #ac7713;
 {
 	margin:0px;
 	padding:7px 0px 0px 0px;
-	width:190px;
+	width:150px;
 	height:20px;
 	float:left;
 	text-align:center;
@@ -881,7 +881,7 @@ box-shadow:inset 0px 0px 8px 2px #ac7713;
 	float:left;
 }
 #but_style a.l_go:link, #but_style a.l_go:visited, .l_go{
-	margin:0px 10px 0px 0px;
+	margin:-5px 0px 0px 5px;
 	padding:3px 3px 3px 3px;
 	font-family:"Arial", Gadget, sans-serif;
 	font-size:13px;
@@ -917,11 +917,11 @@ input#btn_ConfirmOrder.l_go:hover
 /* Login and Registration Start */
 #log_panel
 {
-	margin:5px 0px 0px 0px;
-	padding:10px;
-	width:978px;
-	height:400px;
-	float:left;
+	float: left;
+    height: 400px;
+    margin: 5px 0 0 10px;
+    padding: 10px;
+    width: 958px;
 	
 }
 #v_devide

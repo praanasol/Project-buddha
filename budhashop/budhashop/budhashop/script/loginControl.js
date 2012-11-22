@@ -12,7 +12,7 @@
         $("#closeimg1").click(function(e) {          
             e.preventDefault();
             $("#user-status").slideToggle();
-            $(".logintext").show();
+            $(".logintext").show(500);
             $("#closeimg1").hide();
         });
         
@@ -56,7 +56,7 @@ function OnSuccessLogin(result) {
             $("[id$=txt_emailid1]").val('');
             $("[id$=txt_pwd1]").val('');
             $("#login-required").hide();
-            $("#login-success").show();
+            $("#login-success").show(500);
             $(".logintext").toggleClass("usertext");
             $("#logintext").html(result);
             $("#closeimg1").hide();

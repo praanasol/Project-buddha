@@ -509,7 +509,6 @@
     <Content Include="USER\Login_Register.aspx" />
     <Content Include="USER\OrderHistory.aspx" />
     <Content Include="USER\OrderPage.aspx" />
-    <Content Include="USER\ProfilePage.aspx" />
     <Content Include="USER\Services\LoginControl.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -563,6 +562,7 @@
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="Styles\jquery.mCustomScrollbar.css" />
     <Content Include="Styles\scrollpane_custom.css" />
+    <Content Include="USER\ProfilePage.aspx" />
     <Content Include="USER\Web.config" />
   </ItemGroup>
   <ItemGroup>

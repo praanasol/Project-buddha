@@ -5,12 +5,12 @@
         var address = $("[id$=txt_address]").val();
         
         if(uname=="" || phno=="" || address==""){
+            $('#profileIncomplete').delay(750).show("explode", {pieces: 16}, 500);
+            $("#profileIncomplete").delay(3000).effect("explode", {color:"#AC1812",mode:"fadeOut"}, 500);
             $("[id$=lbl_status]").text("Profile Incomplete...");
-            $('#profileIncomplete').show();
-            $("#profileIncomplete").delay(3200).fadeOut(300);
         }
         
-        if(!$('#MyGrid tr').length) {
+        if(!$('.orderGrid tr').length) {
             // grid is empty
             $('#itemsDiv').hide();
             $('#grid_res').hide();
@@ -33,7 +33,7 @@
 
         $("#btnClose1").click(function (e){
             $("#PasswordField").fadeOut("slow");
-            $("#overlay").hide("slow");
+            $("#overlay").hide();
         });
 
         $("#hyplink_changepwd").click(function(){

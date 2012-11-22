@@ -24,39 +24,45 @@
                         Login</h3>
                 </section>
                 <section id="p_f_fields" style="width: 380px; height: 75px;">
-                    <div id="p_f_field_area" style="width: 380px; height: 30px;">
+                    <div id="p_f_field_area" style="width: 380px; height: 35px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 80px;">
                             Email Id :</div>
-                        <div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
+                        <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txt_lusername"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="login"></asp:RequiredFieldValidator>
-                        </div>
+                        </div>--%>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_lusername" CssClass="p_f_form_style" runat="server" Width="181px"
                                 ValidationGroup="login"></asp:TextBox>
                             <br />
+                            <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="txt_lusername"
+                                ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="login"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="rev1" runat="server" 
                                 ControlToValidate="txt_lusername" ErrorMessage="Invalid Email Format" 
-                                SetFocusOnError="True" 
+                                SetFocusOnError="True" style="margin-left:-85px;"
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
                                 ValidationGroup="login"></asp:RegularExpressionValidator>
                         </div>
                     </div>
-                    <div id="p_f_field_area" style="width: 380px; height: 30px;">
+                    <div id="p_f_field_area" style="width: 380px; height: 35px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 80px;">
                             Password :</div>
-                        <div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
+                        <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txt_lpassword"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="login"></asp:RequiredFieldValidator>
-                        </div>
+                        </div>--%>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_lpassword" CssClass="p_f_form_style" TextMode="Password" runat="server" Width="181px"
                                 ValidationGroup="login"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txt_lpassword"
+                                ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="login"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </section>
                 <div id="login_links1" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
                     clear: both;">
+                    <br />
                     <asp:HyperLink ID="hyplink_forgotpwd" runat="server" CssClass="l_links1" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
                     <br />
                     <div id="but_style" style="width: 200px;">
@@ -79,16 +85,19 @@
                     <h3>
                         Register</h3>
                 </section>
-                <section id="p_f_fields" style="margin:auto; width: 500px; height: 270px;">
-                    <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                <section id="p_f_fields" style="margin:auto; width: 500px; height: 290px;">
+                    <div id="p_f_field_area" style="width: 490px; height: 35px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 150px;">
                             User Name :</div>
-                        <div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
+                        <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txt_username"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
-                        </div>
+                        </div>--%>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_username" CssClass="p_f_form_style" runat="server" Width="181px" ValidationGroup="register"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txt_username"
+                                ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 490px; height: 35px;">
@@ -97,66 +106,73 @@
                         
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
-                                   <div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
+                                   <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                                     <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txt_emailid"
                                         ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
-                                    </div>
+                                    </div>--%>
                                     <div id="p_f_field" class="style4" style="padding-top: 4px;">
                                         <asp:TextBox ID="txt_emailid" CssClass="p_f_form_style" runat="server" Width="181px" AutoPostBack="True" OnTextChanged="txt_emailid_TextChanged"
                                             ValidationGroup="register"></asp:TextBox>
                                         <asp:Image ID="imgEmail" runat="server" Visible="false" />
                                         <asp:Label ID="lbl_checkemail" runat="server" ForeColor="Red"></asp:Label>
+                                        <br />
+                                        <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txt_emailid"
+                                        ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
                                     </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         
                     </div>
-                    <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                    <div id="p_f_field_area" style="width: 490px; height: 35px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 150px;">
                             Password :</div>
-                        <div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
+                        <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txt_password"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
-                        </div>
+                        </div>--%>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_password" CssClass="p_f_form_style" runat="server" TextMode="Password" Width="181px" ValidationGroup="register"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txt_password"
+                                ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="rev2" runat="server" ControlToValidate="txt_password"
-                                ErrorMessage="Password Should Contain atleast 5 Characters" SetFocusOnError="True"
+                                ErrorMessage="Atleast 5 Characters" SetFocusOnError="True" style="margin-left:-85px;"
                                 ValidationExpression="^.*(?=.{5,}).*$" ValidationGroup="register"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 490px; height: 110px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 150px;">
                             Confirm Password :</div>
-                        <div id="but_style" style="height: 10px; padding: 11px 0px 0px 2px; text-align: center;">
+                        <%--<div id="but_style" style="height: 10px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txt_cnfmpassword"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
-                        </div>
+                        </div>--%>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_cnfmpassword" CssClass="p_f_form_style" runat="server" TextMode="Password" Width="181px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txt_cnfmpassword"
+                                ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
                             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txt_password"
                                 ControlToValidate="txt_cnfmpassword" ErrorMessage="Passwords Do not Match" SetFocusOnError="True"
-                                ValidationGroup="register"></asp:CompareValidator>
+                                ValidationGroup="register" style="margin-left:-85px;"></asp:CompareValidator>
                             <asp:Image ID="img_captcha" runat="server" Height="40px" ImageUrl="~/Captcha/JpegImage.aspx"
                                 Width="181px" />
                             <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="30px" ImageUrl="~/Captcha/Refresh.png"
                                 Width="30px" OnClick="imgbtn_refreshcaptcha_Click" />
+                            <asp:Label ID="lbl_captcha" runat="server" ForeColor="Red"></asp:Label>
+                            
                         </div>
                     </div>
-                    <div id="p_f_field_area" style="width: 490px; height: 50px;">
+                    <div id="p_f_field_area" style="width: 490px; height: 35px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 150px;">
                             Enter Text :</div>
-                        <div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
+                        <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txt_captcha"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
-                        </div>
+                        </div>--%>
                         <div id="p_f_field" class="style4" style="padding-top: 4px;">
                             <asp:TextBox ID="txt_captcha" CssClass="p_f_form_style" runat="server" Width="181px" ValidationGroup="register"></asp:TextBox>
-                            
-                        </div><br />
-                        <div style="margin:5px 0px 0px 0px;">
-                            <asp:Label ID="lbl_captcha" runat="server" ForeColor="Red"></asp:Label>
-                            </div>
+                            <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txt_captcha"
+                                ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </section>
                 <div id="login_links1" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;

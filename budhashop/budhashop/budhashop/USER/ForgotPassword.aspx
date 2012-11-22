@@ -2,6 +2,34 @@
     CodeBehind="ForgotPassword.aspx.cs" Inherits="budhashop.USER.ForgotPassword" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .style6
+        {
+            margin-top: 3px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #dc8619;
+            font-weight: bold;
+            text-decoration: none;
+            height: 40px;
+            width: 101px;
+        }
+        .style7
+        {
+            margin-top: 3px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #dc8619;
+            font-weight: bold;
+            text-decoration: none;
+            height: 50px;
+            width: 101px;
+        }
+        .style8
+        {
+            width: 182px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="forgotpwdpanel" DefaultButton="btn_fsubmit" runat="server">
@@ -16,42 +44,52 @@
                       <table cellpadding="0" cellspacing="0" width="440" border="0">
             
                 <tr>
-                    <td align="right" valign="middle" style="height: 40px;" class="style1">
+                    <td align="right" valign="top" class="style6">
+                        <br />
                         Email Id :
                     </td>
                     <td align="center" valign="middle">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_femailid"
-                            ErrorMessage="*" SetFocusOnError="True" ValidationGroup="1"></asp:RequiredFieldValidator>
+                        &nbsp;</td>
+                    <td align="left" valign="middle" class="style8">
+                        <br />
+                        <asp:TextBox ID="txt_femailid" CssClass="login_form_style" runat="server" Width="180px"></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="rfv1" runat="server" Font-Bold="true"
+                            ControlToValidate="txt_femailid" ErrorMessage="Empty Field" SetFocusOnError="True" 
+                            ValidationGroup="1"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev1" runat="server" 
+                            ControlToValidate="txt_femailid" ErrorMessage="Invalid Email Id Format" 
+                            SetFocusOnError="True" style="margin-left:-65px;" Font-Bold="true"
+                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                            ValidationGroup="1"></asp:RegularExpressionValidator>
                     </td>
                     <td align="left" valign="middle">
-                        <asp:TextBox ID="txt_femailid" CssClass="login_form_style" runat="server" Width="180px"></asp:TextBox>
-                    </td>
-                    <td align="center" valign="middle">
-                        <asp:Label ID="lbl_femailid" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_femailid"
-                            ErrorMessage="Invalid Email Id Format" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-                            ValidationGroup="1"></asp:RegularExpressionValidator>
+                        <asp:Label ID="lbl_femailid" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" valign="middle" style="height: 50px;" class="style1">
+                    <td align="right" valign="middle" class="style7">
+                        <br />
                         Enter The Text :
                     </td>
                     <td align="left" valign="middle">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_captcha"
-                            ErrorMessage="*" SetFocusOnError="True" ValidationGroup="1"></asp:RequiredFieldValidator>
-                    </td>
-                    <td align="left" valign="middle">
+                        &nbsp;</td>
+                    <td align="left" valign="middle" class="style8">
                         <asp:Image ID="img_captcha" runat="server" Height="40px" ImageUrl="~/Captcha/JpegImage.aspx"
                             Width="181px" />
                         <br />
                         <asp:TextBox ID="txt_captcha" CssClass="login_form_style" runat="server" Width="180px"></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="rfv2" runat="server" Font-Bold="true"
+                                      ControlToValidate="txt_captcha" ErrorMessage="Empty Field" SetFocusOnError="True" 
+                                      ValidationGroup="1"></asp:RequiredFieldValidator>
                     </td>
-                    <td align="left" valign="middle">
+                    <td align="left" valign="top">
                         <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="30px" ImageUrl="~/Captcha/Refresh.png"
                             OnClick="imgbtn_refreshcaptcha_Click" Width="30px" />
                         <br />
-                        <asp:Label ID="lbl_captcha" runat="server" ForeColor="Red"></asp:Label>
+                        <br />
+                        <asp:Label ID="lbl_captcha" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +116,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="height: 15px;">
-                        <asp:Label ID="lbl_fsubmit" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lbl_fsubmit" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
                     </td>
                 </tr>
             </table>

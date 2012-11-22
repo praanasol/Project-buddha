@@ -57,13 +57,13 @@
                     filter: alpha(opacity=15);
                     -moz-opacity: .15;
                     display: none;
+                    z-index:103;
                 }
                 .img_preloader
                 {
                     position: absolute;
-                    top: 40%;
+                    top: 300px;
                     left: 45%;
-                    
                 }
                
         </style>
@@ -74,18 +74,9 @@
                 {
                     $("#ctl00_cartCtrl_orderBtn1").removeAttr("disabled");
                 }
-                
-
-               
           });
-          
-          
-
-          
          
     </script>
-    
-    
    
 
    <%--  <script src="/script/scroll/scroll16.js" type="text/javascript"></script>

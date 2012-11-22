@@ -177,7 +177,7 @@ function checkEmail() {
         if(email==""){$("[id$=lbl_result2]").text("Enter Email Id"); $("[id$=txt_emailid2]").focus();}
         else if(email.match(emailFormat)==null){$("[id$=lbl_result2]").text("Enter Valid Email Id");  $("[id$=txt_emailid2]").focus();}
         else if(pwd==""){$("[id$=lbl_result2]").text("Enter Password");   $("[id$=txt_pwd2]").focus();}
-        else if(pwd.length < 5){$("[id$=lbl_result2]").text("Password Should Contain atleast 5 Characters");   $("[id$=txt_pwd2]").focus();}
+        else if(pwd.length < 5){$("[id$=lbl_result2]").text("Enter atleast 5 Characters");   $("[id$=txt_pwd2]").focus();}
         else if(pwd != confirmpwd){$("[id$=lbl_result2]").text("Passwords Do not Match");   $("[id$=txt_confirmpwd2]").focus();}
         else
         {

@@ -46,8 +46,8 @@
                     position: absolute;
                     width: auto;
                     height: auto;
-                    top: 26.2%;
-                    left: 32.2%;
+                    top: 230px;
+                    left: 32.25%;
                     
                    
                     padding: 0px;
@@ -186,7 +186,7 @@ ul {
                                     <div id="but_style" style="width:100px; margin-top:25px;"><input id="btn_updateaddress" class="l_go" onclick="return updateAddress();" type="button" value="Update" runat="server" /></div>
                                 </div>
                              </section>
-                             <div id="login_links1" style="width:491px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red"></asp:Label>
+                             <div id="login_links1" style="width:491px;"><asp:Label ID="lbl_result" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
                              <div id="to_right" style="margin:0px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose">Close</a></div>
                              </div>
                         </div>
@@ -230,7 +230,7 @@ ul {
                              </div>
                              </section>
                              <div id="login_links1" style="width:491px; padding:10px 0px 0px 0px;">
-                                <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red" style="margin-left:100px;"></asp:Label>
+                                <asp:Label ID="lbl_resultpwd" runat="server" ForeColor="Red" style="margin-left:100px;" Font-Bold="true"></asp:Label>
                                 <div id="to_right" style="margin:10px 0px 0px 13px;"><a href="#" class="l_links1" id="btnClose1">Close</a></div>
                              </div>
                              
@@ -385,7 +385,7 @@ ul {
             </aside>
         </div>
     </div>
-    <div id="profileIncomplete" style="display:none; top: 163px; left: 38%; position: absolute; height: 20px; width: 268px; padding: 5px 20px 0px;" class="p_f_box_style">
+    <div id="profileIncomplete" style="display:none; top: 182px; left: 39.5%; position: absolute; height: 20px; width: 268px; padding: 5px 20px 0px;" class="p_f_box_style">
         <b>Your Profile is Incomplete. Update Your Profile...</b>
     </div>
 </asp:Content>

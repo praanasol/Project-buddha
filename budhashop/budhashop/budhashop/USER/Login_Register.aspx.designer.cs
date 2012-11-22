@@ -23,15 +23,6 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Panel loginpanel;
         
         /// <summary>
-        /// rfv1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv1;
-        
-        /// <summary>
         /// txt_lusername control.
         /// </summary>
         /// <remarks>
@@ -39,6 +30,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_lusername;
+        
+        /// <summary>
+        /// rfv1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv1;
         
         /// <summary>
         /// rev1 control.
@@ -50,15 +50,6 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rev1;
         
         /// <summary>
-        /// rfv2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv2;
-        
-        /// <summary>
         /// txt_lpassword control.
         /// </summary>
         /// <remarks>
@@ -66,6 +57,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_lpassword;
+        
+        /// <summary>
+        /// rfv2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv2;
         
         /// <summary>
         /// hyplink_forgotpwd control.
@@ -113,15 +113,6 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Panel registerPanel;
         
         /// <summary>
-        /// rfv3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
-        
-        /// <summary>
         /// txt_username control.
         /// </summary>
         /// <remarks>
@@ -131,6 +122,15 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_username;
         
         /// <summary>
+        /// rfv3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
+        
+        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -138,15 +138,6 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// rfv4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv4;
         
         /// <summary>
         /// txt_emailid control.
@@ -176,13 +167,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Label lbl_checkemail;
         
         /// <summary>
-        /// rfv5 control.
+        /// rfv4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv4;
         
         /// <summary>
         /// txt_password control.
@@ -194,6 +185,15 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_password;
         
         /// <summary>
+        /// rfv5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv5;
+        
+        /// <summary>
         /// rev2 control.
         /// </summary>
         /// <remarks>
@@ -203,15 +203,6 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rev2;
         
         /// <summary>
-        /// rfv6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv6;
-        
-        /// <summary>
         /// txt_cnfmpassword control.
         /// </summary>
         /// <remarks>
@@ -219,6 +210,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_cnfmpassword;
+        
+        /// <summary>
+        /// rfv6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv6;
         
         /// <summary>
         /// CompareValidator1 control.
@@ -248,13 +248,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.ImageButton imgbtn_refreshcaptcha;
         
         /// <summary>
-        /// rfv7 control.
+        /// lbl_captcha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv7;
+        protected global::System.Web.UI.WebControls.Label lbl_captcha;
         
         /// <summary>
         /// txt_captcha control.
@@ -266,13 +266,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_captcha;
         
         /// <summary>
-        /// lbl_captcha control.
+        /// rfv7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_captcha;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv7;
         
         /// <summary>
         /// HyperLink1 control.

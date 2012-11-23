@@ -4,14 +4,14 @@
 
         $(".logintext").click(function(e) {          
             e.preventDefault();
-            $("#user-status").slideToggle();
+            $("#user-status").slideToggle(500);
             $(".logintext").hide();
             $("#closeimg1").show();
         });
 
         $("#closeimg1").click(function(e) {          
             e.preventDefault();
-            $("#user-status").slideToggle();
+            $("#user-status").slideToggle(500);
             $(".logintext").show(500);
             $("#closeimg1").hide();
         });

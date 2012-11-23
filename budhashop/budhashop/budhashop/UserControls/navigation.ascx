@@ -40,7 +40,9 @@ $(document).ready(function(){
 <nav id="nav">
             	<ul id="navitems">
             	    <li><a href="../homepage.aspx" target="_self" style="font-size:10px; padding:10px 5px;">Home</a></li>
-                	<li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
+                	<li><a href="../itemspage.aspx?catid=1" target="_self">Aarogya</a></li>
+                	<li><a href="../itemspage.aspx?catid=1" target="_self">vastra</a></li>
+                	
                     
                     
                

@@ -9,6 +9,7 @@
         .logintext
         {
         	margin-top:12px;
+        	margin-right:28px;
     	    float:right;
     	    width:55px;
     	    height:20px;
@@ -88,7 +89,7 @@
         }
     </script>
     
-<div style="width: 350px;">
+<div style="width: 380px;">
        
     <div  id="user-status" style="display:none;">
     <!--Login Start-->

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="budhashop.USER.OrderPage" Title="Purchase Details - Go Vedic - Online Shoping - Traditional and Natural Products" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="budhashop.USER.OrderPage" Title="Purchase Details - Go Vedic - Online Shopping - Traditional and Natural Products" %>
 <%--<%@ Register Src="~/UserControls/Login1.ascx" TagName="loginuc" TagPrefix="uc_login" %>
 <%@ Register Src="~/UserControls/Register.ascx" TagName="registeruc" TagPrefix="uc_register" %>--%>
 
@@ -307,7 +307,7 @@
                     <aside id="o_i_r_cl6">
                         
         	             <div id="but_style">   
-        	                    <input type="button" class="l_go" id="btn_ConfirmOrder" value="Confirm Payment" style=" height:40px; font-size:16px;"/>
+        	                    <input type="button" class="l_go" id="btn_ConfirmOrder" value="Confirm Purchase" style=" height:40px; font-size:16px;"/>
         	                    <input type="button" class="l_go" id="btn_cancel" value="Continue Shopping" style=" height:40px;"/>
                                 <%--<asp:LinkButton id="btn_ConfirmOrder" runat="server" CssClass="l_go">Confirm Order</asp:LinkButton>
                                --%>

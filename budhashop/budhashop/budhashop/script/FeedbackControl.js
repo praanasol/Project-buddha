@@ -8,7 +8,7 @@
         });
         
         $(document).click(function(e) {
-            $(".feedback-body").animate({right:"-21%"});
+            $(".feedback-body").animate({right:"-25%"});
             $("#feedback").show();
             e.stopPropagation();
             //$(".feedback-body").hide();
@@ -19,7 +19,7 @@
         });
         
         $("#closeimg").click(function(e){
-            $(".feedback-body").animate({right:"-21%"});
+            $(".feedback-body").animate({right:"-25%"});
             $("#feedback").show();
         });
 
@@ -56,6 +56,9 @@ function Fb_Submit()
                 $("[id$=txt_msg]").val('');
                 $("[id$=lbl_emailfb]").text('');
                 $("[id$=lbl_msg]").text('');
+                
+                $(".feedback-body").animate({right:"-21%"});
+            $("#feedback").show();
             }
             else {
                 $("#successFb-body").hide();

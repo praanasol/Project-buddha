@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainCartControl.ascx.cs" Inherits="budhashop.UserControls.MainCartControl" %>
 
  <!-- styles needed by jScrollPane -->
-<%--<link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+<link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
  
 <!-- latest jQuery direct from google's CDN -->
 
@@ -9,12 +9,12 @@
 <script type="text/javascript" src="../script/scroll/jquery.mousewheel.js"></script>
  
 <!-- the jScrollPane script -->
-<script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>--%>
+<script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>
 
-<%--<script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>--%>
+<script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>
     
 
-<%--<script type="text/javascript">
+<script type="text/javascript">
 
 $(document).ready(function() {
 
@@ -40,6 +40,7 @@ $('.jspScrollable').mouseleave(function(){
 {
 	width: 100%;
 	
+   
 	overflow: auto;
 }
 .horizontal-only
@@ -82,9 +83,9 @@ $('.jspScrollable').mouseleave(function(){
 	
     
     
-    </style> --%>
+    </style> 
     
-    <style type="text/css">
+    <%--<style type="text/css">
     div#chatlist {
     width: 448px;
     max-height:250px;
@@ -102,7 +103,7 @@ ul {
     list-style-type: none;
 }
 
-</style>
+</style>--%>
 ​
 <style type="text/css">
     .Normal
@@ -264,11 +265,11 @@ ul {
         -webkit-border-bottom-left-radius: 2px;
         -webkit-border-bottom-right-radius: 2px;
         background-color:Transparent;
-        display: none;
+        /*display: none;*/
         position: absolute;
-        width: 500px;
-        height: 500px;
-        z-index: 10001;
+        width: 450px;
+        height: auto;
+        z-index: 1;
         border: 1px transparent;
         text-align: left;
         padding: 2px;
@@ -493,7 +494,7 @@ ul {
         </div>
         </div>
         <!--Cart items list header part End--> 
-        <div id="chatlist" class="mousescroll">
+        <div id="chatlist" class="scroll-pane" style="width: 448px;max-height:250px;">
          <asp:Label ID="errorMsg" runat="server" Text="0" CssClass="style1"></asp:Label>
         <asp:DataList ID="itemCartDL" runat="server" RepeatDirection="Vertical" DataKeyField="ItemId" OnItemCommand ="itemCartDL_ItemCommand">
            

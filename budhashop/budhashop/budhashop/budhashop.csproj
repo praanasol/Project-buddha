@@ -342,7 +342,6 @@
     <Content Include="images\trally.gif" />
     <Content Include="images\trally1.gif" />
     <Content Include="images\unavailable.png" />
-    <Content Include="index.html" />
     <Content Include="ItemImages\3\4\4Photo.jpg" />
     <Content Include="ItemImages\3\4\4Photomedium.jpg" />
     <Content Include="ItemImages\3\4\4small.jpg" />
@@ -357,7 +356,6 @@
     <Content Include="obj\Debug\budhashop.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\budhashop.dll" />
     <Content Include="obj\Debug\budhashop.pdb" />
-    <Content Include="result.html" />
     <Content Include="script\cart-message.js" />
     <Content Include="script\CartJSONCall.js" />
     <Content Include="script\html5shiv\build.xml" />
@@ -477,7 +475,6 @@
     <Content Include="images\scroll_bg.gif" />
     <Content Include="images\uncheck.jpg" />
     <Content Include="images\wild_oliva.png" />
-    <Content Include="mCSB_buttons.png" />
     <Content Include="script\coin-slider.min.js" />
     <Content Include="script\FeedbackControl.js" />
     <Content Include="script\itemsPage.js" />

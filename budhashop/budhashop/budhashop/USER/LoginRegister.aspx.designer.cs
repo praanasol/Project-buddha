@@ -86,15 +86,6 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Button btn_login;
         
         /// <summary>
-        /// btn_lclr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_lclr;
-        
-        /// <summary>
         /// lbl_login control.
         /// </summary>
         /// <remarks>
@@ -275,15 +266,6 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv7;
         
         /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
-        
-        /// <summary>
         /// btn_reg control.
         /// </summary>
         /// <remarks>
@@ -291,15 +273,6 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_reg;
-        
-        /// <summary>
-        /// btn_clr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_clr;
         
         /// <summary>
         /// lbl_register control.

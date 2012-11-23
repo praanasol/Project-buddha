@@ -112,10 +112,10 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>
-    <div id="submittedFbDiv" style="display:none; position:fixed; top:68%; right:0%; border:solid 1px; font-size:18px; background:#FE7E28">
+    <div id="submittedFbDiv" style="display:none; padding:10px; position:fixed; top:68%; right:3%; border:solid 2px; font-size:12px; background:#E8B048; border-radius:10px;">
         <div id="successFb-body">
-            <p>Feedback Submitted Succesfully</p>
-            <p>Thank you...</p>
+            <p>Feedback Submitted Succesfully.</p>
+            <p>Thank you.</p>
         </div>
         <div id="failureFb-body">
             <p>Error Submitting Feedback</p>

@@ -1,5 +1,7 @@
 $(document).ready(function(){// this will run when the document.ready event fires
 
+    $("#signin_menu").slideToggle(10);
+    
     var x =$("[id$=totitems]").html();//this and below are asp hidden controls.
     var y=$("[id$=totalLbl]").html();
     var oy= $("[id$=hiddenCheck6]").val(); //this and below values are assigned from code behind.

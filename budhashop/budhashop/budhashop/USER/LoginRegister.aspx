@@ -41,7 +41,8 @@
                                 ControlToValidate="txt_lusername" ErrorMessage="Invalid Email Format" 
                                 SetFocusOnError="True" style="margin-left:-85px;"
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
-                                ValidationGroup="login"></asp:RegularExpressionValidator>
+                                ValidationGroup="login">
+                            </asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 380px; height: 35px;">
@@ -60,17 +61,22 @@
                         </div>
                     </div>
                 </section>
-                <div id="login_links1" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
+                <div id="login_links1" style="margin: auto; padding-left: 20px; width: 210px; height: 40px;
                     clear: both;">
                     <br />
-                    <asp:HyperLink ID="hyplink_forgotpwd" runat="server" CssClass="l_links1" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
-                    <br />
-                    <div id="but_style" style="width: 200px;">
+                    
+                    <div style="float:left;">
+                    <asp:HyperLink ID="hyplink_forgotpwd" runat="server" CssClass="l_links1" NavigateUrl="~/USER/ForgotPassword.aspx">Forgot Password?</asp:HyperLink><br />
+                   </div>
+                    
+                    <div id="but_style" style="width: 90px;">
                         <asp:Button ID="btn_login" CssClass="l_go" runat="server" Text="Login" ValidationGroup="login"
-                            OnClick="btn_login_Click" />
-                        <asp:Button ID="btn_lclr" CssClass="l_go" runat="server" Text="Clear" OnClick="btn_lclr_Click" /><br />
+                            OnClick="btn_login_Click" Width="70" Height="35" />
+                        <br />
                          <asp:Label ID="lbl_login" runat="server" ForeColor="Red"></asp:Label>
                     </div>
+                    <br />
+                   
                 </div>
             </div>
         </asp:Panel>
@@ -177,12 +183,10 @@
                 </section>
                 <div id="login_links1" style="margin: auto; padding-left: 35px; width: 200px; height: 70px;
                     clear: both;">
-                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="l_links1" NavigateUrl="~/USER/ForgotPassword.aspx">Fogot Password?</asp:HyperLink><br />
                     <br />
-                    <div id="but_style" style="width: 200px;">
+                    <div id="but_style" style="width: 200px; font-size:14px;">
                         <asp:Button ID="btn_reg" CssClass="l_go" runat="server" OnClick="btn_reg_Click" Text="Register"
-                            ValidationGroup="register" />
-                        <asp:Button ID="btn_clr" CssClass="l_go" runat="server" OnClick="btn_clr_Click" Text="Clear" />
+                            ValidationGroup="register" Width="120" Height="40" Font-Size="13" />
                         <br />
                         <asp:Label ID="lbl_register" runat="server" ForeColor="Red"></asp:Label>
                     </div>

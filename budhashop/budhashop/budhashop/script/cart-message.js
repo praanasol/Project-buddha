@@ -14,6 +14,7 @@ $(document).ready(function(){// this will run when the document.ready event fire
      $("[id$=message_2]").html("Product added");
      $("[id$=message_2]").fadeIn(1000, function(){
              $("[id$=message_2]").fadeOut(3000);
+             $("#signin_menu").css('z-index',1);
             $("#signin_menu").slideToggle();
         });
       }else if (x==ox && y != oy){
@@ -21,6 +22,7 @@ $(document).ready(function(){// this will run when the document.ready event fire
      $("[id$=message_2]").html("Cart updated");
      $("[id$=message_2]").fadeIn(1000, function(){
              $("[id$=message_2]").fadeOut(3000);
+              $("#signin_menu").css('z-index',1);
             $("#signin_menu").slideToggle();
         });
     } else if(x < ox && y < oy){
@@ -48,10 +50,12 @@ $(document).ready(function(){// this will run when the document.ready event fire
                     $("#orderBtn1").removeAttr("disabled");
                 }
         $("#signin").click(function () {
+         $("#signin_menu").css('z-index',1);
       $("#signin_menu").slideToggle();
     });
     
     $("#hideCartBtn").click(function() {
+     $("#signin_menu").css('z-index',-1);
     $("#signin_menu").slideToggle();
     
     });

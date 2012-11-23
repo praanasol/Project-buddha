@@ -19,7 +19,8 @@
  <script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>
 
 
-    <link href="../Styles/scrollpane_custom.css" rel="stylesheet" type="text/css" />
+   
+    <script src="../script/scroll/scrollcheck.js" type="text/javascript"></script>
     <script src="../script/profilePage.js" type="text/javascript"></script>
 <style type="text/css">
                 .web_dialog_overlay
@@ -63,28 +64,18 @@
                 {
                     display: none;
                 }
-                
-                
-            </style>
-            <style type="text/css">
-    div#itemsList {
-    width: 470px;
-    height:230px;
-    
-    
-}
-div.mousescroll {
-    overflow: hidden;
-}
-div.mousescroll:hover {
-    overflow-y: scroll;
-}
-.slimScrollDiv { border: 1px solid #ccc; margin:10px; }
-ul {
-    list-style-type: none;
+                 .scroll-pane1
+{
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	 max-height:1000px;
 }
 
-</style>
+                
+            </style>
+        
+          
 
     <div id="box_header" style="width:985px;">
     	<h2>Profile Page</h2>
@@ -250,7 +241,7 @@ ul {
         <div id="orderHistoryDiv">
             <aside id="grid">
            <%-- <div id="contentDiv" class="scroll-pane" style="height:350px;">--%>
-            <asp:Panel ID="contentDiv" runat="server" CssClass="scroll-pane" Height="350" ScrollBars="Vertical">
+            <asp:Panel ID="contentDiv" runat="server" CssClass="scroll-pane1" Height="350" ScrollBars="Vertical">
                 <asp:GridView ID="orderGrid" CssClass="orderGrid" runat="server" 
                     CellSpacing="6" CellPadding="2"  HeaderStyle-CssClass="g_head"  
                     AlternatingRowStyle-CssClass="p_g_alt_row_style" 
@@ -310,7 +301,7 @@ ul {
            <%-- </div>--%>
             </aside>
             <aside id="grid_res">
-                <div id="itemsDiv" style="height:370px;">
+                <div id="itemsDiv" style="height:370px; overflow:hidden">
                 
                 
                 <section id="p_d_fields" style="margin-top:0px; width:450px; margin-left:5px;">
@@ -346,9 +337,9 @@ ul {
                         
                    
                     
-                    <div id="itemsList" class="mousescroll">
+                    <div id="itemsList" style="height:300px;">
                    
-                   <div>
+                   <div style="height:auto;">
                         <table id="itemTable">
                             
                             <tr>

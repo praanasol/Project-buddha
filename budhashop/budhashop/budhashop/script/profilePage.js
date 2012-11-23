@@ -14,8 +14,8 @@
         
         if($('.orderGrid tr').length==1) {
             // grid is empty
-            $('#itemsDiv').hide();
-            $('#grid_res').hide();
+            $('#itemsDiv').slideToggle();
+            $('#grid_res').slideToggle();
         }
         
         else {
@@ -53,7 +53,7 @@
         })
             .click(function(event) {
                 if($('.orderGrid tr').length!=1){
-                    $("#itemsDiv").hide();
+                    $("#itemsDiv").slideToggle();
                     var row = jQuery(this)
                     var itemString = row.children("td:eq(2)").text();
                     var addrString = row.children("td:eq(3)").text();
@@ -76,21 +76,21 @@
                 //$('#contentDiv').jScrollPane();
                 
                
-                $('.scroll-pane').jScrollPane({
-                    horizontalGutter:5,
-                    verticalGutter:5,
-                    'showArrows': false
-                });
-                
-                
-                
-                $('.jspDrag').hide();
-                $('.jspScrollable').mouseenter(function(){
-                    $(this).find('.jspDrag').stop(true, true).fadeIn('slow');
-                });
-                $('.jspScrollable').mouseleave(function(){
-                    $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
-                });
+//                $('.scroll-pane').jScrollPane({
+//                    horizontalGutter:5,
+//                    verticalGutter:5,
+//                    'showArrows': false
+//                });
+//                
+//                
+//                
+//                $('.jspDrag').hide();
+//                $('.jspScrollable').mouseenter(function(){
+//                    $(this).find('.jspDrag').stop(true, true).fadeIn('slow');
+//                });
+//                $('.jspScrollable').mouseleave(function(){
+//                    $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
+//                });
 });
 
 function RowSelected(itemString,addrString)

@@ -1,109 +1,30 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainCartControl.ascx.cs" Inherits="budhashop.UserControls.MainCartControl" %>
 
- <!-- styles needed by jScrollPane -->
-<link type="text/css" href="../Styles/jquery.jscrollpane.css" rel="stylesheet" media="all" />
- 
-<!-- latest jQuery direct from google's CDN -->
+ <link href="../Styles/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+<script src="../script/scroll/jquery.jscrollpane.min.js" type="text/javascript"></script>
 
-<!-- the mousewheel plugin - optional to provide mousewheel support -->
-<script type="text/javascript" src="../script/scroll/jquery.mousewheel.js"></script>
- 
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="../script/scroll/jquery.jscrollpane.min.js"></script>
+<script src="../script/scroll/jquery.mousewheel.js" type="text/javascript"></script>
 
 <script src="../script/scroll/mwheelIntent.js" type="text/javascript"></script>
+
+<script src="../script/scroll/scrollcheck.js" type="text/javascript"></script>
+    <style type="text/css">
     
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-
-
-	$('[id$=chatlist]').jScrollPane({
-    horizontalGutter:5,
-    verticalGutter:5,
-    'showArrows': false
-});
-
-$('.jspDrag').hide();
-$('.jspScrollable').mouseenter(function(){
-    $(this).find('.jspDrag').stop(true, true).fadeIn('slow');
-});
-$('.jspScrollable').mouseleave(function(){
-    $(this).find('.jspDrag').stop(true, true).fadeOut('slow');
-});
-
-});
-</script>
-<style type="text/css">
     .scroll-pane
 {
 	width: 100%;
-	
-   
+	max-height: 250px;
 	overflow: auto;
 }
 .horizontal-only
 {
 	height: auto;
-	
+	max-height: 200px;
 }
-.jspVerticalBar {
-    width: 8px;
-    background: transparent;
-    right:10px;
-}
- 
-.jspHorizontalBar {
-    bottom: 5px;
-    width: 100%;
-    height: 8px;
-    background: transparent;
-}
-.jspTrack {
-    background: transparent;
-}
- 
-.jspDrag {
-    background: url(scroll_bg.gif) repeat;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
     
-}
- 
-.jspHorizontalBar .jspTrack,
-.jspHorizontalBar .jspDrag {
-    float: left;
-    height: 100%;
-}
- 
-.jspCorner {
-    display:none
-}
-	
+    </style>
     
-    
-    </style> 
-    
-    <%--<style type="text/css">
-    div#chatlist {
-    width: 448px;
-    max-height:250px;
-    
-    
-}
-div.mousescroll {
-    overflow: hidden;
-}
-div.mousescroll:hover {
-    overflow-y: scroll;
-}
-.slimScrollDiv { border: 1px solid #ccc; margin:10px; }
-ul {
-    list-style-type: none;
-}
-
-</style>--%>
+   
 ​
 <style type="text/css">
     .Normal
@@ -269,7 +190,7 @@ ul {
         position: absolute;
         width: 450px;
         height: auto;
-        z-index: 1;
+        z-index: -1;
         border: 1px transparent;
         text-align: left;
         padding: 2px;

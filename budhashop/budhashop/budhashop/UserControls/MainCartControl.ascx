@@ -318,13 +318,13 @@
   </script>
 --%>
 <body>
-<div id="topnav1" >
+<div id="topnav1" title="Cart items" >
  <aside id="list">
         	<div id="list_left">
             	<%--<p class="style1" style="font-size:12px;">Cart Items<br /></p>--%>
             	
-            	<div id="list_simble" style="margin-top:3px;"></div>
-            	<div class="style1"><asp:Label ID="totitems" runat="server" Text="0" CssClass="style1"></asp:Label></div>
+            	<div id="list_simble" style="margin-top:2px;" title="Cart items"></div>
+            	<div class="style1" title="Cart items"><asp:Label ID="totitems" runat="server" Text="0" CssClass="style1"></asp:Label></div>
             	<asp:HiddenField ID="hiddenCheck5" Value="0" runat="server" />
                  <asp:HiddenField ID="hiddenCheck6" Value="0" runat="server" />
             	
@@ -336,7 +336,7 @@
             	<%--<span><asp:ImageButton ID="signin1" CausesValidation="false" CssClass="signin" runat="server" ImageUrl="../images/arrow_down.gif" Width="23" Height="11"/></span>
     --%><div  class="signin" style="padding-top:8px;"><%--<asp:LinkButton ID="signin1" CausesValidation="false" runat="server">Cart</asp:LinkButton>--%>
     
-    <span><a id="signin" href="#" target="_self"><img src="../images/arrow_down.gif" width="31" height="14" alt="List" title="List"></a></span></div>
+    <span><a id="signin" href="#" target="_self"><img src="../images/arrow_down.gif" width="31" height="14" alt="List" title="Cart items"></a></span></div>
         </div>
             
        </aside> 

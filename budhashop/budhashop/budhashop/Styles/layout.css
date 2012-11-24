@@ -266,9 +266,9 @@ header{
 	text-align:center;
 }
 #list_simble{
-	margin:0px 0px 1px 11px;
+	margin:0px 0px 1px 5px;
 	padding:0px;
-	width:25px;
+	width:32px;
 	height:25px;
 	float:left;
 	background:url(../images/trally.gif) left top no-repeat;

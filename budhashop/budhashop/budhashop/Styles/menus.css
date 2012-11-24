@@ -101,6 +101,7 @@
     background: -moz-linear-gradient(#ac1812, #981d18);
     background: linear-gradient(#ac1812, #981d18);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ac1812, endColorstr=#981d18);
+    border: solid 1px #ac7713;
     
     
 }
@@ -117,6 +118,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
 	
 	border-radius:8px;
+	border: solid 1px #ac7713;
 	
 	/*background-color:#f28c11;*/
 	

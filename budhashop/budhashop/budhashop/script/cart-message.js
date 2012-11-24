@@ -54,6 +54,11 @@ $(document).ready(function(){// this will run when the document.ready event fire
       $("#signin_menu").slideToggle();
     });
     
+    $("#list_simble").click(function () {
+         $("#signin_menu").css('z-index',1);
+      $("#signin_menu").slideToggle();
+    });
+    
     $("#hideCartBtn").click(function() {
      $("#signin_menu").css('z-index',-1);
     $("#signin_menu").slideToggle();

@@ -200,10 +200,10 @@ namespace budhashop.ADMIN
 
                         System.Drawing.Bitmap bmpD = img as Bitmap;
 
-                        Bitmap bmpDriverMed = new Bitmap(bmpD, 512, 372);
+                        Bitmap bmpDriverMed = new Bitmap(bmpD, 500, 500);
                         bmpDriverMed.Save(resizedImageMed, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                        Bitmap bmpDriverSmall = new Bitmap(bmpD, 170, 126);
+                        Bitmap bmpDriverSmall = new Bitmap(bmpD, 150, 150);
                         bmpDriverSmall.Save(resizedImageSmall, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                         ItemMessageLbl.Text = HardCodedValues.BuddaResource.ItemAdd;
@@ -374,10 +374,10 @@ namespace budhashop.ADMIN
 
                         System.Drawing.Bitmap bmpD = img as Bitmap;
 
-                        Bitmap bmpDriverMed = new Bitmap(bmpD, 512, 372);
+                        Bitmap bmpDriverMed = new Bitmap(bmpD, 500, 500);
                         bmpDriverMed.Save(resizedImageMed, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                        Bitmap bmpDriverSmall = new Bitmap(bmpD, 170, 126);
+                        Bitmap bmpDriverSmall = new Bitmap(bmpD, 150, 150);
                         bmpDriverSmall.Save(resizedImageSmall, System.Drawing.Imaging.ImageFormat.Jpeg);
 
                         grpMsgLbl.Text =HardCodedValues.BuddaResource.GroupAdd;

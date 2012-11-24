@@ -48,7 +48,7 @@
                     width: auto;
                     height: auto;
                     top: 230px;
-                    left: 32.25%;
+                    left: 459px;
                     
                    
                     padding: 0px;
@@ -337,9 +337,8 @@
                         
                    
                     
-                    <div id="itemsList" style="height:300px;">
+                    <div id="itemsList" style="height:700px;">
                    
-                   <div style="height:auto;">
                         <table id="itemTable">
                             
                             <tr>
@@ -366,8 +365,6 @@
                             <td colspan="6" style="height:5px;"></td>
                             </tr>
                         </table>
-                       </div>
-                         
                        
                     </div>
                   
@@ -376,7 +373,7 @@
             </aside>
         </div>
     </div>
-    <div id="profileIncomplete" style="display:none; top: 182px; left: 39.5%; position: absolute; height: 20px; width: 268px; padding: 5px 20px 0px;" class="p_f_box_style">
+    <div id="profileIncomplete" style="display:none; top: 182px; left: 39.5%; position: absolute; height: 20px; width: auto; padding: 5px 20px 0px;" class="p_f_box_style">
         <b>Your Profile is Incomplete. Update Your Profile...</b>
     </div>
 </asp:Content>

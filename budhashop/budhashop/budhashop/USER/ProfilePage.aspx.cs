@@ -33,7 +33,7 @@ namespace budhashop.USER
             //txt_emailidedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatename.ClientID + "', event)");
             txt_unameedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatename.ClientID + "', event)");
             txt_phnoedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updatephno.ClientID + "', event)");
-            txt_addressedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updateaddress.ClientID + "', event)");
+            //txt_addressedit.Attributes.Add("onkeypress", "return controlEnter('" + btn_updateaddress.ClientID + "', event)");
 
             if (this.Session["currentuser"] != null)
             {

@@ -14,13 +14,14 @@
         
         if($('.orderGrid tr').length==1) {
             // grid is empty
-            $('#itemsDiv').slideToggle();
-            $('#grid_res').slideToggle();
+            $('#itemsDiv').slideToggle(10);
+            $('#grid_res').slideToggle(10);
         }
         
         else {
             var itemString = $('.orderGrid tr td:eq(2)').text();
             var addrString = $('.orderGrid tr td:eq(3)').text();
+            $('#itemsDiv').slideToggle(10);
             RowSelected(itemString,addrString);
         }
 
@@ -53,7 +54,7 @@
         })
             .click(function(event) {
                 if($('.orderGrid tr').length!=1){
-                    $("#itemsDiv").slideToggle();
+                    $("#itemsDiv").slideToggle(10);
                     var row = jQuery(this)
                     var itemString = row.children("td:eq(2)").text();
                     var addrString = row.children("td:eq(3)").text();
@@ -103,7 +104,7 @@ function RowSelected(itemString,addrString)
 
         success: function(data) {
             if(data.d!='nouser'){
-                $("#itemsDiv").show(500);
+                $("#itemsDiv").slideToggle(500);
                 var primeArray = addrString.split(";");
                 $("#NameA").html(primeArray[0]);
                 $("#PhnA").html(primeArray[1]);

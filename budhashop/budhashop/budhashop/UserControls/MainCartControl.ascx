@@ -281,42 +281,7 @@
 
 
 
- <%--<script type="text/javascript">
-                                                                      
-  // Get a reference to the PageRequestManager.
-  var prm = Sys.WebForms.PageRequestManager.getInstance();
  
-  // Using that prm reference, hook _initializeRequest
-  // and _endRequest, to run our code at the begin and end
-  // of any async postbacks that occur.
-  prm.add_initializeRequest(InitializeRequest);
-  prm.add_endRequest(EndRequest);
- 
-  // Executed anytime an async postback occurs.
-  function InitializeRequest(sender, args) 
-  {
-    // Change the Container div's CSS class to .Progress.
-    $get('box3').className = 'Progress';
-    $get('box3').style.cursor = 'wait'; 
- 
-    // Get a reference to the element that raised the postback,
-    //   and disables it.
-    $get(args._postBackElement.id).disabled = true;
-  }
- 
-  // Executed when the async postback completes.
-  function EndRequest(sender, args) 
-  {
-    // Change the Container div's class back to .Normal.
-    $get('box3').className = 'Normal';
-     $get('box3').style.cursor = 'auto';
- 
-    // Get a reference to the element that raised the postback
-    //   which is completing, and enable it.
-    $get(sender._postBackSettings.sourceElement.id).disabled = false;
-  }
-  </script>
---%>
 <body>
 <div id="topnav1" title="Cart items" >
  <aside id="list">
@@ -332,29 +297,22 @@
             </div>
             <div id="list_v_line"></div>
             <div id="list_right">
-            	<%--<div id="list_simble"></div>--%>
-            	<%--<span><asp:ImageButton ID="signin1" CausesValidation="false" CssClass="signin" runat="server" ImageUrl="../images/arrow_down.gif" Width="23" Height="11"/></span>
-    --%><div  class="signin" style="padding-top:8px;"><%--<asp:LinkButton ID="signin1" CausesValidation="false" runat="server">Cart</asp:LinkButton>--%>
-    
+            	<div  class="signin" style="padding-top:8px;">
     <span><a id="signin" href="#" target="_self"><img src="../images/arrow_down.gif" width="31" height="14" alt="List" title="Cart items"></a></span></div>
         </div>
             
        </aside> 
     <fieldset id="signin_menu">
     
-        <%--<asp:Label ID="errorLbl" runat="server" Text="No items in cart!" Font-Bold="true"
-        ></asp:Label>--%>
         <!--Full Page Details Start-->
         
         
         
-        <%--<input type="button" id="hideCartBtn" value="Hide" />--%>
+        
         <asp:HiddenField ID="hdnUserId" runat="server"/>
        
        
-      <%--  <asp:Panel ID="itempanel" runat="server" CssClass="scroll-pane" Height="300" Width="350" BorderStyle="Solid" BorderColor="Black" ScrollBars="Vertical"> --%>                                                                              
       
-       <%-- </asp:Panel>--%>
        
       <section id="cart_layout" class="inner_box_style" style="margin-top:-13px; margin-right:156px;"> 
     <!-- Cart body start-->

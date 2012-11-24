@@ -15,9 +15,7 @@
 
     <script type="text/javascript" src="script/scroll/homePageLoad.js"></script>
 
- <%--Call for json to update in cart--%>
-<%--<script type="text/javascript" src="script/CartJSONCall.js"></script>--%>
-<%--<article style="height:200px;"></article>--%>
+ 
  <%--div for the sliding banner--%>
   <div id='coin-slider'>
     <a href="img01_url" target="_blank">

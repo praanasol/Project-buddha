@@ -33,12 +33,6 @@
  
     <link href="../Styles/profile.css" rel="stylesheet" type="text/css" />
     
-    
-   <%-- <link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font">--%>
-
-
- <%--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
- <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>--%>
     <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
  
     <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>
@@ -80,9 +74,7 @@
     </script>
    
 
-   <%--  <script src="/script/scroll/scroll16.js" type="text/javascript"></script>
-      <script src="/script/json2.js" type="text/javascript"></script>
---%>
+   
 <!--[if lt IE 9]>
 <script type="text/javascript" src="../script/html5shiv/dist/html5shiv.js"></script>
 <![endif]-->
@@ -114,19 +106,7 @@
       <!--Top links area - Start-->
       <div id="top_links_row">
         <div id="top_links_area"> 
-          <!--Default links Start-->
-          <%--<div id="top_defaultlinks_area">
-            <nav id="top_defaultlinks">
-              <ul>
-                <li><a href="#" target="_self">Home</a></li>
-                |
-                <li><a href="#" target="_self">About Us</a></li>
-                |
-                <li><a href="#" target="_self">Contact Us</a></li>
-              </ul>
-            </nav>
-          </div>--%>
-          <!--Default links End--> 
+           
           <!--login links Start-->
           <div id="top_loginlinks_area">
          
@@ -134,13 +114,7 @@
             <uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" />
             </div>
           </div>
-          <%--<div id="top_loginlinks_area">
-            <nav id="top_loginlinks">
-              <ul>
-                <li><a href="#" target="_self">LogIn</a></li>
-              </ul>
-            </nav>
-          </div>--%>
+          
           <!--login links End-->
           <div></div>
         </div>
@@ -152,33 +126,14 @@
     	<!--Navigation Start-->
     	<aside id="navigation">
     	    <uc_navi:naviuc ID="navg" runat="server" />
-        	<%--<nav id="nav">
-            	<ul id="navitems">
-                	<li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
-                    <li><a href="../itemspage.aspx?catid=3" target="_self">Devotional</a></li>
-                    <li><a href="../itemspage.aspx?catid=5" target="_self">Traditional</a></li>
-                    <li><a href="#" target="_self">Trendy Stuff</a></li>
-               
-                </ul>
-            </nav>--%>
+        	
         </aside>
         <!--Navigation End-->
         <!--List items link area Start-->
         <aside id="list" style="width:140px; background:transparent;">
          <asp:Label ID="message_2" runat="server" Text=""></asp:Label>
         </aside>
-        <%--<aside id="list">
-        	<div id="list_left">
-            	<p class="style1">Items<br />14</p>
-            </div>
-            <div id="list_v_line"></div>
-            <div id="list_right">
-            	<div id="list_simble"></div>--%>
-            	<%--<uc4:cart ID="cartCtrl" runat="server" />--%>
-           	    <%--<span><a href="#" target="_self"><img src="../images/arrow_down.gif" width="23" height="11" alt="List" title="List"></a></span>
-          --%>  <%--</div>
-            
-        </aside>--%>
+        
         <!--List items link area End-->
     </div>
       <!--Navigation Row End-->
@@ -187,17 +142,12 @@
       <div id="search_row">
       	<div id="v_line"></div>
       	<uc_search:searchuc ID="srch" runat="server" />
-        <%--<div id="search_form"><asp:TextBox ID="SearchAll" runat="server" CssClass="search_form_style"></asp:TextBox></div>
-        <div id="go_but" class="go_but_style">
-        	<div id="go_link">
-                <asp:LinkButton ID="searchBtn" runat="server" CssClass="go" Text="GO" 
-                     OnClick="searchBtn_Click"></asp:LinkButton></div>
-        </div>--%>
+       
         <div id="v_line" style="margin-left:13px;"></div>
         
         <uc4:cart ID="cart1" runat="server" />
         
-       <%-- <div id="ph" class="style2">8732873888</div>--%>
+       
       </div>
       <!--Search row End--> 
    </aside>
@@ -228,7 +178,7 @@
   <nav id="nav_bottom" style="font-size:10px;">
   <ul id="footerNav" style=" width:100%;">
   <li><a href="../homepage.aspx" target="_self" >Home</a></li>
-  <li><a href="../itemspage.aspx?catid=1" target="_self">Pooja Items</a></li>
+  <li><a href="../itemspage.aspx?catid=1" target="_self">Aarogya</a></li>
   </ul>
   </nav>
   </aside>
@@ -248,18 +198,7 @@
   </footer>
 </div>
 
-<%--<div id="top_loginlinks_area">
-    <div id="mainloginuc" style="position:absolute; top:-8px; left:58%;">
-            <nav id="top_loginlinks">
-              <ul>
-                <li><a href="#"><uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" /></a></li>
-              </ul>
-            </nav>
-            </div>
-          </div>--%>
-<%--<div id="mainloginuc" style="position:absolute; top:2px; left:30%;">
-    <uc_mainlogin:mainloginuc ID="maiinlogin" runat="server" />
-</div>--%>
+
 
     </form>
 </body>

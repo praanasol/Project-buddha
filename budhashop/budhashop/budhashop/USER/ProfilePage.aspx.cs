@@ -64,7 +64,7 @@ namespace budhashop.USER
             }
         }
 
-        protected void retrieveUser(string emailid)
+        private void retrieveUser(string emailid)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace budhashop.USER
             }
         }
 
-        protected void getOrders()
+        private void getOrders()
         {
             DataTable dt = (DataTable)this.Session["currentuser"];
             string userid = dt.Rows[0]["Uid"].ToString();

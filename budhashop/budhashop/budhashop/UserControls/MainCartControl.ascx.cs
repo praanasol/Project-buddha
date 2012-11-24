@@ -19,7 +19,7 @@ namespace budhashop.UserControls
 {
     public partial class MainCartControl : System.Web.UI.UserControl
     {
-        public List<CartItems> CartDetails;
+        private List<CartItems> CartDetails;
         
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -9,22 +9,22 @@ namespace budhashop.Captcha
 	/// <summary>
 	/// Summary description for CaptchaImage.
 	/// </summary>
-	public class CaptchaImage
+	internal class CaptchaImage
 	{
 		// Public properties (all read-only).
-		public string Text
+		private string Text
 		{
 			get { return this.text; }
 		}
-		public Bitmap Image
+		internal Bitmap Image
 		{
 			get { return this.image; }
 		}
-		public int Width
+		private int Width
 		{
 			get { return this.width; }
 		}
-		public int Height
+		private int Height
 		{
 			get { return this.height; }
 		}
@@ -50,7 +50,7 @@ namespace budhashop.Captcha
             return r.Next(1, maxNumber);
         }
         // Returns a Random String.
-        public static string GenerateRandomCode(int length)
+        internal static string GenerateRandomCode(int length)
         {
             string[] array = new string[54]
             {
@@ -70,7 +70,7 @@ namespace budhashop.Captcha
 		// Initializes a new instance of the CaptchaImage class using the
 		// specified text, width and height.
 		// ====================================================================
-		public CaptchaImage(string s, int width, int height)
+		private CaptchaImage(string s, int width, int height)
 		{
 			this.text = s;
 			this.SetDimensions(width, height);
@@ -81,7 +81,7 @@ namespace budhashop.Captcha
 		// Initializes a new instance of the CaptchaImage class using the
 		// specified text, width, height and font family.
 		// ====================================================================
-		public CaptchaImage(string s, int width, int height, string familyName)
+		internal CaptchaImage(string s, int width, int height, string familyName)
 		{
 			this.text = s;
 			this.SetDimensions(width, height);
@@ -100,7 +100,7 @@ namespace budhashop.Captcha
 		// ====================================================================
 		// Releases all resources used by this object.
 		// ====================================================================
-		public void Dispose()
+		internal void Dispose()
 		{
 			GC.SuppressFinalize(this);
 			this.Dispose(true);

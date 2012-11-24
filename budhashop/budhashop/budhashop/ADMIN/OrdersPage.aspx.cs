@@ -23,7 +23,7 @@ namespace budhashop.ADMIN
             
         }
 
-        protected void getOrders()
+        private void getOrders()
         {
             try
             {
@@ -160,16 +160,16 @@ namespace budhashop.ADMIN
             itemsDiv.Visible = false;
         }
 
-        public class ItemDetails
-        {
-            public string ItemId { get; set; }
-            public string ItemPath { get; set; }
-            public string ItemName { get; set; }
-            public string ItemPrice { get; set; }
+        //public class ItemDetails
+        //{
+        //    public string ItemId { get; set; }
+        //    public string ItemPath { get; set; }
+        //    public string ItemName { get; set; }
+        //    public string ItemPrice { get; set; }
             
-            public string ItemQty { get; set; }
-            public string CatId { get; set; }
-        }
+        //    public string ItemQty { get; set; }
+        //    public string CatId { get; set; }
+        //}
 
         protected void btn_search_Click(object sender, EventArgs e)
         {

@@ -4,6 +4,9 @@
 
         $(".logintext").click(function(e) {          
             e.preventDefault();
+            $("[id$=txt_emailid1]").val('Email ID...');
+            $("[id$=txt_pwd1]").val('      ');
+            $("[id$=lbl_result1]").text('');
             $("#user-status").slideToggle(500);
             $(".logintext").hide();
             $("#closeimg1").show();

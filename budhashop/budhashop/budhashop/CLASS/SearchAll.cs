@@ -13,13 +13,13 @@ using System.Collections.Generic;
 
 namespace budhashop.CLASS
 {
-    public class SearchAll
+    internal class SearchAll
     {
         //public int ID { get; set; }
         public string value { get; set; }
         public string ItemLink { get; set; }
 
-        public List<SearchAll> GetSearchList()
+        internal List<SearchAll> GetSearchList()
         {
             DataTable dt = new DataTable();
             DataTable dtg = new DataTable();

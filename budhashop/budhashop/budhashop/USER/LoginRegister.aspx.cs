@@ -19,7 +19,7 @@ namespace budhashop.USER
 {
     public partial class LoginRegister : System.Web.UI.Page
     {
-        public DataTable dt;
+        private DataTable dt;
 
         private void Page_Load(object sender, System.EventArgs e)
         {

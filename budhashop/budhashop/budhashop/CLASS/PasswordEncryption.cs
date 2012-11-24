@@ -15,12 +15,12 @@ using System.Text;
 
 namespace budhashop.CLASS
 {
-    public class PasswordEncryption
+    internal class PasswordEncryption
     {
         static void Main(string[] args)
         {
         }
-        public static string EncryptIt(string password)
+        internal static string EncryptIt(string password)
         {
             HashAlgorithm hash = new SHA512Managed();
 

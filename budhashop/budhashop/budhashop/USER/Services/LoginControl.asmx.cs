@@ -21,9 +21,9 @@ namespace budhashop.USER.Services
     //[ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     [System.Web.Script.Services.ScriptService]
-    public class LoginControl : System.Web.Services.WebService
+    internal class LoginControl : System.Web.Services.WebService
     {
-        public DataTable dt;
+        private DataTable dt;
 
         [WebMethod(EnableSession = true)]
         public string LoginUser(string emailid, string password)

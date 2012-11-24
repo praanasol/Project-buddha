@@ -28,10 +28,10 @@ namespace budhashop.USER
 {
     public partial class OrderPage : System.Web.UI.Page
     {
-        public List<CartItems> CartDetails;
+        private List<CartItems> CartDetails;
 
-        public DataTable dt;
-        public bool adrFlag = false;
+        private DataTable dt;
+        private bool adrFlag = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {

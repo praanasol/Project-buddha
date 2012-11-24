@@ -21,7 +21,7 @@ namespace budhashop.ADMIN
 {
     public partial class InsertPage : System.Web.UI.Page
     {
-        public DataTable dtt;
+        private DataTable dtt;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -39,7 +39,7 @@ namespace budhashop.ADMIN
             }
         }
 
-        protected void getcatgs()
+        private void getcatgs()
         {
             try
             {
@@ -227,7 +227,7 @@ namespace budhashop.ADMIN
 
         }
 
-        protected bool checkPhoto(FileUpload imgFU)
+        private bool checkPhoto(FileUpload imgFU)
         {
             System.Drawing.Image img = null;//System.Drawing.Image.FromStream(PhotoFU.PostedFile.InputStream);
 
@@ -401,7 +401,7 @@ namespace budhashop.ADMIN
 
         }
 
-        protected void searchDT(string itemname, int catid)
+        private void searchDT(string itemname, int catid)
         {
             try
             {

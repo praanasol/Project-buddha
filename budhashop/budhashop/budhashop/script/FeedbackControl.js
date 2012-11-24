@@ -2,6 +2,10 @@
 
         $("#img_fb").click(function(e) {
             //$(".feedback-body").show();
+            $("[id$=txt_emailfb]").val('');
+            $("[id$=txt_msg]").val('');
+            $("[id$=lbl_emailfb]").text('');
+            $("[id$=lbl_msg]").text('');
             $(".feedback-body").animate({right:"0%"});
             $("#feedback").hide();
             e.stopPropagation();
@@ -23,9 +27,9 @@
             $("#feedback").show();
         });
 
-        $("#btn_fbclose").click(function(){
-            $("#submittedFbDiv").hide();
-        });
+//        $("#btn_fbclose").click(function(){
+//            $("#submittedFbDiv").hide();
+//        });
 });
 
 function Fb_Submit()

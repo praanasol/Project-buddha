@@ -15,17 +15,17 @@ namespace budhashop.UserControls
 {
     public partial class mainSearch : System.Web.UI.UserControl
     {
-        public string startItem
-        {
-            get
-            {
-                return SearchAll.Text;
-            }
-            set
-            {
-                SearchAll.Text = value;
-            }
-        }
+        //public string startItem
+        //{
+        //    get
+        //    {
+        //        return SearchAll.Text;
+        //    }
+        //    set
+        //    {
+        //        SearchAll.Text = value;
+        //    }
+        //}
         protected void Page_Load(object sender, EventArgs e)
         {
 

@@ -20,7 +20,7 @@ namespace budhashop.USER
 {
     public partial class ForgotPassword : System.Web.UI.Page
     {
-        public DataTable dt;
+        private DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -34,7 +34,7 @@ namespace budhashop.USER
         private static string randomtext = HardCodedValues.BudhaConstants.RandomString;
 
         // Generates and returns a new random password
-        public static string GenerateRandomPassword(int length)
+        private static string GenerateRandomPassword(int length)
         {
             string result = "";
             while (length-- > 0)
@@ -107,7 +107,7 @@ namespace budhashop.USER
             txt_captcha.Text = "";
         }
         
-        protected void sendEmail(string emailid, string password)
+        private void sendEmail(string emailid, string password)
         {
             
             string smsg = "New password has been generated, find your details below:<br>";

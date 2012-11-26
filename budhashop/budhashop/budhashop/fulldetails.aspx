@@ -107,11 +107,11 @@
             <!--Other details end-->
             </section>
         <!--full Details Header part End-->
-        <section></section>
+       <%-- <section></section>--%>
         <!--full Details Body part Start-->
-            <section id="f_d_body">
+           <%-- <section id="f_d_body">
                
-            </section>
+            </section>--%>
         <!--full Details Body part End-->
         
         <!--full Details End-->
@@ -125,7 +125,7 @@
 	<div id="featuredBtn" style="float:left; margin:20px 0 0 30px; background:#AC7713; padding:5px;border:#981d18 solid 1px;
 	border-radius:5px;"></div>
     	
-    	
+   </div> 	
 
 
 

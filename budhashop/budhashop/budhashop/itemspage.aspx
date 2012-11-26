@@ -84,15 +84,7 @@
     <div id="hiddenresult" style="display: none;">
     </div>
        
-          <script id="catTemplate" type="text/x-jquery-tmpl">
-        <div class="result">
-    <p>
-            <b>${title}</b>
-            <br />
-            <img src="${media.m}" />
-        </p>
-    </div>
-    </script>
+        
 
          <%-- <!--Category Item part Start-->
           <aside id="inner_category_box" class="category_box_style">

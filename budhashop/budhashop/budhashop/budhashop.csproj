@@ -111,6 +111,13 @@
     <Compile Include="Articles\articleHome.aspx.designer.cs">
       <DependentUpon>articleHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Articles\art_full.aspx.cs">
+      <DependentUpon>art_full.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articles\art_full.aspx.designer.cs">
+      <DependentUpon>art_full.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Captcha\CaptchaImage.cs" />
     <Compile Include="Captcha\JpegImage.aspx.cs">
       <DependentUpon>JpegImage.aspx</DependentUpon>
@@ -453,6 +460,7 @@
     <None Include="script\html5shiv\.gitignore" />
     <None Include="script\html5shiv\readme.md" />
     <Content Include="Articles\articleHome.aspx" />
+    <Content Include="Articles\art_full.aspx" />
     <Content Include="Captcha\Refresh.PNG" />
     <Content Include="contactus.aspx" />
     <Content Include="errorpage.aspx" />

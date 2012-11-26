@@ -557,13 +557,16 @@ footer{
 	text-align:center;
 	
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#7E1B1B), to(#4d1c12));
+	background: -ms-gradient(linear, 0 0, 0 bottom, from(#7E1B1B), to(#4d1c12));
     background: -moz-linear-gradient(#7E1B1B, #4d1c12);
     background: linear-gradient(#7E1B1B, #4d1c12);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7E1B1B, endColorstr=#4d1c12);
+		  
     
     -moz-box-shadow:inset 0px 0px 5px 2px #ac7713;
+    -ms-box-shadow:inset 0px 0px 5px 2px #ac7713;
 -webkit-box-shadow:inset 0px 0px 5px 2px #ac7713;
-box-shadow:inset 0px 0px 5px 3px #ac7713;
+box-shadow:inset 0px 0px 5px 5px #ac7713;
 border-radius:20px;
 border-top-left-radius: 1px;
 border-top-right-radius: 1px;

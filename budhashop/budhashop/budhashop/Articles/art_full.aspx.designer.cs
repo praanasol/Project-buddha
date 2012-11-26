@@ -11,6 +11,6 @@
 namespace budhashop.Articles {
     
     
-    public partial class articleHome {
+    public partial class art_full {
     }
 }

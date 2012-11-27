@@ -4,6 +4,7 @@
         if (isPostBackObject != null) 
         {
             $("#CartDiv").hide();
+            $("#adressDiv").show();
         }
         else
         {
@@ -215,3 +216,21 @@ function onerror(result){
         alert("Error calling service method.");
     }
     
+function showOrderMailedDiv(){
+        $("#preloader").hide();
+        $('#overlay').show();
+        $('#ordermailedDiv').show();
+    }
+    
+function showOrderMailedDivError(){
+        $("#preloader").hide();
+        $('#overlay').show();
+        $('#ordermailedDivError').show();
+    }
+    
+function showPreloader(){
+        var name = $("[id$=txt_uname]").val();
+        var phno = $("[id$=txt_phno]").val();
+        var address = $("[id$=txt_address]").val();
+        $("#preloader").show();
+    }

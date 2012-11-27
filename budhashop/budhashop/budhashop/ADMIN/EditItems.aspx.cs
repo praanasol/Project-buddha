@@ -118,6 +118,8 @@ namespace budhashop.ADMIN
             TextBox billedrate=(TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_billedrate");
             TextBox quantity = (TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_qty");
             TextBox netrate = (TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_netrate");
+            CheckBox cb_actvsts = (CheckBox)itemGrid.Rows[e.RowIndex].FindControl("cb_actvstsedit");
+            CheckBox cb_featuredflag = (CheckBox)itemGrid.Rows[e.RowIndex].FindControl("cb_fflagedit");
                         
             //check whether the image is valid or not
             bool isImageValid = checkPhoto(fu_itemimage,Int32.Parse(catagoryid.Text),itemid);
@@ -131,12 +133,15 @@ namespace budhashop.ADMIN
                 UpdateItemObj.itemBR = float.Parse(billedrate.Text);
                 UpdateItemObj.itemQty = Int32.Parse(quantity.Text);
                 UpdateItemObj.itemNR = float.Parse(netrate.Text);
+                UpdateItemObj.itemStatus = cb_actvsts.Checked;
+                UpdateItemObj.featuredFlag = cb_featuredflag.Checked;
 
                 IAdmin UpdateItems = new AdminItems();
                 int updated = UpdateItems.UpdateItems(UpdateItemObj, itemid);
                 if (updated != -1)
                 {
                     lbl_status.Text = HardCodedValues.BuddaResource.UpdateSuccess;
+                    ClearCache();
                     itemGrid.EditIndex = -1;
                     int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
                     if (txt_itemname.Text == "")
@@ -225,6 +230,7 @@ namespace budhashop.ADMIN
             if (removed == -1)
             {
                 lbl_status.Text = HardCodedValues.BuddaResource.ItemDeleted;
+                ClearCache();
                 int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
                 if (txt_itemname.Text == "")
                 {
@@ -290,6 +296,11 @@ namespace budhashop.ADMIN
             itemGrid.PageIndex = e.NewPageIndex;
             int grpCatId = Int32.Parse(ddl_catagory.SelectedValue.ToString());
             getItems(grpCatId);
+        }
+
+        private void ClearCache()
+        {
+            System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
         }
 
         protected void lb_logout_Click(object sender, EventArgs e)

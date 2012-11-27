@@ -207,7 +207,7 @@ namespace DataAccessBS.AdminClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[7];
+                SqlParameter[] sqlParams = new SqlParameter[9];
 
                 //Catgory parameters
                 sqlParams[0] = new SqlParameter("@itemId", itemid);
@@ -217,7 +217,8 @@ namespace DataAccessBS.AdminClasses
                 sqlParams[4] = new SqlParameter("@itemBR", updateitemObjDa.itemBR);
                 sqlParams[5] = new SqlParameter("@itemNR", updateitemObjDa.itemNR);
                 sqlParams[6] = new SqlParameter("@itemQty", updateitemObjDa.itemQty);
-                //sqlParams[6] = new SqlParameter("@itemSts", itemObjDa.itemStatus);
+                sqlParams[7] = new SqlParameter("@itemSts", updateitemObjDa.itemStatus);
+                sqlParams[8] = new SqlParameter("@featuredFlag", updateitemObjDa.featuredFlag);
 
                 int updated = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_UPDATE_ITEMS", sqlParams);
 

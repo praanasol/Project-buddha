@@ -56,6 +56,21 @@
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <Columns>
+                <asp:TemplateField HeaderText="Action">
+                    <EditItemTemplate>
+                        <asp:LinkButton ID="lb_update" runat="server" CommandName="Update" 
+                            ValidationGroup="update">Update</asp:LinkButton>
+                        &nbsp;
+                        <asp:LinkButton ID="lb_cancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lb_edit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                        &nbsp;
+                        <asp:LinkButton ID="lb_remove" runat="server" CommandName="Delete"                                    
+                            
+                            OnClientClick="return confirm('Are you Sure you want to Remove this Item');">Remove</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Item Id">
                     <EditItemTemplate>
                         <asp:Label ID="lbl_editiid" runat="server" Text='<%# Eval("ItemId") %>'></asp:Label>
@@ -147,19 +162,20 @@
                         <asp:Label ID="lbl_netrate" runat="server" Text='<%# Eval("NetRate") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Action">
+                <asp:TemplateField HeaderText="Active Status">
                     <EditItemTemplate>
-                        <asp:LinkButton ID="lb_update" runat="server" CommandName="Update" 
-                            ValidationGroup="update">Update</asp:LinkButton>
-                        &nbsp;
-                        <asp:LinkButton ID="lb_cancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                        <asp:CheckBox ID="cb_actvstsedit" runat="server" Checked='<%# Eval("ActvSts") %>' />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lb_edit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
-                        &nbsp;
-                        <asp:LinkButton ID="lb_remove" runat="server" CommandName="Delete"                                    
-                            
-                            OnClientClick="return confirm('Are you Sure you want to Remove this Item');">Remove</asp:LinkButton>
+                        <asp:CheckBox ID="cb_actvsts" runat="server" Checked='<%# Eval("ActvSts") %>' Enabled="False" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Featured Flag">
+                    <EditItemTemplate>
+                        <asp:CheckBox ID="cb_fflagedit" runat="server" Checked='<%# Eval("FeaturedFlag") %>' />
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="cb_fflag" runat="server" Checked='<%# Eval("FeaturedFlag") %>' Enabled="False" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -490,10 +490,10 @@ namespace budhashop.USER
                         LoadItemsFinal();
                         //CartDiv.Visible = false;
                         //adressDiv.Visible = false;
-                        cartData.Visible = true;
-                        cartDataGV.Visible = true;
+                        //cartData.Visible = true;
+                        //cartDataGV.Visible = true;
                         Session["CartPicks"] = null;
-                        lbl_status.Text = "Order placed successfully";
+                        //lbl_status.Text = "Order placed successfully";
 
                         purchaseIdLbl.Text = purchaseId.ToString();
                         totalpLbl.Text = TotalBill.ToString();
@@ -503,15 +503,23 @@ namespace budhashop.USER
                         phnpLbl.Text = txt_phno.Text.ToString();
                         addrpLbl.Text = txt_address.Text.ToString();
 
-
-
                         adrFlag = true;
                         ClientScript.RegisterHiddenField("isPostBack", "1");
 
-                        sendEmail();
-                        emailsentlbl.Text = "Order information has been sent to your email";
-                        emailsentlbl.Visible = true;
-                        Response.Redirect("../USER/ProfilePage.aspx");
+                        int status = sendEmail();
+                        ClientScriptManager cs = Page.ClientScript;
+                        if (status == 1)
+                        {
+                            //emailsentlbl.Text = "Order information has been sent to your email";
+                            //emailsentlbl.Visible = true;
+                            //Response.Redirect("../USER/ProfilePage.aspx");
+                            cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "showOrderMailedDiv();", true);
+
+                        }
+                        else
+                        {
+                            cs.RegisterStartupScript(typeof(Page), "PrintScript_" + UniqueID, "showOrderMailedDivError();", true);
+                        }
                     }
                     else
                     {
@@ -531,7 +539,7 @@ namespace budhashop.USER
 
         }
 
-        private void sendEmail()
+        private int sendEmail()
         {
             //string siteurl = "http://www.autoraksha.com/login/NewPassword.aspx";
             string smsg = "Your order is placed succesfully, find your details below:<br>";
@@ -568,10 +576,11 @@ namespace budhashop.USER
 
                 client.Credentials = nc;
                 client.Send(message);
-                
+                return 1;
             }
             catch (Exception ex)
             {
+                return 0;
                 throw ex;
             }
         }

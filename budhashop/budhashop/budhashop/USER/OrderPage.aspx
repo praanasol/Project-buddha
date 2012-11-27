@@ -413,6 +413,13 @@
                 </asp:GridView>
             </div>
         </div>
-        
+        <div id="ordermailedDiv" class="p_f_box_style" style="display:none; position:absolute; z-index:103; height:100px; top:300px; left:500px;">
+            Your Order is Placed Succefully.<br />And a Confirmaition mail is Sent to your MailId.<br />
+            <a href="ProfilePage.aspx">OK</a>
+        </div>
+        <div id="ordermailedDivError" class="p_f_box_style" style="display:none; position:absolute; z-index:103; height:100px; top:300px; left:500px;">
+            Your Order is Placed Succefully.<br />Error Occured while sending Email Confirmation<br />
+            <a href="ProfilePage.aspx">OK</a>
+        </div>
         <asp:HiddenField ID="chkConfirm" runat="server" />
 </asp:Content>

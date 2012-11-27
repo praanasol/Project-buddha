@@ -14,6 +14,7 @@ namespace BusinessEntitiesBS.ItemEntities
         public float itemBR { get; set; }
         public float itemNR { get; set; }
         public int itemQty { get; set; }
-        public bool   itemStatus { get; set; }
+        public bool itemStatus { get; set; }
+        public bool featuredFlag { get; set; }
     }
 }

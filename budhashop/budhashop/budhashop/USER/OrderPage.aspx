@@ -418,8 +418,9 @@
             <div style="height:20px;"></div>
             <a href="ProfilePage.aspx" class="l_go">OK</a>
         </div>
-        <div id="ordermailedDivError" class="p_f_box_style" style="display:none; position:absolute; z-index:103; height:100px; top:300px; left:500px;">
-            Your Order is Placed Succefully.<br />Error Occured while sending Email Confirmation<br />
+        <div id="ordermailedDivError" class="p_f_box_style" style="display:none; position:absolute; z-index:103; height:100px; top:300px; left:500px; text-align:center; padding:30px;">
+            <b>Your Order is Placed Succefully.<br />Error Occured while sending Email Confirmation<br /></b>
+            <div style="height:20px;"></div>
             <a href="ProfilePage.aspx" class="l_go">OK</a>
         </div>
         <asp:HiddenField ID="chkConfirm" runat="server" />

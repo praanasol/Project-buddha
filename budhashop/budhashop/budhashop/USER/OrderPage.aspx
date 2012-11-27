@@ -353,7 +353,7 @@
                     <asp:RequiredFieldValidator ID="rfv1" runat="server" ErrorMessage="*" ControlToValidate="txt_uname"
                         SetFocusOnError="True" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
-                <div id="p_f_field" style="width: 100px;">
+                <div id="p_f_field" style="width: 200px;">
                     <asp:TextBox ID="txt_uname" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
                 </div>
             </div>
@@ -365,7 +365,7 @@
                         ControlToValidate="txt_phno" ErrorMessage="*" SetFocusOnError="True" 
                         ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
-                <div id="p_f_field" style="width: 100px;">
+                <div id="p_f_field" style="width: 200px;">
                     <asp:TextBox ID="txt_phno" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
                 
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
@@ -381,7 +381,7 @@
                         ControlToValidate="txt_address" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="1"></asp:RequiredFieldValidator>
                 </div>
-                <div id="p_f_field" style="width: 100px;">
+                <div id="p_f_field" style="width: 200px;">
                     <asp:TextBox ID="txt_address" CssClass="p_f_form_style" Rows="3" runat="server" TextMode="MultiLine" Height="70px" Width="180px"></asp:TextBox>
             </div>
                 <div>
@@ -391,7 +391,7 @@
         <div id="login_links" style="width: 510px; height:30px;">
             <div id="to_left">Change your Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></div>
             <div id="but_style" style="margin: 0px 0px 0px 13px;">
-                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" ValidationGroup="1" />
+                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" OnClientClick="if (Page_ClientValidate()) return showPreloader(); else return false;" ValidationGroup="1" />
                  <asp:LinkButton ID="back_btn" runat="server" Text="Back" CssClass="l_go" PostBackUrl="~/USER/OrderPage.aspx"></asp:LinkButton>
             </div>
                  

@@ -229,8 +229,5 @@ function showOrderMailedDivError(){
     }
     
 function showPreloader(){
-        var name = $("[id$=txt_uname]").val();
-        var phno = $("[id$=txt_phno]").val();
-        var address = $("[id$=txt_address]").val();
         $("#preloader").show();
     }

@@ -45,7 +45,7 @@
     $.ajax({
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        url: "Services/Services.aspx/BindDatatable",
+        url: "../Services/Services.aspx/BindDatatable",
         data: "{}",
         dataType: "json",
         success: function(data) {

@@ -42,22 +42,24 @@ namespace budhashop
                     {
                         newItem.ItemId = ID;
 
-                        if (Type == 1)
+                        if (Type == 0)
                         {
-                            newItem.CatId = 3;
+                            newItem.CatId = 1;
                             newItem.GrpChk = true;
                         }
                         else
                         {
-                            if (Type == 3)
-                            {
-                                newItem.CatId = 3;
-                            }
-                            else
-                            {
-                                newItem.CatId = 5;
-                            }
+                            //if (Type == 3)
+                            //{
+                            //    newItem.CatId = 3;
+                            //}
+                            //else
+                            //{
+                            //    newItem.CatId = 5;
+                            //}
+                            newItem.CatId = Type;
                             newItem.GrpChk = false;
+                            
                         }
                         newItem.Qty = 1;
                         cartItems.Add(newItem);

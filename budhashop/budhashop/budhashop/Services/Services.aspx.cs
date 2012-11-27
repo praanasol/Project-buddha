@@ -265,8 +265,9 @@ namespace budhashop.Services
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static bool SetSessionValue(string Name, string ID, int Type)
+        public static bool SetSessionValue(string ID, int Type)
         {
+            string Name = "CartPicks";
             //string sessionVal = String.Empty;
             List<CartItems> cartItems = new List<CartItems>();
 
@@ -282,21 +283,22 @@ namespace budhashop.Services
                     {
                         newItem.ItemId = int.Parse(ID);
 
-                        if (Type == 1)
+                        if (Type == 0)
                         {
-                            newItem.CatId = 3;
+                            newItem.CatId = 1;
                             newItem.GrpChk = true;
                         }
                         else
                         {
-                            if (Type == 3)
-                            {
-                                newItem.CatId = 3;
-                            }
-                            else
-                            {
-                                newItem.CatId = 5;
-                            }
+                            //if (Type == 3)
+                            //{
+                            //    newItem.CatId = 3;
+                            //}
+                            //else
+                            //{
+                            //    newItem.CatId = 5;
+                            //}
+                            newItem.CatId = Type;
                             newItem.GrpChk = false;
                         }
                         newItem.Qty = 1;

@@ -1,18 +1,21 @@
 ﻿$(document).ready(function(){
-
+ $(".feedback-body").hide();
         $("#img_fb").click(function(e) {
             //$(".feedback-body").show();
             $("[id$=txt_emailfb]").val('');
             $("[id$=txt_msg]").val('');
             $("[id$=lbl_emailfb]").text('');
             $("[id$=lbl_msg]").text('');
+             $(".feedback-body").show();
             $(".feedback-body").animate({right:"0%"});
             $("#feedback").hide();
             e.stopPropagation();
         });
         
         $(document).click(function(e) {
+           
             $(".feedback-body").animate({right:"-25%"});
+             $(".feedback-body").hide(500);
             $("#feedback").show();
             e.stopPropagation();
             //$(".feedback-body").hide();
@@ -24,6 +27,7 @@
         
         $("#closeimg").click(function(e){
             $(".feedback-body").animate({right:"-25%"});
+             $(".feedback-body").hide(500);
             $("#feedback").show();
         });
 

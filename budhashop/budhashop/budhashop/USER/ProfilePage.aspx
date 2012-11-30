@@ -243,7 +243,7 @@
            <%-- <div id="contentDiv" class="scroll-pane" style="height:350px;">--%>
             <asp:Panel ID="contentDiv" runat="server" CssClass="scroll-pane1" Height="350" ScrollBars="Vertical">
                 <asp:GridView ID="orderGrid" CssClass="orderGrid" runat="server" 
-                    CellSpacing="6" CellPadding="2"  HeaderStyle-CssClass="g_head"  
+                    CellSpacing="2" CellPadding="2"  HeaderStyle-CssClass="g_head"  
                     AlternatingRowStyle-CssClass="p_g_alt_row_style" 
                     RowStyle-CssClass="p_g_row_style" AutoGenerateColumns="False"
                     GridLines="None" AlternatingRowStyle-Wrap="False" 

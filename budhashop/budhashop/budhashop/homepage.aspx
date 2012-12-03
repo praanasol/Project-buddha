@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="budhashop.homepage" Title="Go Vedic - Online Shopping Cart - Traditional and Natural Products" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="budhashop.homepage" Title="Go Vedic - Online Shopping - Traditional and Natural Products" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
@@ -15,53 +16,71 @@
 
     <script type="text/javascript" src="script/scroll/homePageLoad.js"></script>
 
- 
+  <script src="script/jquery.cycle.all.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('#side-info').show();
+$('#slideshow').cycle({
+    fx:     'scrollUp', 
+     
+    delay:  -2000 // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+});
+$('#slideshow2').cycle({
+    fx:     'scrollLeft', 
+     
+    delay:  -4000 // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+});
+
+});
+</script> 
  <%--div for the sliding banner--%>
- <div>
+ <div id="side-info" style="display:none;">
  <div style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
  <div class="quicklinks">
  <b>Customer Support: <br />
    +91 8125878727</b><br />
-   Contact info
+   <a class="link1" href="contactus.aspx">Contact info</a>
+  </div>
+  <br />
+  <div id="slideshow" class="quicklinks" style="height:45px;">
+  <b style="text-align:center; margin-left:30px;"> > Rs.750 <br />free shipping</b>
+  <b style="text-align:center; margin-left:30px;">Cash on delivery</b>
+  <b style="text-align:center; margin-left:30px;">Presently, only for hyderabad</b>
+  </div>
+  <br />
+  <div id="slideshow2" class="quicklinks" style="height:90px;">
+  <b>New products</b>
+  <b>New product <br /> - product 1 -</b>
+  <b>New product <br /> - product 2 -</b>
+  <b>New product<br /> - product 3 -</b>
+  <b>New product<br /> - product 4 -</b>
+  <b>New product<br /> - product 5 -</b>
   </div>
   <br />
   <div class="quicklinks">
-  <b>Shipping <br />
-  Cash on delivery</b>
-  </div>
-  <br />
-  <div class="quicklinks">
-  <b>Articles <br />
-  Go sandarshan, kahdi lifestyle, vedic philosophy</b>
-  </div>
-  <br />
-  <div style="background-color: #E5B354;
-    border: 2px solid #8A0C05;
-    border-radius: 5px 5px 5px 5px;-moz-box-shadow:inset 0px 0px 34px 10px #ac7713;
--webkit-box-shadow:inset 0px 0px 34px 10px #ac7713;
-box-shadow:inset 0px 0px 34px 10px #ac7713; padding:5px;">
-  <b>New Products <br />
-  slide show</b>
+  <b>Articles</b>
+  
   </div>
  </div>
   <div id='coin-slider'>
-    <a href="img01_url" target="_blank">
+    <a href="../itemspage.aspx?catid=1" target="_blank">
         <img src="images/banner/banner1.jpg">
         
     </a>
- <a href="img01_url" target="_blank">
+ <a href="../itemspage.aspx?catid=2" target="_blank">
         <img src="images/banner/banner2.jpg">
         
     </a>
-     <a href="img01_url" target="_blank">
+     <a href="../itemspage.aspx?catid=3" target="_blank">
         <img src="images/banner/banner3.jpg">
         
     </a>
-     <a href="img01_url" target="_blank">
+     <a href="../itemspage.aspx?catid=4" target="_blank">
         <img src="images/banner/banner4.jpg">
         
     </a>
-     <a href="img01_url" target="_blank">
+     <a href="../homepage.aspx" target="_blank">
         <img src="images/banner/banner5.jpg">
         
     </a>

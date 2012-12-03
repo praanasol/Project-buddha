@@ -477,6 +477,7 @@
     <Content Include="script\coin-slider.min.js" />
     <Content Include="script\FeedbackControl.js" />
     <Content Include="script\itemsPage.js" />
+    <Content Include="script\jquery.cycle.all.js" />
     <Content Include="script\jquery.mCustomScrollbar.min.js" />
     <Content Include="script\jquery.nicescroll.min.js" />
     <Content Include="script\loginControl.js" />

@@ -11,6 +11,10 @@
 
 <%--<html xmlns="http://www.w3.org/1999/xhtml" >--%>
 <head id="Head1" runat="server">
+<meta name="description" content="online shopping - traditional and natural products - browse and search for products for your health, fashion,home decor and books  ">
+<meta name="keywords" content="Ayurvedic,khadi,medicine,handicrafts, indian, vedas, vedic,products, fashion, books, kurtha">
+<meta name="author" content="govedic.com">
+<meta charset="UTF-8">
     <title>Go Vedic - Online Shopping - Traditional and Natural Products</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     

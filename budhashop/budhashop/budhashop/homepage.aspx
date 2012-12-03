@@ -17,6 +17,33 @@
 
  
  <%--div for the sliding banner--%>
+ <div>
+ <div style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
+ <div class="quicklinks">
+ <b>Customer Support: <br />
+   +91 8125878727</b><br />
+   Contact info
+  </div>
+  <br />
+  <div class="quicklinks">
+  <b>Shipping <br />
+  Cash on delivery</b>
+  </div>
+  <br />
+  <div class="quicklinks">
+  <b>Articles <br />
+  Go sandarshan, kahdi lifestyle, vedic philosophy</b>
+  </div>
+  <br />
+  <div style="background-color: #E5B354;
+    border: 2px solid #8A0C05;
+    border-radius: 5px 5px 5px 5px;-moz-box-shadow:inset 0px 0px 34px 10px #ac7713;
+-webkit-box-shadow:inset 0px 0px 34px 10px #ac7713;
+box-shadow:inset 0px 0px 34px 10px #ac7713; padding:5px;">
+  <b>New Products <br />
+  slide show</b>
+  </div>
+ </div>
   <div id='coin-slider'>
     <a href="img01_url" target="_blank">
         <img src="images/banner/banner1.jpg">
@@ -40,17 +67,19 @@
     </a>
    
 </div>
+
+</div>
   <br clear="all" />
-  <div id="box_header" style="width:985px;">
-    	<h2>Featured Products</h2>
+  
+<section id="item_area" class="box_style" style="height:585px;">
+  	<div style="text-align:center;">
+    	<b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">Featured Products</b>
       
     </div>
-<section id="item_area" class="box_style" style="height:585px;">
-  	
     <!--Gallery Start-->
-   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px; padding-left:20px; padding-right:20px;">
+   <div id="box_content" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:630px; width:950px; padding-left:20px; padding-right:10px;">
    
-    <div id ="groupItems" style="height:580px; width:970px;">
+    <div id ="groupItems" style="height:550px; width:950px;">
   
           <p id="fetching">
         Fetching Products.... 

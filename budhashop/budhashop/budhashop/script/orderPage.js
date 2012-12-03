@@ -12,7 +12,7 @@
             $("#CartDiv").show();
         }
 
-        var ItemsCount = $("#ctl00_ContentPlaceHolder1_noOfItemsLbl").text();
+        var ItemsCount = $("#ctl00_ContentPlaceHolder1_noOfItemsLbl2").text();
         if(ItemsCount == "0"){
 //            $("#btn_ConfirmOrder").hide();
             window.location.replace("../homepage.aspx");

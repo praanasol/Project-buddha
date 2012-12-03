@@ -7,14 +7,14 @@
             $("[id$=lbl_emailfb]").text('');
             $("[id$=lbl_msg]").text('');
              $(".feedback-body").show();
-            $(".feedback-body").animate({right:"0%"});
+            $(".feedback-body").animate({left:"0%"});
             $("#feedback").hide();
             e.stopPropagation();
         });
         
         $(document).click(function(e) {
            
-            $(".feedback-body").animate({right:"-25%"});
+            $(".feedback-body").animate({left:"-25%"});
              $(".feedback-body").hide(500);
             $("#feedback").show();
             e.stopPropagation();
@@ -26,7 +26,7 @@
         });
         
         $("#closeimg").click(function(e){
-            $(".feedback-body").animate({right:"-25%"});
+            $(".feedback-body").animate({left:"-25%"});
              $(".feedback-body").hide(500);
             $("#feedback").show();
         });
@@ -65,7 +65,7 @@ function Fb_Submit()
                 $("[id$=lbl_emailfb]").text('');
                 $("[id$=lbl_msg]").text('');
                 
-                $(".feedback-body").animate({right:"-21%"});
+                $(".feedback-body").animate({left:"-21%"});
             $("#feedback").show();
             }
             else {

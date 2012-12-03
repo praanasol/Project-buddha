@@ -566,10 +566,10 @@ footer{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7E1B1B, endColorstr=#4d1c12);
 		  
     
-    -moz-box-shadow:inset 0px 0px 5px 2px #ac7713;
-    -ms-box-shadow:inset 0px 0px 5px 2px #ac7713;
--webkit-box-shadow:inset 0px 0px 5px 2px #ac7713;
-box-shadow:inset 0px 0px 5px 5px #ac7713;
+    -moz-box-shadow:inset 0px 0px 3px 2px #ac7713;
+    -ms-box-shadow:inset 0px 0px 3px 2px #ac7713;
+-webkit-box-shadow:inset 0px 0px 3px 2px #ac7713;
+box-shadow:inset 0px 0px 3px 2px #ac7713;
 border-radius:20px;
 border-top-left-radius: 1px;
 border-top-right-radius: 1px;

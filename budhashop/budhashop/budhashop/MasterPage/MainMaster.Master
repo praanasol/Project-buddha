@@ -65,14 +65,18 @@
                 }
                
         </style>
-    
+        
     <script type="text/javascript">
         $(document).ready(function(){
                 if(($("#ctl00_cartCtrl_noOfItemsLbl").text())!="0")
                 {
                     $("#ctl00_cartCtrl_orderBtn1").removeAttr("disabled");
                 }
+                
+                
           });
+          
+         
          
     </script>
    
@@ -84,6 +88,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     
         <Services>
@@ -98,7 +110,7 @@
     <aside id="logo"><a href="../homepage.aspx" target="_self" style="margin-left:10px;"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a>
     <br />
     <div style="margin:12px 0px 0px 45px;">
-    <a href="../Articles/articleHome.aspx" class="link1"  target="_self">Articles</a>
+    <a href="../Articles/articleHome.aspx" class="link1"  target="_self" style=" margin-left:-15px; border: 1px solid #EFD787; padding:3px 15px 3px 15px;  border-radius: 5px 5px 5px 5px; ">Articles</a>
     </div>
     
     </aside>
@@ -188,30 +200,57 @@
   <li><a href="../homepage.aspx" target="_self" >Home</a></li>
   
   </ul>
+ 
   </nav>
-  <span class='st_facebook_large' displayText='Facebook'></span>
-<span class='st_twitter_large' displayText='Tweet'></span>
-<span class='st_googleplus_large' displayText='Google +'></span>
+  
+ <div class="fb-like-box" data-href="http://www.facebook.com/govedic4u" data-width="292" data-colorscheme="dark" data-height="60" data-show-faces="false" data-stream="false" data-header="false"></div>
+ 
   </aside>
   <aside style="height:20px;">
   <nav id="nav_bottom">
-  <ul id="Ul1" style="width:100%;font-size:8px;">
-  <li><a href="../homepage.aspx" target="_self" style="font-size:10px;">About Us</a></li>
-  <li><a href="../homepage.aspx" target="_self" style="font-size:10px;">Shipping Details</a></li>
-  <li><a href="../homepage.aspx" target="_self" style="font-size:10px;" >Terms & conditions</a></li>
-  <li><a href="../contactus.aspx" target="_self" style="font-size:10px;">Contact us</a></li>
+  <ul id="Ul1" style="font-size:8px;">
+  <li><a href="../homepage.aspx" target="_self" style="font-size:11px;">About Us</a></li>
+  <li><a href="../homepage.aspx" target="_self" style="font-size:11px;">Shipping Details</a></li>
+  <li><a href="../homepage.aspx" target="_self" style="font-size:11px;" >Terms & conditions</a></li>
+  <li><a href="../contactus.aspx" target="_self" style="font-size:11px;">Contact us</a></li>
   </ul>
   </nav>
+ 
   </aside>
+  
   <br />
-  <aside>
-  Copyright@2012. praanasolutions.com
-  </aside>
+   
+  
+  </div>
+  <div>
+  <br />
+                        <div id="br_menu" style="font-size:12px; text-align:center;">
+					       Compatable Browsers
+                           <a id="fullimg" href="https://www.google.com/intl/en/chrome/browser/" target="_blank" style="padding:2px;" ><img src="../images/chrome.png" alt="chrome" /></a>
+                           <a id="A1" href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" ><img src="../images/firefox-icon.png" alt="Firefox" /></a>
+                           <a id="A2" href="http://www.microsoft.com/india/windows/ie/ie9.aspx" target="_blank" ><img src="../images/ie9-icon.png" alt="IE 9" /></a>
+                        </div>
+                        <p style="float:left; margin-left:250px; margin-top:-10px;">
+  Copyright@2012. praanasolutions.com</p>
+   
+
+					
   </div>
   </footer>
+   
 </div>
 
-
+<div id="fblinks" class="quicklinks" style="position:fixed;right:0%;top:50%;"> 
+<div>
+<span class='st_facebook_large' displayText='Facebook'></span>
+</div>
+<div>
+<span class='st_twitter_large' displayText='Tweet'></span>
+</div>
+<div>
+<span class='st_googleplus_large' displayText='Google +'></span>
+</div>
+</div>
 
     </form>
 </body>

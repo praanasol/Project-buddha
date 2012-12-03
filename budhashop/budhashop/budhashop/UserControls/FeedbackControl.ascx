@@ -5,20 +5,20 @@
 --%>
 <body>
 
-    <script src="../script/FeedbackControl.js" type="text/javascript"></script>
-
+   
     <style type="text/css">
         .feedback
         {
         	
     	    position:fixed;
-    	    right:0%;
+    	    left:0%;
     	    bottom:0%;
     	    font-family:Arial;
 	    font-size:14px;
 	    color:#ac7713;
 	    font-weight:bold;
 	    text-decoration:none;
+	    padding:5px;
     	
         }
          .feedback-body
@@ -27,7 +27,7 @@
     	    width:auto; 
     	    float:left;
     	    position:fixed;
-    	    right:-21%;
+    	    left:-21%;
     	    bottom:0%;
     	    font-family:Arial, Helvetica, sans-serif;
 		    font-size:12px;
@@ -57,7 +57,8 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
     }
     </style>
     
-    
+     <script src="../script/FeedbackControl.js" type="text/javascript"></script>
+
 <div id="feedback" class="feedback">
     
    <div style="height:30px;width:75px; float:right; cursor:pointer;"><a id="img_fb" alt="Feedback">Feedback</a>
@@ -70,7 +71,7 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
     <ContentTemplate>
     
     <div id="feedback-body" class="feedback-body" >
-        <div style="width:auto; float:left; cursor:pointer;">
+        <div style="width:auto; float:right; cursor:pointer;">
         <img id="closeimg" alt="FeedBack" src="../images/close.png" />
         </div>
         <br />
@@ -112,7 +113,7 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
     </div>
     </ContentTemplate>
     </asp:UpdatePanel>
-    <div id="submittedFbDiv" style="display:none; padding:10px; position:fixed; top:68%; right:3%; border:solid 2px; font-size:12px; background:#E8B048; border-radius:10px;">
+    <div id="submittedFbDiv" style="display:none; padding:10px; position:fixed; top:68%; left:3%; border:solid 2px; font-size:12px; background:#E8B048; border-radius:10px;">
         <div id="successFb-body">
             <p>Feedback Submitted Succesfully.</p>
             <p>Thank you.</p>

@@ -466,8 +466,11 @@
     <Content Include="images\bclk4.png" />
     <Content Include="images\bclk4r.png" />
     <Content Include="images\check.jpg" />
+    <Content Include="images\chrome.png" />
     <Content Include="images\close.png" />
+    <Content Include="images\firefox-icon.png" />
     <Content Include="images\footer_bg.gif" />
+    <Content Include="images\ie9-icon.png" />
     <Content Include="images\scroll_bg.gif" />
     <Content Include="images\uncheck.jpg" />
     <Content Include="images\Untitled-tex.gif" />

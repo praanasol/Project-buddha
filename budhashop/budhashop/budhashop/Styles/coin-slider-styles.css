@@ -4,7 +4,7 @@
 */
 
 
-.coin-slider { overflow: hidden; zoom: 1; position: relative; margin-top:30px; margin-left:120px;  border-style: double;
+.coin-slider { overflow: hidden; zoom: 1; position: relative; margin-top:30px; border-style: double;
     padding: 10px 10px 0px 10px; background-color: #962824; width:780px;}
 .coin-slider a{ text-decoration: none; outline: none; border: none; }
 

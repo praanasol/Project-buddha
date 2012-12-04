@@ -38,18 +38,19 @@ $('#slideshow2').cycle({
  <div id="side-info" style="display:none;">
  <div style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
  <div class="quicklinks">
- <b>Customer Support: <br />
-   +91 8125878727</b><br />
-   <a class="link1" href="contactus.aspx">Contact info</a>
+ <b>Customer Support:</b>
+ <b style="margin-left:13px;">+91 8125878727 </b>
+   <br />
+   <a class="link1" href="contactus.aspx" style="text-align:center; margin-left:25px;">Contact info</a>
   </div>
   <br />
-  <div id="slideshow" class="quicklinks" style="height:45px;">
-  <b style="text-align:center; margin-left:30px;"> > Rs.750 <br />free shipping</b>
-  <b style="text-align:center; margin-left:30px;">Cash on delivery</b>
-  <b style="text-align:center; margin-left:30px;">Presently, only for hyderabad</b>
+  <div id="slideshow" class="quicklinks" style="height:45px; text-align:center;">
+   <b style="padding-top:15px; padding-left:13px;">Cash on delivery</b>
+   <b style="padding-top:10px">Presently, only for Hyderabad</b>
+   <b style="padding-top:5px"> Will extend for other cities soon</b>
   </div>
   <br />
-  <div id="slideshow2" class="quicklinks" style="height:90px;">
+  <div id="slideshow2" class="quicklinks" style="height:90px; text-align:center;">
   <b>New products</b>
   <b>New product <br /> - product 1 -</b>
   <b>New product <br /> - product 2 -</b>

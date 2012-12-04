@@ -6,11 +6,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="box_header" style="width: 985px;">
         <h2>
-            Articles home</h2>
+             Articles Home</h2>
     </div>
-    <div id="a_data_area" class="box_style">
+    <div id="Div1" style="width: 985px; height:200px; text-align:center; padding-top:200px; ">
+        <h2 style="font-size:20px;">
+             Will update soon !!</h2>
+    </div>
+   <%-- <div id="a_data_area" class="box_style">--%>
         <!--Article Start-->
-        <aside id="p_data5" class="a_box_style" style="margin: 10px 10px 10px 30px; float: left;">
+        <%--<aside id="p_data5" class="a_box_style" style="margin: 10px 10px 10px 30px; float: left;">
             <div id="a_data">
                 <div id="art_header">
                     <h2>
@@ -36,10 +40,10 @@
                     <div id="a_field" style=" padding:5px 0px 0px 3px; width:150px;" class="style4">fgdsgfds</div>
                 </aside>
             </div>
-        </aside>
+        </aside>--%>
         <!--Article End-->
         <!--Article Start-->
-        <aside id="p_data2" class="a_box_style" style="margin: 10px 10px 10px 30px; float: left;">
+       <%-- <aside id="p_data2" class="a_box_style" style="margin: 10px 10px 10px 30px; float: left;">
             <div id="a_data">
                 <div id="art_header">
                     <h2>
@@ -65,10 +69,10 @@
                     <div id="a_field" style=" padding:5px 0px 0px 3px; width:150px;" class="style4">fgdsgfds</div>
                 </aside>
             </div>
-        </aside>
+        </aside>--%>
         <!--Article End-->
         <!--Article Start-->
-        <aside id="p_data3" class="a_box_style" style="margin: 10px 10px 10px 30px; float: left;">
+       <%-- <aside id="p_data3" class="a_box_style" style="margin: 10px 10px 10px 30px; float: left;">
             <div id="a_data">
                 <div id="art_header">
                     <h2>
@@ -94,7 +98,7 @@
                     <div id="a_field" style=" padding:5px 0px 0px 3px; width:150px;" class="style4">fgdsgfds</div>
                 </aside>
             </div>
-        </aside>
+        </aside>--%>
         <!--Article End-->
-    </div>
+   <%-- </div>--%>
 </asp:Content>

@@ -35,16 +35,28 @@
 <%--Call to Disply Item full Details based on Query String--%>
     <script src="script/fullDetailsPage.js" type="text/javascript"></script>
     
+ <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<article style="height:20px;"></article>
  
-<article style="height:40px;"></article>
- 
-  <div id="box_header" style="width:985px;">
+  <%--<div id="box_header" style="width:985px;">
     	<h2>Product Details</h2>
     	
       
-    </div>
+    </div>--%>
      <br clear="all" />
 <section id="item_area" class="box_style" style="height:auto;">
+  	<div style="text-align:center;">
+    	<b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">Product Details</b>
+       
+    </div>
+  	<br />
   	<%--<div id="full_details_box_header">
     	
       
@@ -58,6 +70,7 @@
             
             <section id="full_header_part">
                 <!--Cart items img CL Start-->
+               
             <aside id="f_d_cl1">
 				<section id="f_d_img"> 
 					
@@ -117,6 +130,30 @@
         <!--full Details End-->
     </div>
     </div>
+    <aside style=" width:inherit; text-align:right;">
+       <div style=" padding-right:350px; padding-bottom:15px; padding-top:10px;">
+                <div style="float:right;">
+               <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+              </div>
+               <div style="float:right;"><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+                
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+               </div>
+               <div>
+               <!-- Place this tag where you want the +1 button to render. -->
+                <div class="g-plusone" data-size="medium"></div>
+
+                <!-- Place this tag after the last +1 button tag. -->
+                <script type="text/javascript">
+                  (function() {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                  })();
+                </script>
+                </div>
+                </div>
+                </aside>
     </section>
 <div style="height:160px;">
 <div id="backBtn" style="float:left; margin:20px 0 0 330px; background:#AC7713; padding:5px;border:#981d18 solid 1px;

@@ -33,13 +33,14 @@
 		    font-size:12px;
 		    color:#512912;
 		    
+		    
     	    background:#E8B048;
 	    border:#f4b01b 1px solid;
 	    border-radius:5px;
 	    -moz-box-shadow:inset 0px 0px 10px 3px #ac7713;
 -webkit-box-shadow:inset 0px 0px 10px 3px #ac7713;
 box-shadow:inset 0px 0px 10px 3px #ac7713;
-	    
+	     z-index:1009
         	
         }
         .f_form_style{

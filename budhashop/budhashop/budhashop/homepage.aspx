@@ -90,7 +90,7 @@ $('#slideshow2').cycle({
 </div>
   <br clear="all" />
   
-<section id="item_area" class="box_style" style="height:585px;">
+<section id="item_area" class="box_style" style="height:600px;">
   	<div style="text-align:center;">
     	<b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">Featured Products</b>
       

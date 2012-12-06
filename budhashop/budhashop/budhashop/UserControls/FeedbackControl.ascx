@@ -12,13 +12,20 @@
         	
     	    position:fixed;
     	    left:0%;
-    	    bottom:0%;
+    	    bottom:3%;
     	    font-family:Arial;
 	    font-size:14px;
 	    color:#ac7713;
 	    font-weight:bold;
 	    text-decoration:none;
-	    padding:5px;
+	    padding:2px;
+	    background:#512912;
+	     border:#ac7713 1px solid;
+	   
+	    -moz-box-shadow:inset 0px 0px 10px 3px #512912;
+-webkit-box-shadow:inset 0px 0px 10px 3px #512912;
+box-shadow:inset 0px 0px 10px 3px #512912;
+	     z-index:1009
     	
         }
          .feedback-body
@@ -62,7 +69,7 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
 
 <div id="feedback" class="feedback">
     
-   <div style="height:30px;width:75px; float:right; cursor:pointer;"><a id="img_fb" alt="Feedback">Feedback</a>
+   <div style="height:16px;width:75px; float:right; cursor:pointer;"><a id="img_fb" alt="Feedback">Feedback</a>
         <%--<img id="img_fb" alt="FeedBack" src="../images/feedback-vertical.jpg" style="height:24px; width:74px" />--%>
     </div><br />
     

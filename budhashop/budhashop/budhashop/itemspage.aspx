@@ -12,8 +12,15 @@
     <link href="Styles/pagination.css" rel="stylesheet" type="text/css" />
 
     <script src="script/itemsPage.js" type="text/javascript"></script>
+<style type="text/css">
+@font-face {
+	font-family: 'samarkan';
+	
+	src: local('samarkan Regular'), local('samarkan'), url('../fonts/SAMARN.ttf') format('truetype');
+}
 
-<div id="catStr" style="height:16px; padding:25px; font-size:16px;"></div>
+</style>
+<div id="catStr" style="height:30px; padding:25px; font-size:40px; font-family:samarkan,Arial, sans-serif; text-align:center;"></div>
 
 
 <section id="middlebody"> 

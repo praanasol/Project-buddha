@@ -6,7 +6,7 @@
             $("[id$=txt_msg]").val('');
             $("[id$=lbl_emailfb]").text('');
             $("[id$=lbl_msg]").text('');
-             $(".feedback-body").show();
+             $(".feedback-body").show(100);
             $(".feedback-body").animate({left:"0%"});
             $("#feedback").hide();
             e.stopPropagation();
@@ -15,7 +15,7 @@
         $(document).click(function(e) {
            
             $(".feedback-body").animate({left:"-25%"});
-             $(".feedback-body").hide(500);
+             $(".feedback-body").hide(300);
             $("#feedback").show();
             e.stopPropagation();
             //$(".feedback-body").hide();
@@ -27,7 +27,7 @@
         
         $("#closeimg").click(function(e){
             $(".feedback-body").animate({left:"-25%"});
-             $(".feedback-body").hide(500);
+             $(".feedback-body").hide(300);
             $("#feedback").show();
         });
 

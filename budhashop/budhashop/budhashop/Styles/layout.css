@@ -2,7 +2,7 @@ body{
 	margin:0px;
 	padding:20px 0 20px 0;
 	width:100%;
-	background:#4d1c1c url(../images/Untitled-tex.gif);
+	background:#4d1c1c url(../images/tex2.png);
 	font-family:arial;
 	font-size:12px;
 	color:#512912;
@@ -31,7 +31,7 @@ box-shadow:inset 0px 0px 5px 3px #ac7713;
 header{
 	width:1000px;
 	height:154px;
-	background:#EFD787 url(../images/header_bg.gif) left top repeat-x;
+	background:#EFD787 url(../images/header_bg1.gif) left top repeat-x;
 	-webkit-box-shadow:inset 0px 0px 5px 3px #ac7713;
 box-shadow:inset 0px 0px 5px 3px #ac7713;
 border-radius:20px;border-bottom-left-radius: 1px;

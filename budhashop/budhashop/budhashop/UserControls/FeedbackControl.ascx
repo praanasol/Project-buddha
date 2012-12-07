@@ -7,6 +7,23 @@
 
    
     <style type="text/css">
+        .fone
+        {
+        	
+    	    position:fixed;
+    	    left:0%;
+    	    bottom:50%;
+    	   cursor:pointer;
+    	    padding: 5px 5px 3px 5px;
+    	   background:#512912;
+    	    border:#ac7713 1px solid;
+	   border-radius:0 5px 5px 0  ;
+	    -moz-box-shadow:inset 0px 0px 10px 3px #512912;
+-webkit-box-shadow:inset 0px 0px 10px 3px #512912;
+box-shadow:inset 0px 0px 10px 3px #512912;
+	        z-index:1009
+    	
+        }
         .feedback
         {
         	
@@ -19,12 +36,7 @@
 	    font-weight:bold;
 	    text-decoration:none;
 	    padding:2px;
-	    background:#512912;
-	     border:#ac7713 1px solid;
-	   
-	    -moz-box-shadow:inset 0px 0px 10px 3px #512912;
--webkit-box-shadow:inset 0px 0px 10px 3px #512912;
-box-shadow:inset 0px 0px 10px 3px #512912;
+	    
 	     z-index:1009
     	
         }
@@ -41,12 +53,28 @@ box-shadow:inset 0px 0px 10px 3px #512912;
 		    color:#512912;
 		    
 		    
-    	    background:#E8B048;
+    	    background:#E5B354;
 	    border:#f4b01b 1px solid;
 	    border-radius:5px;
-	    -moz-box-shadow:inset 0px 0px 10px 3px #ac7713;
--webkit-box-shadow:inset 0px 0px 10px 3px #ac7713;
-box-shadow:inset 0px 0px 10px 3px #ac7713;
+	    -moz-box-shadow:inset 0px 0px 34px 10px #ac7713;
+-webkit-box-shadow:inset 0px 0px 34px 10px #ac7713;
+box-shadow:inset 0px 0px 34px 10px #ac7713;
+	     z-index:1009
+        	
+        }
+         .fone-body
+        {
+        	position:fixed;
+        	 left:-25%;
+    	    bottom:50%;
+        	 font-size:16px;
+        	 padding:0px;
+    	    background-color: #E5B354;
+    border: 1px solid #ac7713;
+    border-radius:0 5px 5px 0  ;
+    -moz-box-shadow:inset 0px 0px 74px 10px #ac7713;
+-webkit-box-shadow:inset 0px 0px 74px 10px #ac7713;
+box-shadow:inset 0px 0px 74px 10px #ac7713; 
 	     z-index:1009
         	
         }
@@ -75,6 +103,7 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
     
     
 </div>
+
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
     
@@ -131,4 +160,17 @@ box-shadow:inset 0px 0px 10px 3px #ac7713;
             <p>Please Try Again...</p>
         </div>
     </div>
+    <div>
+    
+    <div class="fone-body" style="display:none;float:right;">
+ 
+ <b style="margin-left:44px;">+91 8125878727 </b>
+   <br />
+   <a class="link1" href="../contactus.aspx" style="text-align:center; margin-left:50px;">Contact us</a>
+  </div>
+  <div id="phonediv" class="fone">
+<a id="fone" type="button" alt="Contact"><img src="../images/phone.png" alt="phone"</a>
+</div>
+  
+</div>
 </body>

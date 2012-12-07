@@ -37,26 +37,19 @@ $('#slideshow2').cycle({
  <%--div for the sliding banner--%>
  <div id="side-info" style="display:none;">
  <div style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
- <div class="quicklinks">
- <b>Customer Support:</b>
- <b style="margin-left:13px;">+91 8125878727 </b>
-   <br />
-   <a class="link1" href="contactus.aspx" style="text-align:center; margin-left:25px;">Contact info</a>
-  </div>
-  <br />
-  <div id="slideshow" class="quicklinks" style="height:45px; text-align:center;">
-   <b style="padding-top:15px; padding-left:13px;">Cash on delivery</b>
-   <b style="padding-top:10px">Presently, only for Hyderabad</b>
-   <b style="padding-top:5px"> Will extend for other cities soon</b>
-  </div>
-  <br />
-  <div id="slideshow2" class="quicklinks" style="height:90px; text-align:center;">
+  <div id="slideshow2" class="quicklinks" style="height:180px; text-align:center;">
   <b>New products</b>
   <b>New product <br /> - product 1 -</b>
   <b>New product <br /> - product 2 -</b>
   <b>New product<br /> - product 3 -</b>
   <b>New product<br /> - product 4 -</b>
   <b>New product<br /> - product 5 -</b>
+  </div>
+   <br />
+  <div id="slideshow" class="quicklinks" style="height:45px; text-align:center;">
+   <b style="padding-top:15px; padding-left:13px;">Cash on delivery</b>
+   <b style="padding-top:10px">Presently, only for Hyderabad</b>
+   <b style="padding-top:5px"> Will extend for other cities soon</b>
   </div>
   <br />
   <div class="quicklinks">

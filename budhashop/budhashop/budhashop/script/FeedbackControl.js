@@ -9,14 +9,38 @@
              $(".feedback-body").show(100);
             $(".feedback-body").animate({left:"0%"});
             $("#feedback").hide();
+             $(".fone-body").animate({left:"-25%"});
+             $(".fone-body").hide(100);
             e.stopPropagation();
         });
-        
+        $("#fone").click(function(e) {
+            //$(".feedback-body").show();
+           if($(".fone-body").css('display') == 'none')
+           {
+             $(".fone-body").show(100);
+            $(".fone-body").animate({left:"0%"});
+           
+            e.stopPropagation();
+            }
+            else
+            {
+           
+            $(".fone-body").animate({left:"-25%"});
+             $(".fone-body").hide(100);
+            e.stopPropagation();
+            
+            }
+             $(".feedback-body").animate({left:"-25%"});
+             $(".feedback-body").hide(300);
+            $("#feedback").show();
+        });
         $(document).click(function(e) {
            
             $(".feedback-body").animate({left:"-25%"});
              $(".feedback-body").hide(300);
             $("#feedback").show();
+             $(".fone-body").animate({left:"-25%"});
+             $(".fone-body").hide(100);
             e.stopPropagation();
             //$(".feedback-body").hide();
         });
@@ -24,7 +48,9 @@
         $("#feedback-body").click(function(e){
             e.stopPropagation();
         });
-        
+         $("#fone-body").click(function(e){
+            e.stopPropagation();
+        });
         $("#closeimg").click(function(e){
             $(".feedback-body").animate({left:"-25%"});
              $(".feedback-body").hide(300);

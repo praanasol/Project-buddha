@@ -244,7 +244,7 @@
    
 </div>
 
-<div id="fblinks" class="quicklinks" style="position:fixed;right:0%;top:50%;"> 
+<div id="fblinks" class="quicklinks" style="position:fixed;right:0%;top:40%;"> 
 <div>
 <span class='st_facebook_large' displayText='Facebook'></span>
 </div>

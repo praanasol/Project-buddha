@@ -473,6 +473,7 @@
     <Content Include="images\footer_bg.gif" />
     <Content Include="images\header_bg1.gif" />
     <Content Include="images\ie9-icon.png" />
+    <Content Include="images\phone.png" />
     <Content Include="images\scroll_bg.gif" />
     <Content Include="images\tex2.png" />
     <Content Include="images\uncheck.jpg" />

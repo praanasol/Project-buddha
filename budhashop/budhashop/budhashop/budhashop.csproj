@@ -127,6 +127,7 @@
     <Compile Include="CLASS\CallCache.cs" />
     <Compile Include="CLASS\PasswordEncryption.cs" />
     <Compile Include="CLASS\SearchAll.cs" />
+    <Compile Include="CLASS\SendComplaint.cs" />
     <Compile Include="contactus.aspx.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

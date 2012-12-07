@@ -19,5 +19,7 @@ namespace InterfacesBS.InterfacesBL
         DataTable getUserOrders(string userid);
 
         int insertFeedback(string email, string msg);
+
+        int checkPurchaseId(int pid);
     }
 }

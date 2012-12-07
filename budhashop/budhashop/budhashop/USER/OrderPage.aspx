@@ -328,7 +328,7 @@
        
     </div>
        
-    
+<asp:Panel ID="SubmitOrder" DefaultButton="ConfirmBtn" runat="server">    
     <div id="adressDiv" style="padding-top:10px; display:none; height:420px;">
     <div id="box_header" style="margin-left:15px; width:970px; height:30px;">
     	<div id="to_left"><h2>Shipping Address details.</h2></div>
@@ -400,7 +400,7 @@
         </div>
     </div>
     </div>
-   
+</asp:Panel>   
         <asp:Label ID="emailsentlbl" runat="server" Visible="false"></asp:Label>
         <div id="cartData" runat="server" Visible="false">
             <asp:Label ID="purchaseIdLbl" runat="server"></asp:Label>

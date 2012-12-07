@@ -131,5 +131,16 @@ namespace BusinessLogicBS.UserClasses
         }
 
         #endregion
+
+        #region IUser Members Check Purchase Id
+
+        public int checkPurchaseId(int pid)
+        {
+            IUserDA checkPid = new DataAccessBS.UserClasses.UserDA();
+            int count = checkPid.checkPurchaseIdDA(pid);
+            return count;
+        }
+
+        #endregion
     }
 }

@@ -292,5 +292,32 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members Check Purchase Id
+
+        public int checkPurchaseIdDA(int pid)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@pid", pid);
+                DataTable Dt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_PURCHASEID", sqlParams).Tables[0];
+                if (Dt.Rows.Count > 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (SqlException exc)
+            {
+                throw exc;
+                return -1;
+            }
+        }
+
+        #endregion
     }
 }

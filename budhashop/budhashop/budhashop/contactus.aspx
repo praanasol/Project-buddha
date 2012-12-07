@@ -36,11 +36,59 @@
                     $('.web_dialog_overlay').hide();
                     $('.btnComplaintDiv').show();
                 });
+                $("input[id$='txt_Pid']").blur(function(){
+                    var pid = $("[id$=txt_Pid]").val();
+                    var regexnumber=/^[0-9]+$/;
+                    var isInteger=regexnumber.test(pid);
+                    if(pid==""){
+                        $("#img_pid").attr({src:"../images/unavailable.png",alt:"Invalid Entry"});
+                        $("[id$=lbl_resultComplaint]").text("Enter Purchse Id");
+                    }
+                    else if(isInteger==true)
+                    {
+                        $.ajax({
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            url: "contactus.aspx/checkPid",
+                            data: "{'Pid':'" +pid+"'}",
+                            dataType: "json",
+                            success: function(data){
+                                if(eval(data.d) == "1"){
+                                    $("#img_pid").attr({src:"../images/tick.png",alt:"Valid"});
+                                    $("[id$=lbl_hdn]").text("Valid");
+                                    $("[id$=lbl_resultComplaint]").text("");
+                                    $("[id$=txt_msgComplaint]").focus();
+                                }
+                                else if(eval(data.d) == "0"){
+                                    $("#img_pid").attr({src:"../images/unavailable.png",alt:"Invalid Entry"});
+                                    $("[id$=lbl_resultComplaint]").text("Enter Valid Purchase Id");
+                                    $("[id$=lbl_hdn]").text("Invalid");
+                                    $("[id$=txt_Pid]").focus();
+                                }
+                            },
+                            error: function(result){
+                                $("#img_pid").attr({src:"../images/unavailable.png",alt:"Invalid Entry"});
+                                $("[id$=lbl_resultComplaint]").text("Error Occured, Please try again.");
+                                $("[id$=txt_Pid]").focus();
+                            }
+                        });
+                    }
+                    else {
+                        $("#img_pid").attr({src:"../images/unavailable.png",alt:"Invalid Entry"});
+                        $("[id$=lbl_resultComplaint]").text("Enter Valid Purchse Id");
+                    }
+                });
+                $("[id$=txt_msgComplaint]").focus(function(){
+                    var validPid=$("[id$=lbl_resultComplaint]").text();
+                    var pid = $("[id$=txt_Pid]").val();
+                    if(validPid != "" || pid=="")
+                        $("[id$=txt_Pid]").focus();
+                });
             });
             function CheckUserStatus(result){
                 if(result!='nouser'){
+                    $('.web_dialog').fadeIn("slow");
                     $('.web_dialog_overlay').show();
-                    $('.web_dialog').show();
                     $('.btnComplaintDiv').hide();
                     
                     $("[id$=txt_userName]").val('');
@@ -65,9 +113,12 @@
                 var name = $("[id$=txt_userName]").val();
                 var pid = $("[id$=txt_Pid]").val();
                 var message = $("[id$=txt_msgComplaint]").val();
+                var validPid = $("[id$=lbl_hdn]").text();
                 
                 if(name==""){ $("[id$=lbl_resultComplaint]").text("Enter your Name"); $("[id$=txt_userName]").focus(); }
                 else if(pid==""){ $("[id$=lbl_resultComplaint]").text("Enter Purchase Id"); $("[id$=txt_Pid]").focus(); }
+                else if(validPid=="Invalid"){ $("[id$=lbl_resultComplaint]").text("Enter Valid Purchase Id"); $("[id$=txt_Pid]").focus(); }
+                else if(validPid=="undefined"){ $("[id$=lbl_resultComplaint]").text("Error Occured, Please try again Later."); $("[id$=txt_Pid]").focus(); }
                 else if(message==""){ $("[id$=lbl_resultComplaint]").text("Enter Message"); $("[id$=txt_msgComplaint]").focus(); }
                 else if(message.length>100){ $("[id$=lbl_resultComplaint]").text("Should not exeed 100 characters"); $("[id$=txt_msgComplaint]").focus(); }
                 else {
@@ -96,7 +147,6 @@
                         error: function(result){
                             $("#preloader").hide();
                             $("[id$=lbl_resultComplaint]").text("Error Occured, Please try again.");
-                            alert(result);
                         }
                     });
                 }
@@ -136,8 +186,9 @@
                     <div id="p_d_field_area" style="width:490px; height:21px;">
                         <div id="p_d_label">
                             Purchase Id :</div>
-                        <div id="p_d_field" class="style4">
+                        <div id="p_d_field" class="style4" style="width:auto;">
                             <asp:TextBox ID="txt_Pid" CssClass="p_f_form_style" runat="server" Width="200px"></asp:TextBox>
+                            <img id="img_pid" src="" alt="" style="position:absolute; padding:5px 0px 0px 2px;" />
                         </div>
                     </div>
                     <div id="p_d_field_area" style="width:490px; height:21px;">
@@ -165,4 +216,5 @@
     </div>
     <div id="notLoggedIn" style="display:none; top: 510px; left: 520px; position: absolute; height: 22px; width: auto; padding: 8px 20px 2px; font-weight:bold; font-size:14px;" class="p_f_box_style"></div>
     <div class="web_dialog_overlay"></div>
+    <asp:Label ID="lbl_hdn" runat="server" style="display:none;"></asp:Label>
 </asp:Content>

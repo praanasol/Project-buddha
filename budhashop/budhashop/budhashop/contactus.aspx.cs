@@ -12,6 +12,9 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 
 using System.Web.Services;
+using InterfacesBS.InterfacesBL;
+using BusinessLogicBS;
+using BusinessLogicBS.UserClasses;
 
 namespace budhashop
 {
@@ -29,6 +32,14 @@ namespace budhashop
             CLASS.SendComplaint send = new budhashop.CLASS.SendComplaint();
             bool result = send.fileComplaint(Name, PId, Message);
             return result;
+        }
+
+        [WebMethod]
+        public static int checkPid(int Pid)
+        {
+            IUser checkPid = new UserItems();
+            int count = checkPid.checkPurchaseId(Pid);
+            return count;
         }
     }
 }

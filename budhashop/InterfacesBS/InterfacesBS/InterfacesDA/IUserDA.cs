@@ -19,5 +19,7 @@ namespace InterfacesBS.InterfacesDA
         DataTable retrieveUserOrdersDA(string userid);
 
         int insertFeedbackDA(string email, string msg);
+
+        int checkPurchaseIdDA(int pid);
     }
 }

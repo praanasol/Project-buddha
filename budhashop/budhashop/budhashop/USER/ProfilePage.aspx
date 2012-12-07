@@ -289,8 +289,12 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Deliverd">
                             <ItemTemplate>
-                                
                                 <asp:CheckBox ID="cbDelivered" runat="server" Checked='<%# Eval("DeliveredFlag") %>' Enabled="false" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Size String" HeaderStyle-CssClass="hiddenColumn" ItemStyle-CssClass="hiddenColumn">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_sizeString" runat="server" Text='<%# Eval("TypeItem") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

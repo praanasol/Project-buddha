@@ -172,7 +172,7 @@ namespace DataAccessBS.UserClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[8];
+                SqlParameter[] sqlParams = new SqlParameter[9];
 
                 //User parameters
                 sqlParams[0] = new SqlParameter("@userId", orderitems.userid);
@@ -183,7 +183,8 @@ namespace DataAccessBS.UserClasses
                 sqlParams[5] = new SqlParameter("@totalItems", orderitems.totalItems);
                 sqlParams[6] = new SqlParameter("@separator", ';');
                 sqlParams[7] = new SqlParameter("@separator2", ',');
-                
+                sqlParams[8] = new SqlParameter("@SizeString", orderitems.TypeItem);
+
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_ORDER_ITEMS", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
 
@@ -197,12 +198,12 @@ namespace DataAccessBS.UserClasses
                     return -1;
                 }
 
-                
+
 
             }
             catch (SqlException exc)
             {
-                
+
                 throw exc;
                 return -1;
             }

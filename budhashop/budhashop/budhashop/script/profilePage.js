@@ -21,8 +21,9 @@
         else {
             var itemString = $('.orderGrid tr td:eq(2)').text();
             var addrString = $('.orderGrid tr td:eq(3)').text();
+            var sizeString = $('.orderGrid tr td:eq(8)').text();
             $('#itemsDiv').slideToggle(10);
-            RowSelected(itemString,addrString);
+            RowSelected(itemString,addrString,sizeString);
         }
 
         $("#btnClose").click(function (e){
@@ -58,7 +59,8 @@
                     var row = jQuery(this)
                     var itemString = row.children("td:eq(2)").text();
                     var addrString = row.children("td:eq(3)").text();
-                    RowSelected(itemString,addrString);
+                    var sizeString = row.children("td:eq(8)").text();
+                    RowSelected(itemString,addrString,sizeString);
                 }
             })
             .mouseover(function() {
@@ -94,7 +96,7 @@
 //                });
 });
 
-function RowSelected(itemString,addrString)
+function RowSelected(itemString,addrString,sizeString)
 {
     $.ajax({
         type: "POST",
@@ -114,13 +116,13 @@ function RowSelected(itemString,addrString)
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     url: "ProfilePage.aspx/GetOrderedItems",
-                    data: "{'itemString':'"+ itemString +"'}",
+                    data: "{'itemString':'"+ itemString +"','sizeString':'"+ sizeString +"'}",
                     dataType: "json",
 
                     success: function(data) {
                         $("#itemTable tr:gt(0)").remove();
                         for (var i = 0; i < data.d.length; i++) {
-                            $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="50" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> </tr>');
+                            $('#itemTable tr:last').after('<tr> <td>'+data.d[i].ItemId+'</td> <td>'+data.d[i].ItemName+'</td> <td><img src="'+data.d[i].ItemPath+'" width="50" height="50" border="1"></td> <td>'+data.d[i].BilledRate+'</td> <td>'+data.d[i].ItemQty+'</td> <td>'+data.d[i].TotalRate+'</td> <td>'+data.d[i].Size+'</td> </tr>');
                         }
                     },
                     error: function(data) {

@@ -24,7 +24,7 @@ namespace budhashop.Services
 {
     public partial class Services : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -45,7 +45,7 @@ namespace budhashop.Services
 
             return catName;
         }
-        
+
         [WebMethod]
         public static CatDetails[] FetchCatNames()
         {
@@ -53,18 +53,18 @@ namespace budhashop.Services
             budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
             DataSet allDataDS = callCache.getCache();
             catgDt = allDataDS.Tables[3];
-            
-           
+
+
 
             List<CatDetails> details = new List<CatDetails>();
 
-            foreach(DataRow dtrow in catgDt.Rows)
+            foreach (DataRow dtrow in catgDt.Rows)
             {
 
                 CatDetails user = new CatDetails();
                 user.CatId = dtrow["CategoryId"].ToString();
                 user.CatName = dtrow["CategoryName"].ToString();
-               
+
 
                 details.Add(user);
 
@@ -78,7 +78,7 @@ namespace budhashop.Services
         //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static ItemDetails[] SearchItemNames(string searchStr)
         {
-           DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
             DataTable dtg = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
             //InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
@@ -92,40 +92,40 @@ namespace budhashop.Services
 
             foreach (DataRow dtrow in cartItemgrp)
             {
-  
+
                 ItemDetails user = new ItemDetails();
                 user.ItemId = dtrow["GroupId"].ToString();
                 user.ItemName = dtrow["GroupName"].ToString();
-               user.ItemDesc = dtrow["Description"].ToString();
-               user.ItemPath = dtrow["ImagePath"].ToString();//change this to actual image path when done
+                user.ItemDesc = dtrow["Description"].ToString();
+                user.ItemPath = dtrow["ImagePath"].ToString();//change this to actual image path when done
                 user.ItemPrice = dtrow["BilledRate"].ToString();
                 user.ItemQty = dtrow["Qty"].ToString();
                 user.CatId = "1";
 
-                
+
                 details.Add(user);
 
             }
             foreach (DataRow dtrow in cartItem)
             {
 
-                 ItemDetails user = new ItemDetails();
-                 user.ItemId = dtrow["ItemId"].ToString();
-                 user.ItemName = dtrow["ItemName"].ToString();
-                 user.ItemDesc = dtrow["Description"].ToString();
-                 user.ItemPath = dtrow["ImagePath"].ToString();
-                 user.ItemPrice = dtrow["BilledRate"].ToString();
-                 user.ItemQty = dtrow["Qty"].ToString();
-                 user.CatId = dtrow["CategoryId"].ToString();
+                ItemDetails user = new ItemDetails();
+                user.ItemId = dtrow["ItemId"].ToString();
+                user.ItemName = dtrow["ItemName"].ToString();
+                user.ItemDesc = dtrow["Description"].ToString();
+                user.ItemPath = dtrow["ImagePath"].ToString();
+                user.ItemPrice = dtrow["BilledRate"].ToString();
+                user.ItemQty = dtrow["Qty"].ToString();
+                user.CatId = dtrow["CategoryId"].ToString();
 
-                 details.Add(user);
+                details.Add(user);
 
             }
 
             return details.ToArray();
-        
+
         }
-       
+
         [WebMethod]
         public static ItemDetails[] BindGrptable()
         {
@@ -139,15 +139,15 @@ namespace budhashop.Services
 
             foreach (DataRow dtrow in dt.Rows)
             {
-               
-                    ItemDetails user = new ItemDetails();
-                    user.ItemId = dtrow["GroupId"].ToString();
-                    user.ItemName = dtrow["GroupName"].ToString();
-                    user.ItemPath = dtrow["ImagePath"].ToString();
-                    user.ItemPrice = dtrow["BilledRate"].ToString();
-                    user.CatId = "1";
-                    details.Add(user);
-                
+
+                ItemDetails user = new ItemDetails();
+                user.ItemId = dtrow["GroupId"].ToString();
+                user.ItemName = dtrow["GroupName"].ToString();
+                user.ItemPath = dtrow["ImagePath"].ToString();
+                user.ItemPrice = dtrow["BilledRate"].ToString();
+                user.CatId = "1";
+                details.Add(user);
+
             }
 
             return details.ToArray();
@@ -196,7 +196,7 @@ namespace budhashop.Services
 
             foreach (DataRow dtrow in dt.Rows)
             {
-                
+
                 int category = int.Parse(dtrow["CategoryId"].ToString());
                 if (category == int.Parse(CatgId))
                 {
@@ -238,7 +238,7 @@ namespace budhashop.Services
                 user.ItemQty = cartItem["Qty"].ToString();
                 user.CatId = "1";
 
-                
+
 
                 details.Add(user);
 
@@ -254,6 +254,7 @@ namespace budhashop.Services
                 user.ItemPrice = cartItem["BilledRate"].ToString();
                 user.ItemQty = cartItem["Qty"].ToString();
                 user.CatId = cartItem["CategoryId"].ToString();
+                user.Type = cartItem["TypeItem"].ToString();
 
                 details.Add(user);
 
@@ -265,7 +266,7 @@ namespace budhashop.Services
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static bool SetSessionValue(string ID, int Type)
+        public static bool SetSessionValue(string ID, int Type, string Size)
         {
             string Name = "CartPicks";
             //string sessionVal = String.Empty;
@@ -278,7 +279,7 @@ namespace budhashop.Services
                 {
                     cartItems = (List<CartItems>)HttpContext.Current.Session[Name];
                     CartItems newItem = new CartItems();
-                    bool hasItem = cartItems.Any(c => c.ItemId == int.Parse(ID));
+                    bool hasItem = cartItems.Any(c => c.ItemId == int.Parse(ID) && c.TypeCheck == Size);
                     if (!hasItem)
                     {
                         newItem.ItemId = int.Parse(ID);
@@ -302,6 +303,7 @@ namespace budhashop.Services
                             newItem.GrpChk = false;
                         }
                         newItem.Qty = 1;
+                        newItem.TypeCheck = Size;
                         cartItems.Add(newItem);
 
 
@@ -335,6 +337,7 @@ namespace budhashop.Services
             public string ItemDesc { get; set; }
             public string ItemQty { get; set; }
             public string CatId { get; set; }
+            public string Type { get; set; }
         }
 
         public class CatDetails
@@ -343,6 +346,6 @@ namespace budhashop.Services
             public string CatName { get; set; }
         }
 
-       
+
     }
 }

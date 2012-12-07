@@ -255,7 +255,9 @@
                               <div id="o_i_l_field" class="style4"><asp:Label ID="priceLbl" runat="server" Text='<%# Eval("BilledRate")%>'> </asp:Label>
                               </div>
                           </div>
-                           
+                           <div id="o_i_l_field_area">
+                            <div id="o_i_l_label"><asp:Label ID="sizeLbl" runat="server" Text='<%# Eval("Size")%>'> </asp:Label></div>
+                          </div>
 					
 			  </section>
             </aside>

@@ -66,7 +66,7 @@
     
     <asp:GridView ID="orderGrid" runat="server" AllowPaging="True" 
              AutoGenerateColumns="False" 
-             DataKeyNames="PurchaseId,Uid,NoItems,TotalBilledRate,PurchaseDate,DeliveredFlag,ItemString,ShippingAddress" 
+             DataKeyNames="PurchaseId,Uid,NoItems,TotalBilledRate,PurchaseDate,DeliveredFlag,ItemString,ShippingAddress,TypeItem" 
              OnPageIndexChanging="orderGrid_PageIndexChanging" 
              onrowcommand="orderGrid_RowCommand" PageSize="10">
              <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
@@ -88,7 +88,7 @@
                          <asp:Label ID="lbl_UserId" runat="server" Text='<%# Eval("Uid") %>'></asp:Label>
                          <asp:HiddenField ID="HiddenItemStr" runat="server" Value='<%#Eval("ItemString") %>'/>
                          <asp:HiddenField ID="HiddenAddrStr" runat="server" Value='<%#Eval("ShippingAddress") %>'/>
-
+                         <asp:HiddenField ID="HiddentTypeStr" runat="server" Value='<%#Eval("TypeItem") %>'/>
                      </ItemTemplate>
                  </asp:TemplateField>
                  <asp:TemplateField HeaderText="Quantity">

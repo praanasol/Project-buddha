@@ -18,9 +18,8 @@ namespace budhashop.ADMIN
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            getOrders();
-
-            
+            if(!IsPostBack)
+                getOrders();
         }
 
         private void getOrders()
@@ -78,6 +77,7 @@ namespace budhashop.ADMIN
                 bool   isDelivered = bool.Parse(orderGrid.DataKeys[index]["DeliveredFlag"].ToString());
                 string itemString = orderGrid.DataKeys[index]["ItemString"].ToString();
                 string addrString = orderGrid.DataKeys[index]["ShippingAddress"].ToString();
+                string TypeString = orderGrid.DataKeys[index]["TypeItem"].ToString();
                 
                 //string itemString = (HiddenField)row.Cells[index].FindControl("HiddenItemStr")).Value;
                 //string addrString = ((HiddenField)e.Row.FindControl("HiddenAddrStr")).Value;
@@ -114,9 +114,12 @@ namespace budhashop.ADMIN
                     CartDT.Columns.Add(dcBr);
                     DataColumn dcTr = new DataColumn("TotalRate", typeof(float));
                     CartDT.Columns.Add(dcTr);
+                    DataColumn dcSz = new DataColumn("Size", typeof(string));
+                    CartDT.Columns.Add(dcSz);
 
                     //itemString.Remove(itemString.Length);
                     var itemsArray = itemString.Split(';');
+                    var sizeArray = TypeString.Split(';');
                     for (var i = 0; i < itemsArray.Length-1; i++)
                     {
                         var items = itemsArray[i].Split(',');
@@ -143,7 +146,7 @@ namespace budhashop.ADMIN
                             //cartItem.totalNet = ntrte;
                             float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                             dr[5] = totRate;
-                            
+                            dr[6] = sizeArray[i];
                             CartDT.Rows.Add(dr);
                         }
 

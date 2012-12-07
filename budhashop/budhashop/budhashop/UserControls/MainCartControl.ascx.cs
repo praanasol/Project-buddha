@@ -20,27 +20,27 @@ namespace budhashop.UserControls
     public partial class MainCartControl : System.Web.UI.UserControl
     {
         private List<CartItems> CartDetails;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-         if (!IsPostBack)
-         {
-             if (Session["itemCheck"] != null)
-             {
-                 hiddenCheck5.Value = Session["itemCheck"].ToString();
-                 hiddenCheck6.Value = Session["totCheck"].ToString();
-
-             }
-
-            if (Session["CartPicks"] != null)
+            if (!IsPostBack)
             {
-                CartDetails = new List<CartItems>();
-                CartDetails = (List<CartItems>)Session["CartPicks"];
-                LoadItems(CartDetails);
+                if (Session["itemCheck"] != null)
+                {
+                    hiddenCheck5.Value = Session["itemCheck"].ToString();
+                    hiddenCheck6.Value = Session["totCheck"].ToString();
+
+                }
+
+                if (Session["CartPicks"] != null)
+                {
+                    CartDetails = new List<CartItems>();
+                    CartDetails = (List<CartItems>)Session["CartPicks"];
+                    LoadItems(CartDetails);
+                }
             }
-          }
-           
-         }
+
+        }
 
         private void LoadItems(List<CartItems> Cartinfo)
         {
@@ -58,6 +58,8 @@ namespace budhashop.UserControls
             CartDT.Columns.Add(dcBr);
             DataColumn dcTr = new DataColumn("TotalRate", typeof(float));
             CartDT.Columns.Add(dcTr);
+            DataColumn dcSz = new DataColumn("Size", typeof(string));
+            CartDT.Columns.Add(dcSz);
 
             DataSet ds = new DataSet();
             DataTable dtv = new DataTable();
@@ -75,13 +77,18 @@ namespace budhashop.UserControls
                 CartItems item = cartObj as CartItems;
                 int cid = item.ItemId;
                 int qty = item.Qty;
+                string Size = "";
+                if (item.TypeCheck != "undefined")
+                {
+                    Size = "Size : " + item.TypeCheck;
+                }
                 bool grpId = item.GrpChk;
                 var cartItems = (List<CartItems>)Session["CartPicks"];
-                var cartItem = cartItems.First(p => p.ItemId == cid);
+                var cartItem = cartItems.First(p => p.ItemId == cid && p.TypeCheck == item.TypeCheck);
                 // finding the data item
                 if (grpId)
                 {
-                    
+
                     var itemDetails = dtg.AsEnumerable().First(p => p.Field<long>("GroupId") == cid);
                     if (itemDetails != null)
                     {
@@ -92,11 +99,12 @@ namespace budhashop.UserControls
                         dr[3] = qty;
                         float blrte = float.Parse(itemDetails["BilledRate"].ToString());
                         dr[4] = blrte;
-                        cartItem.TotalBill = blrte;
                         //float ntrte = float.Parse(itemDetails["NetRate"].ToString());
                         //cartItem.totalNet = ntrte;
-                        float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
+                        float totRate = qty * blrte;
+                        cartItem.TotalBill = totRate;
                         dr[5] = totRate;
+                        dr[6] = Size;
                         totalPrice += totRate;
                         CartDT.Rows.Add(dr);
                     }
@@ -114,18 +122,19 @@ namespace budhashop.UserControls
                         dr[3] = qty;
                         float blrte = float.Parse(itemDetails["BilledRate"].ToString());
                         dr[4] = blrte;
-                        cartItem.TotalBill = blrte;
                         //float ntrte = float.Parse(itemDetails["NetRate"].ToString());
                         //cartItem.totalNet = ntrte;
-                        float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
+                        float totRate = qty * blrte;
+                        cartItem.TotalBill = totRate;
                         dr[5] = totRate;
+                        dr[6] = Size;
                         totalPrice += totRate;
                         CartDT.Rows.Add(dr);
                     }
                 }
                 Session["CartPicks"] = cartItems;
                 // updating the data row from the itemDetails object.
-                
+
             }
             if (CartDT != null)
             {
@@ -149,7 +158,7 @@ namespace budhashop.UserControls
                 Session["totCheck"] = totalLbl.Text;
                 dv = CartDT.DefaultView;
                 pagedData.DataSource = dv;
-                 //pagedData.AllowPaging = true;
+                //pagedData.AllowPaging = true;
                 //pagedData.PageSize = 4;
                 pagedData.CurrentPageIndex = 0;
 
@@ -163,7 +172,7 @@ namespace budhashop.UserControls
                 orderBtn1.Enabled = false;
             }
         }
-  
+
         /// <summary>
         /// 
         /// </summary>
@@ -178,6 +187,10 @@ namespace budhashop.UserControls
                 hiddenCheck6.Value = Session["totCheck"].ToString();
 
             }
+
+            var sizeLbl = ((Label)e.Item.FindControl("sizeLbl")).Text;
+            var size = sizeLbl.Length == 0 ? "undefined" : sizeLbl.Substring(7);
+
             if (e.CommandName == "UpdateItem")
             {
                 //getting the primary key from the Datalist of the to be updated item.
@@ -193,7 +206,7 @@ namespace budhashop.UserControls
 
                     if (cartItems != null)
                     {
-                        var cartItem = cartItems.First(p => p.ItemId == long.Parse(itemId));
+                        var cartItem = cartItems.First(p => p.ItemId == long.Parse(itemId) && p.TypeCheck == size);
 
                         cartItem.Qty = int.Parse(qty);
                         float updatedTot = int.Parse(qty) * (float.Parse(((Label)e.Item.FindControl("priceLbl")).Text));
@@ -205,27 +218,27 @@ namespace budhashop.UserControls
                         Session["totCheck"] = totalLbl.Text;
                     }
                 }
- 
+
             }
 
             if (e.CommandName == "RemoveItem")
             {
                 //getting the primary key from the Datalist of the to be updated item.
                 var itemId = itemCartDL.DataKeys[e.Item.ItemIndex].ToString();
-                 // loading the cart items.
-                    var cartItems = (List<CartItems>)Session["CartPicks"];
+                // loading the cart items.
+                var cartItems = (List<CartItems>)Session["CartPicks"];
 
-                    if (cartItems != null)
-                    {
-                        //remove cart item with itemId
-                      cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId));
-                        
-                        //update session
-                        Session["CartPicks"] = cartItems;
+                if (cartItems != null)
+                {
+                    //remove cart item with itemId
+                    cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId) && p.TypeCheck == size);
 
-                        //load updated cart items
-                        LoadItems(cartItems);
-                    }
+                    //update session
+                    Session["CartPicks"] = cartItems;
+
+                    //load updated cart items
+                    LoadItems(cartItems);
+                }
 
 
             }

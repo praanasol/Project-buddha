@@ -84,6 +84,8 @@ namespace budhashop.USER
             CartDT.Columns.Add(dcBr);
             DataColumn dcTr = new DataColumn("TotalRate", typeof(float));
             CartDT.Columns.Add(dcTr);
+            DataColumn dcSz = new DataColumn("Size", typeof(string));
+            CartDT.Columns.Add(dcSz);
 
             DataSet ds = new DataSet();
             DataTable dtv = new DataTable();
@@ -100,6 +102,11 @@ namespace budhashop.USER
                 CartItems item = cartObj as CartItems;
                 int cid = item.ItemId;
                 int qty = item.Qty;
+                string Size = "";
+                if (item.TypeCheck != "undefined")
+                {
+                    Size = "Size : " + item.TypeCheck;
+                }
                 bool grpId = item.GrpChk;
 
                 // finding the data item
@@ -116,6 +123,7 @@ namespace budhashop.USER
                         dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
                         float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                         dr[5] = totRate;
+                        dr[6] = Size;
                         totalPrice += totRate;
                         CartDT.Rows.Add(dr);
                     }
@@ -134,6 +142,7 @@ namespace budhashop.USER
                         dr[4] = float.Parse(itemDetails["BilledRate"].ToString());
                         float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                         dr[5] = totRate;
+                        dr[6] = Size;
                         totalPrice += totRate;
                         CartDT.Rows.Add(dr);
                     }
@@ -171,6 +180,9 @@ namespace budhashop.USER
         /// <param name="e"></param>
         protected void itemCartDL_ItemCommand(object source, DataListCommandEventArgs e)
         {
+            var sizeLbl = ((Label)e.Item.FindControl("sizeLbl")).Text;
+            var size = sizeLbl.Length == 0 ? "undefined" : sizeLbl.Substring(7);
+
             if (e.CommandName == "UpdateItem")
             {
                 //getting the primary key from the Datalist of the to be updated item.
@@ -186,7 +198,7 @@ namespace budhashop.USER
 
                     if (cartItems != null)
                     {
-                        var cartItem = cartItems.First(p => p.ItemId == long.Parse(itemId));
+                        var cartItem = cartItems.First(p => p.ItemId == long.Parse(itemId) && p.TypeCheck == size);
 
                         cartItem.Qty = int.Parse(qty);
                         float updatedTot = int.Parse(qty) * (float.Parse(((Label)e.Item.FindControl("priceLbl")).Text));
@@ -210,7 +222,7 @@ namespace budhashop.USER
                 if (cartItems != null)
                 {
                     //remove cart item with itemId
-                    cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId));
+                    cartItems.RemoveAll(p => p.ItemId == long.Parse(itemId) && p.TypeCheck == size);
 
                     //update session
                     Session["CartPicks"] = cartItems;
@@ -303,6 +315,8 @@ namespace budhashop.USER
                 CartDT.Columns.Add(dcBr);
                 DataColumn dcTr = new DataColumn("TotalRate", typeof(float));
                 CartDT.Columns.Add(dcTr);
+                DataColumn dcSz = new DataColumn("Size", typeof(string));
+                CartDT.Columns.Add(dcSz);
 
                 DataSet ds = new DataSet();
                 DataTable dtv = new DataTable();
@@ -320,6 +334,7 @@ namespace budhashop.USER
                     CartItems item = cartObj as CartItems;
                     int cid = item.ItemId;
                     int qty = item.Qty;
+                    string size = item.TypeCheck;
                     bool grpId = item.GrpChk;
 
                     // finding the data item
@@ -337,6 +352,10 @@ namespace budhashop.USER
                             dr[3] = float.Parse(itemDetails["BilledRate"].ToString());
                             float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                             dr[4] = totRate;
+                            if (size != "")
+                            {
+                                dr[5] = size;
+                            }
                             totalPrice += totRate;
                             CartDT.Rows.Add(dr);
                         }
@@ -355,6 +374,10 @@ namespace budhashop.USER
                             dr[3] = float.Parse(itemDetails["BilledRate"].ToString());
                             float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
                             dr[4] = totRate;
+                            if (size != "")
+                            {
+                                dr[5] = size;
+                            }
                             totalPrice += totRate;
                             CartDT.Rows.Add(dr);
                         }
@@ -450,6 +473,7 @@ namespace budhashop.USER
                     CartDetails = (List<CartItems>)Session["CartPicks"];
 
                     String cartItems = "";
+                    string sizeString = "";
                     float Total = 0;
                     int count = 0;
 
@@ -463,9 +487,9 @@ namespace budhashop.USER
                             int cid = item.ItemId;
                             int qty = item.Qty;
                             float tot = item.TotalBill;
-                            Total += tot * qty;
+                            Total += tot;
                             cartItems += cid + "," + qty + ";";
-
+                            sizeString += item.TypeCheck + ";";
                         }
                     }
                     else
@@ -482,6 +506,7 @@ namespace budhashop.USER
                     insertOrder.cartItems = cartItems;
                     insertOrder.totalBill = TotalBill;
                     insertOrder.totalItems = ItemsCount;
+                    insertOrder.TypeItem = sizeString;
 
                     UserItems ordr = new UserItems();
                     int purchaseId = ordr.insertOrders(insertOrder);
@@ -566,7 +591,7 @@ namespace budhashop.USER
                 message.Subject = "Your Order is Placed Successfully";
                 message.Body = smsg1 + smsg2 + smsg3 + smsg4 + smsg5 + smsg6 + smsg7 + smsg8 + smsg9 + smsg10;
                 message.IsBodyHtml = true;
-                
+
                 SmtpClient client = new SmtpClient();
                 client.Port = 25; // Gmail works on this port 587
                 client.Host = "smtp.net4india.com";

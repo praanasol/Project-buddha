@@ -99,9 +99,16 @@
                               <div id="f_d_field" class="style4">Rs.<a id="priceTxt"></a>
                               </div>
                               <div id="f_d_but">
-                <div id="addCartBtn"></div>
-            
-          </div>
+                                    <div id="addCartBtn"></div>
+                              </div>
+                          </div>
+                          <div id="f_d_field_area"">
+                              <div id="f_d_label">
+                                  <div id="typeheader"></div>
+                              </div>
+                              <span id="fillfeild" class="style4" style="margin-left:-200px;"></span>
+                              <br />
+                              <asp:Label ID="lbl_validate" runat="server" Font-Bold="true" ForeColor="Red" style="margin-left:-250px;"></asp:Label>
                           </div>
 					
 			  </section>

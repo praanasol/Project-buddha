@@ -54,7 +54,9 @@
         success: function(data) {
 
             for (var i = 0; i < data.d.length; i++) {
-                $("#addCartBtn").append('<a id="addBtn" href="" class="f_d_link" onclick="DoAction('+ data.d[0].ItemId+','+ data.d[0].CatId+');">Add to Cart</a>');
+                if(data.d[0].Type == ''){
+                    $("#addCartBtn").append('<a id="addBtn" href="" class="f_d_link" onclick="DoAction('+ data.d[0].ItemId+','+ data.d[0].CatId+');">Add to Cart</a>');
+                }
                 //$("#itemsBox").append('<aside id="inner_category_box" class="category_box_style"><div id="category_header"><a href="#" target="_self" class="link1">'+ data.d[0].ItemId+'</a></div><div id="img_placeholder"><a href="#" target="_self"><img src="'+data.d[i].ItemPath+'" alt="Items" title="Items" width="151" height="151" border="0"></a></div><div id="category_bottom_row"><div id="category_bottom_links"><div id="to_left" class="style2" style="margin-top:8px;">'+data.d[0].ItemPrice+'</div><div id="to_left"><div id="add" class="add_style"><div id="add_link"><a id = "addBtn'+ data.d[0].ItemId+'" href="" type="button" target="_self" class="add" onclick="DoAction('+ data.d[0].ItemId+','+ data.d[0].CatId+');">ADD</a></div></div></div> </div></div> </aside>');
 
                 $("#imgItem").append('<img src="'+data.d[0].ItemPath+'" alt="Item" title="Item" width="110" height="110" class="img_class" border="0">');
@@ -66,9 +68,15 @@
                 $("#descBox").append(data.d[0].ItemDesc);
                  $("#backBtn").append('<a id="bBtn" href="../itemspage.aspx?catid='+ data.d[0].CatId+'" class="f_d_link" style="color:#512912">Browse all products</a>');
                 $("#featuredBtn").append('<a id="bBtn" href="../homepage.aspx" class="f_d_link" style="color:#512912">Featured products</a>');
-                
-                
-
+                if(data.d[0].Type == 'size'){
+                    $("#addCartBtn").append('<a id="addBtn" href="" class="f_d_link" onclick="return ValidateRadio('+ data.d[0].ItemId+','+ data.d[0].CatId+');">Add to Cart</a>');
+                    $("#typeheader").text('Size :');
+                    $("#fillfeild").append('<input id="rb_size_0" type="radio" value="S" name="rb_size"/> <label for="rb_size_0">S</label>');
+                    $("#fillfeild").append('<input id="rb_size_1" type="radio" value="M" name="rb_size"/> <label for="rb_size_1">M</label>');
+                    $("#fillfeild").append('<input id="rb_size_2" type="radio" value="L" name="rb_size"/> <label for="rb_size_2">L</label>');
+                    $("#fillfeild").append('<input id="rb_size_3" type="radio" value="XL" name="rb_size"/> <label for="rb_size_3">XL</label>');
+                    $("#fillfeild").append('<input id="rb_size_4" type="radio" value="XXL" name="rb_size"/> <label for="rb_size_4">XXL</label>');
+                }
             }
         },
         error: function(result) {
@@ -85,5 +93,23 @@
     $("[id$=img_menu]").mouseup(function() {
         return false
     });
-
+    $("#fillfeild").click(function(){
+        $("[id$=lbl_validate]").text("");
+    });
 });
+
+function ValidateRadio(ItemId,CatId)
+    {
+        var validate= $("input[name=rb_size]:checked").length;
+        if(validate)
+        {
+            var size=$('input[name=rb_size]:checked').val();
+            DoAction(ItemId,CatId,size);
+            return true;
+        }
+        else
+        {
+            $("[id$=lbl_validate]").text("Slect Size");
+            return false;
+        }
+    }

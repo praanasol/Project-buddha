@@ -38,24 +38,24 @@ namespace budhashop.USER
             if (this.Session["currentuser"] != null)
             {
                 //ProfileDiv Start
-                    DataTable dt = (DataTable)this.Session["currentuser"];
-                    string emailid = dt.Rows[0]["Email"].ToString();
-                    retrieveUser(emailid);
+                DataTable dt = (DataTable)this.Session["currentuser"];
+                string emailid = dt.Rows[0]["Email"].ToString();
+                retrieveUser(emailid);
                 //ProfileDiv End
 
                 //OrderHistoryDiv Start
-                    getOrders();
+                getOrders();
 
-                    DataSet allDataDS = new DataSet();
+                DataSet allDataDS = new DataSet();
 
-                    InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
+                InterfacesBS.InterfacesBL.InterfaceItems allData = new BusinessLogicBS.BusinessClasses.ItemsClass();
 
 
-                    if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
-                    {
-                        allDataDS = allData.getAllItems();
-                        System.Web.HttpContext.Current.Cache.Insert("CacheItemsObj", allDataDS, null, System.DateTime.Now.AddDays(1), System.Web.Caching.Cache.NoSlidingExpiration);
-                    }
+                if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+                {
+                    allDataDS = allData.getAllItems();
+                    System.Web.HttpContext.Current.Cache.Insert("CacheItemsObj", allDataDS, null, System.DateTime.Now.AddDays(1), System.Web.Caching.Cache.NoSlidingExpiration);
+                }
                 //OrderHistoryDiv End
             }
             else
@@ -125,13 +125,13 @@ namespace budhashop.USER
             public string ItemPath { get; set; }
             public string ItemName { get; set; }
             public string BilledRate { get; set; }
-
             public string ItemQty { get; set; }
             public string TotalRate { get; set; }
+            public string Size { get; set; }
         }
 
         [WebMethod]
-        public static ItemDetails[] GetOrderedItems(string itemString)
+        public static ItemDetails[] GetOrderedItems(string itemString, string sizeString)
         {
             DataSet itemData = new DataSet();
             itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
@@ -141,6 +141,7 @@ namespace budhashop.USER
             List<ItemDetails> totalDetails = new List<ItemDetails>();
 
             var itemsArray = itemString.Split(';');
+            var sizeArray = sizeString.Split(';');
             for (var i = 0; i < itemsArray.Length - 1; i++)
             {
                 var items = itemsArray[i].Split(',');
@@ -163,7 +164,15 @@ namespace budhashop.USER
                     float blrte = float.Parse(itemDetails["BilledRate"].ToString());
                     details.BilledRate = blrte.ToString();
                     float totRate = qty * (float.Parse(itemDetails["BilledRate"].ToString()));
-                    details.TotalRate = totRate.ToString(); ;
+                    details.TotalRate = totRate.ToString();
+                    if (sizeArray[i].Contains("undefined"))
+                    {
+                        details.Size = "";
+                    }
+                    else
+                    {
+                        details.Size = sizeArray[i];
+                    }
 
                     totalDetails.Add(details);
                 }

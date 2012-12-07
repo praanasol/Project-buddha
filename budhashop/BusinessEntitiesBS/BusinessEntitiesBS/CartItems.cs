@@ -18,5 +18,6 @@ namespace BusinessEntitiesBS
         public int Qty { get { return qty; } set { qty = value; } }
         public bool GrpChk { get { return grpChk; } set { grpChk = value; } }
         public float TotalBill { get { return totalBill; } set { totalBill = value; } }
+        public string TypeCheck { get; set; }
     }
 }

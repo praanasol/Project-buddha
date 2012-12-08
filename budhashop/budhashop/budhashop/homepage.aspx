@@ -35,8 +35,8 @@ $('#slideshow2').cycle({
 });
 </script> 
  <%--div for the sliding banner--%>
- <div id="side-info" style="display:none;">
- <div style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
+ <aside id="side-info" style="display:none;">
+ <section style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
   <div id="slideshow2" class="quicklinks" style="height:180px; text-align:center;">
   <b>New products</b>
   <b>New product <br /> - product 1 -</b>
@@ -56,7 +56,8 @@ $('#slideshow2').cycle({
   <b>Articles</b>
   
   </div>
- </div>
+ </section>
+ <section>
   <div id='coin-slider'>
     <a href="../itemspage.aspx?catid=1" target="_blank">
         <img src="images/banner/banner1.jpg">
@@ -80,8 +81,8 @@ $('#slideshow2').cycle({
     </a>
    
 </div>
-
-</div>
+</section>
+</aside>
   <br clear="all" />
   
 <section id="item_area" class="box_style" style="height:600px;">

@@ -29,9 +29,6 @@
     <link rel="stylesheet" type="text/css" href="../Styles/inner_format.css"/>
 
     <link href="../Styles/css_messagebox.css" rel="stylesheet" type="text/css" />
-    
-   <%-- <link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font">--%>
-
 
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
@@ -42,6 +39,9 @@
  
     <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>
     <script src="../script/cart-message.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+<script src="../script/dist/html5shiv.js"></script>
+<![endif]-->
 <script type="text/javascript">var switchTo5x=false;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "5d26fa19-aabc-41d8-88c5-147c465f6ae0"});</script>
@@ -189,14 +189,10 @@
   
         </asp:ContentPlaceHolder>
     </div>
-<div id="preloader" class="preloader"><img class="img_preloader" src="../images/ajax-loader.gif" alt="Loading..." /></div>
-    <br />
-   <div id="feedbckuc" style="position:absolute; top:1px; left:58%;">
-            <uc_fb:feedbck ID="feedbckUc" runat="server" />
-            </div>
+
 
     <br style="clear:both;" />
-  <footer class="rights">
+  <div class="rights">
   <div>
   <aside style="height:20px;">
   <nav id="nav_bottom" style="font-size:10px;">
@@ -240,7 +236,7 @@
 
 					
   </div>
-  </footer>
+  </div>
    
 </div>
 
@@ -255,7 +251,11 @@
 <span class='st_googleplus_large' displayText='Google +'></span>
 </div>
 </div>
-
+<div id="preloader" class="preloader"><img class="img_preloader" src="../images/ajax-loader.gif" alt="Loading..." /></div>
+    <br />
+   <div id="feedbckuc" style="position:absolute; top:1px; left:58%;">
+            <uc_fb:feedbck ID="feedbckUc" runat="server" />
+            </div>
     </form>
 </body>
 </html>

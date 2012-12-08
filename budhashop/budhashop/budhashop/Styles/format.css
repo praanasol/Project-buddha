@@ -303,9 +303,29 @@ a.add:hover, a.add:active{
 	margin:0px;
 	padding-top:10px;
 	height:130px;
+	width:100%;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:11px;
-	color:#ac7713;
+	color:#ac7713;	
+	text-align:center;
+	background-color:#7E1B1B;
+	 background: linear-gradient(#7E1B1B, #4d1c12);
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#7E1B1B), to(#4d1c12));
+	
+    background: -moz-linear-gradient(#7E1B1B, #4d1c12);
+    
+	border-radius:20px;	  
+    box-shadow:inset 0px 0px 3px 2px #ac7713;
+
+    -moz-box-shadow:inset 0px 0px 3px 2px #ac7713;
+    -ms-box-shadow:inset 0px 0px 3px 2px #ac7713;
+-webkit-box-shadow:inset 0px 0px 3px 2px #ac7713;
+
+border-top-left-radius: 1px;
+border-top-right-radius: 1px;
+	
+	
+	
 }
 
 .quicklinks

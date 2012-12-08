@@ -230,9 +230,9 @@
   <br />
                         <div id="br_menu" style="font-size:12px; text-align:center;">
 					       Compatable Browsers
-                           <a id="fullimg" href="https://www.google.com/intl/en/chrome/browser/" target="_blank" style="padding:2px;" ><img src="../images/chrome.png" alt="chrome" /></a>
-                           <a id="A1" href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" ><img src="../images/firefox-icon.png" alt="Firefox" /></a>
-                           <a id="A2" href="http://www.microsoft.com/india/windows/ie/ie9.aspx" target="_blank" ><img src="../images/ie9-icon.png" alt="IE 9" /></a>
+                           <a id="fullimg" href="https://www.google.com/intl/en/chrome/browser/" target="_blank" style="padding:2px;"><img src="../images/chrome.png" alt="New Version"  title="New Version" /></a>
+                           <a id="A1" href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" ><img src="../images/firefox-icon.png"  alt="New Version"  title="New Version" /></a>
+                           <a id="A2" href="http://www.microsoft.com/india/windows/ie/ie9.aspx" target="_blank" ><img src="../images/ie9-icon.png" alt="New Version IE 9" title="New Version IE 9" /></a>
                         </div>
                         <p style="float:left; margin-left:250px; margin-top:-10px;">
   Copyright@2012. praanasolutions.com</p>

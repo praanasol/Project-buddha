@@ -172,9 +172,15 @@
                 <br style="clear:both;" /><br />
             </aside>
         </div>
-        <div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:240px;">Click <a id="btnComplaint" href="#">here</a> to file a Complaint</div>
+         <div id="but_style" style="width: 535px; margin-left:200px;">
+         <div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:50px;">Click <a id="btnComplaint" href="#">here</a> to file a Complaint</div>
+                        <div id="to_right"><asp:Button CssClass="l_go" runat="server" Text="Login" Width="70" Height="35" /></div>
+         
+         </div>
+        <%--<div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:240px;">Click <a id="btnComplaint" href="#">here</a> to file a Complaint</div>--%>
         <div id="complaintField" class="web_dialog">
             <aside id="p_data" class="p_f_box_style" style=" margin-top:20px;">
+                <div style="width:500px; margin:5px 0px 0px 5px;" class="text">Text Here</div>
                 <section id="p_d_fields">
                     <div id="p_d_field_area" style="width:490px; height:21px;">
                         <div id="p_d_label">
@@ -201,17 +207,24 @@
                         </div>
                     </div>
                     <div id="p_d_field_area" style="width:490px; height:21px; margin-top:80px;">
-                        <div id="but_style" style="margin-left:150px; padding:5px 0px 0px 5px;">
+                        <div id="but_style" style="margin-left:100px; padding:5px 0px 0px 5px;">
                             <input id="btn_submitComplaint" onclick="return RegisterComplaint();" class="l_go" type="button" value="Submit" runat="server" />
-                        </div>
+                        
+                        <div id="login_links1" style="float:right; padding-left:290px; margin-top:-15px;">
+            <a href="#" id="btnClose" class="l_links1">Close</a>
+            </div></div>
                     </div>
                     <div id="p_d_field_area" style="width:490px; height:21px; margin-top:10px;">
                         <asp:Label ID="lbl_resultComplaint" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
-                    </div>
+                   
+                     </div>
                 </section>
-                <br style="clear:both;" /><br />
+                
+                
             </aside>
-            <div id="p_d_label" style="float:right; margin:-45px 12px 0px 0px;"><a href="#" id="btnClose" class="l_links1">Close</a></div>
+           
+            
+            
         </div>
     </div>
     <div id="notLoggedIn" style="display:none; top: 510px; left: 520px; position: absolute; height: 22px; width: auto; padding: 8px 20px 2px; font-weight:bold; font-size:14px;" class="p_f_box_style"></div>

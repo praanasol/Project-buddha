@@ -513,6 +513,11 @@ namespace budhashop.ADMIN
             FormsAuthentication.SignOut();
             Response.Redirect("../ADMIN/LoginA.aspx");
         }
+        protected void lb_clear_cache(object sender, EventArgs e)
+        {
+            System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
+           
+        }
     
     }
 }

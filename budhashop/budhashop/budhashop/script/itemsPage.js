@@ -20,7 +20,6 @@
         $("#pagination").pagination(num_entries, pagination_options);
     }
     
-    
     var search1 = function() {
         var s = window.location.search.substr(1),
         p = s.split(/\&/), l = p.length, kv, r = {};
@@ -31,16 +30,35 @@
         }
         return r;
     }();
-    
-    if(search1.catid != null) {
-        catID = search1.catid;   
+    if(search1.catid != null && search1.catid != true) {
+            var catID=search1.catid;
+            var subCatId = search1.subcatid;
+            var catArray = [];
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "../Services/Services.aspx/FetchSubCatNames",
+                dataType: "json",
+                data: "{'catId':'"+ catID +"'}",
+                success: function(data) {
+                    var items = [];
+                    $.each(data.d, function(i, item) {
+                    items.push('<li><a href="../itemspage.aspx?catid='+ catID +'&subcatid=' + item.SubCatId+ '" title="' + item.SubCatName+ '">' + item.SubCatName + '</a></li>');
+                    catArray.push(parseInt(item.CatId));
+                    });  // close each()
+                    $('[id$=subCatArea]').append( items.join('') );
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(textStatus);
+                }
+            });   
     
    
         $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
             url: "Services/Services.aspx/BindItemsData",
-            data: "{'CatgId':'"+ catID +"'}",
+            data: "{'CatgId':'"+ catID +"','SubCatId':'"+ subCatId +"'}",
             dataType: "json",
             success: function(data) {
                 for (var i = 0; i < data.d.length; i++) {
@@ -53,24 +71,22 @@
                 alert("Error");
             }
         });
+        
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: "Services/Services.aspx/getCatName",
+            data: "{'CatId':'"+ catID +"'}",
+            dataType: "json",
+            success: function(data) {
+                $("#catStr").append('<b>'+data.d+'</b>');
+            },
+            error: function(result) {
+                alert("Error");
+            }
+        });
     }
-     else {
-     
-     window.location.replace("homepage.aspx");
-     
-     }
-
-    $.ajax({
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        url: "Services/Services.aspx/getCatName",
-        data: "{'CatId':'"+ catID +"'}",
-        dataType: "json",
-        success: function(data) {
-            $("#catStr").append('<b>'+data.d+'</b>');
-        },
-        error: function(result) {
-            alert("Error");
-        }
-    });
+    else {
+        window.location.replace("homepage.aspx");
+    }
 });

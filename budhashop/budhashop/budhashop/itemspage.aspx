@@ -77,9 +77,15 @@
         <!--Gallery Start-->
         <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:600px; width:970px; padding-left:20px; "> 
         <div style="text-align:left; margin-left:25px">
-    	<b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">All Products</b>
-      
-    </div>
+    	    <aside style="height:30px;">
+              <nav id="nav_bottom" style="font-size:10px;">
+                <ul id="subCatArea" style=" width:100%;">
+                    <b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">All Products</b>
+                </ul>
+              </nav>
+            </aside>
+        </div>
+        <br />
         <div id = "itemsBox">
           <p id="fetching">
         Fetching items.... 

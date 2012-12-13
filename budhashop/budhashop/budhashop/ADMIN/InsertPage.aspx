@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server" enctype="multipart/form-data">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="top links" style="float:right; background-color:Menu;">
     <asp:LinkButton ID="HyperLink1" runat="server" 
             onclick="lb_clear_cache">Clear Cache</asp:LinkButton>
@@ -55,6 +56,32 @@
     <p></p>
     
     <div>
+     <!-- Sub Catagory part -->
+    <asp:Label ID="SubCatLbl" runat="server" Text="Add Sub Catagory"></asp:Label>
+    <br />
+    <br>
+        <div>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    Catagory:<asp:DropDownList ID="ddl_Catagory" runat="server" 
+                        onselectedindexchanged="ddl_Catagory_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    Sub Catagory Name:<asp:TextBox ID="txt_SubCatName" runat="server" ontextchanged="txt_SubCatName_TextChanged" AutoPostBack="true"></asp:TextBox>
+                    <asp:Image ID="img_SubCatName" runat="server" Visible="false" />
+                    <asp:Label ID="lbl_SubCatName" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txt_SubCatName" ErrorMessage="Enter Name" 
+                        SetFocusOnError="True" ValidationGroup="subcatVG"></asp:RequiredFieldValidator>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:Label ID="lbl_subCatStatus" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
+            <asp:Button ID="btn_subcatagory" runat="server" onclick="btn_subcatagory_Click" 
+                Text="Add Sub Catagory" ValidationGroup="subcatVG" />
+        </div>
+    </div>
+    <p></p>
+    <p></p>
+    
+    <div>
      <!-- items part -->
     <asp:Label ID="ItemLbl" runat="server" Text="Add Item"></asp:Label>
     <br />
@@ -68,10 +95,18 @@
          <asp:RequiredFieldValidator ID="itemDescRFV" ControlToValidate="descTxt" ValidationGroup="itemVG" runat="server" >Enter Description.</asp:RequiredFieldValidator>
         
          <asp:Label ID="catLbl" runat="server" Text="Catagory"></asp:Label>
-        <asp:DropDownList ID="CatagoryDDL" runat="server">
-                   <%--onselectedindexchanged="CatagoryDDL_SelectedIndexChanged">--%>
+        <asp:DropDownList ID="CatagoryDDL" runat="server" AutoPostBack="true"
+                   onselectedindexchanged="CatagoryDDL_SelectedIndexChanged">
            
            </asp:DropDownList>
+        
+         <asp:Label ID="lbl_subCat" runat="server" Text="Sub Catagory"></asp:Label>
+         <asp:DropDownList ID="SubCatagoryDDL" runat="server"></asp:DropDownList>
+            <br />
+            <br />
+            Type<asp:TextBox ID="typeTxt" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="itemVG"
+                SetFocusOnError="true" ErrorMessage="Enter Type" ControlToValidate="typetxt"></asp:RequiredFieldValidator>
            <asp:Label ID="ImageLbl" runat="server" Text="Add Image"></asp:Label>
             <asp:FileUpload ID="itemImageFU" runat="server"/>
             <asp:RegularExpressionValidator id="imageREV" runat="server" ErrorMessage="upload Only images" 
@@ -99,7 +134,7 @@
              </div>
             <p></p>
         <asp:Button ID="ItemBtn" runat="server" Text="Add Item" CausesValidation="true" ValidationGroup="itemVG" onclick="ItemBtn_Click" />
-        <asp:Label ID="ItemMessageLbl" runat="server" />
+        <asp:Label ID="ItemMessageLbl" Font-Bold="true" ForeColor="Red" runat="server" />
         </div>
     </div>
     <p></p>

@@ -52,7 +52,8 @@
             DataKeyNames="ItemId" AllowPaging="True" 
             onpageindexchanging="itemGrid_PageIndexChanging" BackColor="White" 
             BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-            ForeColor="Black" GridLines="Vertical">
+            ForeColor="Black" GridLines="Vertical" 
+            onrowdatabound="itemGrid_RowDataBound">
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
             <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <Columns>
@@ -176,6 +177,27 @@
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:CheckBox ID="cb_fflag" runat="server" Checked='<%# Eval("FeaturedFlag") %>' Enabled="False" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Item Type">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_type" runat="server" Text='<%# Eval("TypeItem") %>' 
+                            Width="120px"></asp:TextBox>
+                        <%--<asp:RequiredFieldValidator ID="rfv7" runat="server" 
+                            ControlToValidate="txt_type" ErrorMessage="*" SetFocusOnError="True" 
+                            ValidationGroup="update"></asp:RequiredFieldValidator>--%>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_type" runat="server" Text='<%# Eval("TypeItem") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="SubCatId">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddl_subcatid" runat="server"></asp:DropDownList>
+                        <asp:Label ID="lbl_editsubcatid" runat="server" Text='<%# Eval("SubCatId") %>' Visible="false"></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_subcatid" runat="server" Text='<%# Eval("SubCatId") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

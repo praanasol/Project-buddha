@@ -14,6 +14,10 @@ namespace InterfacesBS.InterfacesDA
     {
         int insertCatagoryDA(catagoryObj catObjDa);
         DataTable getCatgValues();
+
+        int insertSubCatagoryDA(int catid, string subcatname);
+        DataTable checkSubCatNameDA(string subcatname, int catid);
+
         int insertItemDA(ItemObj itemObjDa);
         DataTable getItemValues(int grpCatId);
         int insertGrpDA(grpObj grpObjDa);

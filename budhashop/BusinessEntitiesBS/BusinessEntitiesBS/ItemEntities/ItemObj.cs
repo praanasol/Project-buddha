@@ -16,5 +16,7 @@ namespace BusinessEntitiesBS.ItemEntities
         public int itemQty { get; set; }
         public bool itemStatus { get; set; }
         public bool featuredFlag { get; set; }
+        public string itemType { get; set; }
+        public int itemSubCatId { get; set; }
     }
 }

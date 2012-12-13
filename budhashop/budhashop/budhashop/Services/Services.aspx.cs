@@ -75,6 +75,28 @@ namespace budhashop.Services
         }
 
         [WebMethod]
+        public static SubCatDetails[] FetchSubCatNames(string catId)
+        {
+            DataTable subCatgDt = new DataTable();
+            budhashop.CLASS.CallCache callCache = new budhashop.CLASS.CallCache();
+            DataSet allDataDS = callCache.getCache();
+            subCatgDt = allDataDS.Tables[4];
+
+            List<SubCatDetails> details = new List<SubCatDetails>();
+
+            foreach (DataRow dtrow in subCatgDt.Rows)
+            {
+                SubCatDetails user = new SubCatDetails();
+                user.SubCatId = dtrow["SubCatId"].ToString();
+                user.SubCatName = dtrow["SubCatName"].ToString();
+                string catgId = dtrow["CategoryId"].ToString();
+                if (catgId == catId)
+                    details.Add(user);
+            }
+            return details.ToArray();
+        }
+
+        [WebMethod]
         //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static ItemDetails[] SearchItemNames(string searchStr)
         {
@@ -184,7 +206,7 @@ namespace budhashop.Services
         }
 
         [WebMethod]
-        public static ItemDetails[] BindItemsData(string CatgId)
+        public static ItemDetails[] BindItemsData(string CatgId, string SubCatId)
         {
             DataTable dt = new DataTable();
             List<ItemDetails> details = new List<ItemDetails>();
@@ -198,15 +220,32 @@ namespace budhashop.Services
             {
 
                 int category = int.Parse(dtrow["CategoryId"].ToString());
-                if (category == int.Parse(CatgId))
+                string subCatagoryId = dtrow["SubCatId"].ToString();
+                if (SubCatId == "" || SubCatId == "undefined" || SubCatId == "true")
                 {
-                    ItemDetails user = new ItemDetails();
-                    user.ItemId = dtrow["ItemId"].ToString();
-                    user.ItemPath = dtrow["ImagePath"].ToString();
-                    user.ItemName = dtrow["ItemName"].ToString();
-                    user.ItemPrice = dtrow["BilledRate"].ToString();
-                    user.CatId = dtrow["CategoryId"].ToString();
-                    details.Add(user);
+                    if (category == int.Parse(CatgId))
+                    {
+                        ItemDetails user = new ItemDetails();
+                        user.ItemId = dtrow["ItemId"].ToString();
+                        user.ItemPath = dtrow["ImagePath"].ToString();
+                        user.ItemName = dtrow["ItemName"].ToString();
+                        user.ItemPrice = dtrow["BilledRate"].ToString();
+                        user.CatId = dtrow["CategoryId"].ToString();
+                        details.Add(user);
+                    }
+                }
+                else
+                {
+                    if (subCatagoryId == SubCatId && category == int.Parse(CatgId))
+                    {
+                        ItemDetails user = new ItemDetails();
+                        user.ItemId = dtrow["ItemId"].ToString();
+                        user.ItemPath = dtrow["ImagePath"].ToString();
+                        user.ItemName = dtrow["ItemName"].ToString();
+                        user.ItemPrice = dtrow["BilledRate"].ToString();
+                        user.CatId = dtrow["CategoryId"].ToString();
+                        details.Add(user);
+                    }
                 }
             }
 
@@ -346,6 +385,10 @@ namespace budhashop.Services
             public string CatName { get; set; }
         }
 
-
+        public class SubCatDetails
+        {
+            public string SubCatId { get; set; }
+            public string SubCatName { get; set; }
+        }
     }
 }

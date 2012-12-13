@@ -35,6 +35,7 @@ namespace budhashop.ADMIN
                 this.ViewState["SelectedItemDT"] = SelectedItemDT;
 
                 getcatgs();
+                getSubCatg();
                 getItems(Int32.Parse(grpCatDDL.SelectedValue.ToString()));                
             }
         }
@@ -56,6 +57,11 @@ namespace budhashop.ADMIN
                 grpCatDDL.DataValueField = "CategoryId";
                 grpCatDDL.DataBind();
 
+                ddl_Catagory.DataSource = catgDt;
+                ddl_Catagory.DataTextField = "CategoryName";
+                ddl_Catagory.DataValueField = "CategoryId";
+                ddl_Catagory.DataBind();
+
             }
             catch (Exception cExp)
             {
@@ -65,7 +71,25 @@ namespace budhashop.ADMIN
 
         }
 
-        protected void getItems(int grpCatId)
+        private void getSubCatg()
+        {
+            try
+            {
+                IAdmin checkSubCatName = new AdminItems();
+                DataTable dt = checkSubCatName.checkSubCatName(txt_SubCatName.Text, Int32.Parse(CatagoryDDL.SelectedValue));
+
+                SubCatagoryDDL.DataSource = dt;
+                SubCatagoryDDL.DataTextField = "SubCatName";
+                SubCatagoryDDL.DataValueField = "SubCatId";
+                SubCatagoryDDL.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ItemMessageLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+            }
+        }
+
+        private void getItems(int grpCatId)
         {
             try
             {
@@ -145,6 +169,76 @@ namespace budhashop.ADMIN
 
         }
 
+        protected void txt_SubCatName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                IAdmin checkSubCatName = new AdminItems();
+                DataTable dt = checkSubCatName.checkSubCatName(txt_SubCatName.Text, Int32.Parse(ddl_Catagory.SelectedValue));
+                if (dt != null)
+                {
+                    img_SubCatName.ImageUrl = "~/images/unavailable.png";
+                    img_SubCatName.Visible = true;
+                    lbl_SubCatName.Text = "Name already Exist";
+                    lbl_SubCatName.ForeColor = System.Drawing.Color.Red;
+                    txt_SubCatName.Focus();
+                }
+                else
+                {
+                    img_SubCatName.ImageUrl = "~/images/tick.png";
+                    img_SubCatName.Visible = true;
+                    lbl_SubCatName.Text = "Not Exist in DB";
+                    lbl_SubCatName.ForeColor = System.Drawing.Color.Green;
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_SubCatName.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+            }
+        }
+
+        protected void ddl_Catagory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_SubCatName.Text = "";
+            img_SubCatName.ImageUrl = "";
+            lbl_SubCatName.Text = "";
+        }
+
+        protected void btn_subcatagory_Click(object sender, EventArgs e)
+        {
+            if (lbl_SubCatName.Text == "Not Exist in DB")
+            {
+                int catid = Int32.Parse(ddl_Catagory.SelectedValue);
+                string subCatName = txt_SubCatName.Text;
+                try
+                {
+                    IAdmin insertSubCatagory = new AdminItems();
+                    int inserted = insertSubCatagory.insertSubCatagory(catid, subCatName);
+                    if (inserted != -1)
+                    {
+                        lbl_subCatStatus.Text = "Sub" + HardCodedValues.BuddaResource.CatogoryAdd;
+                        txt_SubCatName.Text = "";
+                        img_SubCatName.ImageUrl = "";
+                        lbl_SubCatName.Text = "";
+                        ClearCache();
+                    }
+                    else
+                    {
+                        lbl_subCatStatus.Text = "Sub" + HardCodedValues.BuddaResource.CatogoryNotAdded;
+                    }
+                }
+                catch (Exception exp)
+                {
+                    lbl_subCatStatus.Text = HardCodedValues.BuddaResource.CatchBlockError + exp.Message;
+                }
+            }
+            else
+            {
+                txt_SubCatName.Focus();
+                lbl_subCatStatus.Text = "Enter Valid Sub Catagory Name";
+            }
+        }
+
         protected void ItemBtn_Click(object sender, EventArgs e)
         {
             bool resFU = checkPhoto(itemImageFU);
@@ -165,6 +259,8 @@ namespace budhashop.ADMIN
                     itemValues.itemBR = float.Parse(brateTxt.Text);
                     itemValues.itemNR = float.Parse(netRateTxt.Text);
                     itemValues.itemStatus = CheckBoxSts.Checked;
+                    itemValues.itemType = typeTxt.Text;
+                    itemValues.itemSubCatId = Int32.Parse(SubCatagoryDDL.SelectedValue);
 
                     IAdmin insertItem = new AdminItems();
                     int itemId = insertItem.insertItems(itemValues);
@@ -513,10 +609,18 @@ namespace budhashop.ADMIN
             FormsAuthentication.SignOut();
             Response.Redirect("../ADMIN/LoginA.aspx");
         }
+<<<<<<< HEAD
         protected void lb_clear_cache(object sender, EventArgs e)
         {
             System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
            
+=======
+
+        protected void CatagoryDDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_SubCatName.Text = "";
+            getSubCatg();
+>>>>>>> sub catagories added
         }
     
     }

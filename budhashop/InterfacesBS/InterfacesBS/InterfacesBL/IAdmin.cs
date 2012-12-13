@@ -10,6 +10,10 @@ namespace InterfacesBS.InterfacesBL
     {
         int insertCatagory(BusinessEntitiesBS.Catagory_Entities.catagoryObj catObj);
         DataTable getCatagories();
+
+        int insertSubCatagory(int catid, string subcatname);
+        DataTable checkSubCatName(string subcatname, int catid);
+
         int insertItems(BusinessEntitiesBS.ItemEntities.ItemObj itemObj);
         DataTable getItems(int grpCatId);
         int insertGroup(BusinessEntitiesBS.GroupEntities.grpObj grpObj);

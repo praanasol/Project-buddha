@@ -120,6 +120,8 @@ namespace budhashop.ADMIN
             TextBox netrate = (TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_netrate");
             CheckBox cb_actvsts = (CheckBox)itemGrid.Rows[e.RowIndex].FindControl("cb_actvstsedit");
             CheckBox cb_featuredflag = (CheckBox)itemGrid.Rows[e.RowIndex].FindControl("cb_fflagedit");
+            TextBox txt_itemtype = (TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_type");
+            DropDownList ddl_SubCatId = (DropDownList)itemGrid.Rows[e.RowIndex].FindControl("ddl_subcatid");
                         
             //check whether the image is valid or not
             bool isImageValid = checkPhoto(fu_itemimage,Int32.Parse(catagoryid.Text),itemid);
@@ -135,6 +137,8 @@ namespace budhashop.ADMIN
                 UpdateItemObj.itemNR = float.Parse(netrate.Text);
                 UpdateItemObj.itemStatus = cb_actvsts.Checked;
                 UpdateItemObj.featuredFlag = cb_featuredflag.Checked;
+                UpdateItemObj.itemType = txt_itemtype.Text;
+                UpdateItemObj.itemSubCatId = Int32.Parse(ddl_SubCatId.SelectedValue);
 
                 IAdmin UpdateItems = new AdminItems();
                 int updated = UpdateItems.UpdateItems(UpdateItemObj, itemid);
@@ -298,6 +302,21 @@ namespace budhashop.ADMIN
             getItems(grpCatId);
         }
 
+        private DataTable getSubCatg()
+        {
+            try
+            {
+                IAdmin checkSubCatName = new AdminItems();
+                DataTable dt = checkSubCatName.checkSubCatName(string.Empty, Int32.Parse(ddl_catagory.SelectedValue));
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                lbl_status.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+                return null;
+            }
+        }
+
         private void ClearCache()
         {
             System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
@@ -307,6 +326,24 @@ namespace budhashop.ADMIN
         {
             FormsAuthentication.SignOut();
             Response.Redirect("../ADMIN/LoginA.aspx");
+        }
+
+        protected void itemGrid_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                if (this.itemGrid.EditIndex >= 0 && e.Row.RowIndex == this.itemGrid.EditIndex)
+                {
+                    DropDownList ddl_SubCatId = (DropDownList)e.Row.FindControl("ddl_subcatid");
+                    DataTable dt = getSubCatg();
+                    ddl_SubCatId.DataSource = dt;
+                    ddl_SubCatId.DataTextField = "SubCatName";
+                    ddl_SubCatId.DataValueField = "SubCatId";
+                    ddl_SubCatId.DataBind();
+                    Label lbl_subcatid = (Label)e.Row.FindControl("lbl_editsubcatid");
+                    ddl_SubCatId.SelectedValue = lbl_subcatid.Text;
+                }
+            }
         }
     }
 }

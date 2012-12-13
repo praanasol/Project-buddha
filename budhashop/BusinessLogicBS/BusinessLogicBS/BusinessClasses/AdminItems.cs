@@ -53,6 +53,44 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
+        #region IAdmin Members insertSubCatagory
+
+        public int insertSubCatagory(int catid,string subcatname)
+        {
+            try
+            {
+
+                IAdminDA subCatInsert = new DataAccessBS.AdminClasses.AdminDA();
+                int subCatChk = subCatInsert.insertSubCatagoryDA(catid, subcatname);
+                return subCatChk;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        #endregion
+
+        #region IAdmin Members Check Sub-Catagory Name
+
+        public DataTable checkSubCatName(string subcatname, int catid)
+        {
+            try
+            {
+
+                IAdminDA checkSubcatName = new DataAccessBS.AdminClasses.AdminDA();
+                DataTable SubCatDt = checkSubcatName.checkSubCatNameDA(subcatname, catid);
+                return SubCatDt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
         #region IAdmin Members insertItems
 
 

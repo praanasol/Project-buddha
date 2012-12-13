@@ -75,6 +75,62 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
+        #region IAdminDA Members insertSubCatagoryDA
+
+        public int insertSubCatagoryDA(int catid, string subcatname)
+        {
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                //Catgory parameters
+                sqlParams[0] = new SqlParameter("@catId", catid);
+                sqlParams[1] = new SqlParameter("@subCatName", subcatname);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_SUBCATAGORY", sqlParams);
+                return count;
+            }
+            catch (SqlException exc)
+            {
+                return -1;
+                throw exc;
+            }
+
+        }
+
+        #endregion
+
+        #region IAdminDA Members Check Sub-Catagory Name
+
+        public DataTable checkSubCatNameDA(string subcatname, int catid)
+        {
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                //Catgory parameters
+                sqlParams[0] = new SqlParameter("@SubCatName", subcatname);
+                sqlParams[1] = new SqlParameter("@CatId", catid);
+                DataTable idcDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_SUBCATAGORY", sqlParams).Tables[0];
+                if (idcDt.Rows.Count > 0)
+                {
+                    return idcDt;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+
+        #endregion
+
         #region IAdminDA Members insertItemDA
 
 
@@ -83,7 +139,7 @@ namespace DataAccessBS.AdminClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[7];
+                SqlParameter[] sqlParams = new SqlParameter[9];
 
                 //Catgory parameters
                 sqlParams[0] = new SqlParameter("@itemName", itemObjDa.itemName);
@@ -93,6 +149,8 @@ namespace DataAccessBS.AdminClasses
                 sqlParams[4] = new SqlParameter("@itemNR", itemObjDa.itemNR);
                 sqlParams[5] = new SqlParameter("@itemQty", itemObjDa.itemQty);
                 sqlParams[6] = new SqlParameter("@itemSts", itemObjDa.itemStatus);
+                sqlParams[7] = new SqlParameter("@itemType", itemObjDa.itemType);
+                sqlParams[8] = new SqlParameter("@subCatId", itemObjDa.itemSubCatId);
 
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_ITEMS", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
@@ -207,7 +265,7 @@ namespace DataAccessBS.AdminClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[9];
+                SqlParameter[] sqlParams = new SqlParameter[11];
 
                 //Catgory parameters
                 sqlParams[0] = new SqlParameter("@itemId", itemid);
@@ -219,6 +277,8 @@ namespace DataAccessBS.AdminClasses
                 sqlParams[6] = new SqlParameter("@itemQty", updateitemObjDa.itemQty);
                 sqlParams[7] = new SqlParameter("@itemSts", updateitemObjDa.itemStatus);
                 sqlParams[8] = new SqlParameter("@featuredFlag", updateitemObjDa.featuredFlag);
+                sqlParams[9] = new SqlParameter("@itemType", updateitemObjDa.itemType);
+                sqlParams[10] = new SqlParameter("@subCatId", updateitemObjDa.itemSubCatId);
 
                 int updated = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_UPDATE_ITEMS", sqlParams);
 

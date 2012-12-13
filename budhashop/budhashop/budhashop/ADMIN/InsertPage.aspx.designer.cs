@@ -23,21 +23,21 @@ namespace budhashop.ADMIN {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-<<<<<<< HEAD
+
         /// HyperLink1 control.
-=======
+
         /// ScriptManager1 control.
->>>>>>> sub catagories added
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
+
         protected global::System.Web.UI.WebControls.LinkButton HyperLink1;
-=======
+
         protected global::System.Web.UI.ScriptManager ScriptManager1;
->>>>>>> sub catagories added
+
         
         /// <summary>
         /// hyplink_insertItems control.

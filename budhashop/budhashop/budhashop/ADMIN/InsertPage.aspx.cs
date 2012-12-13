@@ -609,18 +609,18 @@ namespace budhashop.ADMIN
             FormsAuthentication.SignOut();
             Response.Redirect("../ADMIN/LoginA.aspx");
         }
-<<<<<<< HEAD
+
         protected void lb_clear_cache(object sender, EventArgs e)
         {
             System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
-           
-=======
+
+        }
 
         protected void CatagoryDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_SubCatName.Text = "";
             getSubCatg();
->>>>>>> sub catagories added
+
         }
     
     }

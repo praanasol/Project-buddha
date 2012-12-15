@@ -177,8 +177,10 @@ function updateName(){
         $("[id$=lbl_result]").text("");
         var newuname = $("[id$=txt_unameedit]").val();
         var uname = $("[id$=txt_uname]").val();
+        var checkunameFormat = /^[a-zA-Z0-9 \s .]+$/;
         if(newuname==""){$("[id$=lbl_result]").text("User Name Cannot be Empty");  $("[id$=txt_nameedit]").focus();}
         else if(uname==newuname){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_nameedit]").focus();}
+        else if(newuname.match(checkunameFormat)==null){$("[id$=lbl_result]").text("Enter Valid Name");  $("[id$=txt_nameedit]").focus();}
         else
         {
             $("#preloader").show();
@@ -217,8 +219,10 @@ function updateAddress(){
         $("[id$=lbl_result]").text("");
         var newaddress = $("[id$=txt_addressedit]").val();
         var address = $("[id$=txt_address]").val();
+        var checkAddressFormat =/^[a-zA-Z0-9 \s \- \/ .:,]+$/;
         if(newaddress==""){$("[id$=lbl_result]").text("Address Cannot be Empty");  $("[id$=txt_addressedit]").focus();}
         else if(address==newaddress){$("[id$=lbl_result]").text("No Changes Made...");  $("[id$=txt_addressedit]").focus();}
+        else if(newaddress.match(checkAddressFormat)==null){$("[id$=lbl_result]").text("Enter Valid Address");  $("[id$=txt_addressedit]").focus();}
         else
         {
             $("#preloader").show();
@@ -236,10 +240,13 @@ function updatePassword(){
         var oldpwd = $("[id$=txt_oldpwd]").val();
         var newpwd = $("[id$=txt_newpwd]").val();
         var newpwd1 = $("[id$=txt_confirmnewpwd]").val();
+        var checkPwdFormat = /^[a-zA-Z0-9 \s \- _.#@*]+$/;
         if(oldpwd==""){$("[id$=lbl_resultpwd]").text("Password Cannot be Empty");  $("[id$=txt_oldpwd]").focus();}
         else if(newpwd==""){$("[id$=lbl_resultpwd]").text("Password Cannot be Empty");  $("[id$=txt_newpwd]").focus();}
         else if(newpwd.length < 5){$("[id$=lbl_resultpwd]").text("Password Should Contain atleast 5 Characters");  $("[id$=txt_newpwd]").focus();}
+        else if(newpwd.match(checkPwdFormat)==null){$("[id$=lbl_resultpwd]").text("Special Characters allowed ., ,@,#,*,-,_");  $("[id$=txt_newpwd]").focus();}
         else if(newpwd != newpwd1){$("[id$=lbl_resultpwd]").text("Passwords Donot Match");  $("[id$=txt_confirmnewpwd]").focus();}
+        else if(oldpwd.match(checkPwdFormat)==null){$("[id$=lbl_resultpwd]").text("Wrong Password");  $("[id$=txt_oldpwd]").focus();}
         else
         {
             $("#preloader").show();

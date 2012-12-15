@@ -67,9 +67,11 @@ function Fb_Submit()
     var email = $("[id$=txt_emailfb]").val();
     var msg = $("[id$=txt_msg]").val();
     var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+    var checkMsgFormat =/^[a-zA-Z0-9 \s \- \/ \[ \] .:,()#@$*]+$/;
     if(email==""){$("[id$=lbl_emailfb]").text("Enter Email Id");  $("[id$=txt_emailfb]").focus(); }
     else if(email.match(emailFormat)==null){$("[id$=lbl_emailfb]").text("Enter Valid Email Id");  $("[id$=txt_emailfb]").focus();}
     else if(msg==""){$("[id$=lbl_msg]").text("Enter Message");   $("[id$=txt_msg]").focus();    $("[id$=lbl_emailfb]").text('');   }
+    else if(msg.match(checkMsgFormat)==null){$("[id$=lbl_msg]").text("Invalid Characters Entered");   $("[id$=txt_msg]").focus();   }
     else if(msg.length>50){$("[id$=lbl_msg]").text("Should not exeed 50 characters");   $("[id$=txt_msg]").focus();   }
     else
     {

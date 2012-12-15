@@ -133,7 +133,7 @@ namespace budhashop.HardCodedValues {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email ID already Registered.
+        ///   Looks up a localized string similar to Email already Registered.
         /// </summary>
         internal static string EmailIdExist {
             get {

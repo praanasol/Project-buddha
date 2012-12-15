@@ -143,9 +143,11 @@ function checkLogin() {
         var email = $("[id$=txt_emailid]").val();
         var pwd = $("[id$=txt_pwd]").val();
         var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+        var checkPwdFormat = /^[a-zA-Z0-9 \s \- _.#@*]+$/;
         if(email==""){$("[id$=lbl_result]").text("Enter Email Id");   $("[id$=txt_emailid]").focus();   }
         else if(email.match(emailFormat)==null){$("[id$=lbl_result]").text("Enter Valid Email Id");  $("[id$=txt_emailid]").focus();}
         else if(pwd==""){$("[id$=lbl_result]").text("Enter Password");    $("[id$=txt_pwd]").focus();    }
+        else if(pwd.match(checkPwdFormat)==null){$("[id$=lbl_result]").text("Enter Correct Password"); $("[id$=txt_pwd]").focus(); }
         else
         {
             $("#preloader").show();
@@ -180,9 +182,11 @@ function checkEmail() {
         var pwd = $("[id$=txt_pwd2]").val();
         var confirmpwd = $("[id$=txt_confirmpwd2]").val();
         var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+        var checkPwdFormat = /^[a-zA-Z0-9 \s \- _.#@*]+$/;
         if(email==""){$("[id$=lbl_result2]").text("Enter Email Id"); $("[id$=txt_emailid2]").focus();}
         else if(email.match(emailFormat)==null){$("[id$=lbl_result2]").text("Enter Valid Email Id");  $("[id$=txt_emailid2]").focus();}
         else if(pwd==""){$("[id$=lbl_result2]").text("Enter Password");   $("[id$=txt_pwd2]").focus();}
+        else if(pwd.match(checkPwdFormat)==null){$("[id$=lbl_result2]").text("Special Characters allowed ., ,@,#,*,-,_");   $("[id$=txt_pwd2]").focus();}
         else if(pwd.length < 5){$("[id$=lbl_result2]").text("Enter atleast 5 Characters");   $("[id$=txt_pwd2]").focus();}
         else if(pwd != confirmpwd){$("[id$=lbl_result2]").text("Passwords Do not Match");   $("[id$=txt_confirmpwd2]").focus();}
         else

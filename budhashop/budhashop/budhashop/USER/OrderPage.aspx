@@ -357,6 +357,9 @@
                 </div>
                 <div id="p_f_field" style="width: 200px;">
                     <asp:TextBox ID="txt_uname" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="rev1" runat="server" ControlToValidate="txt_uname"
+                                ErrorMessage="Enter Valid Name" SetFocusOnError="True" ValidationExpression="^([a-zA-Z0-9\s.]*)$" 
+                                ValidationGroup="1"></asp:RegularExpressionValidator>
                 </div>
             </div>
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
@@ -370,7 +373,7 @@
                 <div id="p_f_field" style="width: 200px;">
                     <asp:TextBox ID="txt_phno" CssClass="p_f_form_style" runat="server" Width="180px"></asp:TextBox>
                 
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                    <asp:RegularExpressionValidator ID="rev2" runat="server" 
                         ControlToValidate="txt_phno" ErrorMessage="Enter Valid 10 digit Mobile Number" 
                         SetFocusOnError="True" ValidationExpression="\d{10}" ValidationGroup="1"></asp:RegularExpressionValidator>
                 </div>
@@ -385,15 +388,20 @@
                 </div>
                 <div id="p_f_field" style="width: 200px;">
                     <asp:TextBox ID="txt_address" CssClass="p_f_form_style" Rows="3" runat="server" TextMode="MultiLine" Height="70px" Width="180px"></asp:TextBox>
+                    <br />
+                    <asp:RegularExpressionValidator ID="rev3" runat="server" 
+                                ControlToValidate="txt_address" ErrorMessage="Enter Valid Address" 
+                                SetFocusOnError="True" ValidationExpression="^([a-zA-Z0-9\s\-.:,/]*)$" 
+                                ValidationGroup="1"></asp:RegularExpressionValidator>
             </div>
                 <div>
                 <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
                 </div>
         </section>
-        <div id="login_links" style="width: 510px; height:30px;">
+        <div id="login_links" style="width: 510px; height:30px; padding-top:11px;">
             <div id="to_left">Change your Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></div>
             <div id="but_style" style="margin: 0px 0px 0px 13px;">
-                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" OnClientClick="if (Page_ClientValidate()) return showPreloader(); else return false;" ValidationGroup="1" />
+                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" OnClientClick="if (Page_ClientValidate('1')) return showPreloader(); else return false;" ValidationGroup="1" />
                  <asp:LinkButton ID="back_btn" runat="server" Text="Back" CssClass="l_go" PostBackUrl="~/USER/OrderPage.aspx"></asp:LinkButton>
             </div>
                  

@@ -83,6 +83,11 @@
                         <asp:RequiredFieldValidator ID="rfv2" runat="server" Font-Bold="true"
                                       ControlToValidate="txt_captcha" ErrorMessage="Empty Field" SetFocusOnError="True" 
                                       ValidationGroup="1"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rev2" runat="server"
+                            ControlToValidate="txt_captcha" ErrorMessage="Enter Correct Captcha" 
+                            SetFocusOnError="True" style="margin-left:-65px;" Font-Bold="true"
+                            ValidationExpression="^[a-zA-Z0-9]+$" 
+                            ValidationGroup="1"></asp:RegularExpressionValidator>
                     </td>
                     <td align="left" valign="top">
                         <asp:ImageButton ID="imgbtn_refreshcaptcha" runat="server" Height="30px" ImageUrl="~/Captcha/Refresh.png"

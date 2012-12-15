@@ -46,6 +46,7 @@
                     }
                     else if(isInteger==true)
                     {
+                        $('#preloader').show();
                         $.ajax({
                             type: "POST",
                             contentType: "application/json; charset=utf-8",
@@ -53,6 +54,7 @@
                             data: "{'Pid':'" +pid+"'}",
                             dataType: "json",
                             success: function(data){
+                                $('#preloader').hide();
                                 if(eval(data.d) == "1"){
                                     $("#img_pid").attr({src:"../images/tick.png",alt:"Valid"});
                                     $("[id$=lbl_hdn]").text("Valid");
@@ -67,6 +69,7 @@
                                 }
                             },
                             error: function(result){
+                                $('#preloader').hide();
                                 $("#img_pid").attr({src:"../images/unavailable.png",alt:"Invalid Entry"});
                                 $("[id$=lbl_resultComplaint]").text("Error Occured, Please try again.");
                                 $("[id$=txt_Pid]").focus();
@@ -78,12 +81,12 @@
                         $("[id$=lbl_resultComplaint]").text("Enter Valid Purchse Id");
                     }
                 });
-                $("[id$=txt_msgComplaint]").focus(function(){
-                    var validPid=$("[id$=lbl_resultComplaint]").text();
-                    var pid = $("[id$=txt_Pid]").val();
-                    if(validPid != "" || pid=="")
-                        $("[id$=txt_Pid]").focus();
-                });
+//                $("[id$=txt_msgComplaint]").focus(function(){
+//                    var validPid=$("[id$=lbl_resultComplaint]").text();
+//                    var pid = $("[id$=txt_Pid]").val();
+//                    if(validPid != "" || pid=="")
+//                        $("[id$=txt_Pid]").focus();
+//                });
             });
             function CheckUserStatus(result){
                 if(result!='nouser'){
@@ -114,12 +117,16 @@
                 var pid = $("[id$=txt_Pid]").val();
                 var message = $("[id$=txt_msgComplaint]").val();
                 var validPid = $("[id$=lbl_hdn]").text();
-                
+                var checkunameFormat = /^[a-zA-Z0-9 \s .]+$/;
+                var checkMsgFormat =/^[a-zA-Z0-9 \s \- \/ \[ \] .:,()#@$*]+$/;
+                var hh=message.match(checkMsgFormat);
                 if(name==""){ $("[id$=lbl_resultComplaint]").text("Enter your Name"); $("[id$=txt_userName]").focus(); }
+                else if(name.match(checkunameFormat)==null){ $("[id$=lbl_resultComplaint]").text("Enter Valid Name"); $("[id$=txt_userName]").focus(); }
                 else if(pid==""){ $("[id$=lbl_resultComplaint]").text("Enter Purchase Id"); $("[id$=txt_Pid]").focus(); }
                 else if(validPid=="Invalid"){ $("[id$=lbl_resultComplaint]").text("Enter Valid Purchase Id"); $("[id$=txt_Pid]").focus(); }
                 else if(validPid=="undefined"){ $("[id$=lbl_resultComplaint]").text("Error Occured, Please try again Later."); $("[id$=txt_Pid]").focus(); }
                 else if(message==""){ $("[id$=lbl_resultComplaint]").text("Enter Message"); $("[id$=txt_msgComplaint]").focus(); }
+                else if(message.match(checkMsgFormat)==null){ $("[id$=lbl_resultComplaint]").text("Invalid Characters Entered"); $("[id$=txt_msgComplaint]").focus(); }
                 else if(message.length>100){ $("[id$=lbl_resultComplaint]").text("Should not exeed 100 characters"); $("[id$=txt_msgComplaint]").focus(); }
                 else {
                     $("#preloader").show();

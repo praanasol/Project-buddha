@@ -194,6 +194,15 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_uname;
         
         /// <summary>
+        /// rev1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev1;
+        
+        /// <summary>
         /// rfv2 control.
         /// </summary>
         /// <remarks>
@@ -212,13 +221,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.TextBox txt_phno;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// rev2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev2;
         
         /// <summary>
         /// rfv3 control.
@@ -237,6 +246,15 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_address;
+        
+        /// <summary>
+        /// rev3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev3;
         
         /// <summary>
         /// lbl_status control.

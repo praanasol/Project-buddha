@@ -58,6 +58,12 @@
                             <br />
                             <asp:RequiredFieldValidator ID="rfv2" runat="server" ControlToValidate="txt_lpassword"
                                 ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="login"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev2" runat="server" 
+                                ControlToValidate="txt_lpassword" ErrorMessage="Enter Correct Password" 
+                                SetFocusOnError="True" style="margin-left:-80px; position:absolute;"
+                                ValidationExpression="^([a-zA-Z0-9_\s\-.@#*]*)$" 
+                                ValidationGroup="login" Font-Bold="true">
+                            </asp:RegularExpressionValidator>
                         </div>
                     </div>
                 </section>
@@ -104,6 +110,12 @@
                             <br />
                             <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txt_username"
                                 ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev3" runat="server" 
+                                ControlToValidate="txt_username" ErrorMessage="Enter Valid Name" 
+                                SetFocusOnError="True" style="margin-left:-80px; position:absolute;"
+                                ValidationExpression="^([a-zA-Z0-9\s.]*)$" 
+                                ValidationGroup="register">
+                            </asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 490px; height: 35px;">
@@ -119,30 +131,43 @@
                                     <div id="p_f_field" class="style4" style="padding-top: 4px;">
                                         <asp:TextBox ID="txt_emailid" CssClass="p_f_form_style" runat="server" Width="181px" AutoPostBack="True" OnTextChanged="txt_emailid_TextChanged"
                                             ValidationGroup="register"></asp:TextBox>
+                                        <br />
                                         <asp:Image ID="imgEmail" runat="server" Visible="false" />
                                         <asp:Label ID="lbl_checkemail" runat="server" ForeColor="Red"></asp:Label>
-                                        <br />
                                         <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txt_emailid"
                                         ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="rev4" runat="server" 
+                                            ControlToValidate="txt_emailid" ErrorMessage="Enter Valid Email Id" 
+                                            SetFocusOnError="True" style="margin-left: -85px;"
+                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                                            ValidationGroup="register">
+                            </asp:RegularExpressionValidator>
                                     </div>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         
                     </div>
                     <div id="p_f_field_area" style="width: 490px; height: 35px;">
-                        <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 150px;">
-                            Password :</div>
+                        <div id="p_f_label" style="margin-top: 2px; padding-top: 2px; width: 150px;">
+                            Password :<div style="font-size:10px;">(atleast 5 Characters)</div></div>
                         <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txt_password"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
                         </div>--%>
-                        <div id="p_f_field" class="style4" style="padding-top: 4px;">
+                        <div id="p_f_field" class="style4" style="padding-top: 4px; width:auto;">
                             <asp:TextBox ID="txt_password" CssClass="p_f_form_style" runat="server" TextMode="Password" Width="181px" ValidationGroup="register"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="rev5" runat="server" ControlToValidate="txt_password"
+                                ErrorMessage="Atleast 5 Characters" SetFocusOnError="True" style="margin-left:0px;"
+                                ValidationExpression="^.*(?=.{5,}).*$" ValidationGroup="register"></asp:RegularExpressionValidator>
+                            <br />
                             <asp:RequiredFieldValidator ID="rfv5" runat="server" ControlToValidate="txt_password"
                                 ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="rev2" runat="server" ControlToValidate="txt_password"
-                                ErrorMessage="Atleast 5 Characters" SetFocusOnError="True" style="margin-left:-85px;"
-                                ValidationExpression="^.*(?=.{5,}).*$" ValidationGroup="register"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="rev6" runat="server" ControlToValidate="txt_password"
+                                ErrorMessage="Special Characters allowed ., ,@,#,*,-,_" 
+                                SetFocusOnError="True" style="margin-left:-80px; position:absolute;"
+                                ValidationExpression="^([a-zA-Z0-9_\s\-.@#*]*)$" 
+                                ValidationGroup="register" Font-Bold="true">
+                            </asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div id="p_f_field_area" style="width: 490px; height: 110px;">
@@ -178,6 +203,9 @@
                             <asp:TextBox ID="txt_captcha" CssClass="p_f_form_style" runat="server" Width="181px" ValidationGroup="register"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfv7" runat="server" ControlToValidate="txt_captcha"
                                 ErrorMessage="Empty Field" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev7" runat="server" ControlToValidate="txt_captcha"
+                                ErrorMessage="Enter Correct Captcha" SetFocusOnError="True" style="margin-left:-80px; position:absolute;"
+                                ValidationExpression="^[a-zA-Z0-9]{7,7}$" ValidationGroup="register" Font-Bold="true"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                 </section>

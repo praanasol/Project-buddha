@@ -54,9 +54,13 @@
     <asp:Panel ID="SearchUC" DefaultButton="searchBtn" runat="server">
     
      <div id="search_form">
-                                <asp:TextBox ID="SearchAll" runat="server"  CssClass="search_form_style" Text="Search.." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" ValidationGroup="searchtb"></asp:TextBox>
+                                <asp:TextBox ID="SearchAll" runat="server"  CssClass="search_form_style" style="color:Black;" Font-Size="14px" Text="" placeholder="Search..." Font-Bold="false" ValidationGroup="searchtb"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="SearchAll"
-                                ErrorMessage="*" ValidationGroup="searchtb">Empty search !</asp:RequiredFieldValidator>
+                                    ErrorMessage="*" ValidationGroup="searchtb" Font-Bold="true">Empty search !</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="rev1" runat="server" Font-Bold="true"
+                                    ControlToValidate="SearchAll" ErrorMessage="Invalid Characters Entered" 
+                                    SetFocusOnError="True" ValidationExpression="^([a-zA-Z0-9\s\-.:,/]*)$" 
+                                    ValidationGroup="searchtb" style="margin-left:-83px;"></asp:RegularExpressionValidator>
                                                                 
                                 </div>
      

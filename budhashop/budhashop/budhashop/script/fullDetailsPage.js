@@ -109,7 +109,7 @@ function ValidateRadio(ItemId,CatId)
         }
         else
         {
-            $("[id$=lbl_validate]").text("Slect Size");
+            $("[id$=lbl_validate]").text("Select Size");
             return false;
         }
     }

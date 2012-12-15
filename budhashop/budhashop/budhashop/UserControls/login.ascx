@@ -96,12 +96,10 @@
         <div id="login-required">
             <div id="l_f_bg" class="bg_style2">
             <div id="login_form">
-            <asp:TextBox ID="txt_emailid1" CssClass="login_form_style" runat="server" Text="Email ID..."
-                onfocus="if(this.value=='Email ID...')this.value='';" onblur="if(this.value=='')this.value='Email ID...';"></asp:TextBox>
+            <asp:TextBox ID="txt_emailid1" CssClass="login_form_style" runat="server" Text="" Placeholder="Email Address" Font-Bold="false" ForeColor="Black"></asp:TextBox>
             </div>
              <div id="login_form">
-            <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" runat="server" TextMode="Password" value="      "
-                onfocus="if(this.value=='      ')this.value='';" onblur="if(this.value=='')this.value='      ';"></asp:TextBox>
+            <asp:TextBox ID="txt_pwd1" CssClass="login_form_style" runat="server" TextMode="Password" value="" Placeholder="Password" Font-Bold="false" ForeColor="Black"></asp:TextBox>
             </div>
             
             <div id="go_but" style="float:left; margin-left:8px;">

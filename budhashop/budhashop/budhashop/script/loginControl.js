@@ -4,8 +4,8 @@
 
         $(".logintext").click(function(e) {          
             e.preventDefault();
-            $("[id$=txt_emailid1]").val('Email ID...');
-            $("[id$=txt_pwd1]").val('      ');
+            $("[id$=txt_emailid1]").val('');
+            $("[id$=txt_pwd1]").val('');
             $("[id$=lbl_result1]").text('');
             $("#user-status").slideToggle(500);
             $(".logintext").hide();
@@ -43,9 +43,11 @@ function checkLogin1() {
         var email = $("[id$=txt_emailid1]").val();
         var pwd = $("[id$=txt_pwd1]").val();
         var emailFormat = (/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-        if(email=="" || email=="Email ID..."){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
+        var checkPwdFormat = /^[a-zA-Z0-9 \s \- _.#@*]+$/;
+        if(email==""){$("[id$=lbl_result1]").text("Enter Email Id");  $("[id$=txt_emailid1]").focus(); }
         else if(email.match(emailFormat)==null){$("[id$=lbl_result1]").text("Enter Valid Email Id");  $("[id$=txt_emailid1]").focus();}
-        else if(pwd=="" || pwd=="      "){$("[id$=lbl_result1]").text("Enter Password");   $("[id$=txt_pwd1]").focus();   }
+        else if(pwd==""){$("[id$=lbl_result1]").text("Enter Password");   $("[id$=txt_pwd1]").focus();   }
+        else if(pwd.match(checkPwdFormat)==null){$("[id$=lbl_result1]").text("Enter Correct Password");   $("[id$=txt_pwd1]").focus();   }
         else
         {
             $("#preloader").show();

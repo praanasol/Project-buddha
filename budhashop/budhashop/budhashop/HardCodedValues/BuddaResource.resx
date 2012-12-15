@@ -142,7 +142,7 @@
     <value>Available...</value>
   </data>
   <data name="EmailIdExist" xml:space="preserve">
-    <value>Email ID already Registered</value>
+    <value>Email already Registered</value>
   </data>
   <data name="EmailIdNull" xml:space="preserve">
     <value>Email ID not Registered</value>

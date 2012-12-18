@@ -21,6 +21,7 @@ namespace budhashop.ADMIN
         protected void Page_Load(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
+            txt_username.Focus();
         }
 
         protected void btn_submit_Click(object sender, EventArgs e)

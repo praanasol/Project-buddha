@@ -104,6 +104,15 @@ namespace budhashop.ADMIN {
         protected global::System.Web.UI.WebControls.Button btn_search;
         
         /// <summary>
+        /// rfv_search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_search;
+        
+        /// <summary>
         /// lbl_status control.
         /// </summary>
         /// <remarks>

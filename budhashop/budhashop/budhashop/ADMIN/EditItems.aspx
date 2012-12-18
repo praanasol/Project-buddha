@@ -4,11 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Edit Items Page</title>
+    
+    <link href="../Styles/admin.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="top links" style="float:right; background-color:Menu;">
+    <div id="top_links">
         
         <asp:HyperLink ID="hyplink_insertItems" runat="server" 
             NavigateUrl="~/ADMIN/InsertPage.aspx">Insert Items-&gt;</asp:HyperLink>
@@ -34,13 +36,14 @@
         <br />
         Select Catagory:
         <asp:DropDownList ID="ddl_catagory" runat="server" AutoPostBack="True" 
-            onselectedindexchanged="ddl_catagory_SelectedIndexChanged">
+            onselectedindexchanged="ddl_catagory_SelectedIndexChanged" CssClass="txt_boxes">
         </asp:DropDownList>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txt_itemname" placeholder="Enter Item Name/Id"
-                                        runat="server" Width="168px"></asp:TextBox>
+                                        runat="server" CssClass="txt_boxes"></asp:TextBox>
         <asp:Button ID="btn_search" runat="server" Text="Search" 
-            onclick="btn_search_Click" />        
+            onclick="btn_search_Click" CssClass="buttons" ValidationGroup="search" />
+        <asp:RequiredFieldValidator ID="rfv_search" runat="server" ControlToValidate="txt_itemname" ErrorMessage="Empty Search!" ValidationGroup="search"></asp:RequiredFieldValidator>        
         <br />
         <br />
         <asp:Label ID="lbl_status" runat="server" ForeColor="Red" 
@@ -83,7 +86,7 @@
                 <asp:TemplateField HeaderText="Item Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_iname" runat="server" Text='<%# Eval("ItemName") %>' 
-                            Height="22px" Width="128px"></asp:TextBox>
+                            Height="22px" Width="128px" CssClass="txt_boxes"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfv1" runat="server" 
                             ControlToValidate="txt_iname" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>
@@ -95,7 +98,7 @@
                 <asp:TemplateField HeaderText="Description">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_editidescr" runat="server" 
-                            Text='<%# Eval("Description") %>' TextMode="MultiLine"></asp:TextBox>
+                            Text='<%# Eval("Description") %>' TextMode="MultiLine" CssClass="txt_boxes"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfv2" runat="server" 
                             ControlToValidate="txt_editidescr" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>
@@ -103,7 +106,7 @@
                     <ItemTemplate>
                         <asp:TextBox ID="txt_idescr" runat="server" 
                             Text='<%# Eval("Description") %>' 
-                            TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
+                            TextMode="MultiLine" ReadOnly="True" CssClass="txt_boxes"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Image">
@@ -118,7 +121,7 @@
                 <asp:TemplateField HeaderText="Catagory Id">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_cid" runat="server" Text='<%# Eval("CategoryId") %>' 
-                            Width="120px"></asp:TextBox>
+                            Width="120px" CssClass="txt_boxes"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfv3" runat="server" 
                             ControlToValidate="txt_cid" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>
@@ -130,7 +133,7 @@
                 <asp:TemplateField HeaderText="Billed Rate">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_billedrate" runat="server" 
-                            Text='<%# Eval("BilledRate") %>' Width="120px"></asp:TextBox>
+                            Text='<%# Eval("BilledRate") %>' Width="120px" CssClass="txt_boxes"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfv4" runat="server" 
                             ControlToValidate="txt_billedrate" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>
@@ -142,7 +145,7 @@
                 <asp:TemplateField HeaderText="Quantity">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_qty" runat="server" Text='<%# Eval("Qty") %>' 
-                            Width="120px"></asp:TextBox>
+                            Width="120px" CssClass="txt_boxes"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfv5" runat="server" 
                             ControlToValidate="txt_qty" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>
@@ -154,7 +157,7 @@
                 <asp:TemplateField HeaderText="Net Rate">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_netrate" runat="server" Text='<%# Eval("NetRate") %>' 
-                            Width="120px"></asp:TextBox>
+                            Width="120px" CssClass="txt_boxes"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfv6" runat="server" 
                             ControlToValidate="txt_netrate" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>
@@ -182,7 +185,7 @@
                 <asp:TemplateField HeaderText="Item Type">
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_type" runat="server" Text='<%# Eval("TypeItem") %>' 
-                            Width="120px"></asp:TextBox>
+                            Width="120px" CssClass="txt_boxes"></asp:TextBox>
                         <%--<asp:RequiredFieldValidator ID="rfv7" runat="server" 
                             ControlToValidate="txt_type" ErrorMessage="*" SetFocusOnError="True" 
                             ValidationGroup="update"></asp:RequiredFieldValidator>--%>
@@ -193,7 +196,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="SubCatId">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddl_subcatid" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddl_subcatid" runat="server" CssClass="txt_boxes"></asp:DropDownList>
                         <asp:Label ID="lbl_editsubcatid" runat="server" Text='<%# Eval("SubCatId") %>' Visible="false"></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>

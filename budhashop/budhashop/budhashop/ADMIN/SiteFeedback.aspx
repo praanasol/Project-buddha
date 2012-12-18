@@ -4,11 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Feedback Page</title>
+    
+    <link href="../Styles/admin.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="top links" style="float:right; background-color:Menu;">
+    <div id="top_links">
         
         <asp:HyperLink ID="hyplink_insertItems" runat="server" 
             NavigateUrl="~/ADMIN/InsertPage.aspx">Insert Items-&gt;</asp:HyperLink>
@@ -30,19 +32,18 @@
     </div>
     <br />
     <br />
-    <div>
+    <div class="div1" style="width:auto; float:left;">
     
         <asp:GridView ID="gv_feedback" runat="server" 
             EmptyDataText="No Feedbacks Found" AllowPaging="True" BackColor="White" 
-            BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
-            GridLines="Vertical" onpageindexchanging="gv_feedback_PageIndexChanging" 
-            PageSize="15">
-            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-            <AlternatingRowStyle BackColor="#DCDCDC" />
+            BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
+            onpageindexchanging="gv_feedback_PageIndexChanging" style="text-align: center">
+            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+            <AlternatingRowStyle BackColor="#F7F7F7" />
         </asp:GridView>
     
     </div>

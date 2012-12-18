@@ -4,11 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Edit Users Page</title>
+    
+    <link href="../Styles/admin.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="top links" style="float:right; background-color:Menu;">
+    <div id="top_links">
         
         <asp:HyperLink ID="hyplink_insertItems" runat="server" 
             NavigateUrl="~/ADMIN/InsertPage.aspx">Insert Items-&gt;</asp:HyperLink>
@@ -33,10 +35,10 @@
     <div>
     
         <asp:TextBox ID="txt_username" placeholder="Enter UserName/EmailId/UserId"
-                                        runat="server" Width="200px" Height="25px"></asp:TextBox>
+                                        runat="server" Width="200px" Height="25px" CssClass="txt_boxes"></asp:TextBox>
         <asp:Button ID="btn_search" runat="server" Text="Search" 
-            onclick="btn_search_Click" />        
-    
+            onclick="btn_search_Click" CssClass="buttons" ValidationGroup="search" />        
+        <%--<asp:RequiredFieldValidator ID="rfv_search" runat="server" ControlToValidate="txt_username" ErrorMessage="Empty Search!" ValidationGroup="search"></asp:RequiredFieldValidator>--%>
     </div>
     <asp:Label ID="lbl_status" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
     <br />
@@ -83,7 +85,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                         ControlToValidate="txt_editpwd" ErrorMessage="*" ToolTip="Can Not be Empty" 
                         ValidationGroup="1"></asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txt_editpwd" runat="server" Text='<%# Eval("PWD") %>'></asp:TextBox>
+                    <asp:TextBox ID="txt_editpwd" runat="server" Text='<%# Eval("PWD") %>' CssClass="txt_boxes" Width="390px"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
                         ControlToValidate="txt_editpwd" ErrorMessage="*" SetFocusOnError="True" 
                         ToolTip="Password Should Contain atleast 7 Characters" 
@@ -98,7 +100,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                         ControlToValidate="txt_editemailid" ErrorMessage="*" ToolTip="Can Not be Empty" 
                         ValidationGroup="1"></asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txt_editemailid" runat="server" Text='<%# Eval("Email") %>'></asp:TextBox>
+                    <asp:TextBox ID="txt_editemailid" runat="server" Text='<%# Eval("Email") %>' CssClass="txt_boxes"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                         ControlToValidate="txt_editemailid" ErrorMessage="*" SetFocusOnError="True" 
                         ToolTip="Invalid Email Id Format" 
@@ -114,7 +116,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                         ControlToValidate="txt_editphno" ErrorMessage="*" ToolTip="Can Not be Empty" 
                         ValidationGroup="1"></asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txt_editphno" runat="server" Text='<%# Eval("Phone") %>'></asp:TextBox>
+                    <asp:TextBox ID="txt_editphno" runat="server" Text='<%# Eval("Phone") %>' CssClass="txt_boxes"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                         ControlToValidate="txt_editphno" ErrorMessage="*" SetFocusOnError="True" 
                         ToolTip="Enter Valid 10 digit Mobile Number" ValidationExpression="\d{10}" 
@@ -130,11 +132,11 @@
                         ControlToValidate="txt_editaddress" ErrorMessage="*" ToolTip="Can Not be Empty" 
                         ValidationGroup="1"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txt_editaddress" runat="server" Text='<%# Eval("Address") %>' 
-                        TextMode="MultiLine"></asp:TextBox>
+                        TextMode="MultiLine" CssClass="txt_boxes"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:TextBox ID="txt_address" runat="server" ReadOnly="True" 
-                        Text='<%# Eval("Address") %>' TextMode="MultiLine"></asp:TextBox>
+                        Text='<%# Eval("Address") %>' TextMode="MultiLine" CssClass="txt_boxes"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Active Status">

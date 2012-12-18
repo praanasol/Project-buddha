@@ -496,6 +496,7 @@
     <Content Include="script\scroll\scrollcheck.js" />
     <Content Include="script\searchItemsPage.js" />
     <Content Include="script\slides.js" />
+    <Content Include="Styles\admin.css" />
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="Styles\jquery.mCustomScrollbar.css" />
     <Content Include="Styles\scrollpane_custom.css" />

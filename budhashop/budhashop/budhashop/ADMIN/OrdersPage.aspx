@@ -3,14 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
-    <title>Untitled Page</title>
+<head id="Head1" runat="server">
+    <title>Orders Page</title>
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.8.2.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js" type="text/javascript"></script>
     <link rel="stylesheet" href="/resources/demos/style.css" />
-    
+    <link href="../Styles/admin.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
     $(function() {
         $( "#txt_datepick" ).datepicker({
@@ -29,7 +29,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="top links" style="float:right; background-color:Menu;">
+    <div id="top_links">
         
         <asp:HyperLink ID="hyplink_insertItems" runat="server" 
             NavigateUrl="~/ADMIN/InsertPage.aspx">Insert Items-&gt;</asp:HyperLink>
@@ -51,14 +51,14 @@
     </div>
     <br />
     <br />
-    <div>
+    <div class="div1" style="width:auto; float:left;">
     
-        <asp:TextBox ID="txt_search" runat="server" placeholder="Enter Purchase Id"></asp:TextBox>
+        <asp:TextBox ID="txt_search" runat="server" placeholder="Enter Purchase Id" CssClass="txt_boxes"></asp:TextBox>
         or
-        <asp:TextBox ID="txt_datepick" runat="server" placeholder="Select Date"></asp:TextBox>
-        <asp:Button ID="btn_search" runat="server" Text="Search" onclick="btn_search_Click" />
+        <asp:TextBox ID="txt_datepick" runat="server" placeholder="Select Date" CssClass="txt_boxes"></asp:TextBox>
+        <asp:Button ID="btn_search" runat="server" Text="Search" onclick="btn_search_Click" CssClass="buttons" />
         <br />
-        <asp:Label ID="lbl_search" runat="server"></asp:Label>
+        <asp:Label ID="lbl_search" runat="server" ForeColor="Red"></asp:Label>
     
         <br />
         <br />
@@ -68,8 +68,11 @@
              AutoGenerateColumns="False" 
              DataKeyNames="PurchaseId,Uid,NoItems,TotalBilledRate,PurchaseDate,DeliveredFlag,ItemString,ShippingAddress,TypeItem" 
              OnPageIndexChanging="orderGrid_PageIndexChanging" 
-             onrowcommand="orderGrid_RowCommand" PageSize="10">
+             onrowcommand="orderGrid_RowCommand" BackColor="White" 
+            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
              <%--AllowPaging="true" PageSize ="3" OnPageIndexChanging= "itemGrid_PageIndexChanging">--%>
+                
+             <RowStyle ForeColor="#000066" />
                 
              <Columns>
                  <asp:TemplateField>
@@ -112,10 +115,14 @@
                      </ItemTemplate>
                  </asp:TemplateField>
              </Columns>
+             <FooterStyle BackColor="White" ForeColor="#000066" />
+             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+             <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
          </asp:GridView>
     
     </div>
-    <div id="itemsDiv" runat="server" visible="false">
+    <div id="itemsDiv" runat="server" visible="false" class="div1" style="width:auto; float:left;">
     <asp:LinkButton ID="closeDetails" runat="server" onclick="closeDetails_Click">Close</asp:LinkButton>
     <div style="width:80px;">
     <asp:Label ID="itemsCount" runat="server"></asp:Label>
@@ -126,7 +133,13 @@
     <asp:Label ID="AdrA" runat="server"></asp:Label>
     </div>
     <div>
-    <asp:GridView ID="SelectedOrderGrid" runat="server">
+    <asp:GridView ID="SelectedOrderGrid" runat="server" BackColor="White" 
+            BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+        <RowStyle ForeColor="#000066" />
+        <FooterStyle BackColor="White" ForeColor="#000066" />
+        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
     </asp:GridView>
     </div>
     

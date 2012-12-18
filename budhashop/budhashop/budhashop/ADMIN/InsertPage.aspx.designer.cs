@@ -23,21 +23,22 @@ namespace budhashop.ADMIN {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-
-        /// HyperLink1 control.
-
         /// ScriptManager1 control.
-
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
-        protected global::System.Web.UI.WebControls.LinkButton HyperLink1;
-
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-
+        
+        /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton HyperLink1;
         
         /// <summary>
         /// hyplink_insertItems control.
@@ -256,15 +257,6 @@ namespace budhashop.ADMIN {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// lbl_subCatStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_subCatStatus;
-        
-        /// <summary>
         /// btn_subcatagory control.
         /// </summary>
         /// <remarks>
@@ -274,6 +266,15 @@ namespace budhashop.ADMIN {
         protected global::System.Web.UI.WebControls.Button btn_subcatagory;
         
         /// <summary>
+        /// lbl_subCatStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_subCatStatus;
+        
+        /// <summary>
         /// ItemLbl control.
         /// </summary>
         /// <remarks>
@@ -281,6 +282,42 @@ namespace budhashop.ADMIN {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ItemLbl;
+        
+        /// <summary>
+        /// catLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label catLbl;
+        
+        /// <summary>
+        /// CatagoryDDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CatagoryDDL;
+        
+        /// <summary>
+        /// lbl_subCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_subCat;
+        
+        /// <summary>
+        /// SubCatagoryDDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SubCatagoryDDL;
         
         /// <summary>
         /// NameLbl control.
@@ -335,96 +372,6 @@ namespace budhashop.ADMIN {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator itemDescRFV;
-        
-        /// <summary>
-        /// catLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label catLbl;
-        
-        /// <summary>
-        /// CatagoryDDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CatagoryDDL;
-        
-        /// <summary>
-        /// lbl_subCat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_subCat;
-        
-        /// <summary>
-        /// SubCatagoryDDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SubCatagoryDDL;
-        
-        /// <summary>
-        /// typeTxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox typeTxt;
-        
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
-        /// ImageLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ImageLbl;
-        
-        /// <summary>
-        /// itemImageFU control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload itemImageFU;
-        
-        /// <summary>
-        /// imageREV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator imageREV;
-        
-        /// <summary>
-        /// imageRFV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator imageRFV;
         
         /// <summary>
         /// qtyLbl control.
@@ -508,6 +455,24 @@ namespace budhashop.ADMIN {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator itemNrRFV;
         
         /// <summary>
+        /// typeLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label typeLbl;
+        
+        /// <summary>
+        /// typeTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox typeTxt;
+        
+        /// <summary>
         /// statusLbl control.
         /// </summary>
         /// <remarks>
@@ -524,6 +489,42 @@ namespace budhashop.ADMIN {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxSts;
+        
+        /// <summary>
+        /// ImageLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ImageLbl;
+        
+        /// <summary>
+        /// itemImageFU control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload itemImageFU;
+        
+        /// <summary>
+        /// imageREV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator imageREV;
+        
+        /// <summary>
+        /// imageRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator imageRFV;
         
         /// <summary>
         /// ItemBtn control.
@@ -686,6 +687,15 @@ namespace budhashop.ADMIN {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_search;
+        
+        /// <summary>
+        /// rfv_search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_search;
         
         /// <summary>
         /// itemGrid control.

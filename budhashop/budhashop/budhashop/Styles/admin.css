@@ -1,0 +1,69 @@
+﻿body
+{
+    background-color:#C0D4E9;
+}
+#top_links
+{
+    border:1px solid gray;
+    background-color:#BFBFBF;
+    text-align:center;
+    padding:5px;
+    float:right;
+    border-radius:5px;
+}
+.div1
+{
+    border:1px solid gray;
+    background-color:#B5D5F5;
+    padding:10px;
+    border-radius:5px;
+}
+.div2
+{
+    border:1px solid gray;
+    background-color:#B5D5F5;
+    padding:10px;
+    border-radius:5px;
+}
+.lbl_heading
+{
+    color:Green;
+    font:Calibri;
+    font-size:20px;
+    font-weight:bold;
+}
+.txt_boxes
+{
+    margin:0px;
+	padding-left:5px;
+	width:180px;
+	height:auto;
+	color:#364700;
+	background:#E3E3E3;
+	border:lightslategray solid 1px;
+	border-radius:5px;
+}
+.buttons
+{
+    color:Maroon;
+    background-color:burlywood;
+    border:lightslategray solid 1px;
+    padding:2px 5px 2px 5px;
+    font-weight:bold;
+    border-radius:5px;
+}
+.buttons:hover  
+{   
+    color:burlywood;
+    background-color:Maroon;
+    border:lightslategray solid 1px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.file_upload
+{
+    background-color:#E3E3E3;
+    border-width:1px;
+    border-bottom-color:lightslategray;
+    border-right-color:lightslategray;
+}

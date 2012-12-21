@@ -31,10 +31,11 @@ namespace budhashop.CLASS
         {
             string[] host = (address.Split('@'));
             string hostname = host[1];
+            //string hostStr = "smtp.net4india.com";
 
             IPHostEntry IPhst = Dns.GetHostEntry(hostname); 
             //Dns.GetHostByName
-            IPEndPoint endPt = new IPEndPoint(IPhst.AddressList[0], 25);
+            IPEndPoint endPt = new IPEndPoint(IPhst.AddressList[0],25);
             Socket s = new Socket(endPt.AddressFamily,
                          SocketType.Stream, ProtocolType.Tcp);
             s.Connect(endPt);
@@ -58,7 +59,7 @@ namespace budhashop.CLASS
             //Servers may resolve your domain and check whether 
             //you are listed in BlackLists etc.
             Senddata(s, string.Format("MAIL From: {0}\r\n",
-                 "mithunmohan23@gmail.com"));
+                 "support@govedic.com"));
             if (!Check_Response(s, SMTPResponse.GENERIC_SUCCESS))
             {
                 s.Close();
@@ -83,6 +84,7 @@ namespace budhashop.CLASS
         {
 
             byte[] _msg = Encoding.ASCII.GetBytes(msg);
+            //s.EnableSsl = true;
             s.Send(_msg, 0, _msg.Length, SocketFlags.None);
 
         }
@@ -90,32 +92,40 @@ namespace budhashop.CLASS
         {
             string sResponse;
             int response;
-            byte[] bytes = BitConverter.GetBytes(0);
+            byte[] bytes = new byte[1024];
             try
             {
-                if (!(s.Poll(1, SelectMode.SelectRead) && s.Available == 0))
-                {
+                s.Receive(bytes, 0, s.Available, SocketFlags.None);
+                 sResponse = Encoding.ASCII.GetString(bytes);
+                 response = Convert.ToInt32(sResponse.Substring(0, 3));
 
-                    System.Threading.Thread.Sleep(100);
+                 if (response != (int)response_expected)
+                     return false;
+                 return true;
+                //return !(s.Poll(1, SelectMode.SelectRead) && s.Available == 0);
+                //if (!(s.Poll(1, SelectMode.SelectRead) && s.Available == 0))
+                //{
 
-                    s.Receive(bytes, 0, s.Available, SocketFlags.None);
-                    sResponse = Encoding.ASCII.GetString(bytes);
-                    response = BitConverter.ToInt32(bytes, 0);
-                    if (response != (int)response_expected)
-                    {
-                        return false;
+                //    System.Threading.Thread.Sleep(100);
 
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                //    s.Receive(bytes, 0, s.Available, SocketFlags.None);
+                //    sResponse = Encoding.ASCII.GetString(bytes);
+                //    response = BitConverter.ToInt32(bytes, 0);
+                //    if (response != (int)response_expected)
+                //    {
+                //        return false;
 
-                }
-                else
-                {
-                    return false;
-                }
+                //    }
+                //    else
+                //    {
+                //        return true;
+                //    }
+
+                //}
+                //else
+                //{
+                //    return false;
+                //}
 
             }
             catch (SocketException) { return false; }

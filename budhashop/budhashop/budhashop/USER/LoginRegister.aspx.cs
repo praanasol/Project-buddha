@@ -14,6 +14,9 @@ using System.Xml.Linq;
 using InterfacesBS.InterfacesBL;
 using BusinessLogicBS;
 using BusinessLogicBS.UserClasses;
+using System.Net.Mail;
+using System.Net;
+using System.Net.Sockets;
 
 namespace budhashop.USER
 {
@@ -89,27 +92,38 @@ namespace budhashop.USER
                     string emailid = txt_emailid.Text;
                     string encryptedpwd = CLASS.PasswordEncryption.EncryptIt(txt_password.Text);
 
-                    BusinessEntitiesBS.UserEntities.userobj userObj = new BusinessEntitiesBS.UserEntities.userobj();
+                    bool verfyDomain = verifyDomain(emailid);
+                    bool chkEmail = sendEmail(emailid);
 
-                    userObj.uname = uname;
-                    userObj.emailid = emailid;
-                    userObj.pwd = encryptedpwd;
-                    try
+                    if (verfyDomain && chkEmail)
                     {
-                        IUser userInsert = new UserItems();
+                        BusinessEntitiesBS.UserEntities.userobj userObj = new BusinessEntitiesBS.UserEntities.userobj();
 
-                        //insert new user details in database with given values
-                        userInsert.insertUser(userObj);
+                        userObj.uname = uname;
+                        userObj.emailid = emailid;
+                        userObj.pwd = encryptedpwd;
+                        try
+                        {
+                            IUser userInsert = new UserItems();
 
-                        dt = userInsert.checklogin(emailid, encryptedpwd);
-                        this.Session["currentuser"] = dt;
+                            //insert new user details in database with given values
+                            userInsert.insertUser(userObj);
 
-                        //lbl_register.Text = "Registration Successfull";
-                        Response.Redirect("~/USER/ProfilePage.aspx");
+                            dt = userInsert.checklogin(emailid, encryptedpwd);
+                            this.Session["currentuser"] = dt;
+
+                            //lbl_register.Text = "Registration Successfull";
+                            Response.Redirect("~/USER/ProfilePage.aspx");
+                        }
+                        catch (Exception exp)
+                        {
+                            lbl_register.Text = HardCodedValues.BuddaResource.CatchBlockError + exp.Message;
+                        }
                     }
-                    catch (Exception exp)
+                    else
                     {
-                        lbl_register.Text = HardCodedValues.BuddaResource.CatchBlockError + exp.Message;
+                        lbl_register.Text = "Registration Incomplete! Invalid email id or domain. Please provide valid email for regitration.";
+
                     }
                 }
                 else
@@ -164,6 +178,77 @@ namespace budhashop.USER
         {
             // Create a random Captcha and store it in the Session object.
             this.Session["CaptchaImageText"] = Captcha.CaptchaImage.GenerateRandomCode(7);
+        }
+
+        public static bool verifyDomain(string address)
+        {
+            try
+            {
+                string[] host = (address.Split('@'));
+                string hostname = host[1];
+                //string hostStr = "smtp.net4india.com";
+
+                IPHostEntry IPhst = Dns.GetHostEntry(hostname);
+                //Dns.GetHostByName
+                IPEndPoint endPt = new IPEndPoint(IPhst.AddressList[0], 25);
+                Socket s = new Socket(endPt.AddressFamily,
+                             SocketType.Stream, ProtocolType.Tcp);
+                s.Connect(endPt);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw;
+
+            }
+        }
+
+        private bool sendEmail(string emailId)
+        {
+            //string siteurl = "http://www.autoraksha.com/login/NewPassword.aspx";
+            string smsg = "<div style='text-align:center;background:#4D1C12;><a href='http://www.govedic.com'><img src='http://www.govedic.com/images/logo.gif' /></a></div><br>";
+            string smsg1 = "<div style='font-size:16px;text-align:center;background:#E7CD73;'><br/><b>Your account has been created succesfully with us.<b>";
+            string smsg2 = "<br><b>Now you can use your account for purchasing products.  </b>" ;
+            string smsg3 = "<br><b>Look around different categories of products.  </b>" ;
+            string smsg4 = "<br><b>You might be interested in some of them. </b>" ;
+            string smsg5 = "<br><br><b>www.govedic.com</b></div>";
+            string smsg6 = "<div style='background:#4D1C12; height:100px;></div><br>";
+            string smsg7 = "<br><br><br><br><br>";
+            string smsg8 = "<p></p>";
+            string smsg9 = "<div style='font-size:10px;text-align:center;background:#E7CD73;'><p>This is automated message. And will be sent to you only once.</p>";
+            string smsg10 = "<p>Not intented for spamming.</p></div>";
+
+            MailMessage message = new MailMessage();
+            try
+            {
+               
+                
+
+                message.To.Add(new MailAddress(emailId));
+                message.From = new MailAddress("support@govedic.com");
+
+                message.Subject = "Thank you for registering on www.govedic.com !";
+                message.Body = smsg1 + smsg2 + smsg3 + smsg4 + smsg5 + smsg6 + smsg7 + smsg8 + smsg9 + smsg10;
+                message.IsBodyHtml = true;
+
+                SmtpClient client = new SmtpClient();
+                client.Port = 25; // Gmail works on this port 587
+                client.Host = "smtp.net4india.com";
+                System.Net.NetworkCredential nc = new System.Net.NetworkCredential("support@govedic.com", "nrmr#ps24");
+                client.EnableSsl = false;
+                client.UseDefaultCredentials = false;
+
+                client.Credentials = nc;
+                client.Send(message);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
     }
 }

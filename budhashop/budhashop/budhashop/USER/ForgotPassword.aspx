@@ -34,19 +34,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="forgotpwdpanel" DefaultButton="btn_fsubmit" runat="server">
         <div style="height:500px;">
-            <table cellpadding="0" cellspacing="0" width="450" border="0" class="bg_style2" style="margin-top:100px; margin-left:300px;">
+            <table cellpadding="0" cellspacing="0" width="450" border="0" class="bg_style2" style="margin-top:100px; margin-left:300px; background:transparent;">
              
             <tr>
-                <td align="center" valign="middle" colspan="4" style="height: 40px;"><h2 style="color:#f08b11;">Forgot Password</h2></td>
+                <td align="center" valign="middle" colspan="4" style="height: 40px;"><h3>Forgot Password: </h3><br />Password will be sent to your registered email id.</td>
+         
             </tr>
             <tr>
                 <td align="center" valign="middle" style="margin-left:20px;">
                       <table cellpadding="0" cellspacing="0" width="440" border="0">
             
                 <tr>
-                    <td align="right" valign="top" class="style6">
+                    <td align="right" valign="top" class="style7">
                         <br />
-                        Email Id :
+                       <h3 style="font-size:12px;">Enter Email id :</h3>
                     </td>
                     <td align="center" valign="middle">
                         &nbsp;</td>
@@ -70,7 +71,7 @@
                 <tr>
                     <td align="right" valign="middle" class="style7">
                         <br />
-                        Enter The Text :
+                        <h3 style="font-size:12px;">Enter the text :</h3>
                     </td>
                     <td align="left" valign="middle">
                         &nbsp;</td>
@@ -108,12 +109,7 @@
                                 <td align="left" valign="middle" style="padding-left: 10px;">
                                     <asp:Button ID="btn_cancel" runat="server" CssClass="l_go" OnClick="btn_cancel_Click" Text="Cancel" />
                                 </td>
-                                <td align="right" valign="middle" id="login_links">
-                                    
-                                        <asp:HyperLink ID="hyplink_login" runat="server" NavigateUrl="LoginRegister.aspx"
-                                        Style="float: right;" CssClass="l_links">LogIn...</asp:HyperLink>
-                                    
-                                </td>
+                                
                             </tr>
                         </table>
                     </td>

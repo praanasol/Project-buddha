@@ -122,6 +122,7 @@ namespace budhashop.ADMIN
             CheckBox cb_featuredflag = (CheckBox)itemGrid.Rows[e.RowIndex].FindControl("cb_fflagedit");
             TextBox txt_itemtype = (TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_type");
             DropDownList ddl_SubCatId = (DropDownList)itemGrid.Rows[e.RowIndex].FindControl("ddl_subcatid");
+            DropDownList ddl_merchantId = (DropDownList)itemGrid.Rows[e.RowIndex].FindControl("ddl_merchantId");
                         
             //check whether the image is valid or not
             bool isImageValid = checkPhoto(fu_itemimage,Int32.Parse(catagoryid.Text),itemid);
@@ -139,6 +140,7 @@ namespace budhashop.ADMIN
                 UpdateItemObj.featuredFlag = cb_featuredflag.Checked;
                 UpdateItemObj.itemType = txt_itemtype.Text;
                 UpdateItemObj.itemSubCatId = Int32.Parse(ddl_SubCatId.SelectedValue);
+                UpdateItemObj.merchantId = Int32.Parse(ddl_merchantId.SelectedValue);
 
                 IAdmin UpdateItems = new AdminItems();
                 int updated = UpdateItems.UpdateItems(UpdateItemObj, itemid);
@@ -317,6 +319,21 @@ namespace budhashop.ADMIN
             }
         }
 
+        private DataTable getMerchants()
+        {
+            try
+            {
+                IAdmin getMerchantNames = new AdminItems();
+                DataTable dt = getMerchantNames.getMerchants();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                lbl_status.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+                return null;
+            }
+        }
+
         private void ClearCache()
         {
             System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
@@ -342,6 +359,15 @@ namespace budhashop.ADMIN
                     ddl_SubCatId.DataBind();
                     Label lbl_subcatid = (Label)e.Row.FindControl("lbl_editsubcatid");
                     ddl_SubCatId.SelectedValue = lbl_subcatid.Text;
+
+                    DropDownList ddl_Merchants = (DropDownList)e.Row.FindControl("ddl_merchantId");
+                    DataTable dtm = getMerchants();
+                    ddl_Merchants.DataSource = dtm;
+                    ddl_Merchants.DataTextField = "MName";
+                    ddl_Merchants.DataValueField = "MId";
+                    ddl_Merchants.DataBind();
+                    Label lbl_merchantId = (Label)e.Row.FindControl("lbl_editmerchantId");
+                    ddl_Merchants.SelectedValue = lbl_merchantId.Text;
                 }
             }
         }

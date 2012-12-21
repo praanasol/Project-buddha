@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CartItems.cs" />
     <Compile Include="Catagory Entities\catagoryObj.cs" />
+    <Compile Include="merchantObj.cs" />
     <Compile Include="GroupEntities\grpObj.cs" />
     <Compile Include="ItemEntities\ItemObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

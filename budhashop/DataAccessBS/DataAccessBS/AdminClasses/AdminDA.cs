@@ -131,6 +131,58 @@ namespace DataAccessBS.AdminClasses
 
         #endregion
 
+        #region IAdminDA Members insertMerchantDA
+
+        public int insertMerchantDA(BusinessEntitiesBS.merchantObj merchantValues)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[6];
+                //Merchant parameters
+                sqlParams[0] = new SqlParameter("@name", merchantValues.mName);
+                sqlParams[1] = new SqlParameter("@type", merchantValues.mType);
+                sqlParams[2] = new SqlParameter("@address", merchantValues.mAddress);
+                sqlParams[3] = new SqlParameter("@phno", merchantValues.mPhno);
+                sqlParams[4] = new SqlParameter("@phno", merchantValues.mLoginId);
+                sqlParams[5] = new SqlParameter("@phno", merchantValues.mPwd);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_MERCHANT", sqlParams);
+                return count;
+            }
+            catch (SqlException exc)
+            {
+                return -1;
+                throw exc;
+            }
+
+        }
+
+        #endregion
+
+        #region IAdminDA Members getMercahntsDA
+
+        public DataTable getMerchantsDA()
+        {
+            try
+            {
+                DataTable merDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANTS").Tables[0];
+                if (merDt.Rows.Count > 0)
+                {
+                    return merDt;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+
+        #endregion
+
         #region IAdminDA Members insertItemDA
 
 
@@ -139,7 +191,7 @@ namespace DataAccessBS.AdminClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[9];
+                SqlParameter[] sqlParams = new SqlParameter[10];
 
                 //Catgory parameters
                 sqlParams[0] = new SqlParameter("@itemName", itemObjDa.itemName);
@@ -151,6 +203,7 @@ namespace DataAccessBS.AdminClasses
                 sqlParams[6] = new SqlParameter("@itemSts", itemObjDa.itemStatus);
                 sqlParams[7] = new SqlParameter("@itemType", itemObjDa.itemType);
                 sqlParams[8] = new SqlParameter("@subCatId", itemObjDa.itemSubCatId);
+                sqlParams[9] = new SqlParameter("@merchantId", itemObjDa.merchantId);
 
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_ITEMS", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
@@ -265,7 +318,7 @@ namespace DataAccessBS.AdminClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[11];
+                SqlParameter[] sqlParams = new SqlParameter[12];
 
                 //Catgory parameters
                 sqlParams[0] = new SqlParameter("@itemId", itemid);
@@ -279,6 +332,7 @@ namespace DataAccessBS.AdminClasses
                 sqlParams[8] = new SqlParameter("@featuredFlag", updateitemObjDa.featuredFlag);
                 sqlParams[9] = new SqlParameter("@itemType", updateitemObjDa.itemType);
                 sqlParams[10] = new SqlParameter("@subCatId", updateitemObjDa.itemSubCatId);
+                sqlParams[11] = new SqlParameter("@merchantId", updateitemObjDa.merchantId);
 
                 int updated = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_UPDATE_ITEMS", sqlParams);
 

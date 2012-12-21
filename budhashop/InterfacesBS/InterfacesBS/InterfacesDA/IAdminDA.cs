@@ -18,6 +18,9 @@ namespace InterfacesBS.InterfacesDA
         int insertSubCatagoryDA(int catid, string subcatname);
         DataTable checkSubCatNameDA(string subcatname, int catid);
 
+        int insertMerchantDA(BusinessEntitiesBS.merchantObj merchantValues);
+        DataTable getMerchantsDA();
+
         int insertItemDA(ItemObj itemObjDa);
         DataTable getItemValues(int grpCatId);
         int insertGrpDA(grpObj grpObjDa);

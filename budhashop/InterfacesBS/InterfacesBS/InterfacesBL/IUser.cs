@@ -21,5 +21,9 @@ namespace InterfacesBS.InterfacesBL
         int insertFeedback(string email, string msg);
 
         int checkPurchaseId(int pid);
+
+        DataTable checkMerchant(string id, string pwd);
+        DataTable getMerchant(int mId);
+        DataTable getMerchantOrders();
     }
 }

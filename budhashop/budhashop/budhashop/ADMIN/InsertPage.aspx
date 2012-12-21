@@ -87,6 +87,45 @@
     <p></p>
     <p></p>
     
+    <div class="div2">
+     <!-- Sub Catagory part -->
+    <asp:Label ID="MerchantLbl" runat="server" Text="Add Merchant" 
+            CssClass="lbl_heading" Font-Underline="True"></asp:Label>
+    <br />
+        <div>
+            Name:
+            <asp:RequiredFieldValidator ID="rfv_mName" runat="server" ControlToValidate="txt_mName" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="txt_mName" runat="server" CssClass="txt_boxes"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            Type:
+            <asp:DropDownList ID="ddl_mType" runat="server" CssClass="txt_boxes" style="width:auto;">
+                <asp:ListItem Text="Distributor"></asp:ListItem>
+                <asp:ListItem Text="Supplier"></asp:ListItem>
+            </asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;
+            Phone number:
+            <asp:RequiredFieldValidator ID="rfv_mPhno" runat="server" ControlToValidate="txt_mPhno" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="txt_mPhno" runat="server" CssClass="txt_boxes"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            Address:
+            <asp:RequiredFieldValidator ID="rfv_mAddress" runat="server" ControlToValidate="txt_mAddress" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+            <textarea Id="txt_mAddress" runat="server" cols="0" rows="3" class="txt_boxes" style="margin-top:-15px; margin-bottom:-20px;"></textarea>
+            <p></p>
+            Login Id:
+            <asp:RequiredFieldValidator ID="rfv_mLoginId" runat="server" ControlToValidate="txt_mLoginId" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="txt_mLoginId" runat="server" CssClass="txt_boxes"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            Password:
+            <asp:RequiredFieldValidator ID="rfv_mPwd" runat="server" ControlToValidate="txt_mPwd" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="txt_mPwd" runat="server" CssClass="txt_boxes"></asp:TextBox>
+            <p></p>
+            <asp:Button ID="btn_merchant" runat="server" Text="Add Merchant" ValidationGroup="merchantVG" CssClass="buttons" OnClick="btn_merchant_Click" />
+            <asp:Label ID="lbl_merchantStatus" runat="server" Font-Bold="true" ForeColor="Red"></asp:Label>
+        </div>
+    </div>
+    <p></p>
+    <p></p>
+    
     <div class="div1">
      <!-- items part -->
     <asp:Label ID="ItemLbl" runat="server" Text="Add Item" CssClass="lbl_heading" 
@@ -99,6 +138,8 @@
             </asp:DropDownList>
          <asp:Label ID="lbl_subCat" runat="server" Text="Sub Catagory" style="margin-left:5px;"></asp:Label>
          <asp:DropDownList ID="SubCatagoryDDL" runat="server" CssClass="txt_boxes" style="width:auto;"></asp:DropDownList>
+        <asp:Label ID="lbl_merchant" runat="server" Text="Merchant" style="margin-left:5px;"></asp:Label>
+        <asp:DropDownList ID="MerchantDDL" runat="server" CssClass="txt_boxes" style="width:auto;"></asp:DropDownList>
         <asp:Label ID="NameLbl" runat="server" Text="Name" Width="70px" style="margin-left:1px; text-align:right;"></asp:Label>
         <asp:TextBox ID="ItemTxt" runat="server" CssClass="txt_boxes" ></asp:TextBox>
         <asp:RequiredFieldValidator ID="itemNmeRFV" ControlToValidate="ItemTxt" ValidationGroup="itemVG" runat="server" ErrorMessage="Enter name." SetFocusOnError="true"></asp:RequiredFieldValidator>

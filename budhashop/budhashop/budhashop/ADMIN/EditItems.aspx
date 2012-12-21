@@ -203,6 +203,15 @@
                         <asp:Label ID="lbl_subcatid" runat="server" Text='<%# Eval("SubCatId") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="MerchantId">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddl_merchantId" runat="server" CssClass="txt_boxes"></asp:DropDownList>
+                        <asp:Label ID="lbl_editmerchantId" runat="server" Text='<%# Eval("MId") %>' Visible="false"></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_merchantId" runat="server" Text='<%# Eval("MId") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />

@@ -319,5 +319,89 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members Check Merchant Login
+
+        public DataTable checkMerchantDA(string id, string pwd)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                //Merchant Login parameters
+                sqlParams[0] = new SqlParameter("@mLoginId", id);
+                sqlParams[1] = new SqlParameter("@mPwd", pwd);
+                DataTable LoginDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_CHECK_MERCHANT", sqlParams).Tables[0];
+
+                if (LoginDT.Rows.Count > 0)
+                {
+                    return LoginDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region IUserDA Members Get Merchant Details
+
+        public DataTable getMerchantDA(int mId)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+
+                //Merchant Login parameters
+                sqlParams[0] = new SqlParameter("@mId", mId);
+                DataTable merDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANT_PROFILE", sqlParams).Tables[0];
+
+                if (merDT.Rows.Count > 0)
+                {
+                    return merDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region IUserDA Members Get Merchant Orders
+
+        public DataTable getMerchantOrdersDA()
+        {
+            try
+            {
+                DataTable ordersDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANT_ORDERS").Tables[0];
+
+                if (ordersDT.Rows.Count > 0)
+                {
+                    return ordersDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

@@ -91,6 +91,43 @@ namespace BusinessLogicBS.BusinessClasses
 
         #endregion
 
+        #region IAdmin Members insertMerchant
+
+        public int insertMerchant(BusinessEntitiesBS.merchantObj merchantValues)
+        {
+            try
+            {
+                IAdminDA merchantInsert = new DataAccessBS.AdminClasses.AdminDA();
+                int merchantChk = merchantInsert.insertMerchantDA(merchantValues);
+                return merchantChk;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        #endregion
+
+        #region IAdmin Members getMerchants
+
+        public DataTable getMerchants()
+        {
+            try
+            {
+
+                IAdminDA getmerchants = new DataAccessBS.AdminClasses.AdminDA();
+                DataTable merDt = getmerchants.getMerchantsDA();
+                return merDt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
         #region IAdmin Members insertItems
 
 

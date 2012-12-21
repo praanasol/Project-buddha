@@ -36,6 +36,7 @@ namespace budhashop.ADMIN
 
                 getcatgs();
                 getSubCatg();
+                getMerchants();
                 getItems(Int32.Parse(grpCatDDL.SelectedValue.ToString()));                
             }
         }
@@ -84,6 +85,24 @@ namespace budhashop.ADMIN
                 SubCatagoryDDL.DataBind();
             }
             catch (Exception ex)
+            {
+                ItemMessageLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+            }
+        }
+
+        private void getMerchants()
+        {
+            try
+            {
+                IAdmin getmerchants = new AdminItems();
+                DataTable dt = getmerchants.getMerchants();
+
+                MerchantDDL.DataSource = dt;
+                MerchantDDL.DataTextField = "MName";
+                MerchantDDL.DataValueField = "MId";
+                MerchantDDL.DataBind();
+            }
+            catch(Exception ex)
             {
                 ItemMessageLbl.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
             }
@@ -143,6 +162,7 @@ namespace budhashop.ADMIN
                             // Create the directory.
                             Directory.CreateDirectory(NewDir);
                             catMsgLbl.Text = HardCodedValues.BuddaResource.CatogoryAdd;
+                            getcatgs();
 
                         }
                     }
@@ -220,6 +240,7 @@ namespace budhashop.ADMIN
                         txt_SubCatName.Text = "";
                         img_SubCatName.ImageUrl = "";
                         lbl_SubCatName.Text = "";
+                        getSubCatg();
                         ClearCache();
                     }
                     else
@@ -236,6 +257,36 @@ namespace budhashop.ADMIN
             {
                 txt_SubCatName.Focus();
                 lbl_subCatStatus.Text = "Enter Valid Sub Catagory Name";
+            }
+        }
+
+        protected void btn_merchant_Click(object sender, EventArgs e)
+        {
+            BusinessEntitiesBS.merchantObj merchantValues = new BusinessEntitiesBS.merchantObj();
+            merchantValues.mName = txt_mName.Text;
+            merchantValues.mType = ddl_mType.SelectedItem.ToString();
+            merchantValues.mAddress = txt_mAddress.InnerText.ToString();
+            merchantValues.mPhno = txt_mPhno.Text;
+            merchantValues.mLoginId = txt_mLoginId.Text;
+            merchantValues.mPwd = CLASS.PasswordEncryption.EncryptIt(txt_mPwd.Text);
+            try
+            {
+                IAdmin insertMerchant = new AdminItems();
+                int inserted = insertMerchant.insertMerchant(merchantValues);
+                if (inserted != -1)
+                {
+                    lbl_merchantStatus.Text = "Merchant Added";
+                    getMerchants();
+                    ClearCache();
+                }
+                else
+                {
+                    lbl_merchantStatus.Text = "Merchant Not Added";
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_merchantStatus.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
             }
         }
 
@@ -261,6 +312,7 @@ namespace budhashop.ADMIN
                     itemValues.itemStatus = CheckBoxSts.Checked;
                     itemValues.itemType = typeTxt.Text;
                     itemValues.itemSubCatId = Int32.Parse(SubCatagoryDDL.SelectedValue);
+                    itemValues.merchantId = Int32.Parse(MerchantDDL.SelectedValue);
 
                     IAdmin insertItem = new AdminItems();
                     int itemId = insertItem.insertItems(itemValues);

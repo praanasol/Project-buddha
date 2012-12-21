@@ -18,5 +18,6 @@ namespace BusinessEntitiesBS.ItemEntities
         public bool featuredFlag { get; set; }
         public string itemType { get; set; }
         public int itemSubCatId { get; set; }
+        public int merchantId { get; set; }
     }
 }

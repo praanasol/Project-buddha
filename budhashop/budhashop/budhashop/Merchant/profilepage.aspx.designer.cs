@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace budhashop {
+namespace budhashop.Merchant {
     
     
-    public partial class merchantprofile {
+    public partial class profilepage {
         
         /// <summary>
         /// Head1 control.

@@ -23,7 +23,6 @@ namespace InterfacesBS.InterfacesDA
         int checkPurchaseIdDA(int pid);
 
         DataTable checkMerchantDA(string id, string pwd);
-        DataTable getMerchantDA(int mId);
-        DataTable getMerchantOrdersDA();
+        DataSet getMerchantDA(int mId);
     }
 }

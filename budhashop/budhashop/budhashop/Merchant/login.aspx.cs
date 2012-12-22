@@ -11,13 +11,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-using InterfacesBS.InterfacesBL;
-using BusinessLogicBS;
-using BusinessLogicBS.UserClasses;
-
-namespace budhashop
+namespace budhashop.Merchant
 {
-    public partial class merchantLogin : System.Web.UI.Page
+    public partial class login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,12 +26,12 @@ namespace budhashop
             string pwd = CLASS.PasswordEncryption.EncryptIt(txt_mPwd.Text);
             try
             {
-                IUser checkmerchant = new UserItems();
+                InterfacesBS.InterfacesBL.IUser checkmerchant = new BusinessLogicBS.UserClasses.UserItems();
                 DataTable dt = checkmerchant.checkMerchant(id, pwd);
                 if (dt != null)
                 {
                     this.Session["MId"] = Convert.ToInt32(dt.Rows[0]["MId"]);
-                    Response.Redirect("~/merchantprofile.aspx");
+                    Response.Redirect("../Merchant/profilepage.aspx");
                 }
                 else
                 {

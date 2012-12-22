@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="merchantprofile.aspx.cs" Inherits="budhashop.merchantprofile" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="profilepage.aspx.cs" Inherits="budhashop.Merchant.profilepage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">

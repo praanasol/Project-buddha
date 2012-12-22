@@ -162,29 +162,12 @@ namespace BusinessLogicBS.UserClasses
 
         #region IUser Members Get Merchant Details
 
-        public DataTable getMerchant(int mId)
+        public DataSet getMerchant(int mId)
         {
             try
             {
                 IUserDA getmerchant = new DataAccessBS.UserClasses.UserDA();
                 return getmerchant.getMerchantDA(mId);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        #endregion
-
-        #region IUser Members Get Merchant Orders
-
-        public DataTable getMerchantOrders()
-        {
-            try
-            {
-                IUserDA getOrders = new DataAccessBS.UserClasses.UserDA();
-                return getOrders.getMerchantOrdersDA();
             }
             catch
             {

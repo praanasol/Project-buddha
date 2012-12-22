@@ -352,7 +352,7 @@ namespace DataAccessBS.UserClasses
 
         #region IUserDA Members Get Merchant Details
 
-        public DataTable getMerchantDA(int mId)
+        public DataSet getMerchantDA(int mId)
         {
             try
             {
@@ -360,36 +360,11 @@ namespace DataAccessBS.UserClasses
 
                 //Merchant Login parameters
                 sqlParams[0] = new SqlParameter("@mId", mId);
-                DataTable merDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANT_PROFILE", sqlParams).Tables[0];
+                DataSet merDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANT_PROFILE", sqlParams);
 
-                if (merDT.Rows.Count > 0)
+                if (merDT.Tables[0].Rows.Count > 0)
                 {
                     return merDT;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        #endregion
-
-        #region IUserDA Members Get Merchant Orders
-
-        public DataTable getMerchantOrdersDA()
-        {
-            try
-            {
-                DataTable ordersDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANT_ORDERS").Tables[0];
-
-                if (ordersDT.Rows.Count > 0)
-                {
-                    return ordersDT;
                 }
                 else
                 {

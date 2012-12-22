@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -186,12 +186,13 @@
     </Compile>
     <Compile Include="Merchant\verifyemail.aspx.designer.cs">
       <DependentUpon>verifyemail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="merchantLogin.aspx.cs">
       <DependentUpon>merchantLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="merchantLogin.aspx.designer.cs">
-      <DependentUpon>merchantLogin.aspx</DependentUpon>
+     <DependentUpon>merchantLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="merchantprofile.aspx.cs">
       <DependentUpon>merchantprofile.aspx</DependentUpon>
@@ -370,7 +371,7 @@
     <Content Include="ItemImages\5\11\11Photomedium.jpg" />
     <Content Include="ItemImages\5\11\11small.jpg" />
     <Content Include="ItemImages\5\9\9Photo.jpg" />
-    <Content Include="ItemImages\5\9\9Photomedium.jpg" />
+    <Content Include="Item?mages\5\9\9Photomedium.jpg" />
     <Content Include="ItemImages\5\9\9small.jpg" />
     <Content Include="itemspage.aspx" />
     <Content Include="MasterPage\MainMaster.Master" />
@@ -516,7 +517,7 @@
     <Content Include="script\paging\scroll.js" />
     <Content Include="script\paging\scroll16.js" />
     <Content Include="script\profilePage.js" />
-    <Content Include="script\fullDetailsPage.js" />
+  <Content Include="script\fullDetailsPage.js" />
     <Content Include="script\scroll\scrollcheck.js" />
     <Content Include="script\searchItemsPage.js" />
     <Content Include="script\slides.js" />

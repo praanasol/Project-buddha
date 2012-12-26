@@ -27,7 +27,7 @@ namespace budhashop.ADMIN
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             string aname = txt_username.Text;
-            string pwd = txt_password.Text;
+            string pwd = CLASS.PasswordEncryption.EncryptIt(txt_password.Text);
 
             IAdmin checklogin = new AdminItems();
             int count = checklogin.checkLogin(aname, pwd);

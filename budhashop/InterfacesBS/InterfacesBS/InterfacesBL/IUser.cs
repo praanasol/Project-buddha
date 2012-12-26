@@ -24,5 +24,6 @@ namespace InterfacesBS.InterfacesBL
 
         DataTable checkMerchant(string id, string pwd);
         DataSet getMerchant(int mId);
+        bool updateMerchantItems(int itemId, float itemBR, int Qty, float itemNR);
     }
 }

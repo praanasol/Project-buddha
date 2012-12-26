@@ -19,8 +19,16 @@ namespace budhashop.Merchant
         {
             if (this.Session["MId"] != null)
             {
-                int mId = Convert.ToInt32(this.Session["MId"]);
-                retrieveMerchant(mId);
+                if (!IsPostBack)
+                {
+                    getMerchantItems();
+                    retrieveMerchant();
+                    BindLowItems();
+                }
+                else
+                {
+                    lbl_itemSts.Text = "";
+                }
             }
             else
             {
@@ -28,8 +36,9 @@ namespace budhashop.Merchant
             }
         }
 
-        private void retrieveMerchant(int mId)
+        private void retrieveMerchant()
         {
+            int mId = Convert.ToInt32(this.Session["MId"]);
             InterfacesBS.InterfacesBL.IUser getmerchant = new BusinessLogicBS.UserClasses.UserItems();
             DataSet merchantDS = getmerchant.getMerchant(mId);
             DataTable dt = merchantDS.Tables[0];
@@ -42,6 +51,25 @@ namespace budhashop.Merchant
 
                 DataTable merchantOrderDt = merchantDS.Tables[1];
                 //merchantOrderDt.DefaultView.Sort = "Date Desc";
+                merchantOrderDt.Columns.Add("ItemName");
+                merchantOrderDt.Columns.Add("ImagePath");
+                foreach (DataRow dr in merchantOrderDt.Rows)
+                {
+                    int itemId = Convert.ToInt32(dr["ItemId"]);
+                    DataSet itemData = new DataSet();
+                    if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+                    {
+                        CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
+                        itemData = getcache.getCache();
+                    }
+                    else
+                    {
+                        itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+                    }
+                    var itemDetails = itemData.Tables[0].AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
+                    dr["ItemName"] = itemDetails["ItemName"].ToString();
+                    dr["ImagePath"] = itemDetails["ImagePath"].ToString();
+                }
                 gv_MerchantOrders.DataSource = merchantOrderDt;
                 gv_MerchantOrders.DataBind();
             }
@@ -54,14 +82,111 @@ namespace budhashop.Merchant
         protected void gv_MerchantOrders_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gv_MerchantOrders.PageIndex = e.NewPageIndex;
-            int mId = Convert.ToInt32(this.Session["MId"]);
-            retrieveMerchant(mId);
+            retrieveMerchant();
         }
 
         protected void lb_mlogout_Click(object sender, EventArgs e)
         {
             this.Session["MId"] = null;
             Response.Redirect("../Merchant/login.aspx");
+        }
+
+        private void getMerchantItems()
+        {
+            int mId = Convert.ToInt32(this.Session["MId"]);
+            DataSet itemData = new DataSet();
+            if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+            {
+                CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
+                itemData = getcache.getCache();
+            }
+            else
+            {
+                itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+            }
+            DataTable dt = itemData.Tables[0];
+            DataRow[] merchantItems = dt.Select("MId = '" + mId + "'");
+            DataTable merchantItemsDt = null;
+            if (merchantItems.Length > 0)
+            {
+                merchantItemsDt = merchantItems.CopyToDataTable();
+            }
+            itemGrid.DataSource = merchantItemsDt;
+            itemGrid.DataBind();
+        }
+
+        protected void itemGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            itemGrid.PageIndex = e.NewPageIndex;
+            getMerchantItems();
+        }
+
+        protected void itemGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            itemGrid.EditIndex = -1;
+            getMerchantItems();
+        }
+
+        protected void itemGrid_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            itemGrid.EditIndex = e.NewEditIndex;
+            getMerchantItems();
+        }
+
+        protected void itemGrid_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int itemid = Convert.ToInt32(itemGrid.DataKeys[e.RowIndex].Value.ToString());
+
+            float itemBR = float.Parse(((TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_editBR")).Text);
+            int itemQty = Int32.Parse(((TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_editQty")).Text);
+            float itemNR = float.Parse(((TextBox)itemGrid.Rows[e.RowIndex].FindControl("txt_editNR")).Text);
+            try
+            {
+                InterfacesBS.InterfacesBL.IUser updateItems = new BusinessLogicBS.UserClasses.UserItems();
+                bool isupdated = updateItems.updateMerchantItems(itemid, itemBR, itemQty, itemNR);
+                if (isupdated == true)
+                {
+                    lbl_itemSts.Text = HardCodedValues.BuddaResource.UpdateSuccess;
+                    ClearCache();
+                    itemGrid.EditIndex = -1;
+                    getMerchantItems();
+                    BindLowItems();
+                }
+                else
+                {
+                    lbl_itemSts.Text = HardCodedValues.BuddaResource.UpdateFail;
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_itemSts.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+                throw ex;
+            }
+        }
+
+        private void ClearCache()
+        {
+            System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
+        }
+
+        private void BindLowItems()
+        {
+            int filterQty = 5;//to display items with Quantity<5
+            DataTable dt = (DataTable)itemGrid.DataSource;
+            DataRow[] dr = dt.Select("Qty < '" + filterQty + "'");
+            DataTable lowItemsTable = null;
+            if (dr.Length > 0)
+            {
+                lowItemsTable = dr.CopyToDataTable();
+            }
+            gv_lowItems.DataSource = lowItemsTable;
+            gv_lowItems.DataBind();
+        }
+
+        protected void gv_lowItems_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_lowItems.PageIndex = e.NewPageIndex;
+            BindLowItems();
         }
     }
 }

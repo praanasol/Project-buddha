@@ -378,5 +378,37 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IUserDA Members Update Merchant Items
+
+        public bool updateMerchantItemsDA(int itemId, float itemBR, int Qty, float itemNR)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[4];
+
+                sqlParams[0] = new SqlParameter("@itemId", itemId);
+                sqlParams[1] = new SqlParameter("@itemBR", itemBR);
+                sqlParams[2] = new SqlParameter("@itemNR", itemNR);
+                sqlParams[3] = new SqlParameter("@itemQty", Qty);
+                int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_UPDATE_MERCHANT_ITEMS", sqlParams);
+                bool isUpdated = false;
+                if (count > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+                return isUpdated;
+            }
+            catch (Exception ex_msg)
+            {
+                throw ex_msg;
+            }
+        }
+
+        #endregion
     }
 }

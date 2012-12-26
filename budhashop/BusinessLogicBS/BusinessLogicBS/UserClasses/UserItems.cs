@@ -176,5 +176,21 @@ namespace BusinessLogicBS.UserClasses
         }
 
         #endregion
+
+        #region IUser Members Password Update
+
+        public bool updateMerchantItems(int itemId, float itemBR, int Qty, float itemNR)
+        {
+            try
+            {
+                IUserDA updateItems = new DataAccessBS.UserClasses.UserDA();
+                return updateItems.updateMerchantItemsDA(itemId, itemBR, Qty, itemNR);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

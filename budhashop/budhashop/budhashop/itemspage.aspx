@@ -78,9 +78,9 @@
         <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:600px; width:970px; padding-left:20px; "> 
         <div style="text-align:left; margin-left:25px">
     	    <aside style="height:30px;">
-              <nav id="nav_bottom" style="font-size:10px;">
+              <nav id="nav_bottom" style="font-size:12px;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px;width:auto;">
                 <ul id="subCatArea" style=" width:100%;">
-                    <b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">All Products</b>
+                   <li> <a href="itemspage.aspx?catid=17" target="_self">All Products</a></li>
                 </ul>
               </nav>
             </aside>

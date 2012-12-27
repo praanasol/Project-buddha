@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="box_header" style="width: 985px;">
-        <h2>
-             Articles Home</h2>
+        <%--<h2>
+             Articles Home</h2>--%>
     </div>
     <div id="Div1" style="width: 985px; height:200px; text-align:center; padding-top:200px; ">
         <h2 style="font-size:20px;">

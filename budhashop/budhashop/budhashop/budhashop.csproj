@@ -62,6 +62,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADMIN\EditItems.aspx.cs">
       <DependentUpon>EditItems.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,6 +233,20 @@
     </Compile>
     <Compile Include="Services\Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shippingdetails.aspx.cs">
+      <DependentUpon>shippingdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shippingdetails.aspx.designer.cs">
+      <DependentUpon>shippingdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="terms.aspx.cs">
+      <DependentUpon>terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="terms.aspx.designer.cs">
+      <DependentUpon>terms.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeedbackControl.ascx.cs">
       <DependentUpon>FeedbackControl.ascx</DependentUpon>
@@ -466,6 +487,7 @@
     <Content Include="USER\Services\LoginControl.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about.aspx" />
     <Content Include="ADMIN\LoginA.aspx" />
     <Content Include="ADMIN\SiteFeedback.aspx" />
     <Content Include="ADMIN\Web.config" />
@@ -491,6 +513,11 @@
     <Content Include="images\check.jpg" />
     <Content Include="images\chrome.png" />
     <Content Include="images\close.png" />
+    <Content Include="images\featured5\121small.jpg" />
+    <Content Include="images\featured5\33small.jpg" />
+    <Content Include="images\featured5\53small.jpg" />
+    <Content Include="images\featured5\62small.jpg" />
+    <Content Include="images\featured5\80small.jpg" />
     <Content Include="images\firefox-icon.png" />
     <Content Include="images\footer_bg.gif" />
     <Content Include="images\header_bg1.gif" />
@@ -521,10 +548,12 @@
     <Content Include="script\scroll\scrollcheck.js" />
     <Content Include="script\searchItemsPage.js" />
     <Content Include="script\slides.js" />
+    <Content Include="shippingdetails.aspx" />
     <Content Include="Styles\admin.css" />
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="Styles\jquery.mCustomScrollbar.css" />
     <Content Include="Styles\scrollpane_custom.css" />
+    <Content Include="terms.aspx" />
     <Content Include="USER\ProfilePage.aspx" />
     <Content Include="USER\Web.config" />
   </ItemGroup>

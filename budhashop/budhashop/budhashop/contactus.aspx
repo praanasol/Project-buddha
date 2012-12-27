@@ -168,22 +168,26 @@
         <div id="profileDiv">
             <aside id="p_data" class="p_f_box_style" style=" margin-top:100px;">
                 <section id="p_d_fields">
-                    <div id="p_d_field_area">
+                    <div id="p_d_field_area"><div id="p_d_label" style="width:auto; font-size:12px; text-align:"center";>
+                            For any details you can contact us through email or phone.</div>
                         <div id="p_d_label" style="width:auto; font-size:16px; margin:50px 0 0 70px;">
                             Email: support@govedic.com  </div>
                             
-                        <div id="p_d_label" style="width:auto; font-size:16px; margin:20px 0 0 70px;">
-                            Phone: 8125878727 </div>
+                        <div id="p_d_label" style="width:auto; font-size:16px; margin:20px 0 0 50px;">
+                            Phone: +91 8125878727 ( 9 AM - 6 PM )</div>
                     </div>
                 </section>
                 <br style="clear:both;" /><br />
             </aside>
         </div>
          <div id="but_style" style="width: 535px; margin-left:200px;">
-         <div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:50px;">Click <a id="btnComplaint" href="#">here</a> to file a Complaint</div>
-                        <div id="to_right"><asp:Button CssClass="l_go" runat="server" Text="Login" Width="70" Height="35" /></div>
+         <div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:50px;">For complaints regarding purchase and delivery.</div>
+                        <div id="to_left"><a id="btnComplaint" href="#" class="l_go">Click here</a></div>
+                        <div id="notLoggedIn" style="display:none; top: 510px; left: 520px; position: absolute; height: 22px; width: auto; padding: 8px 20px 2px; font-weight:bold; font-size:14px;" class="p_f_box_style"></div>
+    <div class="web_dialog_overlay"></div>
          
          </div>
+         
         <%--<div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:240px;">Click <a id="btnComplaint" href="#">here</a> to file a Complaint</div>--%>
         <div id="complaintField" class="web_dialog">
             <aside id="p_data" class="p_f_box_style" style=" margin-top:20px;">
@@ -234,7 +238,6 @@
             
         </div>
     </div>
-    <div id="notLoggedIn" style="display:none; top: 510px; left: 520px; position: absolute; height: 22px; width: auto; padding: 8px 20px 2px; font-weight:bold; font-size:14px;" class="p_f_box_style"></div>
-    <div class="web_dialog_overlay"></div>
+    
     <asp:Label ID="lbl_hdn" runat="server" style="display:none;"></asp:Label>
 </asp:Content>

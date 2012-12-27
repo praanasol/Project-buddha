@@ -586,6 +586,7 @@ namespace budhashop.USER
                 string emailid = dt.Rows[0]["Email"].ToString();
 
                 message.To.Add(new MailAddress(emailid));
+                
                 message.From = new MailAddress("support@govedic.com");
 
                 message.Subject = "Your Order is Placed Successfully";

@@ -38,40 +38,40 @@ $('#slideshow2').cycle({
  <aside id="side-info" style="display:none;">
  <section style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
   <div id="slideshow2" class="quicklinks" style="height:180px; text-align:center;">
-  <b>New products</b>
-  <b>New product <br /> - product 1 -</b>
-  <b>New product <br /> - product 2 -</b>
-  <b>New product<br /> - product 3 -</b>
-  <b>New product<br /> - product 4 -</b>
-  <b>New product<br /> - product 5 -</b>
-  </div>
-   <br />
-  <div id="slideshow" class="quicklinks" style="height:45px; text-align:center;">
-   <b style="padding-top:15px; padding-left:13px;">Cash on delivery</b>
-   <b style="padding-top:10px">Presently, only for Hyderabad</b>
-   <b style="padding-top:5px"> Will extend for other cities soon</b>
-  </div>
-  <br />
-  <div class="quicklinks">
-  <b>Articles</b>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=80&grp=17"><img src="images/featured5/80small.jpg" alt="featured Product" /></a></div><div><b>Karela Ras</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=121&grp=17"><img src="images/featured5/121small.jpg" alt="featured Product" /></a></div><div><b>Herbi T Lemon</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=33&grp=17"><img src="images/featured5/33small.jpg" alt="featured Product" /></a></div><div><b>Amla juice</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=62&grp=17"><img src="images/featured5/62small.jpg" alt="featured Product" /></a></div><div><b>Prana Shakti</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=53&grp=17"><img src="images/featured5/53small.jpg" alt="featured Product" /></a></div><div><b>Desi Cow Ghee</b></div></div>
   
   </div>
+   <br />
+  <div id="slideshow" class="quicklinks" style="height:90px; text-align:center;">
+   <b style="padding-top:15px; padding-left:13px;">Presently, only for Hyderabad.</b>
+   <b style="padding-top:15px; padding-left:13px;">We only accept orders exceeding Rs. 500/-</b>
+   <b style="padding-top:15px; padding-left:13px;">Free shipping for orders more than Rs. 1200/-</b>
+   
+   <b style="padding-top:10px">Cash on delivery. Shipping charges extra.</b>
+   
+  </div>
+  <br />
+  <%--<div class="quicklinks">
+  <b>Articles</b>
+  
+  </div>--%>
  </section>
  <section>
   <div id='coin-slider'>
-    <a href="../itemspage.aspx?catid=1" target="_blank">
+    <a href="../itemspage.aspx?catid=17" target="_blank">
         <img src="images/banner/banner1.jpg">
         
     </a>
- <a href="../itemspage.aspx?catid=2" target="_blank">
+ <a href="../articleHome.aspx" target="_blank">
         <img src="images/banner/banner2.jpg">
         
     </a>
-     <a href="../itemspage.aspx?catid=3" target="_blank">
-        <img src="images/banner/banner3.jpg">
-        
-    </a>
-     <a href="../itemspage.aspx?catid=4" target="_blank">
+     
+     <a href="../articleHome.aspx" target="_blank">
         <img src="images/banner/banner4.jpg">
         
     </a>

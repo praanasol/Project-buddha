@@ -226,6 +226,11 @@
         <ItemTemplate>
             <div id="o_items_row">
             <!--Order items S No Cl Start-->
+                        <div id="name_field">
+                              
+                              <div id="ol_field" class="style4" style="font-size:18px; margin-left:90px;margin-top:5px;padding:5px;"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
+                              </div>
+                          </div>
                     <aside id="o_i_l_cl1">
                       <div id="o_i_l_sno" class="style4"><%# Container.ItemIndex+1 %></div>
                     </aside>
@@ -240,11 +245,7 @@
 			  </section>
 			  <section id="o_i_l_fields">
 					
-                          <div id="o_i_l_field_area">
-                              
-                              <div id="o_i_l_field" class="style4" style="font-size:18px;"><asp:Label ID="nameLbl" runat="server" Text='<%# Eval("ItemName")%>'> </asp:Label>
-                              </div>
-                          </div>
+                          
 						  <div id="o_i_l_field_area">
                               <div id="o_i_l_label">Product Id :</div>
                               <div id="o_i_l_field" class="style4"><asp:Label ID="noLbl" runat="server" Text='<%# Eval("ItemId")%>'></asp:Label>

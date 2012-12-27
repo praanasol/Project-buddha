@@ -209,9 +209,9 @@
   <aside style="height:20px;">
   <nav id="nav_bottom">
   <ul id="Ul1" style="font-size:8px;">
-  <li><a href="../homepage.aspx" target="_self" style="font-size:11px;">About Us</a></li>
-  <li><a href="../homepage.aspx" target="_self" style="font-size:11px;">Shipping Details</a></li>
-  <li><a href="../homepage.aspx" target="_self" style="font-size:11px;" >Terms & conditions</a></li>
+  <li><a href="../about.aspx" target="_self" style="font-size:11px;">About Us</a></li>
+  <li><a href="../shippingdetails.aspx" target="_self" style="font-size:11px;">Shipping Details</a></li>
+  <li><a href="../terms.aspx" target="_self" style="font-size:11px;" >Terms & conditions</a></li>
   <li><a href="../contactus.aspx" target="_self" style="font-size:11px;">Contact us</a></li>
   </ul>
   </nav>

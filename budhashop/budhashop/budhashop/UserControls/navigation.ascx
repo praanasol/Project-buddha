@@ -23,6 +23,12 @@ $(document).ready(function(){
 
                $('[id$=navitems]').append( items.join('') );
               $('[id$=footerNav]').append( items.join('') );
+               $('[id$=navitems]').append('<li><a href="../Articles/articleHome.aspx" tittle="Gyaan - Govedic.com">Gyaan</a></li>' );
+              $('[id$=footerNav]').append( '<li><a href="../Articles/articleHome.aspx" tittle="Gyaan - Govedic.com">Gyaan</a></li>' );
+               $('[id$=navitems]').append('<li><a href="../Articles/articleHome.aspx" tittle="Gyaan - Govedic.com">Vasthra</a></li>' );
+              $('[id$=footerNav]').append( '<li><a href="../Articles/articleHome.aspx" tittle="Gyaan - Govedic.com">Vasthra</a></li>' );
+               $('[id$=navitems]').append( '<li><a href="../about.aspx" tittle="Gyaan - Govedic.com">About</a></li>' );
+                 
                    
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {

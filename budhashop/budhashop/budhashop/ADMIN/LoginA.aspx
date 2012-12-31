@@ -11,6 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="div1" style="position:absolute; top:200px; left:550px;">
+        <asp:Panel ID="merchantloginpanel" DefaultButton="btn_submit" runat="server" Width="265px">
             <br />
                 <asp:Label ID="lbl_email" runat="server" Text="Email Id" Width="60px" style="text-align:right;"></asp:Label>
                 <asp:RequiredFieldValidator ID="rfv_email" runat="server" 
@@ -30,7 +31,7 @@
                     ValidationGroup="submit" onclick="btn_submit_Click" CssClass="buttons" style="margin-left:100px;" />
             <br />
                 <asp:Label ID="lbl_submit" runat="server" ForeColor="Red" style="margin-left:45px;"></asp:Label>
-            
+        </asp:Panel>    
         </div>
     </form>
 </body>

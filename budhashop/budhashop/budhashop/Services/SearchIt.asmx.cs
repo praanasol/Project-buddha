@@ -40,6 +40,15 @@ namespace budhashop.Services
             return fetchItems.ToList();
         }
 
-
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<SearchAll> FetchMerchantItemNames()
+        {
+            int mId = Convert.ToInt32(this.Session["MId"]);
+            var searchObj = new SearchAll();
+            var fetchItems = (List<SearchAll>)null;
+            fetchItems = searchObj.GetItemsList(mId);
+            return fetchItems.ToList();
+        }
     }
 }

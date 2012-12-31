@@ -410,5 +410,36 @@ namespace DataAccessBS.UserClasses
         }
 
         #endregion
+
+        #region IAdminDA Members Search Merchant Orders
+
+        public DataTable searchMerchantOrdersDA(int mId, int itemId, string startDate, string endDate)
+        {
+            try
+            {
+                SqlParameter[] searchParams = new SqlParameter[4];
+                searchParams[0] = new SqlParameter("@mId", mId);
+                searchParams[1] = new SqlParameter("@itemId", itemId);
+                searchParams[2] = new SqlParameter("@startDate", startDate);
+                searchParams[3] = new SqlParameter("@endDate", endDate);
+
+                DataTable searchOrdersDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_SEARCH_MERCHANT_ORDERS", searchParams).Tables[0];
+
+                if (searchOrdersDT.Rows.Count > 0)
+                {
+                    return searchOrdersDT;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

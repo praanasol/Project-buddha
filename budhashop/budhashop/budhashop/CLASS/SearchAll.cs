@@ -18,6 +18,7 @@ namespace budhashop.CLASS
         //public int ID { get; set; }
         public string value { get; set; }
         public string ItemLink { get; set; }
+        public int ItemId { get; set; }
 
         internal List<SearchAll> GetSearchList()
         {
@@ -64,6 +65,33 @@ namespace budhashop.CLASS
 
             }
 
+            return list.ToList();
+        }
+
+        internal List<SearchAll> GetItemsList(int mId)
+        {
+            List<SearchAll> list = new List<SearchAll>();
+            DataSet itemData = new DataSet();
+            if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+            {
+                CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
+                itemData = getcache.getCache();
+            }
+            else
+            {
+                itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+            }
+            DataRow[] dr = itemData.Tables[0].Select("MId = '" + mId + "'");
+            if (dr.Length > 0)
+            {
+                foreach (DataRow dtr in dr)
+                {
+                    SearchAll prj = new SearchAll();
+                    prj.ItemId = Convert.ToInt32(dtr["ItemId"].ToString());
+                    prj.value = dtr["ItemName"].ToString();
+                    list.Add(prj);
+                }
+            }
             return list.ToList();
         }
     }

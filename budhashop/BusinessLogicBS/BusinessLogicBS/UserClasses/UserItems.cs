@@ -177,7 +177,7 @@ namespace BusinessLogicBS.UserClasses
 
         #endregion
 
-        #region IUser Members Password Update
+        #region IUser Members Merchant Items Update
 
         public bool updateMerchantItems(int itemId, float itemBR, int Qty, float itemNR)
         {
@@ -185,6 +185,22 @@ namespace BusinessLogicBS.UserClasses
             {
                 IUserDA updateItems = new DataAccessBS.UserClasses.UserDA();
                 return updateItems.updateMerchantItemsDA(itemId, itemBR, Qty, itemNR);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        #endregion
+
+        #region IUser Members Merchant Orders Search
+
+        public DataTable searchMerchantOrders(int mId, int itemId, string startDate, string endDate)
+        {
+            try
+            {
+                IUserDA searchOrders = new DataAccessBS.UserClasses.UserDA();
+                return searchOrders.searchMerchantOrdersDA(mId, itemId, startDate, endDate);
             }
             catch
             {

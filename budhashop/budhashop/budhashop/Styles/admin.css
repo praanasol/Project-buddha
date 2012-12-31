@@ -51,6 +51,7 @@
     padding:2px 5px 2px 5px;
     font-weight:bold;
     border-radius:5px;
+    text-decoration:none;
 }
 .buttons:hover  
 {   
@@ -66,4 +67,35 @@
     border-width:1px;
     border-bottom-color:lightslategray;
     border-right-color:lightslategray;
+}
+.linkbuttons
+{
+    color:burlywood;
+    background-color:Maroon;
+    border:lightslategray solid 1px;
+    padding:2px 5px 2px 5px;
+    font-weight:bold;
+    border-radius:5px;
+    text-decoration:none;
+}
+.linkbuttons:hover  
+{   
+    color:Maroon;
+    background-color:burlywood;
+    border:lightslategray solid 1px;
+    cursor:pointer;
+    border-radius:10px;
+}
+.lbl_name
+{
+    width:100px;
+    color:Maroon;
+    font-size:16px;
+    text-align:right;
+    float:left;
+    margin-right:5px;
+}
+.div_height
+{
+    height:25px;
 }

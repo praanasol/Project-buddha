@@ -28,6 +28,7 @@ namespace budhashop.Merchant
                 else
                 {
                     lbl_itemSts.Text = "";
+                    lbl_search.Text = "";
                 }
             }
             else
@@ -51,24 +52,27 @@ namespace budhashop.Merchant
 
                 DataTable merchantOrderDt = merchantDS.Tables[1];
                 //merchantOrderDt.DefaultView.Sort = "Date Desc";
-                merchantOrderDt.Columns.Add("ItemName");
-                merchantOrderDt.Columns.Add("ImagePath");
-                foreach (DataRow dr in merchantOrderDt.Rows)
+                if (merchantOrderDt != null)
                 {
-                    int itemId = Convert.ToInt32(dr["ItemId"]);
-                    DataSet itemData = new DataSet();
-                    if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+                    merchantOrderDt.Columns.Add("ItemName");
+                    merchantOrderDt.Columns.Add("ImagePath");
+                    foreach (DataRow dr in merchantOrderDt.Rows)
                     {
-                        CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
-                        itemData = getcache.getCache();
+                        int itemId = Convert.ToInt32(dr["ItemId"]);
+                        DataSet itemData = new DataSet();
+                        if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+                        {
+                            CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
+                            itemData = getcache.getCache();
+                        }
+                        else
+                        {
+                            itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+                        }
+                        var itemDetails = itemData.Tables[0].AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
+                        dr["ItemName"] = itemDetails["ItemName"].ToString();
+                        dr["ImagePath"] = itemDetails["ImagePath"].ToString();
                     }
-                    else
-                    {
-                        itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
-                    }
-                    var itemDetails = itemData.Tables[0].AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
-                    dr["ItemName"] = itemDetails["ItemName"].ToString();
-                    dr["ImagePath"] = itemDetails["ImagePath"].ToString();
                 }
                 gv_MerchantOrders.DataSource = merchantOrderDt;
                 gv_MerchantOrders.DataBind();
@@ -173,11 +177,14 @@ namespace budhashop.Merchant
         {
             int filterQty = 5;//to display items with Quantity<5
             DataTable dt = (DataTable)itemGrid.DataSource;
-            DataRow[] dr = dt.Select("Qty < '" + filterQty + "'");
             DataTable lowItemsTable = null;
-            if (dr.Length > 0)
+            if (dt != null)
             {
-                lowItemsTable = dr.CopyToDataTable();
+                DataRow[] dr = dt.Select("Qty < '" + filterQty + "'");
+                if (dr.Length > 0)
+                {
+                    lowItemsTable = dr.CopyToDataTable();
+                }
             }
             gv_lowItems.DataSource = lowItemsTable;
             gv_lowItems.DataBind();
@@ -187,6 +194,87 @@ namespace budhashop.Merchant
         {
             gv_lowItems.PageIndex = e.NewPageIndex;
             BindLowItems();
+        }
+
+        protected void btn_search_Click(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
+            hdn_itemId.Value = "0";
+            searchOrders();
+        }
+
+        protected void btn_search1_Click(object sender, EventArgs e)
+        {
+            if (hdn_itemId.Value != "0" && txt_search.Text != "")
+            {
+                searchOrders();
+            }
+            else
+            {
+                lbl_search.Text = "Please Select Items from list";
+            }
+        }
+
+        private void searchOrders()
+        {
+            int mId = Convert.ToInt32(this.Session["MId"]);
+            string startDate = txt_datepick1.Text;
+            string endDate = txt_datepick2.Text;
+            int itemIdSearched = Convert.ToInt32(hdn_itemId.Value);
+            try
+            {
+                InterfacesBS.InterfacesBL.IUser searchOrders = new BusinessLogicBS.UserClasses.UserItems();
+                DataTable merchantOrderDt = searchOrders.searchMerchantOrders(mId, itemIdSearched, startDate, endDate);
+                if (merchantOrderDt != null)
+                {
+                    merchantOrderDt.Columns.Add("ItemName");
+                    merchantOrderDt.Columns.Add("ImagePath");
+                    foreach (DataRow dr in merchantOrderDt.Rows)
+                    {
+                        int itemId = Convert.ToInt32(dr["ItemId"]);
+                        DataSet itemData = new DataSet();
+                        if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+                        {
+                            CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
+                            itemData = getcache.getCache();
+                        }
+                        else
+                        {
+                            itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+                        }
+                        var itemDetails = itemData.Tables[0].AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
+                        dr["ItemName"] = itemDetails["ItemName"].ToString();
+                        dr["ImagePath"] = itemDetails["ImagePath"].ToString();
+                    }
+                    searchDiv.Visible = false;
+                    btn_refresh.Visible = true;
+                }
+                gv_MerchantOrders.Visible = false;
+                gv_MerchantOrdersSearch.DataSource = merchantOrderDt;
+                gv_MerchantOrdersSearch.DataBind();
+                hdn_itemId.Value = "0";
+            }
+            catch (Exception ex)
+            {
+                lbl_search.Text = HardCodedValues.BuddaResource.CatchBlockError + ex.Message;
+            }
+        }
+
+        protected void gv_MerchantOrdersSearch_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gv_MerchantOrdersSearch.PageIndex = e.NewPageIndex;
+            searchOrders();
+        }
+
+        protected void btn_refresh_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btn_ClearCache_Click(object sender, EventArgs e)
+        {
+            System.Web.HttpContext.Current.Cache.Remove("CacheItemsObj");
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

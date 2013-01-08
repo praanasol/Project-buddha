@@ -72,6 +72,9 @@
         
     <script type="text/javascript">
         $(document).ready(function(){
+        
+        $('#wraper').show();
+        $('#spinner').hide();
                 if(($("#ctl00_cartCtrl_noOfItemsLbl").text())!="0")
                 {
                     $("#ctl00_cartCtrl_orderBtn1").removeAttr("disabled");
@@ -91,7 +94,9 @@
 <![endif]-->
 </head>
 <body>
+
     <form id="form1" runat="server">
+    <div id="spinner" class="page_spinner"></div>
     <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -108,10 +113,10 @@
         </Services>
     
     </asp:ScriptManager>
-    <div id="wraper">
+    <div id="wraper" style="display:none;">
     
   <header>
-    <aside id="logo"><a href="../homepage.aspx" target="_self" style="margin-left:10px;"><img src="../images/logo.gif" width="330" height="110" alt="home" title="Home"></a>
+    <aside id="logo"><a href="../homepage.aspx" target="_self" style="margin-left:10px;"><img src="../images/logo.gif" width="310" height="110" alt="home" title="Home"></a>
     <br />
     <div style="margin:12px 0px 0px 45px;">
     <a href="../Articles/articleHome.aspx" class="link1"  target="_self" style=" margin-left:-15px; border: 1px solid #EFD787; padding:3px 15px 3px 15px;  border-radius: 5px 5px 5px 5px; ">Articles</a>

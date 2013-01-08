@@ -5,8 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
-    
+<script type="text/javascript" src="script/jquery.tmpl.min.js"></script>
     <script type="text/javascript" src="../script/jquery.pagination.js"></script>
 
     <link href="Styles/pagination.css" rel="stylesheet" type="text/css" />
@@ -78,7 +77,7 @@
         <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:600px; width:970px; padding-left:20px; "> 
         <div style="text-align:left; margin-left:25px">
     	    <aside style="height:30px;">
-              <nav id="nav_bottom" style="font-size:12px;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px;width:auto;">
+              <nav id="nav_bottom" style="background:none repeat scroll 0 0 #efdb97;font-size:12px;border: 2px solid #F3C46D; border-radius:0 0 12px 12px;width:auto;">
                 <ul id="subCatArea" style=" width:100%;">
                    <li> <a href="itemspage.aspx?catid=17" target="_self">All Products</a></li>
                 </ul>

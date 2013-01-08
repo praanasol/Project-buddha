@@ -67,7 +67,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="ProfileDiv" class="div1" style="margin-left:430px; width:370px;">
+     <p style="color:#000; text-align:center; font-size:21px;"><b>Merchant Page</b></p>
+    
+    
+    <div style="width:100%;height:230px; margin-top:-58px;">
+    
+        <div style=" background-color:#460505;padding:3px; border-radius:20px;float:left; "><a href="../homepage.aspx" target="_blank" style="margin-right:20px;"><img src="../images/logo.gif" width="200" height="80" alt="home" title="Home"></a></div>
+       
+        <div id="ProfileDiv" class="div1" style="margin-left:10px; width:370px; float:right;">
             <div class="div_height">
                 <asp:LinkButton ID="lb_mlogout" runat="server" Text="Logout" onclick="lb_mlogout_Click" CssClass="linkbuttons" style="float:right;"></asp:LinkButton>
             </div>
@@ -88,6 +95,8 @@
                 <asp:TextBox ID="txt_mPhno" runat="server" ReadOnly="true" CssClass="txt_boxes"></asp:TextBox>
             </div>
         </div>
+    </div>
+    
         <p></p>
         <div id="ItemsDiv" class="div1" style="float:left; width:auto; height:600px;">
             <div class="lbl_heading">Items List:<asp:Button ID="btn_ClearCache" runat="server" 
@@ -192,35 +201,7 @@
             
         </div>
         <p></p>
-        <div id="LowItemsDiv" class="div1" style="float:left; width:auto; margin-left:10px; margin-top:50px; height:310px;">
-            <div class="lbl_heading">Items With Quantity Lessthan 5:</div>
-            <p></p>
-            <asp:GridView ID="gv_lowItems" runat="server" AutoGenerateColumns="false" EmptyDataText="No Items with Quantity < 5" 
-                AllowPaging="true" PageSize="5" OnPageIndexChanging="gv_lowItems_PageIndexChanging" style="text-align:center; margin-left:10px;">
-                <Columns>
-                    <asp:TemplateField HeaderText="Item Id">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_itemId" runat="server" Text='<%# Eval("ItemId") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Item Name"  ControlStyle-Width="120px">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_itemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Image">
-                        <ItemTemplate>
-                            <asp:Image ID="img_itemImage" runat="server" Height="40px" ImageUrl='<%# Eval("ImagePath") %>' Width="50px" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Quantity">
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
-        </div>
+  
         <p></p>
         <div id="OrdersDiv" class="div1" style="float:left; width:auto; margin-left:10px; height:600px;">
             <div class="lbl_heading">Orders List:</div>
@@ -245,7 +226,7 @@
                 </div>
             </div>
             <asp:Label ID="lbl_search" runat="server" ForeColor="Red"></asp:Label>
-            <asp:Button ID="btn_refresh" runat="server" Text="Reset" Visible="false" onclick="btn_refresh_Click" CssClass="buttons" />
+            <asp:Button ID="btn_refresh" runat="server" Text="Reset" Visible="true" onclick="btn_refresh_Click" CssClass="buttons" />
             <p></p>
             <asp:GridView ID="gv_MerchantOrders" runat="server" AutoGenerateColumns="False" 
                 EmptyDataText="No Orders Yet" AllowPaging="True" 
@@ -311,6 +292,35 @@
                 </Columns>
             </asp:GridView>
             
+        </div>
+              <div id="LowItemsDiv" class="div1" style="float:left; width:auto; margin-left:10px; margin-top:50px; height:310px;">
+            <div class="lbl_heading">Items With Quantity Lessthan 5:</div>
+            <p></p>
+            <asp:GridView ID="gv_lowItems" runat="server" AutoGenerateColumns="false" EmptyDataText="No Items with Quantity < 5" 
+                AllowPaging="true" PageSize="5" OnPageIndexChanging="gv_lowItems_PageIndexChanging" style="text-align:center; margin-left:10px;">
+                <Columns>
+                    <asp:TemplateField HeaderText="Item Id">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_itemId" runat="server" Text='<%# Eval("ItemId") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Item Name"  ControlStyle-Width="120px">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_itemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Image">
+                        <ItemTemplate>
+                            <asp:Image ID="img_itemImage" runat="server" Height="40px" ImageUrl='<%# Eval("ImagePath") %>' Width="50px" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Quantity">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_itemQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
         <div>
             <asp:HiddenField ID="hdn_itemId" runat="server" Value="0" />

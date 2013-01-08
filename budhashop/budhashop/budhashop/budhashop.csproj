@@ -536,6 +536,7 @@
     <Content Include="script\jquery.cycle.all.js" />
     <Content Include="script\jquery.mCustomScrollbar.min.js" />
     <Content Include="script\jquery.nicescroll.min.js" />
+    <Content Include="script\jquery.tmpl.min.js" />
     <Content Include="script\loginControl.js" />
     <Content Include="script\orderPage.js" />
     <Content Include="script\paging\homePageLoad.js" />

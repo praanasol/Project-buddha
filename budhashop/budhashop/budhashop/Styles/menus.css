@@ -98,10 +98,10 @@
 	text-decoration:none;
 	
 	border-radius:8px;
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ac1812), to(#981d18));
-    background: -moz-linear-gradient(#ac1812, #981d18);
-    background: linear-gradient(#ac1812, #981d18);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ac1812, endColorstr=#981d18);
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ac1812), to(#6a0808));
+    background: -moz-linear-gradient(#ac1812, #6a0808);
+    background: linear-gradient(#ac1812, #6a0808);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ac1812, endColorstr=#6a0808);
     border: solid 1px #ac7713;
     
     
@@ -113,10 +113,10 @@
 	font-weight:bold;
 	color:#8f0a05;
 	text-decoration:none;
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#d67d1c));
-    background: -moz-linear-gradient(#f38d10, #d67d1c);
-    background: linear-gradient(#f38d10, #d67d1c);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#d67d1c);
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f38d10), to(#a75905));
+    background: -moz-linear-gradient(#f38d10, #a75905);
+    background: linear-gradient(#f38d10, #a75905);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f38d10, endColorstr=#a75905);
 	
 	border-radius:8px;
 	border: solid 1px #ac7713;

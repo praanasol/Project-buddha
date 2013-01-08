@@ -4,7 +4,7 @@
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="script/jquery.tmpl.min.js"></script>
     
     <script type="text/javascript" src="../script/jquery.pagination.js"></script>
 
@@ -21,6 +21,8 @@
 $(document).ready(function() {
 
 $('#side-info').show();
+$('#col3').show();
+
 $('#slideshow').cycle({
     fx:     'scrollUp', 
      
@@ -35,31 +37,8 @@ $('#slideshow2').cycle({
 });
 </script> 
  <%--div for the sliding banner--%>
- <aside id="side-info" style="display:none;">
- <section style="width:165px; height:500;float:left; padding:10px;font-size:16px;">
-  <div id="slideshow2" class="quicklinks" style="height:180px; text-align:center;">
-  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=80&grp=17"><img src="images/featured5/80small.jpg" alt="featured Product" /></a></div><div><b>Karela Ras</b></div></div>
-  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=121&grp=17"><img src="images/featured5/121small.jpg" alt="featured Product" /></a></div><div><b>Herbi T Lemon</b></div></div>
-  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=33&grp=17"><img src="images/featured5/33small.jpg" alt="featured Product" /></a></div><div><b>Amla juice</b></div></div>
-  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=62&grp=17"><img src="images/featured5/62small.jpg" alt="featured Product" /></a></div><div><b>Prana Shakti</b></div></div>
-  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=53&grp=17"><img src="images/featured5/53small.jpg" alt="featured Product" /></a></div><div><b>Desi Cow Ghee</b></div></div>
-  
-  </div>
-   <br />
-  <div id="slideshow" class="quicklinks" style="height:90px; text-align:center;">
-   <b style="padding-top:15px; padding-left:13px;">Presently, only for Hyderabad.</b>
-   <b style="padding-top:15px; padding-left:13px;">We only accept orders exceeding Rs. 500/-</b>
-   <b style="padding-top:15px; padding-left:13px;">Free shipping for orders more than Rs. 1200/-</b>
-   
-   <b style="padding-top:10px">Cash on delivery. Shipping charges extra.</b>
-   
-  </div>
-  <br />
-  <%--<div class="quicklinks">
-  <b>Articles</b>
-  
-  </div>--%>
- </section>
+ <aside id="side-info" style="display:none; padding-left:100px;">
+ 
  <section>
   <div id='coin-slider'>
     <a href="../itemspage.aspx?catid=17" target="_blank">
@@ -114,6 +93,33 @@ $('#slideshow2').cycle({
         </div>
     </div>
       </section>
+      <section id="col3" style=" display:none; padding-left:245px;" >
+      <div class="quicklinks" style="height:180px;width:300px;float:left;font-size:16px;margin-top:10px; text-align:center;"><br /><p></p>
+   <b style="padding-top:15px; padding-left:13px;">Presently, only for Hyderabad.</b>
+   <b style="padding-top:15px; padding-left:13px;">We only accept orders exceeding Rs. 500/-</b>
+   <b style="padding-top:15px; padding-left:13px;">Free shipping for orders more than Rs. 1200/-</b>
+   
+   <b style="padding-top:10px">Cash on delivery. Shipping charges extra. Please contact us for further details.</b>
+   
+  </div>
+   
+     <div style="width:165px; height:180;float:left; padding:10px;font-size:16px;">
+  <div id="slideshow2" class="quicklinks" style="height:180px; text-align:center;">
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=80&grp=17"><img src="images/featured5/80small.jpg" alt="featured Product" /></a></div><div><b>Karela Ras</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=121&grp=17"><img src="images/featured5/121small.jpg" alt="featured Product" /></a></div><div><b>Herbi T Lemon</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=33&grp=17"><img src="images/featured5/33small.jpg" alt="featured Product" /></a></div><div><b>Amla juice</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=62&grp=17"><img src="images/featured5/62small.jpg" alt="featured Product" /></a></div><div><b>Prana Shakti</b></div></div>
+  <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=53&grp=17"><img src="images/featured5/53small.jpg" alt="featured Product" /></a></div><div><b>Desi Cow Ghee</b></div></div>
+  
+  </div>
+ </div>
+   
+  
+  <%--<div class="quicklinks">
+  <b>Articles</b>
+  
+  </div>--%>
+ </section>
 
 
 

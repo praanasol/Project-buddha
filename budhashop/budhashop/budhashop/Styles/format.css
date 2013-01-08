@@ -309,10 +309,10 @@ a.add:hover, a.add:active{
 	color:#ac7713;	
 	text-align:center;
 	background-color:#7E1B1B;
-	 background: linear-gradient(#7E1B1B, #4d1c12);
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#7E1B1B), to(#4d1c12));
+	 background: linear-gradient(#750b0b, #420202);
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#750b0b), to(#420202));
 	
-    background: -moz-linear-gradient(#7E1B1B, #4d1c12);
+    background: -moz-linear-gradient(#750b0b, #420202);
     
 	border-radius:20px;	  
     box-shadow:inset 0px 0px 3px 2px #ac7713;

@@ -246,7 +246,7 @@ namespace budhashop.Merchant
                         dr["ItemName"] = itemDetails["ItemName"].ToString();
                         dr["ImagePath"] = itemDetails["ImagePath"].ToString();
                     }
-                    searchDiv.Visible = false;
+                    searchDiv.Visible = true;
                     btn_refresh.Visible = true;
                 }
                 gv_MerchantOrders.Visible = false;

@@ -513,6 +513,7 @@
     <Content Include="images\check.jpg" />
     <Content Include="images\chrome.png" />
     <Content Include="images\close.png" />
+    <Content Include="images\favicon.ico" />
     <Content Include="images\featured5\121small.jpg" />
     <Content Include="images\featured5\33small.jpg" />
     <Content Include="images\featured5\53small.jpg" />
@@ -522,6 +523,9 @@
     <Content Include="images\footer_bg.gif" />
     <Content Include="images\header_bg1.gif" />
     <Content Include="images\ie9-icon.png" />
+    <Content Include="images\logo-icon.gif" />
+    <Content Include="images\logo-kalash.gif" />
+    <Content Include="images\logo-small.gif" />
     <Content Include="images\phone.png" />
     <Content Include="images\scroll_bg.gif" />
     <Content Include="images\tex2.png" />

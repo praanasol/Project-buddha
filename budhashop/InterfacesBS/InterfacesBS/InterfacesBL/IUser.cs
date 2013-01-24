@@ -23,7 +23,7 @@ namespace InterfacesBS.InterfacesBL
         int checkPurchaseId(int pid);
 
         DataTable checkMerchant(string id, string pwd);
-        DataSet getMerchant(int mId);
+        DataSet getMerchant(int mId, int areaId);
         bool updateMerchantItems(int itemId, float itemBR, int Qty, float itemNR);
         DataTable searchMerchantOrders(int mId, int itemId, string startDate, string endDate);
     }

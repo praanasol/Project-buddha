@@ -10,7 +10,7 @@
     <div id="p_data_area" class="box_style" style="height:600px;">
         <div id="profileDiv">
             <!--Profile Start-->
-            <aside id="p_data" class="p_f_box_style" style=" margin-top:160px;">
+            <aside id="p_data" class="main_box_style" style=" margin-top:160px;">
                 <section id="p_d_fields">
                     <div id="p_d_field_area">
                         <div id="p_d_label" style="width:auto; font-size:14px; margin:80px 0 0 70px;">

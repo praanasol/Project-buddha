@@ -99,3 +99,23 @@
 {
     height:25px;
 }
+.search_form_style
+{
+	margin:0px;
+	padding-left:5px;
+	width:180px;
+	height:auto;
+	color:#364700;
+	background:#E3E3E3;
+	border:lightslategray solid 1px;
+	border-radius:5px;
+	
+}
+.ui-corner-all
+{
+	background-color:#E3E3E3;
+	border-width: thick;
+	width:180px;
+	
+	
+}

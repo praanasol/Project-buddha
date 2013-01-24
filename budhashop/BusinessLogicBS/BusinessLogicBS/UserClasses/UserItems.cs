@@ -162,12 +162,12 @@ namespace BusinessLogicBS.UserClasses
 
         #region IUser Members Get Merchant Details
 
-        public DataSet getMerchant(int mId)
+        public DataSet getMerchant(int mId,int areaId)
         {
             try
             {
                 IUserDA getmerchant = new DataAccessBS.UserClasses.UserDA();
-                return getmerchant.getMerchantDA(mId);
+                return getmerchant.getMerchantDA(mId,areaId);
             }
             catch
             {

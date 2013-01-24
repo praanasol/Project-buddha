@@ -8,18 +8,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace budhashop {
+namespace budhashop.UserControls {
     
     
-    public partial class shippingdetails {
+    public partial class areaAutoComplete {
         
         /// <summary>
-        /// areaAc control.
+        /// hdArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::budhashop.UserControls.areaAutoComplete areaAc;
+        protected global::System.Web.UI.WebControls.HiddenField hdArea;
+        
+        /// <summary>
+        /// txtArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtArea;
     }
 }

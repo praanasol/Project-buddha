@@ -245,7 +245,10 @@
    
 </div>
 
-<div id="fblinks" class="quicklinks" style="position:fixed;right:0%;top:40%;"> 
+<div id="fblinks" class="quicklinks" style="position:fixed;right:0%;top:40%;*background-color: #E5B354;
+-moz-box-shadow:inset 0px 0px 34px 10px #ac7713;
+-webkit-box-shadow:inset 0px 0px 34px 10px #ac7713;
+box-shadow:inset 0px 0px 34px 10px #ac7713;border: 2px solid #8A0C05;"> 
 <div>
 <span class='st_facebook_large' displayText='Facebook'></span>
 </div>

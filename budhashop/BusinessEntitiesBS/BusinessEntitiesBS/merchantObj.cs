@@ -13,5 +13,7 @@ namespace BusinessEntitiesBS
         public string mPhno { get; set; }
         public string mLoginId { get; set; }
         public string mPwd { get; set; }
+        public string mArea { get; set; }
+        public int mCatid { get; set; }
     }
 }

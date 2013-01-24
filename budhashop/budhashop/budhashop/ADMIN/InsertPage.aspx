@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" ValidateRequest="false" AutoEventWireup="true" CodeBehind="InsertPage.aspx.cs" Inherits="budhashop.ADMIN.InsertPage" %>
-
+<%@ Register src="../UserControls/areaAutoComplete.ascx" tagname="areaAC" tagprefix="uc_ac" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -7,6 +7,21 @@
     <title>Insert Items Page</title>
     
     <link href="../Styles/admin.css" rel="stylesheet" type="text/css" />
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+ 
+    <%--<link href="../Styles/format.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/menus.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/SearchAll.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../Styles/inner_layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/inner_format.css"/>
+
+    <link href="../Styles/css_messagebox.css" rel="stylesheet" type="text/css" />--%>
+     <script src="../script/jquery-1.8.2.js" type="text/javascript"></script>
+ 
+    <script src="../script/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>
+    
 </head>
 <body>
     <form id="form1" runat="server" enctype="multipart/form-data">
@@ -91,7 +106,7 @@
      <!-- Sub Catagory part -->
     <asp:Label ID="MerchantLbl" runat="server" Text="Add Merchant" 
             CssClass="lbl_heading" Font-Underline="True"></asp:Label>
-    <br />
+    <br /><br />
         <div>
             Name:
             <asp:RequiredFieldValidator ID="rfv_mName" runat="server" ControlToValidate="txt_mName" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
@@ -103,6 +118,15 @@
                 <asp:ListItem Text="Supplier"></asp:ListItem>
             </asp:DropDownList>
             &nbsp;&nbsp;&nbsp;
+             Catagory:<asp:DropDownList ID="ddlCatagoryMer" runat="server" CssClass="txt_boxes" style="width:auto;" 
+                        AutoPostBack="true"></asp:DropDownList>
+            City:
+             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="txt_boxes" style="width:auto;">
+                <asp:ListItem Text="Hyderabad"></asp:ListItem>
+               
+            </asp:DropDownList>
+            Area:
+            <uc_ac:areaAC ID="areaAc" runat="server" /><br /><div style="height:50px;"></div><br />
             Phone number:
             <asp:RequiredFieldValidator ID="rfv_mPhno" runat="server" ControlToValidate="txt_mPhno" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txt_mPhno" runat="server" CssClass="txt_boxes"></asp:TextBox>
@@ -110,7 +134,7 @@
             Address:
             <asp:RequiredFieldValidator ID="rfv_mAddress" runat="server" ControlToValidate="txt_mAddress" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
             <textarea Id="txt_mAddress" runat="server" cols="0" rows="3" class="txt_boxes" style="margin-top:-15px; margin-bottom:-20px;"></textarea>
-            <p></p>
+            <br /><div style="height:50px;"></div><br />
             Login Id:
             <asp:RequiredFieldValidator ID="rfv_mLoginId" runat="server" ControlToValidate="txt_mLoginId" ValidationGroup="merchantVG" ErrorMessage="*" SetFocusOnError="true"></asp:RequiredFieldValidator>
             <asp:TextBox ID="txt_mLoginId" runat="server" CssClass="txt_boxes"></asp:TextBox>

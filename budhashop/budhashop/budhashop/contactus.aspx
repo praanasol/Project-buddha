@@ -166,9 +166,9 @@
 
     <div id="p_data_area" class="box_style" style="height:500px;">
         <div id="profileDiv">
-            <aside id="p_data" class="p_f_box_style" style=" margin-top:100px;">
+            <aside id="p_data" class="main_box_style" style=" margin-top:100px;">
                 <section id="p_d_fields">
-                    <div id="p_d_field_area"><div id="p_d_label" style="width:auto; font-size:12px; text-align:"center";>
+                    <div id="p_d_field_area"><div id="p_d_label" style="width:auto; font-size:12px; text-align:center";>
                             For any details you can contact us through email or phone.</div>
                         <div id="p_d_label" style="width:auto; font-size:16px; margin:50px 0 0 70px;">
                             Email: support@govedic.com  </div>
@@ -190,7 +190,7 @@
          
         <%--<div id="p_d_label" class="btnComplaintDiv" style="width:auto; margin-left:240px;">Click <a id="btnComplaint" href="#">here</a> to file a Complaint</div>--%>
         <div id="complaintField" class="web_dialog">
-            <aside id="p_data" class="p_f_box_style" style=" margin-top:20px;">
+            <aside id="p_data" class="main_box_style" style=" margin-top:20px;">
                 <div style="width:500px; margin:5px 0px 0px 5px;" class="text">Text Here</div>
                 <section id="p_d_fields">
                     <div id="p_d_field_area" style="width:490px; height:21px;">

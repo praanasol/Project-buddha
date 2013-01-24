@@ -23,7 +23,7 @@ $(document).ready(function() {
 $('#side-info').show();
 $('#col3').show();
 
-$('#slideshow').cycle({
+$('#slideshow3').cycle({
     fx:     'scrollUp', 
      
     delay:  -2000 // choose your transition type, ex: fade, scrollUp, shuffle, etc...
@@ -64,7 +64,7 @@ $('#slideshow2').cycle({
 </aside>
   <br clear="all" />
   
-<section id="item_area" class="box_style" style="height:600px;">
+<section id="item_area" class="box_style" style="height:650px;">
   	<div style="text-align:center;">
     	<b style="text-align:center;border: 1px solid #F3C46D; padding:0px 5px 5px 5px; border-radius: 0px 0px 5px 5px; font-size:16px">Featured Products</b>
       
@@ -93,18 +93,23 @@ $('#slideshow2').cycle({
         </div>
     </div>
       </section>
-      <section id="col3" style=" display:none; padding-left:245px;" >
-      <div class="quicklinks" style="height:180px;width:300px;float:left;font-size:16px;margin-top:10px; text-align:center;"><br /><p></p>
-   <b style="padding-top:15px; padding-left:13px;">Presently, only for Hyderabad.</b>
-   <b style="padding-top:15px; padding-left:13px;">We only accept orders exceeding Rs. 500/-</b>
-   <b style="padding-top:15px; padding-left:13px;">Free shipping for orders more than Rs. 1200/-</b>
+      <section id="col3" style=" display:none; padding-left:50px;" >
+      
+      <div class="quicklinks" style="height:140px;width:300px;float:left;font-size:12px;margin-top:15px;padding:40px 20px 0px 20px; ">
+      <p>GoVedic.com is born out of an idea that traditional way of life that prospered in ancient vedic India can be induced in morden lifestyle as an alternative.
+      GoVedic.com is essentially an online store of products that support vedic tradition for shopping online at your leisure and from the comfort of your home.
+    <br /><br /><a href="../about.aspx" class="link2">More About Us</a></p>
+  
+    </div>
+    <div class="quicklinks" style="height:140px;width:300px;float:left;font-size:12px;margin:15px 30px 10px 10px;padding:40px 20px 0px 20px; ">
+      <p>
+At present we are operating only in Hyderabad and our services are limited to Hyderabad City.<br /><br />Cash on delivery. Shipping charges extra. <b style="padding-top:15px; padding-left:13px;">We only accept orders exceeding Rs. 500/-</b>
+Free shipping for orders more than Rs. 1000/-<br /><br /> <a href="../shippingdetails.aspx" class="link2" >More Details</a></p>
+  
+    </div>
    
-   <b style="padding-top:10px">Cash on delivery. Shipping charges extra. Please contact us for further details.</b>
-   
-  </div>
-   
-     <div style="width:165px; height:180;float:left; padding:10px;font-size:16px;">
-  <div id="slideshow2" class="quicklinks" style="height:180px; text-align:center;">
+     <div style="width:165px; height:180;float:left;margin:10px; padding:1px;font-size:16px; ">
+  <div id="slideshow2" class="quicklinks" style="height:180px;  text-align:center;background:none repeat scroll 0 0 #962824;color:#EFD787; border: 2px solid #7E1B1B;">
   <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=80&grp=17"><img src="images/featured5/80small.jpg" alt="featured Product" /></a></div><div><b>Karela Ras</b></div></div>
   <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=121&grp=17"><img src="images/featured5/121small.jpg" alt="featured Product" /></a></div><div><b>Herbi T Lemon</b></div></div>
   <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=33&grp=17"><img src="images/featured5/33small.jpg" alt="featured Product" /></a></div><div><b>Amla juice</b></div></div>
@@ -112,6 +117,7 @@ $('#slideshow2').cycle({
   <div style="padding:5px;"><div><a href="http://www.govedic.com/fullDetails.aspx?id=53&grp=17"><img src="images/featured5/53small.jpg" alt="featured Product" /></a></div><div><b>Desi Cow Ghee</b></div></div>
   
   </div>
+  
  </div>
    
   

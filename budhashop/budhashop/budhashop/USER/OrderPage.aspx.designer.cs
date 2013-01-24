@@ -167,13 +167,13 @@ namespace budhashop.USER {
         protected global::System.Web.UI.WebControls.Panel SubmitOrder;
         
         /// <summary>
-        /// txt_emailidadr control.
+        /// lbl_emailidadr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_emailidadr;
+        protected global::System.Web.UI.WebControls.Label lbl_emailidadr;
         
         /// <summary>
         /// rfv1 control.
@@ -228,6 +228,24 @@ namespace budhashop.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rev2;
+        
+        /// <summary>
+        /// cityDdl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cityDdl;
+        
+        /// <summary>
+        /// areaAc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::budhashop.UserControls.areaAutoComplete areaAc;
         
         /// <summary>
         /// rfv3 control.

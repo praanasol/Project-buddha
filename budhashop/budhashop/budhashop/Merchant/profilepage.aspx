@@ -98,7 +98,7 @@
     </div>
     
         <p></p>
-        <div id="ItemsDiv" class="div1" style="float:left; width:auto; height:600px;">
+        <div id="ItemsDiv" class="div1" style="float:left; width:auto;">
             <div class="lbl_heading">Items List:<asp:Button ID="btn_ClearCache" runat="server" 
                     Text="Clear Cache" CssClass="buttons" style="float:right;" 
                     onclick="btn_ClearCache_Click" /></div>
@@ -203,7 +203,7 @@
         <p></p>
   
         <p></p>
-        <div id="OrdersDiv" class="div1" style="float:left; width:auto; margin-left:10px; height:600px;">
+        <div id="OrdersDiv" class="div1" style="float:left; width:auto; margin-left:10px; ">
             <div class="lbl_heading">Orders List:</div>
             <p></p>
             <div id="searchDiv" runat="server">
@@ -293,7 +293,7 @@
             </asp:GridView>
             
         </div>
-              <div id="LowItemsDiv" class="div1" style="float:left; width:auto; margin-left:10px; margin-top:50px; height:310px;">
+              <div id="LowItemsDiv" class="div1" style="float:left; width:auto; margin-left:10px; margin-top:50px; ">
             <div class="lbl_heading">Items With Quantity Lessthan 5:</div>
             <p></p>
             <asp:GridView ID="gv_lowItems" runat="server" AutoGenerateColumns="false" EmptyDataText="No Items with Quantity < 5" 
@@ -321,7 +321,43 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+        
         </div>
+             <div id="Div1" class="div1" style="float:left; width:auto; margin-left:10px; margin-top:10px; ">
+            <div class="lbl_heading">Orders according to area:</div>
+            <p></p>
+             <asp:GridView ID="GridViewOrderArea" runat="server" AutoGenerateColumns="False" 
+                EmptyDataText="No Orders Yet" AllowPaging="True" 
+                onpageindexchanging="GridViewOrderArea_PageIndexChanging" style="text-align:center;">
+                <Columns>
+                    <asp:TemplateField HeaderText="Item Id">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_ItemId" runat="server" Text='<%# Eval("ItemId") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Item Name"  ControlStyle-Width="150px">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_ItemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Image">
+                        <ItemTemplate>
+                            <asp:Image ID="img_ItemImage" runat="server" Height="40px" ImageUrl='<%# Eval("ImagePath") %>' Width="50px" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Quantity">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_ItemQty" runat="server" Text='<%# Eval("Qty") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Purchase Date">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_PurchaseDate" runat="server" Text='<%# Eval("Date","{0:dd/MM/yy}") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            </div>
         <div>
             <asp:HiddenField ID="hdn_itemId" runat="server" Value="0" />
         </div>

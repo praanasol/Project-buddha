@@ -123,7 +123,7 @@ function showadress() {
                 for(var i=0;i<data.d.length;i++)
                 {
                     $("[id$=txt_uname]").val(data.d[0].UserName);
-                    $("[id$=txt_emailidadr]").val(data.d[0].EmailId);
+                    $("[id$=lbl_emailidadr]").text(data.d[0].EmailId);
                     $("[id$=txt_phno]").val(data.d[0].Phone);
                     $("[id$=txt_address]").val(data.d[0].Address);
                 }

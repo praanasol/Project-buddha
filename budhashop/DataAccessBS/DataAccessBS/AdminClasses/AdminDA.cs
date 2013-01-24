@@ -137,14 +137,17 @@ namespace DataAccessBS.AdminClasses
         {
             try
             {
-                SqlParameter[] sqlParams = new SqlParameter[6];
+                SqlParameter[] sqlParams = new SqlParameter[8];
                 //Merchant parameters
                 sqlParams[0] = new SqlParameter("@name", merchantValues.mName);
                 sqlParams[1] = new SqlParameter("@type", merchantValues.mType);
                 sqlParams[2] = new SqlParameter("@address", merchantValues.mAddress);
                 sqlParams[3] = new SqlParameter("@phno", merchantValues.mPhno);
-                sqlParams[4] = new SqlParameter("@phno", merchantValues.mLoginId);
-                sqlParams[5] = new SqlParameter("@phno", merchantValues.mPwd);
+                sqlParams[4] = new SqlParameter("@loginid", merchantValues.mLoginId);
+                sqlParams[5] = new SqlParameter("@pwd", merchantValues.mPwd);
+                sqlParams[6] = new SqlParameter("@areaId", Int32.Parse(merchantValues.mArea));
+                sqlParams[7] = new SqlParameter("@catId", merchantValues.mCatid);
+                
                 int count = DBHelper.ExecuteNonQuery(DBCommon.ConnectionString, "USP_INSERT_MERCHANT", sqlParams);
                 return count;
             }

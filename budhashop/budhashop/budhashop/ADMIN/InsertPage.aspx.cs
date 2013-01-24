@@ -63,6 +63,11 @@ namespace budhashop.ADMIN
                 ddl_Catagory.DataValueField = "CategoryId";
                 ddl_Catagory.DataBind();
 
+
+                ddlCatagoryMer.DataSource = catgDt;
+                ddlCatagoryMer.DataTextField = "CategoryName";
+                ddlCatagoryMer.DataValueField = "CategoryId";
+                ddlCatagoryMer.DataBind();
             }
             catch (Exception cExp)
             {
@@ -269,6 +274,9 @@ namespace budhashop.ADMIN
             merchantValues.mPhno = txt_mPhno.Text;
             merchantValues.mLoginId = txt_mLoginId.Text;
             merchantValues.mPwd = CLASS.PasswordEncryption.EncryptIt(txt_mPwd.Text);
+            merchantValues.mArea = areaAc.AreaId;
+            merchantValues.mCatid = Int32.Parse(ddlCatagoryMer.SelectedValue);
+
             try
             {
                 IAdmin insertMerchant = new AdminItems();

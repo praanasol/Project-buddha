@@ -9,7 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="div1" style="position:absolute; top:200px; left:550px;">
+    <div style="width:100%; font-size:20px; text-align:center; margin-top:150px;"><b>MERCHANT LOGIN</b></div>
+    <div class="div1" style="position:absolute; top:200px; left:500px;">
         <asp:Panel ID="merchantloginpanel" DefaultButton="btn_mLogin" runat="server" Width="265px">
             <br />
             <asp:Label ID="lbl_mId" runat="server" Text="Login Id" Width="60px" style="text-align:right;"></asp:Label>

@@ -216,6 +216,10 @@
     <Compile Include="searchitems.aspx.designer.cs">
       <DependentUpon>searchitems.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\GetAreas.asmx.cs">
+      <DependentUpon>GetAreas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\Searchall.aspx.cs">
       <DependentUpon>Searchall.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -247,6 +251,13 @@
     </Compile>
     <Compile Include="terms.aspx.designer.cs">
       <DependentUpon>terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\areaAutoComplete.ascx.cs">
+      <DependentUpon>areaAutoComplete.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\areaAutoComplete.ascx.designer.cs">
+      <DependentUpon>areaAutoComplete.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeedbackControl.ascx.cs">
       <DependentUpon>FeedbackControl.ascx</DependentUpon>
@@ -553,12 +564,14 @@
     <Content Include="script\scroll\scrollcheck.js" />
     <Content Include="script\searchItemsPage.js" />
     <Content Include="script\slides.js" />
+    <Content Include="Services\GetAreas.asmx" />
     <Content Include="shippingdetails.aspx" />
     <Content Include="Styles\admin.css" />
     <Content Include="Styles\coin-slider-styles.css" />
     <Content Include="Styles\jquery.mCustomScrollbar.css" />
     <Content Include="Styles\scrollpane_custom.css" />
     <Content Include="terms.aspx" />
+    <Content Include="UserControls\areaAutoComplete.ascx" />
     <Content Include="USER\ProfilePage.aspx" />
     <Content Include="USER\Web.config" />
   </ItemGroup>
@@ -596,7 +609,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55477</DevelopmentServerPort>
+          <DevelopmentServerPort>2255</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

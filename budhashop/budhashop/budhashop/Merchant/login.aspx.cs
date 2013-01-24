@@ -27,10 +27,10 @@ namespace budhashop.Merchant
             try
             {
                 InterfacesBS.InterfacesBL.IUser checkmerchant = new BusinessLogicBS.UserClasses.UserItems();
-                DataTable dt = checkmerchant.checkMerchant(id, pwd);
-                if (dt != null)
+                DataTable mdt = checkmerchant.checkMerchant(id, pwd);
+                if (mdt != null)
                 {
-                    this.Session["MId"] = Convert.ToInt32(dt.Rows[0]["MId"]);
+                    this.Session["MId"] = mdt;
                     Response.Redirect("../Merchant/profilepage.aspx");
                 }
                 else

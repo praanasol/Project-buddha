@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage/MainMaster.Master" AutoEventWireup="true" CodeBehind="OrderPage.aspx.cs" Inherits="budhashop.USER.OrderPage" Title="Purchase Details - Go Vedic - Online Shopping - Traditional and Natural Products" %>
 <%--<%@ Register Src="~/UserControls/Login1.ascx" TagName="loginuc" TagPrefix="uc_login" %>
 <%@ Register Src="~/UserControls/Register.ascx" TagName="registeruc" TagPrefix="uc_register" %>--%>
+<%@ Register src="../UserControls/areaAutoComplete.ascx" tagname="areaAC" tagprefix="uc_ac" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -330,12 +332,13 @@
     </div>
        
 <asp:Panel ID="SubmitOrder" DefaultButton="ConfirmBtn" runat="server">    
-    <div id="adressDiv" style="padding-top:10px; display:none; height:420px;">
     <div id="box_header" style="margin-left:15px; width:970px; height:30px;">
-    	<div id="to_left"><h2>Shipping Address details.</h2></div>
-      
+    <div id="top_left"><h2>Shipping Address details.</h2></div>
+    
     </div>
-    <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 300px;">
+    <div id="adressDiv" class="box_style" style="padding-top:10px; display:none; height:500px; margin-left:30px; width:930px;">
+    
+    <div id="p_f_data" class="p_f_box_style" style="width: 520px; height: 450px;">
         <section id="login_header">
             <h3>
                 Edit shipping address.</h3>
@@ -345,8 +348,8 @@
                 <div id="p_f_label" style="margin-top: 2px; padding-top: 2px;">
                     Email ID :</div>
                     <div id="but_style" class="style4" style="padding-top: 4px; padding-left:5px;"></div>
-                <div id="p_f_field" class="style4">
-                    <asp:TextBox ID="txt_emailidadr" CssClass="p_f_form_style" runat="server" Width="180px" ReadOnly="True"></asp:TextBox>
+                <div id="p_f_label">
+                    <asp:Label ID="lbl_emailidadr" runat="server" Width="180px"></asp:Label>
                 </div>
             </div>
             <div id="p_f_field_area" style="width: 490px; height: 30px;">
@@ -379,9 +382,28 @@
                         SetFocusOnError="True" ValidationExpression="\d{10}" ValidationGroup="1"></asp:RegularExpressionValidator>
                 </div>
             </div>
+            <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 4px;">
+                     City :</div>
+                <div id="p_f_field" style="width: 200px;">
+                 <asp:DropDownList ID="cityDdl" runat="server" CssClass="p_f_form_style" Width="180px" Height="30px">
+                    <asp:ListItem Text="Hyderabad"></asp:ListItem>
+                   
+                </asp:DropDownList>
+                </div>
+            </div>
+            
+            <div id="p_f_field_area" style="width: 490px; height: 30px;">
+                <div id="p_f_label" style="margin-top: 2px; padding-top: 4px;">
+                     Area :</div>
+                <div id="p_f_field" style="width: 280px;">
+              
+                 <uc_ac:areaAC ID="areaAc" runat="server" />* Enter from drop down.</div>
+            </div>
+            
             <div id="p_f_field_area" style="width: 490px; height: 70px;">
                 <div id="p_f_label" style="margin-top: 25px; padding-top: 4px;">
-                    Address :</div>
+                   Full Address :</div>
                 <div id="but_style" class="style4" style="padding-top: 4px;">
                     <asp:RequiredFieldValidator ID="rfv3" runat="server" 
                         ControlToValidate="txt_address" ErrorMessage="*" SetFocusOnError="True" 
@@ -395,14 +417,15 @@
                                 SetFocusOnError="True" ValidationExpression="^([a-zA-Z0-9\s\-.:,/]*)$" 
                                 ValidationGroup="1"></asp:RegularExpressionValidator>
             </div>
+            </div>
                 <div>
                 <asp:Label ID="lbl_status" runat="server" ForeColor="Red"></asp:Label>
                 </div>
         </section>
-        <div id="login_links" style="width: 510px; height:30px; padding-top:11px;">
-            <div id="to_left">Change your Profile with above details <asp:CheckBox ID="cb_profilechange" runat="server" /></div>
-            <div id="but_style" style="margin: 0px 0px 0px 13px;">
-                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" OnClientClick="if (Page_ClientValidate('1')) return showPreloader(); else return false;" ValidationGroup="1" />
+        <div id="login_links" style="width: 510px; height:30px; padding-top:90px;">
+            <div style="margin-left:160px;">Update your profile with above details: <asp:CheckBox ID="cb_profilechange" runat="server" /></div><br />
+            <div id="but_style" style="margin: 10px 0px 0px 183px;">
+                 <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" CssClass="l_go" OnClick="ConfirmBtn_Click" OnClientClick="if (Page_ClientValidate('1')) return showPreloader(); else return false;" ValidationGroup="1" Width="120px" />
                  <asp:LinkButton ID="back_btn" runat="server" Text="Back" CssClass="l_go" PostBackUrl="~/USER/OrderPage.aspx"></asp:LinkButton>
             </div>
                  
@@ -429,7 +452,7 @@
             <div style="height:20px;"></div>
             <a href="ProfilePage.aspx" class="l_go">OK</a>
         </div>
-        <div id="ordermailedDivError" class="p_f_box_style" style="display:none; position:absolute; z-index:103; height:100px; top:300px; left:500px; text-align:center; padding:30px;">
+        <div id="ordermailedDivError" class="p_f_box_style" style="display:none; position:absolute; z-index:103; height:100px; top:50%; left:40%; text-align:center; padding:30px;">
             <b>Your Order is Placed Succefully.<br />Error Occured while sending Email Confirmation<br /></b>
             <div style="height:20px;"></div>
             <a href="ProfilePage.aspx" class="l_go">OK</a>

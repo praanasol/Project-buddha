@@ -50,6 +50,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="ItemClasses\Area.cs" />
     <Compile Include="ItemClasses\ItemsDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupportedClasses\DBCommon.cs" />

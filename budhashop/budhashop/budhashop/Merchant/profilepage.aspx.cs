@@ -39,9 +39,11 @@ namespace budhashop.Merchant
 
         private void retrieveMerchant()
         {
-            int mId = Convert.ToInt32(this.Session["MId"]);
+            DataTable mdt = (DataTable)this.Session["MId"];
+            int areaId = Convert.ToInt32(mdt.Rows[0]["AREA_ID"].ToString());
+            int mId = Convert.ToInt32(mdt.Rows[0]["MId"].ToString());
             InterfacesBS.InterfacesBL.IUser getmerchant = new BusinessLogicBS.UserClasses.UserItems();
-            DataSet merchantDS = getmerchant.getMerchant(mId);
+            DataSet merchantDS = getmerchant.getMerchant(mId,areaId);
             DataTable dt = merchantDS.Tables[0];
             if (dt != null)
             {
@@ -49,7 +51,8 @@ namespace budhashop.Merchant
                 txt_mType.Text = dt.Rows[0]["MType"].ToString();
                 txt_mAddress.Text = dt.Rows[0]["MAddress"].ToString();
                 txt_mPhno.Text = dt.Rows[0]["MPhNo"].ToString();
-
+                string catID = dt.Rows[0]["CatId"].ToString();
+                   
                 DataTable merchantOrderDt = merchantDS.Tables[1];
                 //merchantOrderDt.DefaultView.Sort = "Date Desc";
                 if (merchantOrderDt != null)
@@ -76,6 +79,50 @@ namespace budhashop.Merchant
                 }
                 gv_MerchantOrders.DataSource = merchantOrderDt;
                 gv_MerchantOrders.DataBind();
+
+                DataTable merchantOrderDtArea = merchantDS.Tables[2];
+                //DataTable ordersAreDt;
+                //ordersAreDt.Columns.Add("ItemId");
+                //ordersAreDt.Columns.Add("Qty");
+                //ordersAreDt.Columns.Add("Date");
+                //ordersAreDt.Columns.Add("ItemName");
+                //ordersAreDt.Columns.Add("ImagePath");
+                //merchantOrderDt.DefaultView.Sort = "Date Desc";
+                if (merchantOrderDtArea != null)
+                {
+                    
+                    merchantOrderDtArea.Columns.Add("ItemName");
+                    merchantOrderDtArea.Columns.Add("ImagePath");
+                   
+                    foreach (DataRow dr in merchantOrderDtArea.Rows)
+                    {   
+                        
+                        int itemId = Convert.ToInt32(dr["ItemId"]);
+                        DataSet itemData = new DataSet();
+                        if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
+                        {
+                            CLASS.CallCache getcache = new budhashop.CLASS.CallCache();
+                            itemData = getcache.getCache();
+                        }
+                        else
+                        {
+                            itemData = (DataSet)System.Web.HttpContext.Current.Cache["CacheItemsObj"];
+                        }
+                        var itemDetails = itemData.Tables[0].AsEnumerable().First(p => p.Field<long>("ItemId") == itemId);
+                        if (catID == itemDetails["CategoryId"].ToString())
+                        {
+                            dr["ItemName"] = itemDetails["ItemName"].ToString();
+                            dr["ImagePath"] = itemDetails["ImagePath"].ToString();
+                        }
+                        else
+                        {
+                            dr.Delete();
+                        }
+                       
+                    }
+                }
+                GridViewOrderArea.DataSource = merchantOrderDtArea;
+                GridViewOrderArea.DataBind();
             }
             else
             {
@@ -88,6 +135,12 @@ namespace budhashop.Merchant
             gv_MerchantOrders.PageIndex = e.NewPageIndex;
             retrieveMerchant();
         }
+        protected void GridViewOrderArea_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewOrderArea.PageIndex = e.NewPageIndex;
+            retrieveMerchant();
+        }
+        
 
         protected void lb_mlogout_Click(object sender, EventArgs e)
         {
@@ -97,7 +150,8 @@ namespace budhashop.Merchant
 
         private void getMerchantItems()
         {
-            int mId = Convert.ToInt32(this.Session["MId"]);
+            DataTable mdt = (DataTable)this.Session["MId"];
+            int mId = Convert.ToInt32(mdt.Rows[0]["MId"].ToString());
             DataSet itemData = new DataSet();
             if (System.Web.HttpContext.Current.Cache["CacheItemsObj"] == null)
             {
@@ -217,7 +271,8 @@ namespace budhashop.Merchant
 
         private void searchOrders()
         {
-            int mId = Convert.ToInt32(this.Session["MId"]);
+            DataTable mdt = (DataTable)this.Session["MId"];
+            int mId = Convert.ToInt32(mdt.Rows[0]["MId"].ToString());
             string startDate = txt_datepick1.Text;
             string endDate = txt_datepick2.Text;
             int itemIdSearched = Convert.ToInt32(hdn_itemId.Value);

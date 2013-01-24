@@ -100,7 +100,7 @@
                 <section id="p_f_fields" style="margin:auto; width: 500px; height: 290px;">
                     <div id="p_f_field_area" style="width: 490px; height: 35px;">
                         <div id="p_f_label" style="margin-top: 2px; padding-top: 5px; width: 150px;">
-                            User Name :</div>
+                            Full Name :</div>
                         <%--<div id="but_style" style="height: 20px; padding: 11px 0px 0px 2px; text-align: center;">
                             <asp:RequiredFieldValidator ID="rfv3" runat="server" ControlToValidate="txt_username"
                                 ErrorMessage="*" SetFocusOnError="True" ValidationGroup="register"></asp:RequiredFieldValidator>

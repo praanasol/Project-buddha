@@ -74,7 +74,7 @@
       <section>
        
         <!--Gallery Start-->
-        <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:600px; width:970px; padding-left:20px; "> 
+        <div id="item_area" class="box_style" style="overflow:hidden; overflow-x: hidden;  overflow-y: hidden; height:650px; width:970px; padding-left:20px; "> 
         <div style="text-align:left; margin-left:25px">
     	    <aside style="height:30px;">
               <nav id="nav_bottom" style="background:none repeat scroll 0 0 #efdb97;font-size:12px;border: 2px solid #F3C46D; border-radius:0 0 12px 12px;width:auto;">

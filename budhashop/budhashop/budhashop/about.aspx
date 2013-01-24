@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="p_f_box_style" style="width:60%; height:auto; padding:40px; margin:60px 0 60px 165px ;">
+<div class="main_box_style" style="width:60%; height:auto; padding:40px; margin:60px 0 60px 165px ;">
 <b style="font-size:16px;">About Us:</b>
 <br /><br />
 <p style="font-size:14px;"><b>GoVedic.com</b>  is born out of an idea that traditional way of life that prospered in ancient vedic India can be induced in morden lifestyle as an alternative. As in the name GoVedic is a term that urges you to think about Vedic traditions and follow them. Aarogya means health , Gyaan means knowledge and Vasthra means clothing. Three essentials.</p>
@@ -22,7 +22,7 @@ GoVedic.com is essentially an online store of products that support vedic tradit
 <br /><br />
 At present we are operating only in Hyderabad and our services are limited to Hyderabad City. 
 <br /><br /><br /><br />
-You can <a class="link1" href="../contactus.aspx">contact us </a> for any other details.
+You can <a class="link2" href="../contactus.aspx">contact us </a> for any other details.
 
 </p>
 

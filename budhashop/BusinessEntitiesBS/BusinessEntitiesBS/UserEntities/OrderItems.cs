@@ -16,5 +16,6 @@ namespace BusinessEntitiesBS.UserEntities
         public float totalNetBill { get; set; }
         public int totalItems { get; set; }
         public string TypeItem { get; set; }
+        public int areaId { get; set; }
     }
 }

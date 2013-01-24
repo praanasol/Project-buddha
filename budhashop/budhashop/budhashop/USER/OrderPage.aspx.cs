@@ -507,6 +507,7 @@ namespace budhashop.USER
                     insertOrder.totalBill = TotalBill;
                     insertOrder.totalItems = ItemsCount;
                     insertOrder.TypeItem = sizeString;
+                    insertOrder.areaId = Int32.Parse(areaAc.AreaId);
 
                     UserItems ordr = new UserItems();
                     int purchaseId = ordr.insertOrders(insertOrder);

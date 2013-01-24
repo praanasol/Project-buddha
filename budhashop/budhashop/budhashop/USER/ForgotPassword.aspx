@@ -33,8 +33,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="forgotpwdpanel" DefaultButton="btn_fsubmit" runat="server">
-        <div style="height:500px;">
-            <table cellpadding="0" cellspacing="0" width="450" border="0" class="bg_style2" style="margin-top:100px; margin-left:300px; background:transparent;">
+        <div style="height:400px;">
+            <table cellpadding="0" cellspacing="0" width="450" border="0" class="main_box_style" style="margin-top:100px; margin-left:260px;">
              
             <tr>
                 <td align="center" valign="middle" colspan="4" style="height: 40px;"><h3>Forgot Password: </h3><br />Password will be sent to your registered email id.</td>

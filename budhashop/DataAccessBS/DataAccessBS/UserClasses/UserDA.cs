@@ -164,7 +164,7 @@ namespace DataAccessBS.UserClasses
 
         #endregion
 
-        #region IUserDA Members
+        #region IUserDA Members Insert Orders
 
 
         public int insertOrdersDA(BusinessEntitiesBS.UserEntities.OrderItems orderitems)
@@ -172,7 +172,7 @@ namespace DataAccessBS.UserClasses
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[9];
+                SqlParameter[] sqlParams = new SqlParameter[10];
 
                 //User parameters
                 sqlParams[0] = new SqlParameter("@userId", orderitems.userid);
@@ -184,6 +184,7 @@ namespace DataAccessBS.UserClasses
                 sqlParams[6] = new SqlParameter("@separator", ';');
                 sqlParams[7] = new SqlParameter("@separator2", ',');
                 sqlParams[8] = new SqlParameter("@SizeString", orderitems.TypeItem);
+                sqlParams[9] = new SqlParameter("@areaId", orderitems.areaId);
 
                 DataTable idDt = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_INSERT_ORDER_ITEMS", sqlParams).Tables[0];
                 int returnedId = Convert.ToInt32(idDt.Rows[0].ItemArray[0].ToString());
@@ -352,14 +353,15 @@ namespace DataAccessBS.UserClasses
 
         #region IUserDA Members Get Merchant Details
 
-        public DataSet getMerchantDA(int mId)
+        public DataSet getMerchantDA(int mId,int areaId)
         {
             try
             {
-                SqlParameter[] sqlParams = new SqlParameter[1];
+                SqlParameter[] sqlParams = new SqlParameter[2];
 
                 //Merchant Login parameters
                 sqlParams[0] = new SqlParameter("@mId", mId);
+                sqlParams[1] = new SqlParameter("@areaId", areaId);
                 DataSet merDT = DBHelper.ExecuteDataset(DBCommon.ConnectionString, "USP_GET_MERCHANT_PROFILE", sqlParams);
 
                 if (merDT.Tables[0].Rows.Count > 0)
